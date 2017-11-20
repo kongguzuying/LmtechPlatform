@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.ApkPackageMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, APKCODE, APKNAME, APKDESC, APKFILENAME, APKTYPE, APKVERSION, APKLOCALPATH, APKDOWNLOAD, APKIMAGENAME,
+        APKIMAGELOACALPATH, APKIMAGEDOWNLOAD, HAVEBESTNEW, DELFLAG, DELETEDB, UPDATETYPE, APKSIZE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="apkPackageMap" type="com.lmtech.infrastructure.model.ApkPackage">
+        <id column="ID" property="id"></id>
+    </resultMap>
+
+    <select id="selectLatestApkPackage" resultMap="apkPackageMap">
+        select * from lm_apk_package where type=#{type} order by apkversion desc
+    </select>
+</mapper>

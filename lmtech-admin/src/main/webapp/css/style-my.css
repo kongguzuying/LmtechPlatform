@@ -1,0 +1,208 @@
+.pagertext {
+    display: block;
+    float: left;
+    padding: 15px 0px;
+    line-height: 30px;
+    margin-left: 15px;
+}
+.body {
+    padding: 10px;
+}
+.required {
+    color: red;
+}
+.form-group select {
+    width: 50%;
+}
+
+.table thead tr th {
+    border-width: 0 0 1px 1px;
+    border-color: #e7e7eb;
+    border-style: solid;
+    padding: 8px 5px;
+    background: #f4f5fa;
+    text-align: center;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.table thead tr th.left-th {
+    text-align: left;
+    padding-left: 15px;
+}
+.table tbody tr td {
+    border-width: 0 0 1px 1px;
+    border-color: #e7e7eb;
+    border-style: solid;
+    padding: 7px 5px;
+    text-align: center;
+    font-weight: normal;
+    vertical-align: middle;
+}
+.table tbody tr td.left-td {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.checkgroup {
+    min-height: 100px;
+    border: 1px solid #ccc;
+    height: 69px;
+    overflow: auto;
+    padding: 2px 0 0 10px;
+}
+.checkgroup input {
+    margin: 5px;
+}
+
+div.fileupload {
+    margin-top: 10px;
+}
+div.fileupload .dz-action {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.mypanel {
+    border-width: 1px;
+    border-color: #e7e7eb;
+    border-style: solid;
+}
+.mypanel .panel-heading {
+    background-color: #f4f5fa;
+    border-color: #e7e7eb;
+    font-weight: normal;
+}
+ul.banlist {
+    list-style: none;
+    padding: 10px 0 0 10px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    max-height: 126px;
+    overflow: auto;
+}
+ul.banlist li {
+    border: 1px solid #e7e7eb;
+    background: #fff;
+    cursor: pointer;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    margin: 0 10px 10px 0;
+    padding: 4px 10px;
+    text-align: center;
+    min-width: 80px;
+    float: left;
+}
+ul.banlist li.curr {
+    background: #44b549;
+    border: 1px solid #44b549;
+    color: #fff;
+}
+
+.tree-head {
+    margin-left: -5px;
+    margin-bottom: 2px;
+}
+.tree-head span {
+    margin-left: 5px;
+}
+
+.short-message {
+    -webkit-border-radius: 7px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 7px;
+    -moz-background-clip: padding;
+    border-radius: 7px;
+    background-clip: padding-box;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 20px 40px;
+    top: 10%;
+    z-index: 9000;
+}
+
+.dataTables_filter .btn {
+    margin-left: 5px;
+}
+.dataTables_length select.form-control {
+    min-width: 140px;
+    margin: 0px;
+}
+.table-header-status {
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+    background: #f4f5fa;
+    float: left;
+    border: 1px solid #e7e7eb;
+    border-bottom: none;
+}
+.table-header-status div.right-block {
+    display: inline-block;
+    float: right;
+}
+.table-header-status button {
+    min-width: 100px;
+}
+.table-header-status button.curr {
+    background: #576477;
+    border: 1px solid #576477;
+    color: white;
+}
+
+.view-form {
+    padding: 10px;
+}
+.view-form .header-top {
+    padding: 30px 10px 20px 10px;
+    display: inline-block;
+    width: 100%;
+}
+.view-form .header-top .header-left {
+    display: inline-block;
+    float: left;
+}
+.view-form .header-top .header-right {
+    display: inline-block;
+    float: right;
+}
+.view-form .header-main {
+    border: 1px solid #E3E4E6;
+    border-bottom: 1px solid #E3E4E6;
+    padding: 16px 30px 12px;
+    background-color: #F4F5F9;
+    display: inline-block;
+    width: 100%;
+}
+.view-form .header-main .header-left {
+    display: inline-block;
+    float: left;
+}
+.view-form .header-main .header-right {
+    display: inline-block;
+    float: right;
+}
+.view-form .block-title {
+    padding: 40px 10px 10px 30px;
+    border-bottom: 1px solid #E3E4E6;
+}
+.view-form .viewform-content {
+    padding-left: 30px;
+}
+.view-form .viewform-content .content-block {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.view-form .viewform-content .content-block .mtitle {
+    display: inline-block;
+    float: left;
+    color: #999;
+    min-width: 120px;
+    margin-right: 50px;
+}
+.view-form .viewform-content .content-block .mcontent {
+
+}

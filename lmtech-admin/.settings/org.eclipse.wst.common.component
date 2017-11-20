@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="lmtech-admin-1.0.0">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="lmtech-common-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lmtech-common/lmtech-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lmtech-infrastructure-facade-stub-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lmtech-infrastructure-facade-stub/lmtech-infrastructure-facade-stub">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lmtech-infrastructure-model-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lmtech-infrastructure-model/lmtech-infrastructure-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lmtech-auth-facade-stub-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lmtech-auth-facade-stub/lmtech-auth-facade-stub">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lmtech-auth-model-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lmtech-auth-model/lmtech-auth-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ea-card-crm-facade-stub-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ea-card-crm-facade-stub/ea-card-crm-facade-stub">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ea-card-crm-model-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ea-card-crm-model/ea-card-crm-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ea-card-crm-admin-facade-stub-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="lmtech-admin"/>
+        <property name="java-output-path" value="/lmtech-admin/target/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lmtech.auth.mapper.TokenLogMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, TOKEN, ACCOUNT, STATUS,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="tokenLogMap" type="com.lmtech.auth.model.TokenLog">
+        <id column="ID" property="id"></id>
+        <result column="TOKEN" property="token"></result>
+        <result column="ACCOUNT" property="account"></result>
+        <result column="STATUS" property="status"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <update id="batchUpdateStatus">
+        <foreach collection="tokens" item="token" separator=";">
+            update lm_token_log
+            set status=#{status}
+            where token=#{token}
+        </foreach>
+    </update>
+
+    <select id="selectActiveTokens" parameterType="com.lmtech.auth.model.TokenLog" resultMap="tokenLogMap">
+        select * from lm_token_log
+        where status='A'
+        order by create_date desc
+    </select>
+
+    <select id="selectAccountActiveTokens" resultType="java.lang.String">
+        select token from lm_token_log
+        where status='A' and account=#{account}
+    </select>
+</mapper>

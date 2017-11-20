@@ -1,0 +1,41 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .selectedTr {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body class="body">
+<div id="page">
+    <input type="hidden" id="parentId" v-model="parentId"/>
+    <input type="hidden" id="parentName" v-model="parentName"/>
+    <table id="treeTable" cellpadding="0" cellspacing="0" width="100%" class="sTable treeTable">
+        <thead>
+        <tr>
+            <td width="20%">菜单名称</td>
+            <td width="30%">菜单地址</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-cloak :id="menu.id" v-for="menu in menus" v-bind:class="getTrClass(menu)">
+            <td class="left-td" @click="selParent(menu)"><input type="radio" name="ids" v-bind:tag="menu.id"/>{{menu.name}}
+            </td>
+            <td>{{menu.href}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['jquery_treeTable', 'menu_selparent_ctl'], function (tb, c) {
+        c.init();
+    });
+</script>
+</body>
+</html>

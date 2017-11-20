@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lmtech-admin:war">
+    <output-path>$PROJECT_DIR$/lmtech-admin/target</output-path>
+    <root id="archive" name="lmtech-admin-1.0.0.war">
+      <element id="artifact" artifact-name="lmtech-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

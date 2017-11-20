@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.CardPayRecordMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        tid,user_id,phone,pro_id,total_amount,type,entry,order_no,paychannel,pay_type,status,err_msg,gift_record
+    </sql>
+
+    <resultMap id="cardPayRecordMap" type="com.ea.card.crm.model.CardPayRecord">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="tid" property="tid"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="phone" property="phone"></result>
+        <result column="pro_id" property="proId"></result>
+        <result column="total_amount" property="totalAmount"></result>
+        <result column="type" property="type"></result>
+        <result column="entry" property="entry"></result>
+        <result column="order_no" property="orderNo"></result>
+        <result column="paychannel" property="paychannel"></result>
+        <result column="pay_type" property="payType"></result>
+        <result column="pay_date" property="payDate"></result>
+        <result column="status" property="status"></result>
+        <result column="err_msg" property="errMsg"></result>
+        <result column="gift_record" property="giftRecord"></result>
+    </resultMap>
+
+    <select id="selectDataList" resultMap="cardPayRecordMap" parameterType="com.ea.card.crm.model.CardPayRecord">
+        select *
+        from ea_card_pay_record
+        <where>
+            is_delete=0
+            <if test="status != 0">
+                and status=#{status}
+            </if>
+            <if test="orderNo != null">
+                and order_no=#{orderNo}
+            </if>
+            <if test="userId != null">
+                and user_id=#{userId}
+            </if>
+            <if test="source != 0">
+                and source=#{source}
+            </if>
+        </where>
+        order by create_date desc
+    </select>
+
+    <select id="selectByOrderNo" resultMap="cardPayRecordMap">
+        select * from ea_card_pay_record where order_no=#{orderNo}
+    </select>
+
+    <update id="updateStatusByOrderNo" parameterType="com.ea.card.crm.model.CardPayRecord">
+        update ea_card_pay_record
+        set status=#{status},pay_date=#{payDate},update_date=#{updateDate},data_version=#{dataVersion}
+        where order_no=#{orderNo}
+    </update>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.CardPayRecord" resultMap="cardPayRecordMap">
+        select * from ea_card_pay_record
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="userId !=null and userId != ''">
+                and user_id like concat('%', #{userId},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

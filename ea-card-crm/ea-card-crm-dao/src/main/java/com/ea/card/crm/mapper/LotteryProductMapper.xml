@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.LotteryProductMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        name,image_url,sort_no,prize,type,number
+    </sql>
+
+    <resultMap id="lotteryProductMap" type="com.ea.card.crm.model.LotteryProduct">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="name" property="name"></result>
+        <result column="image_url" property="imageUrl"></result>
+        <result column="sort_no" property="sortNo"></result>
+        <result column="prize" property="prize"></result>
+        <result column="type" property="type"></result>
+        <result column="number" property="number"></result>
+    </resultMap>
+
+    <select id="selectList" resultMap="lotteryProductMap">
+        select * from ea_lottery_product where is_delete=0 order by sort_no
+    </select>
+    <select id="existName" resultType="java.lang.Integer">
+        select count(1) from ea_lottery_product where name=#{name}
+    </select>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.LotteryProduct" resultMap="lotteryProductMap">
+        select * from ea_lottery_product
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="name !=null and name != ''">
+                and name like concat('%', #{name},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

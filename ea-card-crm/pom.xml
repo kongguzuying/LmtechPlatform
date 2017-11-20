@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ea.card.crm</groupId>
+    <artifactId>ea-card-crm</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>ea-card-crm-dao</module>
+        <module>ea-card-crm-facade</module>
+        <module>ea-card-crm-facade-stub</module>
+        <module>ea-card-crm-service</module>
+        <module>ea-card-crm-model</module>
+        <module>ea-card-crm-admin-facade</module>
+        <module>ea-card-crm-admin-facade-stub</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <java.encoding>UTF-8</java.encoding>
+        <springfox.swagger.version>2.6.1</springfox.swagger.version>
+    </properties>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+    </build>
+</project>

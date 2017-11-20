@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lmtech.auth.mapper.AccountMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, LOGIN_NAME, PASSWORD, USER_ID, IS_LOCK, LAST_LOGIN_DATE, PSWD_ERROR_COUNT, ENABLE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="accountMap" type="com.lmtech.auth.model.Account">
+        <id column="ID" property="id"></id>
+        <result column="LOGIN_NAME" property="loginName"></result>
+        <result column="PASSWORD" property="password"></result>
+        <result column="USER_ID" property="userId"></result>
+        <result column="IS_LOCK" property="isLock"></result>
+        <result column="LAST_LOGIN_DATE" property="lastLoginDate"></result>
+        <result column="PSWD_ERROR_COUNT" property="pswdErrorCount"></result>
+        <result column="ENABLE" property="enable"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <resultMap id="accountInfoMap" type="com.lmtech.auth.model.AccountInfo">
+        <result column="ID" property="accountId"></result>
+        <result column="NAME" property="accountName"></result>
+    </resultMap>
+
+    <update id="updateLastLoginTime">
+        update lm_account
+        set last_login_date=#{loginDate}
+        where id=#{accountId}
+    </update>
+
+    <update id="updatePswdErrorCount">
+        update lm_account
+        set pswd_error_count=#{pswdErrorCount}
+        where id=#{accountId}
+    </update>
+
+    <update id="updatePassword">
+        update lm_account
+        set password=#{password}
+        where id=#{accountId}
+    </update>
+
+    <update id="updateLock">
+        update lm_account
+        set is_lock=#{isLock}
+        where id=#{accountId}
+    </update>
+
+    <update id="updateReleaseLock">
+        update lm_account
+        set is_lock=0,pswd_error_count=0
+        where id=#{accountId}
+    </update>
+
+    <select id="selectByLoginName" resultMap="accountMap">
+        select * from lm_account
+        where login_name=#{loginName}
+    </select>
+
+    <select id="selectAccountInfoList" parameterType="com.lmtech.auth.model.Account" resultMap="accountInfoMap">
+        select id,name from lm_account
+        where enable=1
+    </select>
+</mapper>

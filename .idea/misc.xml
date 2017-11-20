@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/lmtech-admin" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ea-card-crm/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-common/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-config/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-facadeaop/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-infrastructure/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-scheduler/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-server-admin/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

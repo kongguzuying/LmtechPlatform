@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<title></title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<body>
+<div id="indexPage">
+<!-- Left side content -->
+<div id="leftSide">
+    <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" /></a></div>
+
+    <div class="sidebarSep mt0"></div>
+
+    <!-- Search widget -->
+    <form action="" class="sidebarSearch">
+        <input type="text" name="search" placeholder="search..." id="ac" />
+        <input type="submit" value="" />
+    </form>
+
+    <div class="sidebarSep"></div>
+
+    <!-- Left navigation -->
+    <ul id="menu" class="nav">
+        <li class="dash"><a href="index.html" title="" class="active"><span>Dashboard</span></a></li>
+        <li class="dash" v-for="menu in menus" v-cloak>
+            <a href="#" title="" class="exp">
+                <span>{{menu.name}}</span>
+                <strong>{{menu.childrens.length}}</strong>
+            </a>
+            <ul class="sub" v-if="menu.childrens.length > 0">
+                <li v-for="smenu in menu.childrens"><a v-bind:href="smenu.href" title="" target="mainFrame">{{smenu.name}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Right side -->
+<div id="rightSide">
+
+    <!-- Top fixed navigation -->
+    <div class="topNav">
+        <div class="wrapper">
+            <div class="welcome"><a href="#" title=""><img src="images/userPic.png" alt="" /></a><span>Howdy, Eugene!</span></div>
+            <div class="userNav">
+                <ul>
+                    <li><a href="#" title=""><img src="images/icons/topnav/profile.png" alt="" /><span>Profile</span></a></li>
+                    <li><a href="#" title=""><img src="images/icons/topnav/tasks.png" alt="" /><span>Tasks</span></a></li>
+                    <li class="dd"><a title=""><img src="images/icons/topnav/messages.png" alt="" /><span>Messages</span><span class="numberTop">8</span></a>
+                        <ul class="userDropdown">
+                            <li><a href="#" title="" class="sAdd">new message</a></li>
+                            <li><a href="#" title="" class="sInbox">inbox</a></li>
+                            <li><a href="#" title="" class="sOutbox">outbox</a></li>
+                            <li><a href="#" title="" class="sTrash">trash</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" title="" @click="showSetting"><img src="images/icons/topnav/settings.png" alt="" /><span>Settings</span></a></li>
+                    <li><a href="login.html" title=""><img src="images/icons/topnav/logout.png" alt="" /><span>Logout</span></a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <!-- Main content wrapper -->
+    <div class="wrapper" style="margin: 40px 0 0 0;padding: 10px;">
+        <iframe id="mainFrame" name="mainFrame" width="100%" frameborder="0"></iframe>
+    </div>
+
+    <!-- Footer line -->
+    <div id="footer">
+        <div class="wrapper">As usually all rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></div>
+    </div>
+
+</div>
+<div class="clear"></div>
+    <div id="edit-dialog" title="Dialog title">
+        <iframe id="editDialog" name="editDialog" width="100%" height="100%"></iframe>
+    </div>
+</div>
+<script type="text/javascript" src="js/require.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!--<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/bootbox.min.js"></script>
+<script type="text/javascript" src="js/plugins/ui/jquery.isloading.min.js"></script>
+<script type="text/javascript" src="js/top.js"></script>-->
+<script type="text/javascript">
+    var indexCtl = null;
+    require(['jquery_collapsible', 'index_ctl'], function (jc, c) {
+        c.init();
+        indexCtl = c;
+    });
+</script>
+</body>
+</html>

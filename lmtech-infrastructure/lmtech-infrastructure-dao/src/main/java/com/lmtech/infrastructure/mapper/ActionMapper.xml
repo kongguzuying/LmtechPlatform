@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.ActionMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, URL, URL_CN_NAME, CATEGORY, CATEGORY_CN_NAME, METHOD,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="actionMap" type="com.lmtech.infrastructure.model.Action">
+        <id column="ID" property="id"></id>
+        <result column="URL" property="url"></result>
+        <result column="URL_CN_NAME" property="urlCnName"></result>
+        <result column="CATEGORY" property="category"></result>
+        <result column="CATEGORY_CN_NAME" property="categoryCnName"></result>
+        <result column="METHOD" property="method"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectActionInRole" resultMap="actionMap">
+        select t1.* from lm_action t1,lm_role_action_permission t2 where t1.id=t2.action_id and t2.role_id=#{roleId}
+    </select>
+
+    <select id="selectActionNotInRole" resultMap="actionMap">
+        select t1.* from lm_action t1 where t1.id not in (select t2.action_id from lm_role_action_permission t2 where t2.role_id=#{roleId})
+    </select>
+</mapper>

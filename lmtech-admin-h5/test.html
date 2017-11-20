@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="loginForm">
+        <input v-model="loginName" type="text"/>
+
+        <input v-model="password" type="password" />
+    </div>
+<script type="text/javascript" src="js/plugins/vue/vue.js"></script>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el: '#loginForm',
+            data: {
+                loginName: '',
+                password: ''
+            }
+        });
+    </script>
+</body>
+</html>

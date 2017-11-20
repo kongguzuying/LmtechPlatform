@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.IntegralSignLogMapper">
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        sign_count,user_id,is_sign,diff,bonus_type,day_count
+    </sql>
+
+    <!--获取连续签到天数和当日是否已签到-->
+    <select id="getIntegralSignLog" resultType="java.util.Map">
+        select tb.sign_count as signCount,tb.is_sign as isSign,tb.day_count as dayCount from ea_integral_sign_log tb
+        where tb.user_id = #{userId} and tb.bonus_type = #{integralSource}
+    </select>
+
+    <update id="updateIntegralSignLog" parameterType="com.ea.card.crm.model.IntegralDO">
+        update ea_integral_sign_log set is_sign = #{isSign} ,day_count = #{dayCount} ,sign_count = #{signCount} ,update_date = #{updateTime}
+        where user_id = #{userId} and bonus_type = #{integralSource}
+    </update>
+
+    <update id="updateIsSignLog">
+        <!--update ea_integral_sign_log set is_sign = 0 ,day_count = 0 ,update_date = #{date} where is_sign = 1-->
+        update ea_integral_sign_log set is_sign = 0 ,day_count = 0 ,update_date = #{date}
+    </update>
+
+    <update id="updateSignCountLog">
+        update ea_integral_sign_log set sign_count = 0 where is_sign = 0
+        <!--update ea_integral_sign_log set sign_count = 0 where TIMESTAMPDIFF( day,DATE_FORMAT( update_date,'%Y-%m-%d' ), DATE_FORMAT( #{date},'%Y-%m-%d' ) ) &gt; 1-->
+    </update>
+
+    <select id="countByUserId" resultType="int">
+        select count(1) from ea_integral_sign_log where user_id = #{userId} and bonus_type = #{integralSource}
+    </select>
+</mapper>

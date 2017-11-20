@@ -1,0 +1,151 @@
+.add-contractor-popup .form-area .js-tree {
+    max-height: 250px
+}
+
+.set-checkitem-popup .grid-wrap {
+    border: 1px solid #e7e6eb;
+    height: 235px;
+    margin-top: 20px;
+    overflow: auto
+}
+
+.set-checkitem-popup .grid-wrap .table {
+    border: 0;
+    margin-bottom: 0
+}
+
+.add-project-house-type-popup {
+    height: 439px;
+    overflow: auto
+}
+
+.add-project-house-type-popup .public-checkbox-list {
+    border: 1px solid #e7e7eb;
+    height: 69px;
+    overflow: auto;
+    padding: 2px 0 0 10px
+}
+
+.add-project-house-type-popup .public-checkbox-list .checkbox-item {
+    position: relative;
+    padding-right: 25px
+}
+
+.add-project-house-type-popup .public-checkbox-list .checkbox-item .fonticon-plus {
+    display: none;
+    color: #44b549;
+    font-size: 20px;
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    margin-top: -12px
+}
+
+.add-project-house-type-popup .public-checkbox-list .checkbox-item.selected .fonticon-plus {
+    display: block
+}
+
+.add-project-house-type-popup .form-upload li {
+    position: relative
+}
+
+.add-project-house-type-popup .form-upload .upload-opera {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px
+}
+
+.add-project-house-type-popup .form-upload .upload-opera a {
+    display: block
+}
+
+.add-project-house-type-popup .form-upload .del-file {
+    margin-left: 0
+}
+
+.set-construction-range-popup .scr-tit {
+    border-color: #e7e7eb;
+    border-style: solid;
+    border-width: 1px 0;
+    background: #f4f5f9;
+    font-size: 14px;
+    margin: 0 0 25px 0;
+    padding: 12px 15px
+}
+
+.set-construction-range-popup .scr-tit .checkbox-item {
+    margin: 0 0 0 20px
+}
+
+.set-construction-range-popup .scr-tit .checkbox-item.selected .fonticon-checkbox:before {
+    content: '\e6d6'
+}
+
+.set-construction-range-popup .public-checkbox-list {
+    border: 1px solid #e7e7eb;
+    margin: 0 25px;
+    padding: 5px 10px 2px 10px;
+    overflow: auto
+}
+
+.set-construction-range-popup .form-error {
+    position: absolute;
+    bottom: 2px;
+    left: 25px;
+    width: 100%
+}
+
+.set-construction-range-popup .sel-building, .set-construction-range-popup .sel-range {
+    position: relative;
+    padding-bottom: 25px
+}
+
+.set-construction-range-popup .sel-building .public-checkbox-list {
+    height: 72px
+}
+
+.set-construction-range-popup .sel-range .public-checkbox-list {
+    height: 164px
+}
+
+.set-building-construction-range-popup {
+    padding: 25px 25px;
+    position: relative
+}
+
+.set-building-construction-range-popup .public-checkbox-list {
+    border: 1px solid #e7e7eb;
+    padding: 5px 10px 2px 10px;
+    overflow: auto;
+    height: 288px
+}
+
+.set-building-construction-range-popup .form-error {
+    position: absolute;
+    bottom: 2px;
+    left: 25px;
+    width: 100%
+}
+
+.import-contractor-popup .multi-select-search {
+    margin-bottom: 10px
+}
+
+.import-contractor-popup .grid {
+    border: 1px solid #e7e7eb;
+    height: 341px;
+    overflow: auto
+}
+
+.import-contractor-popup .grid .table {
+    border: 0;
+    margin-bottom: 0
+}
+
+.add-batch-poup .public-checkbox-list {
+    border: 1px solid #e7e7eb;
+    height: 98px;
+    overflow: auto;
+    padding: 2px 0 0 10px
+}

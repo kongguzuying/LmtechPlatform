@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.GiftMemberCardMapper">
+
+    <resultMap id="giftMemberCardMap" type="com.ea.card.crm.model.GiftMemberCard">
+        <id column="ID" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="card_level" property="cardLevel"></result>
+        <result column="card_background" property="cardBackground"></result>
+        <result column="valid_month" property="validMonth"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="phone" property="phone"></result>
+        <result column="open_id" property="openId"></result>
+        <result column="status" property="status"></result>
+        <result column="recv_user_id" property="recvUserId"></result>
+        <result column="recv_phone" property="recvPhone"></result>
+        <result column="recv_open_id" property="recvOpenId"></result>
+        <result column="active_date" property="activeDate"></result>
+        <result column="balance" property="balance"></result>
+        <result column="order_no" property="orderNo"></result>
+        <result column="cardLevelName" property="cardLevelName"></result>
+        <result column="recvNickname" property="recvNickname"></result>
+        <result column="recvHeadimgurl" property="recvHeadimgurl"></result>
+        <result column="card_title" property="cardTitle"></result>
+    </resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,
+        create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        card_level, card_background, valid_month, user_id, phone, open_id, status, recv_user_id, recv_phone, recv_open_id, active_date,
+        balance, order_no,card_title
+    </sql>
+
+    <select id="list" resultMap="giftMemberCardMap">
+        <!-- TODO 需把cardLevelName改成动态的 -->
+        select gc.*,mr.nickname as 'recvNickname',mr.headimgurl as 'recvHeadimgurl',case gc.card_level when 1 then '普通会员' else 'Vpass尊享会员' end as 'cardLevelName'
+        from ea_gift_member_card gc
+        left join ea_member_register mr on gc.recv_open_id=mr.open_id
+        <where>
+            gc.is_delete=0
+            <if test="orderNo != null">
+                and gc.order_no=#{orderNo}
+            </if>
+            <if test="userId != null">
+                and gc.user_id=#{userId}
+            </if>
+            <if test="source != 0">
+                and gc.source=#{source}
+            </if>
+            <if test="status != 0">
+                and gc.status=#{status}
+            </if>
+            <if test="cardLevel != 0">
+                and gc.card_level=#{cardLevel}
+            </if>
+        </where>
+        order by gc.create_date desc
+    </select>
+
+    <select id="selectByCardId" resultMap="giftMemberCardMap">
+        select gc.*
+        from ea_gift_member_card gc
+        where gc.id=#{id}
+    </select>
+
+    <select id="selectByCardIds" resultMap="giftMemberCardMap">
+        <!-- TODO 需把cardLevelName改成动态的 -->
+        <!--select gc.*,mr.nickname as 'recvNickname',mr.headimgurl as 'recvHeadimgurl',case gc.card_level when 1 then '普通会员' else 'Vpass尊享会员' end as 'cardLevelName'-->
+        <!--from ea_gift_member_card gc-->
+        <!--left join ea_member_register mr on gc.recv_open_id=mr.open_id-->
+        <!--where mr.is_delete=0 and gc.id in-->
+        <!--<foreach collection ="list" item="id" index= "index" separator ="," open="(" close=")">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+        <!-- TODO 需把cardLevelName改成动态的 -->
+        <!--select gc.*,mr.nickname as 'recvNickname',mr.headimgurl as 'recvHeadimgurl',ci.name as 'cardLevelName'-->
+        <!--from ea_gift_member_card gc left join (select * from ea_member_register order by create_date desc limit 1)  mr on gc.recv_open_id=mr.open_id-->
+        <!--left join lm_code_item ci on gc.card_level=ci.VALUE-->
+        <!--where ci.TYPE_CODE ='card' and gc.id in-->
+        <!--<foreach collection ="list" item="id" index= "index" separator ="," open="(" close=")">-->
+            <!--#{id}-->
+        <!--</foreach>-->
+
+        select gc.*,mr.nickname as 'recvNickname',mr.headimgurl as 'recvHeadimgurl',ci.name as 'cardLevelName'
+        from ea_gift_member_card gc left join (select b.* from (select open_id,max(create_date) as create_date from ea_member_register group by open_id) a inner join ea_member_register b on a.open_id=b.open_id and a.create_date=b.create_date)  mr on gc.recv_open_id=mr.open_id
+        left join lm_code_item ci on gc.card_level=ci.VALUE
+        where ci.TYPE_CODE ='card' and gc.id in
+        <foreach collection ="list" item="id" index= "index" separator ="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 适用于购买后赠送卡 -->
+    <select id="selectNoPresentCardOfOrder" resultType="com.lmtech.common.StringLongEntry">
+        select gc.order_no as 'key',count(gc.order_no) as 'value'
+        from ea_gift_member_card gc
+        left join ea_card_present_record pr on gc.order_no=pr.order_no and pr.is_delete=0
+        where gc.is_delete=0 and gc.status=1 and pr.status is null and gc.order_no in
+        <foreach collection ="list" item="orderNo" index= "index" separator ="," open="(" close=")">
+            #{orderNo}
+        </foreach>
+        group by gc.order_no
+    </select>
+
+    <!-- 适用于购买后赠送卡 -->
+    <select id="countNotPresentCards" resultType="long">
+        select count(1)
+        from ea_gift_member_card gc
+        left join ea_card_present_record pr on gc.order_no=pr.order_no and pr.is_delete=0
+        where gc.user_id=#{userId} and gc.status=1 and gc.is_delete=0 and gc.source=2 and pr.status is null
+    </select>
+
+    <select id="countWaitReceiveCards" resultType="long">
+        select count(1)
+        from ea_gift_member_card gc
+        where gc.is_delete=0 and gc.status in (1,2) and id in
+        <foreach collection ="list" item="id" index= "index" separator ="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!-- 查询所有用户礼品会员卡-->
+    <select id="getAllMerber" resultMap="giftMemberCardMap">
+        select <include refid="Base_Column_List"/> from ea_gift_member_card
+    </select>
+
+    <!-- 通用insert结果列-->
+    <sql id="Base_Column_Insert">
+        ( id, create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        card_level, card_background, card_category_id, gift_category_id, valid_month, source, user_id, phone, open_id, status, recv_user_id, recv_phone, recv_open_id, recv_date, active_date, balance, order_no )
+    </sql>
+
+    <!-- 单个/批量添加用户礼品会员卡 -->
+    <insert id ="insertGiftMemberCardBatch" parameterType="java.util.List" >
+        insert into ea_gift_member_card
+        <include refid="Base_Column_Insert"/>
+        values
+        <foreach collection ="list" item="giftMemberCard" index= "index" separator =",">
+            (
+            #{giftMemberCard.id},
+            #{giftMemberCard.createDate},
+            #{giftMemberCard.createUser},
+            #{giftMemberCard.createUserName},
+            #{giftMemberCard.updateDate},
+            #{giftMemberCard.updateUser},
+            #{giftMemberCard.updateUserName},
+            #{giftMemberCard.dataVersion},
+            #{giftMemberCard.isDelete},
+            #{giftMemberCard.cardLevel},
+            #{giftMemberCard.cardBackground},
+            #{giftMemberCard.cardCategoryId},
+            #{giftMemberCard.giftCategoryId},
+            #{giftMemberCard.validMonth},
+            #{giftMemberCard.source},
+            #{giftMemberCard.userId},
+            #{giftMemberCard.phone},
+            #{giftMemberCard.openId},
+            #{giftMemberCard.status},
+            #{giftMemberCard.recvUserId},
+            #{giftMemberCard.recvPhone},
+            #{giftMemberCard.recvOpenId},
+            #{giftMemberCard.recvDate},
+            #{giftMemberCard.activeDate},
+            #{giftMemberCard.balance},
+            #{giftMemberCard.orderNo}
+            )
+        </foreach>
+    </insert >
+
+    <!--单个/批量更新用户礼品会员卡-->
+    <update id="updataGiftMemberCardBatch"  parameterType="java.util.List">
+        <foreach collection="list" item="giftMemberCard" index="index" open="" close="" separator=";">
+            update ea_gift_member_card
+            <set>
+                UPDATE_DATE = now()
+            </set>
+            where OPEN_ID = ${giftMemberCard.openId}
+        </foreach>
+    </update>
+
+    <!--单个/批量更新用户礼品会员卡-->
+    <update id="updataBatch"  parameterType="java.util.List">
+        <foreach collection="list" item="giftMemberCard" index="index" open="" close="" separator=";">
+            update ea_gift_member_card
+            <set>
+                CREATE_DATE = #{giftMemberCard.createDate},
+                UPDATE_DATE = now(),
+                CREATE_USER = #{giftMemberCard.createUser},
+                CREATE_USER_NAME = #{giftMemberCard.createUserName},
+                UPDATE_USER = #{giftMemberCard.updateUser},
+                UPDATE_USER_NAME = #{giftMemberCard.updateUserName},
+                DATA_VERSION = #{giftMemberCard.dataVersion},
+                IS_DELETE = #{giftMemberCard.isDelete},
+                CARD_LEVEL = #{giftMemberCard.cardLevel},
+                CARD_TITLE = #{giftMemberCard.cardTitle},
+                CARD_BACKGROUND = #{giftMemberCard.cardBackground},
+                CARD_CATEGORY_ID = #{giftMemberCard.cardCategoryId},
+                GIFT_CATEGORY_ID = #{giftMemberCard.giftCategoryId},
+                VALID_MONTH = #{giftMemberCard.validMonth},
+                SOURCE = #{giftMemberCard.source},
+                USER_ID = #{giftMemberCard.userId},
+                PHONE = #{giftMemberCard.phone},
+                STATUS = #{giftMemberCard.status},
+                RECV_USER_ID = #{giftMemberCard.recvUserId},
+                RECV_PHONE = #{giftMemberCard.recvPhone},
+                RECV_OPEN_ID = #{giftMemberCard.recvOpenId},
+                RECV_DATE = #{giftMemberCard.recvDate},
+                ACTIVE_DATE = #{giftMemberCard.activeDate},
+                BALANCE = #{giftMemberCard.balance},
+                ORDER_NO = #{giftMemberCard.orderNo}
+            </set>
+            where id = #{giftMemberCard.id}
+        </foreach>
+    </update>
+
+    <!--单个/批量逻辑删除用户礼品会员卡-->
+    <update id="deleteGiftMemberCardBatchLogic"  parameterType="java.util.List">
+        <foreach collection="list" item="giftMemberCard" index="index" open="" close="" separator=";">
+            update ea_gift_member_card
+            <set>
+                IS_DELETE = 1,
+                UPDATE_DATE = now()
+            </set>
+            where OPEN_ID = ${giftMemberCard.openId}
+        </foreach>
+    </update>
+
+    <!--单个/批量删除用户礼品会员卡-->
+    <delete id="deleteGiftMemberCardBatch" parameterType="java.util.List">
+        delete from ea_gift_member_card where id in
+        <foreach collection="list" index="index" item="giftMemberCard" open="(" separator="," close=")">
+            #{giftMemberCard.openId}
+        </foreach>
+    </delete>
+
+    <!--更新用户礼品会员卡状态-->
+    <update id="updataGiftMemberCardStatus"  parameterType="com.ea.card.crm.model.GiftMemberCard">
+        update ea_gift_member_card
+        <trim prefix="set" suffixOverrides=",">
+            UPDATE_DATE = now(),
+            <if test="status!=null and status!=''">STATUS=#{status},</if>
+            <if test="activeDate!=null and activeDate!=''">ACTIVE_DATE=#{activeDate},</if>
+        </trim>
+        WHERE OPEN_ID=#{openId} and RECV_OPEN_ID=#{recvOpenId}
+    </update>
+
+    <!--是否存在礼品会员卡-->
+    <select id="isExitsCard" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(id) from ea_gift_member_card where OPEN_ID = #{openId} and source = 1
+    </select>
+
+    <!--查询用户礼品会员卡-->
+    <select id="getGiftMemberCardInfo" resultMap="giftMemberCardMap" parameterType="java.util.Map">
+        select <include refid="Base_Column_List"/> from ea_gift_member_card
+        where 1=1
+        <if test="phone!=null and phone!=''"> and PHONE=#{phone}</if>
+    </select>
+
+    <!--获取已存在的礼品会员卡张数-->
+    <select id="exitsCardNum" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(id) from ea_gift_member_card where OPEN_ID = #{openId} and STATUS = #{status}
+    </select>
+
+    <!--获取剩余礼品会员卡信息-->
+    <select id="getSpareCard" parameterType="java.util.Map" resultType="java.util.Map">
+        select count(tb.open_id) as spareNum ,sum(tb.balance) as spareMoney from ea_gift_member_card tb
+        where OPEN_ID = #{openId} and STATUS = #{status}
+    </select>
+
+    <select id="selectByOrderAndStatus" resultType="com.ea.card.crm.model.GiftMemberCard">
+        select * from ea_gift_member_card where order_no=#{orderNo} and status=#{status}
+    </select>
+
+
+    <select id="selectByEw" resultMap="giftMemberCardMap">
+        SELECT * FROM ea_gift_member_card
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+    <!--更新用户礼品会员卡状态-->
+    <update id="updataStatusByStatusAndOrderNo" parameterType="java.util.Map">
+        update ea_gift_member_card
+        set update_date = now(),status=#{targetStatus},recv_open_id=null,recv_date=null
+        WHERE order_no in
+        <foreach collection="list" index="index" item="orderNo" open="(" separator="," close=")">
+            #{orderNo}
+        </foreach>
+        and status=#{sourceStatus}
+    </update>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.GiftMemberCard" resultMap="giftMemberCardMap">
+        select * from ea_gift_member_card
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="cardTitle !=null and cardTitle != ''">
+                and card_title like concat('%', #{cardTitle},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

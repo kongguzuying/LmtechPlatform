@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.RoleMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, NAME, REMARK, LEVEL_, ENABLE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="roleMap" type="com.lmtech.infrastructure.model.Role">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <result column="REMARK" property="remark"></result>
+        <result column="LEVEL_" property="level"></result>
+        <result column="ENABLE" property="enable"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectRoleInUser" resultMap="roleMap">
+        select t1.* from lm_role t1,lm_user_role t2 where t1.id=t2.role_id and t2.user_id=#{userId}
+        <include refid="whereCond"></include>
+    </select>
+
+    <select id="selectRoleNotInUser" resultMap="roleMap">
+        select t1.* from lm_role t1 where t1.id not in (select t2.role_id from lm_user_role t2 where t2.user_id=#{userId})
+        <include refid="whereCond"></include>
+    </select>
+
+    <sql id="whereCond">
+        <if test="excludeRoleIds != null and excludeRoleIds.length > 0">
+            and t1.id not in(
+            <foreach collection="excludeRoleIds" item="roleId" separator=",">
+                #{roleId}
+            </foreach>
+            )
+        </if>
+    </sql>
+
+    <select id="selectAllValidRole" resultMap="roleMap">
+        select * from lm_role where enable=1 and is_delete=0
+    </select>
+
+    <select id="selectRoleNameCount" resultType="java.lang.Integer">
+        select count(1) from lm_role where name=#{roleName}
+    </select>
+
+    <delete id="deleteRoleRelation" parameterType="java.lang.String">
+        delete from lm_user_role where role_Id=#{roleId};
+		delete from lm_role_menu_permission where role_Id=#{roleId};
+		delete from lm_role_action_permission where role_Id=#{roleId};
+    </delete>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.lmtech.infrastructure.model.Role" resultMap="roleMap">
+        select * from lm_role
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="name !=null and name != ''">
+                and name like concat('%', #{name},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

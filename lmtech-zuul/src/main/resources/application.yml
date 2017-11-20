@@ -1,0 +1,38 @@
+server:
+  port: 8001
+  host:
+    connect-timeout-millis: 2000
+    socket-timeout-millis: 5000
+  application:
+    name: lmtech-zuul
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enable: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 2000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 2
+  ServerListRefreshInterval: 5000
+  OkToRetryOnAllOperations: false
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${lmtech.eureka.server}
+
+spring:
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true

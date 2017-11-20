@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.UserMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, URL, QQ, EMAIL, MOBILE, ENABLE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="userMap" type="com.lmtech.infrastructure.model.User">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <result column="QQ" property="qq"></result>
+        <result column="EMAIL" property="email"></result>
+        <result column="MOBILE" property="mobile"></result>
+        <result column="ENABLE" property="enable"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectUserByAccount" resultMap="userMap">
+        select u.* from lm_user u,lm_account a
+        where u.id=a.user_id and a.login_name=#{account}
+    </select>
+
+    <select id="selectUserInGroup" resultMap="userMap">
+        select t1.* from lm_user t1,lm_group_user t2 where t1.id=t2.user_id and t2.group_id=#{groupId}
+        <include refid="whereCond"></include>
+    </select>
+
+    <select id="selectUserNotInGroup" resultMap="userMap">
+        select t1.* from lm_user t1 where t1.id not in (select t2.user_id from lm_group_user t2 where
+        t2.group_id=#{groupId})
+        <include refid="whereCond"></include>
+    </select>
+
+    <select id="selectUserInRole" resultMap="userMap">
+        select t1.* from lm_user t1,lm_user_role t2 where t1.id=t2.user_id and t2.role_id=#{roleId}
+        <include refid="whereCond"></include>
+    </select>
+
+    <select id="selectUserNotInRole" resultMap="userMap">
+        select t1.* from lm_user t1 where t1.id not in (select t2.user_id from lm_user_role t2 where
+        t2.role_id=#{roleId})
+        <include refid="whereCond"></include>
+    </select>
+
+    <select id="selectUserByKey" resultMap="userMap">
+        select t1.*
+        from lm_user t1,lm_account t2
+        where t1.id=t2.user_id and (t1.name like '%${key}%' or t2.login_name like '%${key}%')
+        group by t1.id
+    </select>
+
+    <sql id="whereCond">
+        <if test="param != null">
+            and t1.enable=#{param.enable}
+            <if test="param.name != null and param.name != ''">
+                and t1.name like '%${param.name}%'
+            </if>
+        </if>
+        <if test="excludeUserIds != null and excludeUserIds.length > 0">
+            and t1.id not in(
+            <foreach collection="excludeUserIds" item="userId" separator=",">
+                #{userId}
+            </foreach>
+            )
+        </if>
+    </sql>
+
+    <delete id="deleteUserRelation" parameterType="java.lang.String">
+        delete from lm_user_role where user_id=#{userId};
+        delete from lm_account where user_id=#{userId};
+    </delete>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.lmtech.infrastructure.model.User" resultMap="userMap">
+        select * from lm_user
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="name !=null and name != ''">
+                and name like concat('%', #{name},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

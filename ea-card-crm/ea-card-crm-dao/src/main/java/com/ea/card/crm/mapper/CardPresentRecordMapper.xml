@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.CardPresentRecordMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date,create_user,create_user_name,update_date,update_user,update_user_name,data_version,is_delete,
+        total_amount,total_number,card_level,card_level_name,user_id,over_time_number,receive_number,present_date,
+        gift_card_ids,over_time_card_ids,status,order_no
+    </sql>
+
+    <resultMap id="cardPresentRecordMap" type="com.ea.card.crm.model.CardPresentRecord">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="total_amount" property="totalAmount"></result>
+        <result column="total_number" property="totalNumber"></result>
+        <result column="card_level" property="cardLevel"></result>
+        <result column="card_level_name" property="cardLevelName"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="over_time_number" property="overTimeNumber"></result>
+        <result column="receive_number" property="receiveNumber"></result>
+        <result column="present_date" property="presentDate"></result>
+        <result column="gift_card_ids" property="giftCardIds"></result>
+        <result column="over_time_card_ids" property="overTimeCardIds"></result>
+        <result column="status" property="status"></result>
+        <result column="order_no" property="orderNo"></result>
+    </resultMap>
+
+    <select id="countList" parameterType="com.ea.card.crm.model.CardPresentRecord" resultType="long">
+        select count(1)
+        from ea_card_present_record
+        <where>
+            is_delete=0
+            <if test="status != 0">
+                and status=#{status}
+            </if>
+            <if test="orderNo != null">
+                and order_no=#{orderNo}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectPresentingOrders" resultType="string" parameterType="list">
+        select distinct(order_no)
+        from ea_card_present_record
+        where is_delete=0 and status=1 and order_no in
+        <foreach collection ="list" item="orderNo" index= "index" separator ="," open="(" close=")">
+            #{orderNo}
+        </foreach>
+    </select>
+
+    <select id="selectByOrders" resultType="com.ea.card.crm.model.CardPresentRecord" parameterType="list">
+        <!--select *-->
+        <!--from (-->
+            <!--select * from ea_card_present_record order by create_date desc-->
+        <!--) as pr-->
+        <!--where is_delete=0 and order_no in-->
+        <!--<foreach collection ="list" item="orderNo" index= "index" separator ="," open="(" close=")">-->
+            <!--#{orderNo}-->
+        <!--</foreach>-->
+        <!--group by order_no-->
+        select *
+        from ea_card_present_record
+        where is_delete=0 and order_no in
+        <foreach collection ="list" item="orderNo" index= "index" separator ="," open="(" close=")">
+        #{orderNo}
+        </foreach>
+        group by order_no order by create_date desc
+    </select>
+
+    <select id="selectByOrder" resultMap="cardPresentRecordMap">
+        select *
+        from ea_card_present_record
+        where is_delete=0 and order_no = #{orderNo}
+        order by create_date desc limit 1
+    </select>
+
+    <select id="selectOvertimeRecordIds" parameterType="java.util.Date" resultMap="cardPresentRecordMap">
+        <![CDATA[
+        select id,create_date,create_user,create_user_name,update_date,update_user,update_user_name,data_version,is_delete,
+        total_amount,total_number,card_level,card_level_name,user_id,receive_number,present_date,gift_card_ids,status,order_no,
+        (select count(1) from ea_gift_member_card where (status=1 or status=2) and locate(id,pr.gift_card_ids)>0) as over_time_number,
+        (select group_concat(id) from ea_gift_member_card where (status=1 or status=2) and locate(id,pr.gift_card_ids)>0) as over_time_card_ids
+        from ea_card_present_record pr
+        where pr.is_delete=0 and pr.status=1 and pr.present_date <= #{overTime}
+        ]]>
+    </select>
+
+    <update id="updateStatus" parameterType="com.ea.card.crm.model.CardPresentRecord">
+        update ea_card_present_record
+        set status=#{status},update_date=#{updateDate}
+        where id=#{id}
+    </update>
+
+    <update id="updateDeleteStatus" parameterType="com.ea.card.crm.model.CardPresentRecord">
+        update ea_card_present_record
+        set is_delete=#{isDelete},update_date=#{updateDate}
+        where id=#{id}
+    </update>
+
+    <update id="updateOvertimeStatus" parameterType="list">
+        <foreach collection ="list" item="item" index= "index" separator =";">
+            update ea_card_present_record
+            set status=3,update_date=#{item.updateDate},over_time_number=#{item.overTimeNumber},receive_number=#{item.receiveNumber},over_time_card_ids=#{item.overTimeCardIds}
+            where id=#{item.id}
+        </foreach>
+    </update>
+
+    <update id="updateFinishStatus" parameterType="list">
+        <foreach collection ="list" item="item" index= "index" separator =";">
+            update ea_card_present_record
+            set status=2,update_date=#{item.updateDate},receive_number=#{item.receiveNumber}
+            where id=#{item.id}
+        </foreach>
+    </update>
+
+    <select id="selectByGiftCardIdAndStatus" resultMap="cardPresentRecordMap">
+        select *
+        from ea_card_present_record
+        where find_in_set(#{giftCardId}, gift_card_ids) and status=#{status} and is_delete=0
+    </select>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.CardPresentRecord" resultMap="cardPresentRecordMap">
+        select * from ea_card_present_record
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="userId !=null and userId != ''">
+                and user_id like concat('%', #{userId},'%')
+            </if>
+        </trim>
+    </select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.GroupMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, NAME, PARENT_ID, ALIAS, REMARK, ENABLE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="groupMap" type="com.lmtech.infrastructure.model.Group">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <result column="PARENT_ID" property="parentId"></result>
+        <result column="ALIAS" property="alias"></result>
+        <result column="REMARK" property="remark"></result>
+        <result column="ENABLE" property="enable"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectGroupInUser" resultMap="groupMap">
+        select t1.* from lm_group t1,lm_group_user t2 where t1.id=t2.group_id and t2.user_id=#{userId}
+        <if test="param != null">
+            and t1.enable=#{param.enable}
+            <if test="name !=null and name != ''">
+                and t1.name like '%${param.name}%'
+            </if>
+            <if test="alias !=null and alias != ''">
+                and t1.alias like '%${param.alias}%'
+            </if>
+        </if>
+    </select>
+
+    <select id="selectRootGroup" resultMap="groupMap">
+        select * from lm_group
+        where parent_id='0' and is_delete=0
+    </select>
+
+    <select id="selectChildrenGroup" resultMap="groupMap">
+        select * from lm_group where parent_id=#{parentId} and is_delete=0
+    </select>
+</mapper>

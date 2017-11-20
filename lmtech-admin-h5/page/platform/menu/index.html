@@ -1,0 +1,62 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <title>menu index</title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .selectedTr {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body class="body">
+<input type="hidden" id="hidCurrentId" value="0"/>
+<div class="row" id="indexPage">
+    <div class="widget">
+        <div class="title">
+            <img src="../../../images/icons/dark/frames.png" alt="" class="titleIcon"><h6>菜单管理</h6>
+            <div class="title-action">
+                <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addMenu"><img src="../../../images/icons/color/plus.png" alt=""></a>
+            </div>
+        </div>
+        <table id="treeTable" cellpadding="0" cellspacing="0" width="100%" class="sTable treeTable">
+            <thead>
+            <tr>
+                <td width="20%">菜单名称</td>
+                <td width="30%">菜单地址</td>
+                <td width="10%">菜单类型</td>
+                <td width="10%">是否可见</td>
+                <td width="10%">排序号</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-cloak :id="menu.id" v-for="menu in menus" v-bind:class="getTrClass(menu)" @click="selectTr(this,'{{menu.id}}','{{menu.name}}')">
+                <td class="left-td">{{menu.name}}</td>
+                <td>{{menu.href}}</td>
+                <td>{{menu.menuType}}</td>
+                <td>{{menu.visible}}</td>
+                <td>{{menu.sortNo}}</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="javascript:void(0)" @click="editMenu(menu)" class="btn btn-default btn-xs">编辑</a>
+                        <a href="javascript:void(0)" @click="removeMenu(menu.id)" class="btn btn-default btn-xs">删除</a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['jquery_treeTable', 'menu_index_ctl'], function (tb, c) {
+        c.init();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.widget .title div.title-action {
+    height: 100%;
+    float: right;
+    vertical-align: middle;
+    padding: 0px;
+    min-width: 60px
+}
+[v-cloak] {
+    display: none;
+}
