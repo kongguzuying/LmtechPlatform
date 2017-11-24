@@ -103,8 +103,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+            <state relative-caret-position="197">
+              <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -1336,7 +1336,7 @@
       <workItem from="1509931029602" duration="59444000" />
       <workItem from="1510622934784" duration="38952000" />
       <workItem from="1510736041269" duration="55000" />
-      <workItem from="1511485933612" duration="16062000" />
+      <workItem from="1511485933612" duration="16354000" />
     </task>
     <servers />
   </component>
@@ -1373,7 +1373,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1408438000" />
+    <option name="totallyTimeSpent" value="1408730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1407,7 +1407,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3902174" sideWeight="0.48773986" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3902174" sideWeight="0.48773986" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33659065" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1913646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1836,8 +1836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        <state relative-caret-position="197">
+          <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
