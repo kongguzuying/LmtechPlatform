@@ -1,3 +1,4 @@
+//http://xinglianconnect-dev.380star.com/crm/wxtoken/getAccessToken
 define('constant', [], function () {
     return {
         basePath: BASE_URL,
@@ -44,7 +45,27 @@ define('constant', [], function () {
                 removeRoleUsers: 'http://172.30.8.224:8001/infrast/role/removeRoleUsers',    //删除角色用户关联
                 setRoleMenus: 'http://172.30.8.224:8001/infrast/role/setRoleMenus',    //设置角色菜单
                 setRoleResources: 'http://172.30.8.224:8001/infrast/role/setRoleResources',    //设置角色资源关联
-                setRoleUsers: 'http://172.30.8.224:8001/infrast/role/setRoleUsers'    //设置角色用户关联
+                setRoleUsers: 'http://172.30.8.224:8001/infrast/role/setRoleUsers',    //设置角色用户关联
+
+                /** 用户相关接口 */
+                addGroupUser: 'http://172.30.8.224:8001/infrast/user/addGroupUser',    //添加用户分组关联
+                addUser: 'http://172.30.8.224:8001/infrast/user/addUser',    //添加用户
+                addUserRoles: 'http://172.30.8.224:8001/infrast/user/addUserRoles',    //添加用户关联角色
+                changeGroup: 'http://172.30.8.224:8001/infrast/user/changeGroup',    //修改分组
+                editUser: 'http://172.30.8.224:8001/infrast/user/editUser',    //编辑用户
+                getUser: 'http://172.30.8.224:8001/infrast/user/getUser',    //获取用户
+                getUserByGroupId: 'http://172.30.8.224:8001/infrast/user/getUserByGroupId',    //获取用户通过分组编号
+                getUserOfPage: 'http://172.30.8.224:8001/infrast/user/getUserOfPage',    //获取用户分页数据
+                getUserRoleOfPage: 'http://172.30.8.224:8001/infrast/user/getUserRoleOfPage',    //获取用户关联角色分页数据
+                getUserUnauthRoleOfPage: 'http://172.30.8.224:8001/infrast/user/getUserUnauthRoleOfPage',    //获取用户未关联角色分页数据
+                queryCurrentUserInfo: 'http://172.30.8.224:8001/infrast/user/queryCurrentUserInfo',    //查询当前用户信息
+                queryUserByGroupId: 'http://172.30.8.224:8001/infrast/user/queryUserByGroupId',    //查询用户通过分组编号
+                queryUserByKey: 'http://172.30.8.224:8001/infrast/user/queryUserByKey',    //查询用户通过关键字（如：用户名、登录名）
+                queryUserInfoInGroup: 'http://172.30.8.224:8001/infrast/user/queryUserInfoInGroup',    //查询分组下的用户
+                queryUserRoles: 'http://172.30.8.224:8001/infrast/user/queryUserRoles',    //查询用户关联角色
+                removeUser: 'http://172.30.8.224:8001/infrast/user/removeUser',    //删除用户
+                removeUserRoles: 'http://172.30.8.224:8001/infrast/user/removeUserRoles',    //删除用户关联角色
+                setUserRoles: 'http://172.30.8.224:8001/infrast/user/setUserRoles'        //设置用户关联角色
             }
         }
     }

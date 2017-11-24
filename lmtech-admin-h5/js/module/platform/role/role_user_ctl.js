@@ -1,54 +1,158 @@
-define('role_index_ctl', ['jquery', 'jquery_treeTable', 'vue', 'constant', 'util'], function ($, tb, Vue, C, util) {
+define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], function ($, Vue, C, util, arrayUtil) {
     return {
         init: function () {
             var that = this;
             util.checkToken();
 
+            var roleId = util.getParam('roleId');
+            var type = util.getParam('type');
+            var url, data;
+            if (type == 0) {
+                //全部数据
+                url = C.service.url.getUserOfPage;
+                data  = { pageIndex: 1, pageSize: 20, pageParam: {} };
+            } else if (type == 1) {
+                //已授权数据
+                url = C.service.url.getRoleUserOfPage;
+                data  = { pageIndex: 1, pageSize: 20, pageParam: {}, roleId: roleId };
+            } else if (type == 2) {
+                //未授权数据
+                url = C.service.url.getRoleUnauthUserOfPage;
+                data  = { pageIndex: 1, pageSize: 20, pageParam: {}, roleId: roleId };
+            } else {
+                console.log('未知的type:' + type);
+            }
             util.httpPost({
-                url: C.service.url.getRoleOfPage,
-                data: util.buildPageRequest({
-                    pageIndex: 1,
-                    pageSize: 20,
-                    pageParam: null
-                }),
+                url: url,
+                data: data,
                 success: function (data) {
-                    var vd = new Vue({
+                    var v = new Vue({
                         el: '#data',
                         data: {
-                            pageData: data
+                            roleId: roleId,
+                            type: type,
+                            selectedIds: [],
+                            allIds: [],
+                            unSelectedIds: [],
+                            pageData: data,
+                            isCheckAll: false
+                        },
+                        watch: {
+                            isCheckAll: function (val) {
+                                if (val) {
+                                    var allIds = v.$data.allIds;
+                                    v.$data.selectedIds = allIds;
+                                } else {
+                                    v.$data.selectedIds = [];
+                                }
+                            }
+                        },
+                        computed: {
+                            allHref: function() {
+                                return "ruser.html?roleId=" + roleId + "&type=0";
+                            },
+                            authHref: function() {
+                                return "ruser.html?roleId=" + roleId + "&type=1";
+                            },
+                            unAuthHref: function() {
+                                return "ruser.html?roleId=" + roleId + "&type=2";
+                            }
                         },
                         methods: {
-                            addRole: function () {
-                                var url = 'edit.html';
-                                window.location.href = url;
-                            },
-                            editRole: function (roleId) {
-                                var url = 'edit.html?id=' + roleId;
-                                window.location.href = url;
-                            },
-                            removeRole: function (roleId) {
-                                util.httpPost({
-                                    url: C.service.url.removeRole,
-                                    data: util.buildRequest(roleId),
-                                    success: function () {
-                                        alert("删除角色成功！");
-                                        window.location.reload();
-                                    }
-                                });
-                            },
-                            authUser: function (roleId) {
-                                window.location.href = "ruser.html?type=0";
-                            },
-                            authMenu: function (roleId) {
-                                window.location.href = "rmenu.html?type=0";
+                            auth: function () {
+                                var allIds = v.$data.allIds;
+                                var selIds = v.$data.selectedIds;
+                                var unSelIds = arrayUtil.getNotSameDataOfArray(selIds, allIds);
+                                v.$data.unSelectedIds = unSelIds;
+
+                                if (type == 0) {
+                                    //全部数据
+                                    var result1 = that._addAuthItems(selIds);
+                                    var result2 = that._addUnAuthItems(unSelIds);
+                                    that._showResult(result1 && result2);
+                                } else if (type == 1) {
+                                    //已授权数据
+                                    var result = that._addUnAuthItems(unSelIds);
+                                    that._showResult(result);
+                                } else if (type == 2) {
+                                    //未授权数据
+                                    var result = that._addAuthItems(unSelIds);
+                                    that._showResult(result);
+                                }
                             }
                         },
                         mounted: function () {
                             console.log('mounted');
                         }
                     });
+
+                    //设置allIds
+                    var allIds = that._getDataIds(data.items);
+                    v.$data.allIds = allIds;
+                    that._initAuthedItems(v, allIds);
                 }
             });
+        },
+        _addAuthItems: function (roleId, authIds) {
+            var result = false;
+            var param = util.buildRequest();
+            param.roleId = roleId;
+            param.authIds = authIds;
+            util.httpPost({
+                url: C.service.url.addRoleUsers,
+                async: false,
+                data: param,
+                success: function (data) {
+                    result = true;
+                }
+            });
+            return result;
+        },
+        _addUnAuthItems: function (roleId, unAuthIds) {
+            var result = false;
+            var param = util.buildRequest();
+            param.roleId = roleId;
+            param.authIds = unAuthIds;
+            util.httpPost({
+                url: C.service.url.removeRoleUsers,
+                async: false,
+                data: param,
+                success: function (data) {
+                    result = true;
+                }
+            });
+            return result;
+        },
+        _initAuthedItems: function (v, allIds) {
+            var that = this;
+            //设置已授权用户角色
+            util.httpPost({
+                url: C.service.url.getRoleUsers,
+                data: util.buildRequest(v.$data.roleId),
+                success: function (data) {
+                    var selIds = arrayUtil.getSameDataOfArray(that._getDataIds(data), allIds);
+                    v.$data.selectedIds = selIds;
+                }
+            });
+        },
+        _getDataIds: function (data) {
+            if (data && data.length > 0) {
+                var items = data.items;
+                var ids = [];
+                for (var i = 0; i < data.length; i++) {
+                    ids.push(data[i].id);
+                }
+                return ids;
+            } else {
+                return [];
+            }
+        },
+        _showResult: function (result) {
+            if (result) {
+                alert('授权成功！');
+            } else {
+                alert('授权过程中出现错误！');
+            }
         }
     }
 });

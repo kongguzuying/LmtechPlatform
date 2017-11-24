@@ -49,7 +49,7 @@
             <img src="../../../images/icons/dark/full2.png" alt="" class="titleIcon">
             <h6>角色管理</h6>
             <div class="title-action">
-                <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addMenu"><img src="../../../images/icons/color/plus.png" alt=""></a>
+                <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addRole"><img src="../../../images/icons/color/plus.png" alt=""></a>
             </div>
         </div>
         <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
@@ -72,10 +72,10 @@
                 <td>{{item.updateDate}}</td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn-default btn-xs" onclick="edit('${item.id}');return false;">编辑</a>
-                        <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/platform/ruser/checklist.do?id=${item.id}&type=0">授权用户</a>
-                        <a class="btn btn-default btn-xs" href="${pageContext.request.contextPath}/platform/rmenu/checklist.do?id=${item.id}&type=0">授权菜单</a>
-                        <a class="btn btn-default btn-xs" href="javascript:listRemove('${pageContext.request.contextPath}/platform/role/remove.do?id=${item.id}')">删除</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="editRole(item.id)">编辑</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="authUser(item.id)">授权用户</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="authMenu(item.id)">授权菜单</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="removeRole(item.id)">删除</a>
                     </div>
                 </td>
             </tr>

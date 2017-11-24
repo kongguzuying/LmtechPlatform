@@ -80,13 +80,17 @@ define('util', ['jquery', 'jquery_ui', 'constant'], function ($, ui, C) {
                 reqInfo: {}
             }
         },
+        /**
+         * 构建分页请求
+         * @param data
+         */
         buildPageRequest: function (data) {
-            return {
-                pageIndex: (data.pageIndex ? data.pageIndex : 1),
-                pageSize: (data.pageSize ? data.pageSize : 10),
-                reqData: data.data,
-                reqInfo: {}
-            }
+            data.pageIndex = (data.pageIndex ? data.pageIndex : 1);
+            data.pageSize = (data.pageSize ? data.pageSize : 10);
+            data.pageParam = data.pageParam;
+            data.reqData = {};
+            data.reqInfo = {};
+            return data;
         },
         /**
          * 设置本地值
