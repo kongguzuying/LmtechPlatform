@@ -49,7 +49,7 @@ define('array_util', ['jquery', 'jquery_ui', 'constant'], function ($, ui, C) {
                 //判断与前面的元素是否相同，且是否已经保存到sameDataArray数组了
                 if (item[i] == item[i - 1] && sameData != item[i]) {
                     sameData = item[i];
-                    var notSameData = notSameDataArray.get(notSameDataArray.length - 1);
+                    var notSameData = notSameDataArray[notSameDataArray.length - 1];
                     if (sameData == notSameData) {
                         notSameDataArray.pop();
                     }

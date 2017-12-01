@@ -67,16 +67,16 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
 
                                 if (type == 0) {
                                     //全部数据
-                                    var result1 = that._addAuthItems(selIds);
-                                    var result2 = that._addUnAuthItems(unSelIds);
+                                    var result1 = that._addAuthItems(roleId, selIds);
+                                    var result2 = that._addUnAuthItems(roleId, unSelIds);
                                     that._showResult(result1 && result2);
                                 } else if (type == 1) {
                                     //已授权数据
-                                    var result = that._addUnAuthItems(unSelIds);
+                                    var result = that._addUnAuthItems(roleId, unSelIds);
                                     that._showResult(result);
                                 } else if (type == 2) {
                                     //未授权数据
-                                    var result = that._addAuthItems(unSelIds);
+                                    var result = that._addAuthItems(roleId, selIds);
                                     that._showResult(result);
                                 }
                             }

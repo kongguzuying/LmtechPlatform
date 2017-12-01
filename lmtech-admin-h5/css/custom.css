@@ -8,3 +8,11 @@
 [v-cloak] {
     display: none;
 }
+.btn-group {
+    display: block;
+    padding-left: 10px;
+    margin: 5px;
+}
+.btn-group a {
+    margin-left: 0px;
+}
