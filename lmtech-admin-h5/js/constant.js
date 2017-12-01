@@ -2,6 +2,9 @@
 define('constant', [], function () {
     return {
         basePath: BASE_URL,
+        pager: {
+            pageSize: 20
+        },
         page: {
             url: {
                 login: '/login.html'

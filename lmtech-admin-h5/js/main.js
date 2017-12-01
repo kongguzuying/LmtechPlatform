@@ -18,8 +18,9 @@ require.config({
         excanvas: BASE_URL + 'js/plugins/charts/excanvas.min',
         constant: BASE_URL + 'js/constant',
         util: BASE_URL + 'js/plugins/util/util',
-        array_util: BASE_URL + 'js/plugins/util/array_util',
+        array_util: BASE_URL + 'js/plugins/util/array-util',
         vue: BASE_URL + 'js/plugins/vue/vue',
+        vue_comps: BASE_URL + 'js/plugins/vue/vue-comps',
 
         //平台控制器
         login_ctl: BASE_URL + 'js/module/platform/login_ctl',
@@ -74,6 +75,9 @@ require.config({
         vue: {
             exports: 'vue'
         },
+        vue_comps: {
+            exports: 'vue_comps'
+        },
 
         //平台控制器
         login_ctl: {
@@ -103,6 +107,6 @@ require.config({
 
     }
 });
-require(['jquery', 'ui_spinner', 'jquery_mousewheel', 'jquery_ui', 'jquery_validate', 'excanvas', 'vue', 'constant', 'util'], function ($, ui_spinner, $mousewheel, $ui, $valid, excanvas, util) {
+require(['jquery', 'ui_spinner', 'jquery_mousewheel', 'jquery_ui', 'jquery_validate', 'excanvas', 'vue', 'vue_comps', 'constant', 'util'], function () {
     console.log('main');
 });

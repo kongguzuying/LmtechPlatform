@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="">
 <head>
     <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
@@ -81,16 +81,7 @@
             </tr>
             </tbody>
         </table>
-        <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
-            <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers">
-                <span class="toFirst ui-corner-tl ui-corner-bl fg-button ui-button ui-state-disabled">First</span><span
-                    class="previous fg-button ui-button ui-state-disabled">Prev</span><span><span
-                    class="fg-button ui-button ui-state-disabled">1</span><span class="fg-button ui-button">2</span><span
-                    class="fg-button ui-button">3</span><span class="fg-button ui-button">4</span><span
-                    class="fg-button ui-button">5</span></span><span
-                    class="next fg-button ui-button">Next</span><span
-                    class="last ui-corner-tr ui-corner-br fg-button ui-button">Last</span></div>
-        </div>
+        <lm-pager v-bind:pager="pager" v-on:page_click="pageClick"></lm-pager>
     </div>
 </div>
 </div>

@@ -10,22 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c796b8-9b90-4aed-ad0b-6f3ce81f6e5c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array_util.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/sellist.jsp" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.jsp" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.jsp" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmobileres.jsp" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmobileres.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rpageres.jsp" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rpageres.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.jsp" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array_util.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array-util.js" />
     </list>
     <ignored path="$PROJECT_DIR$/lmtech-eureka/target/" />
     <ignored path="$PROJECT_DIR$/lmtech-zuul/target/" />
@@ -90,21 +83,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="util.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+            <state relative-caret-position="372">
+              <caret line="219" column="21" lean-forward="true" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PageData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/common/PageData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+            <state relative-caret-position="125">
+              <caret line="83" column="78" lean-forward="true" selection-start-line="83" selection-start-column="78" selection-end-line="83" selection-end-column="78" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -112,41 +115,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="role_index_ctl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+            <state relative-caret-position="395">
+              <caret line="22" column="69" lean-forward="true" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rmenu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html">
+      <file leaf-file-name="vue-comps.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="95" column="46" lean-forward="true" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ruser.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="role_user_ctl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="51" lean-forward="false" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+            <state relative-caret-position="375">
+              <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -155,38 +148,40 @@
       <file leaf-file-name="constant.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/constant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="53" column="91" lean-forward="true" selection-start-line="53" selection-start-column="91" selection-end-line="53" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleUserPageRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/RoleUserPageRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/facade/request/PageRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vue.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+              <folding>
+                <marker date="1490582769000" expanded="true" signature="240677:240686" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vue-infinite-scroll.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-infinite-scroll.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4800">
+              <caret line="192" column="22" lean-forward="false" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rmenu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2375">
+              <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -200,14 +195,13 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTrClass</find>
       <find>leftSide</find>
       <find>leftTop</find>
       <find>margin-left</find>
@@ -235,8 +229,9 @@
       <find>addRole</find>
       <find>authUser</find>
       <find>_getDataIds</find>
-      <find />
       <find>,</find>
+      <find>vue_comps</find>
+      <find>ui-state-active</find>
     </findStrings>
     <replaceStrings>
       <replace>${resourceUrl}</replace>
@@ -252,7 +247,6 @@
       <replace>BASE_URL + '</replace>
       <replace>{{</replace>
       <replace>'</replace>
-      <replace />
       <replace />
       <replace>,</replace>
     </replaceStrings>
@@ -272,8 +266,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/menu_index_ctl.js" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/src/main/java/com/lmtech/infrastructure/facade/MenuFacadeImpl.java" />
         <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/stub/MenuFacade.java" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/ui/jquery.treeTable.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/top.js" />
@@ -315,14 +307,16 @@
         <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/UserRolePageRequest.java" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array_util.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
       </list>
     </option>
   </component>
@@ -378,6 +372,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -394,9 +389,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -447,6 +440,27 @@
             <path>
               <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
               <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="uploader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -473,6 +487,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -483,7 +498,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/XingLianProject/esd2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelWidth1" value="75" />
@@ -916,6 +931,7 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_server_2" />
         <option name="HTTP_PORT" value="8085" />
+        <option name="JNDI_PORT" value="1098" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -1337,6 +1353,8 @@
       <workItem from="1510622934784" duration="38952000" />
       <workItem from="1510736041269" duration="55000" />
       <workItem from="1511485933612" duration="16354000" />
+      <workItem from="1511944719034" duration="11341000" />
+      <workItem from="1512091815738" duration="8707000" />
     </task>
     <servers />
   </component>
@@ -1373,7 +1391,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1408730000" />
+    <option name="totallyTimeSpent" value="1428778000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1386,7 +1404,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35939196" sideWeight="0.51226014" order="8" side_tool="true" content_ui="tabs" />
@@ -1394,7 +1411,6 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18656716" sideWeight="0.49382716" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3219616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1407,10 +1423,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3902174" sideWeight="0.48773986" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3902174" sideWeight="0.48773986" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33659065" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1913646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3619565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1420,6 +1436,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.171875" sideWeight="0.50617284" order="10" side_tool="true" content_ui="tabs" />
     </layout>
@@ -1444,46 +1461,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/facade/request/QueryRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/facade/request/PageAuthRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/CardPresentRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/service/DbManagerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/src/main/java/com/lmtech/infrastructure/facade/RoleFacadeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="123" column="57" lean-forward="false" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/facade/request/CommonRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1646,7 +1627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1654,7 +1634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="32" column="52" lean-forward="true" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1681,18 +1660,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/sellist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/sellist.jsp" />
     <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -1705,7 +1676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="52" column="6" lean-forward="true" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1713,7 +1683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1721,7 +1690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="925">
           <caret line="130" column="28" lean-forward="false" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1729,12 +1697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="65" column="16" lean-forward="false" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-          <folding>
-            <element signature="e#2445#2446#0" expanded="true" />
-            <element signature="e#2490#2491#0" expanded="true" />
-            <element signature="e#2552#2553#0" expanded="true" />
-            <element signature="e#2597#2598#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1746,58 +1708,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array_util.js">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array-util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="100" column="36" lean-forward="true" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/RoleUserPageRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="200">
+          <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/facade/request/PageRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/constant.js">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="53" column="91" lean-forward="true" selection-start-line="53" selection-start-column="91" selection-end-line="53" selection-end-column="91" />
+        <state relative-caret-position="225">
+          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1805,7 +1747,7 @@
     <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1818,29 +1760,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        <state relative-caret-position="2375">
+          <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="95" column="46" lean-forward="true" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
+        <state relative-caret-position="75">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding>
+            <marker date="1490582769000" expanded="true" signature="240677:240686" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-infinite-scroll.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4800">
+          <caret line="192" column="22" lean-forward="false" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/common/PageData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+        <state relative-caret-position="125">
+          <caret line="83" column="78" lean-forward="true" selection-start-line="83" selection-start-column="78" selection-end-line="83" selection-end-column="78" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/constant.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="94" column="29" lean-forward="false" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="22" column="69" lean-forward="true" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="219" column="21" lean-forward="true" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

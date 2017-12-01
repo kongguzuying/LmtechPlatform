@@ -156,6 +156,87 @@ define('util', ['jquery', 'jquery_ui', 'constant'], function ($, ui, C) {
                     window.location = C.page.url.login;
                 }
             });
+        },
+        /**
+         * 构建分页组件数据
+         * @returns {{firstPage: number, lastPage: number, prevPage: number, nextPage: number, currentPageIndex: number, pageIndex: number, pageCount: number, pageItems: [null,null]}}
+         */
+        buildPageCompData: function (pageData) {
+            var currentPageNumber = pageData.currentPageNumber;
+            var pageCount = pageData.totalPage;
+            var prevPage = (currentPageNumber > 1 ? currentPageNumber - 1 : 1);
+            var nextPage = (currentPageNumber < pageCount ? currentPageNumber + 1 : pageCount);
+
+            if (pageCount <= 1) {
+                return {
+                    visible: false,
+                    firstPage: 1,
+                    lastPage: pageCount,
+                    prevPage: prevPage,
+                    nextPage: nextPage,
+                    currentPageIndex: currentPageNumber,
+                    pageIndex: currentPageNumber,
+                    pageCount: pageCount,
+                    pageItems: []
+                }
+            } else {
+                var maxItems = 7;
+                var pageItems = [];
+                if (pageCount <= maxItems) {
+                    //显示全部页
+                    for (var i = 1; i <= pageCount; i++) {
+                        pageItems[i] = {
+                            pageIndex: i,
+                            isActive: (i == currentPageNumber)
+                        }
+                    }
+                } else {
+                    //显示当前页相邻的页数
+                    var halfPages = parseInt(maxItems / 2);
+                    var i;
+                    var leftPage = currentPageNumber - halfPages;
+                    var rightPage = currentPageNumber + halfPages;
+                    if (leftPage <= 0) {
+                        //左边不够显示，补到右边
+                        i = 1;
+                        if (rightPage < pageCount) {
+                            var offset = 1 - leftPage;
+                            rightPage = rightPage + offset;
+                            if (rightPage > pageCount) {
+                                rightPage = pageCount;
+                            }
+                        }
+                    } else {
+                        i = leftPage;
+                    }
+                    if (rightPage > pageCount && i != 1) {
+                        //右边不够显示，补到左边
+                        var offset = rightPage - pageCount;
+                        i = i - offset;
+                        if (i < 1) {
+                            i = 1;
+                        }
+                        rightPage = pageCount;
+                    }
+                    for (var j = 0; i <= rightPage; i++, j++) {
+                        pageItems[j] = {
+                            pageIndex: i,
+                            isActive: (i == currentPageNumber)
+                        }
+                    }
+                }
+                return {
+                    visible: true,
+                    firstPage: 1,
+                    lastPage: pageCount,
+                    prevPage: prevPage,
+                    nextPage: nextPage,
+                    currentPageIndex: currentPageNumber,
+                    pageIndex: currentPageNumber,
+                    pageCount: pageCount,
+                    pageItems: pageItems
+                };
+            }
         }
     }
 });
