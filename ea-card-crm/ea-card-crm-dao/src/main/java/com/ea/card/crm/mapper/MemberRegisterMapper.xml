@@ -7,7 +7,7 @@
     <sql id="Base_Column_List">
         id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
         user_id,user_type,phone,open_id,unique_id,nickname,headimgurl,sex,card_id,card_background,code,membership_num,mlevel,
-        begin_date,end_date,forever,trial,trial_over,trial_date,trial_day,auth_refresh_token
+        begin_date,end_date,forever,trial,trial_over,trial_date,trial_day,auth_refresh_token,integral
     </sql>
 
     <resultMap id="memberRegisterMap" type="com.ea.card.crm.model.MemberRegister">
@@ -43,6 +43,7 @@
         <result column="trial_date" property="trialDate"></result>
         <result column="trial_day" property="trialDay"></result>
         <result column="auth_refresh_token" property="authRefreshToken"></result>
+        <result column="integral" property="integral"></result>
     </resultMap>
 
     <select id="selectByUserId" resultMap="memberRegisterMap">

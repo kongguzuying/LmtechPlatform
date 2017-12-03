@@ -28,7 +28,7 @@ public class FacadeAop {
     private List<Interceptor> interceptors = new ArrayList<>();
 
     // 切点表达式
-    @Pointcut("execution(public * com.ea.card.crm.facade..*.*(..)) || execution(public * com.lmtech.auth.facade..*.*(..))")
+    @Pointcut("execution(public * com..facade..*.*(..))")
     // 切点表达式
     public void pointCut() {
     }

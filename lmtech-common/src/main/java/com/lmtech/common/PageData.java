@@ -66,7 +66,7 @@ public class PageData<T> extends EntityBase {
 	public void setCurrentPageNumber(int currentPageNumber) {
 		this.currentPageNumber = currentPageNumber;
 	}
-	public List<?> getItems() {
+	public List<T> getItems() {
 		return items;
 	}
 	public void setItems(List<T> items) {

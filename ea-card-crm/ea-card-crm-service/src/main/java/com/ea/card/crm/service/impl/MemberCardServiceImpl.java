@@ -167,7 +167,7 @@ public class MemberCardServiceImpl implements MemberCardService {
             register = false;
         } else {
             register = true;
-            phone = memberRegister.getPhone();
+            /*phone = memberRegister.getPhone();
             if (!StringUtil.isNullOrEmpty(memberRegister.getAuthRefreshToken())) {
                 //登录门户获取token
                 LoginWapResult loginWapResult = memberService.reLoginWap(memberRegister);
@@ -176,7 +176,7 @@ public class MemberCardServiceImpl implements MemberCardService {
                 } else {
                     LoggerManager.error("刷新登录门户失败，userId:" + memberRegister.getUserId() + ",errMsg:" + loginWapResult.getMsg());
                 }
-            }
+            }*/
         }
         ExeResult result = new ExeResult();
         result.setSuccess(true);
@@ -328,7 +328,11 @@ public class MemberCardServiceImpl implements MemberCardService {
             }
             outstr.setGiftCardId(giftCardId);
             record.setOutstr(JsonUtil.toJson(outstr));
+            record.setUserId(IdWorkerUtil.generateStringId());
+            record.setBalance(0);
+            record.setUserType("1");
 
+            /*
             String tid = IdWorkerUtil.generateStringId();
             LoggerManager.info("校验用户中心数据 => 开始");
             String userId = registerAndBindUser(tid, request.getVerifyCode(), request.getVerifyKey(), request.isIgnoreVerifyCode(), request.getPhone(), record.getUniqueId(), record);
@@ -355,7 +359,7 @@ public class MemberCardServiceImpl implements MemberCardService {
                     loginToWapOfWx(record.getUniqueId(), record.getNickname(), record.getHeadimgurl(), record);
                     LoggerManager.info("3.登录门户系统 => 结束");
                 }
-            }
+            }*/
 
             record.setStatus(CardActiveRecord.STATUS_APPLIED);
         } catch (ErrorCodeException e) {
@@ -453,7 +457,7 @@ public class MemberCardServiceImpl implements MemberCardService {
         StateResult checkUserResult = restTemplate.postForObject(URL_ACCOUNT_CHECKUSER, checkUserRequest, StateResult.class);
 
         double balance = 0;
-        String type = (existOaUser(phone, tid) ? "0" : "1");    //0-星链用户,1-外部用户
+        String type = "1";
         if (checkUserResult.getState() == 0) {
             // 星链帐户不存在，注册帐户
             MultiValueMap<String, Object> accountRegisterMap = new LinkedMultiValueMap<String, Object>();
@@ -488,17 +492,6 @@ public class MemberCardServiceImpl implements MemberCardService {
         record.setBalance(balance);
         record.setUserType(type);
         return balance;
-    }
-
-    private boolean existOaUser(String phone, String tid) {
-        String url = URL_OA_EXIST_USER + "?phone=" + phone + "&t_id=" + tid;
-
-        VerifyOaUserResult result = restTemplate.getForObject(url, VerifyOaUserResult.class);
-        if (result.isSuccess()) {
-            return result.getData().isExist();
-        } else {
-            throw new ActiveMemberCardException("查询OA用户接口失败");
-        }
     }
 
     private String registerAndBindUser(String tid, String verifyCode, String verifyKey, boolean ignoreVerifyCode, String phone, String openId, CardActiveRecord record) {

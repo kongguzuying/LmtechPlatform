@@ -13,6 +13,7 @@ import com.ea.card.crm.service.exception.TrailMemberException;
 import com.ea.card.crm.service.util.Md5Encrypt;
 import com.ea.card.crm.service.vo.LoginWapResult;
 import com.ea.card.crm.service.vo.PageAuthResponse;
+import com.ea.card.crm.service.vo.UCMemberExtData;
 import com.ea.card.crm.service.vo.UCMemberExtResult;
 import com.lmtech.common.StateResult;
 import com.lmtech.util.IdWorkerUtil;
@@ -39,9 +40,6 @@ import java.util.Map;
 @Service
 @RefreshScope
 public class MemberServiceImpl implements MemberService {
-
-	@Value("${service.url_uc_get_member_ext}")
-	private String URL_UC_GET_MEMBER_EXT;
 	
 	@Value("${service.url_login4wap}")
     private String URL_LOGIN4WAP;
@@ -67,12 +65,22 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public UCMemberExtResult getUcMemberExt(String userId) {
-        String tid = IdWorkerUtil.generateStringId();
-        MultiValueMap<String, Object> requestMap = new LinkedMultiValueMap<String, Object>();
-        requestMap.add("t_id", tid);
-        requestMap.add("userId", userId);
-        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<MultiValueMap<String, Object>>(requestMap, null);
-        return restTemplate.postForObject(URL_UC_GET_MEMBER_EXT, request, UCMemberExtResult.class);
+        if (StringUtil.isNullOrEmpty(userId)) {
+            throw new IllegalArgumentException("用户id不允许为空");
+        }
+        MemberRegister memberRegister = memberRegisterService.getByUserId(userId);
+        if (memberRegister == null) {
+            throw new NoneRegisterException();
+        }
+
+        UCMemberExtResult ucMemberExtResult = new UCMemberExtResult();
+        ucMemberExtResult.setState(0);
+        UCMemberExtData ucMemberExtData = new UCMemberExtData();
+        ucMemberExtData.setUserId(userId);
+        ucMemberExtData.setSumIntegralNumber(memberRegister.getIntegral());
+        ucMemberExtData.setIntegralMemberLevel(memberRegister.getmLevel());
+        ucMemberExtResult.setData(ucMemberExtData);
+        return ucMemberExtResult;
     }
 
     @Override

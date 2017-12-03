@@ -59,7 +59,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
                 throw new IllegalArgumentException(IntegralConstants.NO_REGIST);
             }
             userId = register.getUserId();
-            GetIntegralResult response = integralService.getIntegral(userId,t_id);
+            GetIntegralResult response = integralService.getIntegral(userId, t_id);
             if (response.isSuccess()) {
                 LoggerManager.info("积分获取接口被调用成功");
             }
@@ -74,7 +74,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
             getIntegralData.setSumIntegralNumber(IntegralConstants.ZERO);
             getIntegralData.setUserId(userId);
 
-            GetIntegralData new_getIntegralData = integralService.newGetIntegralData(userId,getIntegralData);
+            GetIntegralData new_getIntegralData = integralService.newGetIntegralData(userId, getIntegralData);
 
             errResponse.setData(new_getIntegralData);
             errResponse.settId(t_id);
@@ -145,20 +145,20 @@ public class IntegralFacadeImpl implements IntegralFacade {
             userId = register.getUserId();
 
             if (integralRequest.getPageNum() == IntegralConstants.ZERO ||
-                    StringUtils.isBlank(String.valueOf(integralRequest.getPageNum()))){
+                    StringUtils.isBlank(String.valueOf(integralRequest.getPageNum()))) {
                 integralRequest.setPageNum(IntegralConstants.ONE);
             }
             if (integralRequest.getPageSize() == IntegralConstants.ZERO ||
-                    StringUtils.isBlank(String.valueOf(integralRequest.getPageSize()))){
+                    StringUtils.isBlank(String.valueOf(integralRequest.getPageSize()))) {
                 integralRequest.setPageSize(IntegralConstants.TWENTY);
             }
 
-            IntegralDetailsResult response = integralService.integralDetails(userId,integralRequest.getIntegralType(),
-                    integralRequest.getPageNum(),integralRequest.getPageSize(),t_id);
+            IntegralDetailsResult response = integralService.integralDetails(userId, integralRequest.getIntegralType(),
+                    integralRequest.getPageNum(), integralRequest.getPageSize(), t_id);
             if (response.isSuccess()) {
                 LoggerManager.info("积分明细接口被调用成功");
             }
-            if(response.getData().getList() == null){
+            if (response.getData().getList() == null) {
                 LoggerManager.info("积分明细接口被调用成功，积分明细数据为空");
                 response.setData(errObject());
             }
@@ -175,7 +175,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
         }
     }
 
-    public IntegralDetailsData errObject(){
+    public IntegralDetailsData errObject() {
         LoggerManager.info("生成错误对象数据被调用");
         IntegralDetailsData integralDetailsData = new IntegralDetailsData();
         integralDetailsData.setLastPage(IntegralConstants.ONE);
@@ -191,7 +191,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
     @ApiOperation(value = "获取相应积分类型的配置信息接口")
     @RequestMapping(value = "/getIntegralSetAll", method = RequestMethod.GET)
     @ResponseBody
-    public StateResult getIntegralSetAll(@RequestParam("integralSource") int integralSource){
+    public StateResult getIntegralSetAll(@RequestParam("integralSource") int integralSource) {
         LoggerManager.info("获取签到天数与积分接口被调用");
         String t_id = IdWorkerUtil.generateStringId();
         try {
@@ -205,7 +205,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
             response.settId(t_id);
             response.setData(list);
             return response;
-        }catch (Exception e){
+        } catch (Exception e) {
             LoggerManager.error("获取签到天数与积分接口被调用失败");
             LoggerManager.error(e);
             return this.errObj(t_id);
@@ -277,7 +277,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
         return result.getResult();
     }
 
-    public StateResult errObj(String t_id){
+    public StateResult errObj(String t_id) {
         StateResult errResponse = new StateResult();
         errResponse.setState(IntegralConstants._ONE);
         errResponse.settId(t_id);
@@ -287,24 +287,24 @@ public class IntegralFacadeImpl implements IntegralFacade {
     }
 
 
-    public IntegralSet getSignTask(int bonusType,String userId){
-        Map<String,Object> logMap = integralService.getIntegralSignLog(userId,IntegralConstants.SOURCE_TWO);
+    public IntegralSet getSignTask(int bonusType, String userId) {
+        Map<String, Object> logMap = integralService.getIntegralSignLog(userId, IntegralConstants.SOURCE_TWO);
 
         Map<String, Integer> returnMap = integralService.getTodayData(logMap);
         int modDay = returnMap.get("modDay");
-        if(modDay > IntegralConstants.ZERO){
+        if (modDay > IntegralConstants.ZERO) {
             modDay = modDay - IntegralConstants.ONE;
-        }else{
-            modDay= IntegralConstants.SEVEN - IntegralConstants.ONE;
+        } else {
+            modDay = IntegralConstants.SEVEN - IntegralConstants.ONE;
         }
         IntegralSet iSet = integralService.getIntegralSetAll(bonusType).get(modDay);
         int isSign = IntegralConstants.ZERO;
         int dayCount = IntegralConstants.ZERO;
         int signCount = IntegralConstants.ZERO;
-        if(logMap != null){
-            isSign = (int)logMap.get("isSign");
-            dayCount = (int)logMap.get("dayCount");
-            signCount = (int)logMap.get("signCount");
+        if (logMap != null) {
+            isSign = (int) logMap.get("isSign");
+            dayCount = (int) logMap.get("dayCount");
+            signCount = (int) logMap.get("signCount");
         }
         iSet.setIsSign(isSign);
         iSet.setDayCount(dayCount);
@@ -312,28 +312,28 @@ public class IntegralFacadeImpl implements IntegralFacade {
         return iSet;
     }
 
-    public IntegralSet getShareTask(int bonusType,String userId){
-        Map<String,Object> logMap = integralService.getIntegralSignLog(userId,IntegralConstants.SOURCE_THERE);
+    public IntegralSet getShareTask(int bonusType, String userId) {
+        Map<String, Object> logMap = integralService.getIntegralSignLog(userId, IntegralConstants.SOURCE_THERE);
         IntegralSet iSet = integralService.getIntegralSetAll(bonusType).get(IntegralConstants.ZERO);
         int isSign = IntegralConstants.ZERO;
         int dayCount = IntegralConstants.ZERO;
-        if(logMap != null){
-            isSign = (int)logMap.get("isSign");
-            dayCount = (int)logMap.get("dayCount");
+        if (logMap != null) {
+            isSign = (int) logMap.get("isSign");
+            dayCount = (int) logMap.get("dayCount");
         }
         iSet.setIsSign(isSign);
         iSet.setDayCount(dayCount);
         return iSet;
     }
 
-    public IntegralSet getSendCardTask(int bonusType,String userId){
-        Map<String,Object> logMap = integralService.getIntegralSignLog(userId,IntegralConstants.SOURCE_ONE);
+    public IntegralSet getSendCardTask(int bonusType, String userId) {
+        Map<String, Object> logMap = integralService.getIntegralSignLog(userId, IntegralConstants.SOURCE_ONE);
         IntegralSet iSet = integralService.getIntegralSetAll(bonusType).get(IntegralConstants.ZERO);
         int isSign = IntegralConstants.ZERO;
         int dayCount = IntegralConstants.ZERO;
-        if(logMap != null){
-            isSign = (int)logMap.get("isSign");
-            dayCount = (int)logMap.get("dayCount");
+        if (logMap != null) {
+            isSign = (int) logMap.get("isSign");
+            dayCount = (int) logMap.get("dayCount");
         }
         iSet.setIsSign(isSign);
         iSet.setDayCount(dayCount);
@@ -347,7 +347,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
     @ApiOperation(value = "每日任务列表接口")
     @RequestMapping(value = "/getAllTask", method = RequestMethod.GET)
     @ResponseBody
-    public StateResult getAllTask(@RequestParam("openId") String openId){
+    public StateResult getAllTask(@RequestParam("openId") String openId) {
         LoggerManager.info("每日任务列表接口被调用");
         String t_id = IdWorkerUtil.generateStringId();
         try {
@@ -361,12 +361,12 @@ public class IntegralFacadeImpl implements IntegralFacade {
             List<IntegralSet> list = new ArrayList<IntegralSet>();
 
             for (int i = 0; i < type.size(); i++) {
-                if( type.get(i).getBonusType() == IntegralConstants.SOURCE_TWO ){//签到
-                    list.add(this.getSignTask(IntegralConstants.SOURCE_TWO,userId));
-                }else if( type.get(i).getBonusType() == IntegralConstants.SOURCE_ONE ){//赠卡
-                    list.add(this.getSendCardTask(IntegralConstants.SOURCE_ONE,userId));
-                }else{//分享
-                    list.add(this.getShareTask(IntegralConstants.SOURCE_THERE,userId));
+                if (type.get(i).getBonusType() == IntegralConstants.SOURCE_TWO) {//签到
+                    list.add(this.getSignTask(IntegralConstants.SOURCE_TWO, userId));
+                } else if (type.get(i).getBonusType() == IntegralConstants.SOURCE_ONE) {//赠卡
+                    list.add(this.getSendCardTask(IntegralConstants.SOURCE_ONE, userId));
+                } else {//分享
+                    list.add(this.getShareTask(IntegralConstants.SOURCE_THERE, userId));
                 }
             }
 
@@ -376,7 +376,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
             response.setData(list);
             LoggerManager.info("每日任务列表接口被调用成功");
             return response;
-        }catch (Exception e){
+        } catch (Exception e) {
             LoggerManager.error("每日任务列表接口被调用失败");
             LoggerManager.error(e);
             return this.errObj(t_id);
@@ -390,7 +390,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
     @ApiOperation(value = "分享任务成功回调接口")
     @RequestMapping(value = "/getShareTask", method = RequestMethod.GET)
     @ResponseBody
-    public StateResult getShareTask(@RequestParam("openId") String openId){
+    public StateResult getShareTask(@RequestParam("openId") String openId) {
         LoggerManager.info("分享任务成功回调接口");
         String t_id = IdWorkerUtil.generateStringId();
         try {
@@ -403,10 +403,10 @@ public class IntegralFacadeImpl implements IntegralFacade {
             StateResult response = new StateResult();
             response.setState(IntegralConstants.ZERO);
             response.settId(t_id);
-            response.setData(this.getShareTask(IntegralConstants.SOURCE_THERE,userId));
+            response.setData(this.getShareTask(IntegralConstants.SOURCE_THERE, userId));
             LoggerManager.info("分享任务成功回调接口被调用成功");
             return response;
-        }catch (Exception e){
+        } catch (Exception e) {
             LoggerManager.error("分享任务成功回调接口被调用失败");
             LoggerManager.error(e);
             return this.errObj(t_id);
@@ -420,7 +420,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
     @ApiOperation(value = "签到任务成功回调接口")
     @RequestMapping(value = "/getSignTask", method = RequestMethod.GET)
     @ResponseBody
-    public StateResult getSignTask(@RequestParam("openId") String openId){
+    public StateResult getSignTask(@RequestParam("openId") String openId) {
         LoggerManager.info("签到任务成功回调接口被调用");
         String t_id = IdWorkerUtil.generateStringId();
         try {
@@ -433,10 +433,10 @@ public class IntegralFacadeImpl implements IntegralFacade {
             StateResult response = new StateResult();
             response.setState(IntegralConstants.ZERO);
             response.settId(t_id);
-            response.setData(this.getSignTask(IntegralConstants.SOURCE_TWO,userId));
+            response.setData(this.getSignTask(IntegralConstants.SOURCE_TWO, userId));
             LoggerManager.info("签到任务成功回调接口被调用成功");
             return response;
-        }catch (Exception e){
+        } catch (Exception e) {
             LoggerManager.error("签到任务成功回调接口被调用失败");
             LoggerManager.error(e);
             return this.errObj(t_id);

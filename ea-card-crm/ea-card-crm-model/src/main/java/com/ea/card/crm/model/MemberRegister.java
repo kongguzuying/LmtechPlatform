@@ -75,6 +75,8 @@ public class MemberRegister extends DbEntityBase {
     private int trialDay;           //试用天数
     @TableField("auth_refresh_token")
     private String authRefreshToken;//授权RefreshToken
+    @TableField("integral")
+    private long integral;        //积分
 
     @TableField(exist = false)
     private double overTimeDays;    //
@@ -291,5 +293,13 @@ public class MemberRegister extends DbEntityBase {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public long getIntegral() {
+        return integral;
+    }
+
+    public void setIntegral(long integral) {
+        this.integral = integral;
     }
 }

@@ -1,24 +1,5 @@
 package com.ea.card.crm.service.impl;
 
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestTemplate;
-
 import com.alibaba.fastjson.JSONObject;
 import com.ea.card.crm.constants.ErrorConstants;
 import com.ea.card.crm.constants.IntegralConstants;
@@ -30,14 +11,28 @@ import com.ea.card.crm.model.IntegralTradingRecord;
 import com.ea.card.crm.service.IntegralService;
 import com.ea.card.crm.service.IntergralTradingService;
 import com.ea.card.crm.service.exception.IntegralConsumeException;
+import com.ea.card.crm.service.exception.NoEnoughIntegralException;
 import com.ea.card.crm.service.vo.RefreshSettleData;
-import com.ea.card.crm.service.vo.SubmitPreOrderData;
 import com.ea.card.crm.service.vo.ZeroMenoyPayData;
 import com.lmtech.common.StateResult;
 import com.lmtech.dao.Dao;
 import com.lmtech.service.support.AbstractDbManagerBaseImpl;
 import com.lmtech.util.DateUtil;
 import com.lmtech.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
+import java.util.*;
 
 @SuppressWarnings("serial")
 @Service
@@ -112,7 +107,7 @@ public class IntegralTradingServiceImpl extends AbstractDbManagerBaseImpl<Integr
 		long integralNumber = integralData.getSumIntegralNumber();
 		//积分不足
 		if(integralNumber<=request.getConsumptionIntegral()) {
-			throw new IntegralConsumeException(ErrorConstants.ERR_INTEGRAL_LACK_ERROR_MSG,ErrorConstants.ERR_INTEGRAL_LACK_ERROR);
+			throw new NoEnoughIntegralException();
 		}
 		
 		//提交订单

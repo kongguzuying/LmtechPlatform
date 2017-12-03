@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.ea.card.crm.service.exception.NoEnoughIntegralException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -89,7 +90,7 @@ public class OneExchangeIntegralStrategyImpl extends AbstractDbManagerBaseImpl<E
 			long integralNumber = integralData.getSumIntegralNumber();
 			//积分不足
 			if(integralNumber<=integralNum) {
-				throw new IntegralConsumeException(ErrorConstants.ERR_INTEGRAL_LACK_ERROR_MSG,ErrorConstants.ERR_INTEGRAL_LACK_ERROR);
+				throw new NoEnoughIntegralException();
 			}
 			integralService.consumeIntegral(userId, integralNum, IntegralConstants.THERE);
 		}else {
