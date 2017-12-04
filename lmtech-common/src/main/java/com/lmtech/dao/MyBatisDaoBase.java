@@ -6,13 +6,11 @@ import com.lmtech.exceptions.DaoException;
 import com.lmtech.model.EntityBase;
 import com.lmtech.util.ClassUtil;
 import com.lmtech.util.StringUtil;
-import org.apache.ibatis.mapping.MappedStatement;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;

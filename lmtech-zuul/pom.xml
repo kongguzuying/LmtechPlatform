@@ -135,10 +135,10 @@
         <profile>
             <id>test</id>
             <properties>
-                <lmtech.eureka.server>http://172.30.8.218:9999/eureka/</lmtech.eureka.server>
-                <lmtech.config.server>http://172.30.8.218:8888</lmtech.config.server>
+                <lmtech.eureka.server>http://47.100.130.91:9999/eureka/</lmtech.eureka.server>
+                <lmtech.config.server>http://47.100.130.91:8888</lmtech.config.server>
                 <lmtech.config.profile>test</lmtech.config.profile>
-                <lmtech.resource.url>http://172.30.8.218:8421/resource</lmtech.resource.url>
+                <lmtech.resource.url>http://47.100.130.91:8421/resource</lmtech.resource.url>
             </properties>
         </profile>
     </profiles>
