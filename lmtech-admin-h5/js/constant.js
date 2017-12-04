@@ -3,7 +3,7 @@ define('constant', [], function () {
     return {
         basePath: BASE_URL,
         pager: {
-            pageSize: 20
+            pageSize: 12
         },
         page: {
             url: {

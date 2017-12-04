@@ -31,6 +31,9 @@ require.config({
         role_index_ctl: BASE_URL + 'js/module/platform/role/role_index_ctl',
         role_edit_ctl: BASE_URL + 'js/module/platform/role/role_edit_ctl',
         role_user_ctl: BASE_URL + 'js/module/platform/role/role_user_ctl',
+        role_menu_ctl: BASE_URL + 'js/module/platform/role/role_menu_ctl',
+        user_index_ctl: BASE_URL + 'js/module/platform/user/user_index_ctl',
+        user_edit_ctl: BASE_URL + 'js/module/platform/user/user_edit_ctl',
     },
     shim: {
         jquery: {
@@ -103,6 +106,15 @@ require.config({
         },
         role_user_ctl: {
             exports: 'role_user_ctl'
+        },
+        role_menu_ctl: {
+            exports: 'role_menu_ctl'
+        },
+        user_index_ctl: {
+            exports: 'user_index_ctl'
+        },
+        user_edit_ctl: {
+            exports: 'user_edit_ctl'
         }
 
     }

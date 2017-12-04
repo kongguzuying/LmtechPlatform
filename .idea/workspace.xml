@@ -10,54 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0c796b8-9b90-4aed-ad0b-6f3ce81f6e5c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/IntegralLogDao.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/impl/IntegralLogDaoImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/IntegralLogMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/IntegralLogMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralLog.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/IntegralLogService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/exception/NoEnoughIntegralException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralLogServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/ea-card-crm-dao.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/ea-card-crm-dao.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/MemberRegisterMapper.xml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/MemberRegisterMapper.xml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/ea-card-crm-facade.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/ea-card-crm-facade.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/src/main/java/com/ea/card/crm/facade/IntegralFacadeImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/src/main/java/com/ea/card/crm/facade/IntegralFacadeImpl.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/MemberRegister.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/MemberRegister.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralServiceImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralTradingServiceImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralTradingServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/MemberCardServiceImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/MemberCardServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/MemberServiceImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/MemberServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/strategy/impl/OneExchangeIntegralStrategyImpl.java" afterPath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/strategy/impl/OneExchangeIntegralStrategyImpl.java" />
-      <change beforePath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-dao/lmtech-auth-dao.iml" afterPath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-dao/lmtech-auth-dao.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" afterPath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade/lmtech-auth-facade.iml" afterPath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade/lmtech-auth-facade.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" afterPath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" afterPath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-common/lmtech-common.iml" afterPath="$PROJECT_DIR$/lmtech-common/lmtech-common.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/common/PageData.java" afterPath="$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/common/PageData.java" />
-      <change beforePath="$PROJECT_DIR$/lmtech-config/lmtech-config.iml" afterPath="$PROJECT_DIR$/lmtech-config/lmtech-config.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-config/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/lmtech-config/src/main/resources/application.properties" />
-      <change beforePath="$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" afterPath="$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/lmtech-facadeaop-interceptor.iml" afterPath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/lmtech-facadeaop-interceptor.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/src/main/java/com/lmtech/facadeaop/interceptor/FacadeAop.java" afterPath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/src/main/java/com/lmtech/facadeaop/interceptor/FacadeAop.java" />
-      <change beforePath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-dao/lmtech-infrastructure-dao.iml" afterPath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-dao/lmtech-infrastructure-dao.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/lmtech-infrastructure-facade-stub.iml" afterPath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/lmtech-infrastructure-facade-stub.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/lmtech-infrastructure-facade.iml" afterPath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/lmtech-infrastructure-facade.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-model/lmtech-infrastructure-model.iml" afterPath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-model/lmtech-infrastructure-model.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-service/lmtech-infrastructure-service.iml" afterPath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-service/lmtech-infrastructure-service.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" afterPath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" afterPath="$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" afterPath="$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" />
-      <change beforePath="$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" afterPath="$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_menu_ctl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_role_ctl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/edit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/urole.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_edit_ctl.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_edit_ctl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_index_ctl.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_index_ctl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" afterPath="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html" afterPath="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html" />
     </list>
     <ignored path="$PROJECT_DIR$/lmtech-eureka/target/" />
     <ignored path="$PROJECT_DIR$/lmtech-zuul/target/" />
@@ -111,7 +77,6 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
@@ -120,99 +85,38 @@
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
     <expand>
       <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - connect@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - connect@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="MySQL - connect@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="connect: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="MySQL - connect@localhost" type="e3449647:DbNodeDescriptor" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lmtech-config/src/main/resources/application.properties">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="52" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberCardServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/MemberCardServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+            <state relative-caret-position="1750">
+              <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ea-card-crm-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-local.yml">
+      <file leaf-file-name="user_index_ctl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_index_ctl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1125">
-              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="400">
+              <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lmtech-scheduler-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-scheduler-local.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lmtech-zuul-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-local.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1189">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lmtech-zuul-test.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-test.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ea-card-crm-test.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-test.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lmtech-admin-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-admin-local.yml">
+      <file leaf-file-name="index_ctl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/index_ctl.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -221,21 +125,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lmtech-infrastructure-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-infrastructure-local.yml">
+      <file leaf-file-name="user_role_ctl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_role_ctl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="366">
+              <caret line="129" column="46" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lmtech-auth-local.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-auth-local.yml">
+      <file leaf-file-name="role_menu_ctl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_menu_ctl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="316">
+              <caret line="139" column="56" lean-forward="false" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="role_user_ctl.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2639">
+              <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constant.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/constant.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="35" column="74" lean-forward="false" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1261">
+              <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_edit_ctl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_edit_ctl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1125">
+              <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -256,23 +210,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>serialNumberInterceptor</find>
-      <find>send_wechat_message</find>
-      <find>url_oa_exist_user</find>
-      <find>URL_OA_EXIST_USER</find>
-      <find>existOaUser</find>
-      <find>url_uc_getintegeral</find>
-      <find>nextDaybonus</find>
-      <find>old_getIntegralData</find>
-      <find>getIntegralData</find>
-      <find>integral</find>
-      <find>URL_UC_GETINTEGRAL</find>
-      <find>integralSign</find>
-      <find>integralChange</find>
-      <find>URL_UC_INTEGRALSIGN</find>
-      <find>list</find>
-      <find>getItems</find>
-      <find>URL_UC_INTEGRALDETAILS</find>
       <find>uc_getsmscode</find>
       <find>URL_UC_GETSMSCODE</find>
       <find>uc_register</find>
@@ -286,6 +223,23 @@
       <find>URL_UC_GET_MEMBER_EXT</find>
       <find>URL_LOGIN4WAP</find>
       <find>url_uc_finduser</find>
+      <find>授权过程中</find>
+      <find>_showResult</find>
+      <find>getUser</find>
+      <find>data</find>
+      <find>getTrClass</find>
+      <find>item</find>
+      <find>getUserMenus</find>
+      <find>getAllSortMenu</find>
+      <find>sel</find>
+      <find>selectedIds</find>
+      <find>defaults</find>
+      <find>_initAuthedItems</find>
+      <find>Role</find>
+      <find>role</find>
+      <find>user_index_ctl</find>
+      <find>20</find>
+      <find>_addAuthItems</find>
     </findStrings>
     <replaceStrings>
       <replace>${resourceUrl}</replace>
@@ -303,6 +257,7 @@
       <replace>'</replace>
       <replace />
       <replace>,</replace>
+      <replace>User</replace>
     </replaceStrings>
     <dirStrings>
       <dir>F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin</dir>
@@ -311,7 +266,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../GitConfig/LmtechConfigServer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -321,31 +276,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/src/main/java/com/ea/card/crm/admin/facade/request/MemberRegisterPageRequest.java" />
-        <option value="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/src/main/java/com/ea/card/crm/admin/facade/request/RechargePayRecordPageRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/CodeItemPageRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/CodeTypePageRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/RolePageRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/RoleResourcePgaeRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/RoleUserPageRequest.java" />
-        <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/SystemConfigPageRequest.java" />
         <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/UserPageRequest.java" />
         <option value="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/src/main/java/com/lmtech/infrastructure/facade/request/UserRolePageRequest.java" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array_util.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/menu/index.html" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/css/custom.css" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html" />
         <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array-util.js" />
-        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" />
         <option value="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/src/main/java/com/lmtech/facadeaop/interceptor/SerialNumberInterceptor.java" />
         <option value="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/src/main/java/com/lmtech/facadeaop/interceptor/FacadeAop.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/cb930bcb-2a5d-4e55-a5db-6be63572de10/console.sql" />
@@ -372,6 +314,19 @@
         <option value="$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-auth-local.yml" />
         <option value="$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-scheduler-local.yml" />
         <option value="$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-test.yml" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_menu_ctl.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/index.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_edit_ctl.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/main.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/edit.html" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_index_ctl.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/constant.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_role_ctl.js" />
+        <option value="$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js" />
       </list>
     </option>
   </component>
@@ -429,188 +384,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-dao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="crm" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
-              <item name="ea-card-crm-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LmtechConfigServer" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -628,7 +401,189 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
+              <item name="ea-card-crm-facade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
+              <item name="ea-card-crm-facade" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
+              <item name="ea-card-crm-facade" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ea-card-crm" type="462c0819:PsiDirectoryNode" />
+              <item name="ea-card-crm-facade" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LmtechPlatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lmtech-admin-h5" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="platform" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -653,15 +608,15 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\module\platform\menu" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\module" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\plugins\jquery" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\plugins\elfinder" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.lmtech.auth" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MyProject\LmtechPlatform\lmtech-admin-h5\js\module\platform\user" />
+      <recent name="F:\MyProject\LmtechPlatform\lmtech-admin-h5\page\platform\user" />
+      <recent name="F:\MyProject\LmtechPlatform\lmtech-admin-h5\js\module\platform\role" />
+      <recent name="D:\JavaProject\LmtechPlatform\ea-card-crm\ea-card-crm-dao\src\main\java\com\ea\card\crm\mapper" />
+      <recent name="D:\JavaProject\LmtechPlatform\lmtech-facadeaop\lmtech-facadeaop-interceptor\src\main\java\com\lmtech\facadeaop\interceptor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ea.card.crm.service.vo" />
@@ -670,12 +625,12 @@
       <recent name="com.ea.card.crm.service.impl" />
       <recent name="com.ea.card.crm.service" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JavaProject\LmtechPlatform\ea-card-crm\ea-card-crm-dao\src\main\java\com\ea\card\crm\mapper" />
-      <recent name="D:\JavaProject\LmtechPlatform\lmtech-facadeaop\lmtech-facadeaop-interceptor\src\main\java\com\lmtech\facadeaop\interceptor" />
-      <recent name="F:\MyProject\LmtechPlatform\lmtech-admin-h5\js\module\platform\role" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\page\platform\role" />
-      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\module\platform\role" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\module\platform\menu" />
+      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js" />
+      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\module" />
+      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\plugins\jquery" />
+      <recent name="F:\XingLianProject\xinglian_connect\xinglian_connect\server\lmtech-admin-h5\js\plugins\elfinder" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -690,7 +645,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.lmtech-eureka">
+  <component name="RunManager" selected="Tomcat Server.lmtech-admin-h5">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -759,6 +714,108 @@
       <module name="ea-card-crm-dao" />
       <envs />
     </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_server" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60245" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
     <configuration name="ea-card-crm-admin" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -812,6 +869,150 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
+    </configuration>
+    <configuration name="lmtech-admin-h5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <file path="$PROJECT_DIR$/lmtech-admin-h5">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_server_2" />
+        <option name="HTTP_PORT" value="8085" />
+        <option name="JNDI_PORT" value="1098" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60245" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+    </configuration>
+    <configuration name="lmtech-admin" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <deployment>
+        <artifact name="lmtech-admin:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_server" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60245" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="lmtech-admin:war exploded" />
+        </option>
+      </method>
     </configuration>
     <configuration name="lmtech-auth" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -1070,301 +1271,7 @@
         </option>
       </MavenSettings>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ea.card.crm.Application" />
-      <module name="ea-card-crm-facade" />
-      <envs />
-    </configuration>
-    <configuration name="Application (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.scheduler.Application" />
-      <module name="lmtech-scheduler" />
-      <envs />
-    </configuration>
-    <configuration name="Application (3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.auth.Application" />
-      <module name="lmtech-auth-facade" />
-      <envs />
-    </configuration>
-    <configuration name="Application (4)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.infrastructure.Application" />
-      <module name="lmtech-infrastructure-facade" />
-      <envs />
-    </configuration>
-    <configuration name="Application (5)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.cloud.eureka.Application" />
-      <module name="lmtech-eureka" />
-      <envs />
-    </configuration>
-    <configuration name="Application (6)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.cloud.zuul.Application" />
-      <module name="lmtech-zuul" />
-      <envs />
-    </configuration>
-    <configuration name="Application (7)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lmtech.server.admin.Application" />
-      <module name="lmtech-server-admin" />
-      <envs />
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ea.card.crm.admin.Application" />
-      <module name="ea-card-crm-admin-facade" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment />
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_server" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60245" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-    </configuration>
-    <configuration name="lmtech-admin-h5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
-      <deployment>
-        <file path="$PROJECT_DIR$/lmtech-admin-h5">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </file>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_server_2" />
-        <option name="HTTP_PORT" value="8085" />
-        <option name="JNDI_PORT" value="1098" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60245" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-    </configuration>
-    <configuration name="lmtech-admin" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.45" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
-      <deployment>
-        <artifact name="lmtech-admin:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_server" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="60245" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="lmtech-admin:war exploded" />
-        </option>
-      </method>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <list size="20">
+    <list size="12">
       <item index="0" class="java.lang.String" itemvalue="Maven.lmtech-scheduler" />
       <item index="1" class="java.lang.String" itemvalue="Maven.lmtech-server-admin" />
       <item index="2" class="java.lang.String" itemvalue="Maven.lmtech-infrastructure" />
@@ -1377,14 +1284,6 @@
       <item index="9" class="java.lang.String" itemvalue="Maven.lmtech-eureka" />
       <item index="10" class="java.lang.String" itemvalue="Tomcat Server.lmtech-admin-h5" />
       <item index="11" class="java.lang.String" itemvalue="Tomcat Server.lmtech-admin" />
-      <item index="12" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="13" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
-      <item index="14" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
-      <item index="15" class="java.lang.String" itemvalue="Spring Boot.Application (3)" />
-      <item index="16" class="java.lang.String" itemvalue="Spring Boot.Application (4)" />
-      <item index="17" class="java.lang.String" itemvalue="Spring Boot.Application (5)" />
-      <item index="18" class="java.lang.String" itemvalue="Spring Boot.Application (6)" />
-      <item index="19" class="java.lang.String" itemvalue="Spring Boot.Application (7)" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1498,7 +1397,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1449744000" />
+    <option name="totallyTimeSpent" value="1456749000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1510,13 +1409,45 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35939196" sideWeight="0.51226014" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18656716" sideWeight="0.49382716" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17803837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3626493" sideWeight="0.4904051" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.320304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45869565" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3902174" sideWeight="0.48773986" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33659065" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19989339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3651316" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35197368" sideWeight="0.5151286" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17549168" sideWeight="0.49382716" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18154311" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1524,30 +1455,61 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3626493" sideWeight="0.4904051" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31907895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45869565" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.171875" sideWeight="0.50617284" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35197368" sideWeight="0.48487142" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33552632" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19969743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3651316" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35197368" sideWeight="0.5151286" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17549168" sideWeight="0.49382716" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18154311" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20895523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3626493" sideWeight="0.4904051" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31907895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45869565" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35197368" sideWeight="0.48487142" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.171875" sideWeight="0.50617284" order="10" side_tool="true" content_ui="tabs" />
-    </layout>
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33552632" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19969743" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3651316" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1576,305 +1538,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralSignLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/IntegralLotteryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralLottery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/IntegralLotteryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/IntegralRuleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/CardPresentRecordDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/IntegralLogDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/IntegralLotteryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/dao/impl/IntegralLogDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/IntegralLogService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/src/main/java/com/ea/card/crm/facade/response/GetIntegralResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralLogServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="50" lean-forward="true" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-          <folding>
-            <element signature="e#596#597#0" expanded="false" />
-            <element signature="e#633#634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/exception/IntegralConsumeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="e#229#230#0" expanded="false" />
-            <element signature="e#270#271#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/exceptions/ErrorCodeException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/exception/NoCardForReceiveException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/strategy/impl/OneExchangeIntegralStrategyImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="92" column="52" lean-forward="false" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/impl/IntegralTradingServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="112" column="14" lean-forward="true" selection-start-line="112" selection-start-column="14" selection-end-line="112" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/exception/NoEnoughIntegralException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/constants/ErrorConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="152" column="31" lean-forward="false" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/src/main/java/com/ea/card/crm/facade/response/IntegralMemberDetailSchema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus/2.0.2/mybatis-plus-2.0.2.jar!/com/baomidou/mybatisplus/mapper/BaseMapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/dao/LmtechBaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/MemberRegisterMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="128" column="37" lean-forward="true" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cb930bcb-2a5d-4e55-a5db-6be63572de10/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/constants/IntegralConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/IntegralLogMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/service/DbManagerBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="71" column="24" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmtech-common/src/main/java/com/lmtech/service/support/AbstractDbManagerBaseImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="172" column="49" lean-forward="true" selection-start-line="172" selection-start-column="49" selection-end-line="172" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/src/main/java/com/ea/card/crm/mapper/IntegralLogMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#624#625#0" expanded="false" />
-            <element signature="e#651#652#0" expanded="false" />
-            <element signature="e#688#689#0" expanded="false" />
-            <element signature="e#720#721#0" expanded="false" />
-            <element signature="e#750#751#0" expanded="false" />
-            <element signature="e#779#780#0" expanded="false" />
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#856#857#0" expanded="false" />
-            <element signature="e#889#890#0" expanded="false" />
-            <element signature="e#918#919#0" expanded="false" />
-            <element signature="e#962#963#0" expanded="false" />
-            <element signature="e#998#999#0" expanded="false" />
-            <element signature="e#1032#1033#0" expanded="false" />
-            <element signature="e#1062#1063#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1146#1147#0" expanded="false" />
-            <element signature="e#1179#1180#0" expanded="false" />
-            <element signature="e#1210#1211#0" expanded="false" />
-            <element signature="e#1256#1257#0" expanded="false" />
-            <element signature="e#1296#1297#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/src/main/java/com/ea/card/crm/facade/response/IntegralDetailsResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="65" lean-forward="false" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1882,10 +1549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="30" column="55" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="55" />
-          <folding>
-            <element signature="e#703#704#0" expanded="false" />
-            <element signature="e#735#736#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1893,9 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="68" column="31" lean-forward="false" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-          <folding>
-            <element signature="e#1493#1494#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1903,7 +1563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
           <caret line="172" column="24" lean-forward="false" selection-start-line="172" selection-start-column="24" selection-end-line="172" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1911,7 +1570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1919,7 +1577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="137" column="13" lean-forward="false" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1927,7 +1584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="70" lean-forward="false" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1936,9 +1592,9 @@
         <state relative-caret-position="325">
           <caret line="57" column="44" lean-forward="false" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#21214#21215#0" expanded="true" />
-            <element signature="e#21265#21266#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#21214#21215#0" expanded="false" />
+            <element signature="e#21265#21266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1947,7 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="52" lean-forward="false" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1955,13 +1610,237 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="53" column="46" lean-forward="false" selection-start-line="53" selection-start-column="46" selection-end-line="53" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-local.yml.bak" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-admin-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-infrastructure-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-auth-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-scheduler-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-local.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-test.yml" />
+    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-test.yml" />
+    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralLottery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/src/main/java/com/ea/card/crm/model/IntegralLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-local.yml.bak">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/array-util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="49" column="68" lean-forward="true" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="1" lean-forward="false" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/ui_elements.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2450">
+          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/ruser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="47" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/vue/vue-comps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1255">
+          <caret line="76" column="8" lean-forward="false" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/menu/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/src/main/java/com/lmtech/infrastructure/facade/MenuFacadeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="84" column="24" lean-forward="false" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/menu/menu_index_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="51" column="35" lean-forward="false" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/rmenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="71" column="125" lean-forward="false" selection-start-line="71" selection-start-column="114" selection-end-line="71" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="82" lean-forward="true" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/plugins/ui/jquery.treeTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding>
+            <marker date="1510624059117" expanded="true" signature="6639:6717" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_index_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="53" lean-forward="true" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/role/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_edit_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1750">
+          <caret line="70" column="17" lean-forward="false" selection-start-line="70" selection-start-column="17" selection-end-line="70" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="35" column="74" lean-forward="false" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/page/platform/user/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1261">
+          <caret line="57" column="7" lean-forward="false" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_edit_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_index_ctl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/index_ctl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1969,66 +1848,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-admin-local.yml">
+    <entry file="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/src/main/java/com/ea/card/crm/service/util/EncodeConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="175">
+          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-infrastructure-local.yml">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_menu_ctl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="316">
+          <caret line="139" column="56" lean-forward="false" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-auth-local.yml">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/user/user_role_ctl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="366">
+          <caret line="129" column="46" lean-forward="false" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-local.yml">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/constant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1125">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="395">
+          <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-scheduler-local.yml">
+    <entry file="file://$PROJECT_DIR$/lmtech-admin-h5/js/module/platform/role/role_user_ctl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-local.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1189">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/lmtech-zuul-test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/ea-card-crm-test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="-2639">
+          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
           <folding />
         </state>
       </provider>

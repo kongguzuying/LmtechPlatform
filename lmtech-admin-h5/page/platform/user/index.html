@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="">
+<html xmlns:v-bind="" xmlns:v-on="">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
@@ -8,7 +7,6 @@
 </head>
 
 <body class="body">
-
 <div class="row" id="data">
     <!--<div class="row-fluid">
         <div class="span3">
@@ -30,35 +28,32 @@
     <div class="widget">
         <div class="title">
             <img src="../../../images/icons/dark/full2.png" alt="" class="titleIcon">
-            <h6>角色管理</h6>
+            <h6>用户管理</h6>
             <div class="title-action">
-                <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addRole"><img src="../../../images/icons/color/plus.png" alt=""></a>
+                <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addUser"><img src="../../../images/icons/color/plus.png" alt=""></a>
             </div>
         </div>
         <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
             <thead>
             <tr>
-                <th width="12%">角色名称</th>
-                <th width="8%">级别</th>
-                <th width="20%">角色描述</th>
-                <th width="10%">是否可用</th>
-                <th width="10%">更新时间</th>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>QQ</th>
                 <th>操作</th>
             </tr>
             </thead>
             <tbody>
             <tr v-cloak v-for="item in pageData.items">
                 <td>{{item.name}}</td>
-                <td>{{item.level}}</td>
-                <td>{{item.remark}}</td>
-                <td>{{item.enable}}</td>
-                <td>{{item.updateDate}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.qq}}</td>
                 <td>
                     <div class="btn-group">
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="editRole(item.id)">编辑</a>
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="authUser(item.id)">授权用户</a>
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="authMenu(item.id)">授权菜单</a>
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="removeRole(item.id)">删除</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="editUser(item.id)">编辑</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="authUser(item.id)">授权角色</a>
+                        <a href="javascript:void(0)" class="btn btn-default btn-xs" @click="removeUser(item.id)">删除</a>
                     </div>
                 </td>
             </tr>
@@ -72,7 +67,7 @@
 <script type="text/javascript" src="../../../js/require.js"></script>
 <script type="text/javascript" src="../../../js/main.js"></script>
 <script type="text/javascript">
-    require(['role_index_ctl'], function (c) {
+    require(['user_index_ctl'], function (c) {
         c.init();
     });
 </script>

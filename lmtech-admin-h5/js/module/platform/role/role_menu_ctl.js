@@ -1,4 +1,4 @@
-define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], function ($, Vue, C, util, arrayUtil) {
+define('role_menu_ctl', ['jquery', 'jquery_treeTable', 'vue', 'constant', 'util', 'array_util'], function ($, tb, Vue, C, util, arrayUtil) {
     return {
         init: function () {
             var that = this;
@@ -9,16 +9,16 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             var url, data;
             if (type == 0) {
                 //全部数据
-                url = C.service.url.getUserOfPage;
-                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {} };
+                url = C.service.url.getAllMenus;
+                data  = util.buildRequest(util.getUserId());
             } else if (type == 1) {
                 //已授权数据
-                url = C.service.url.getRoleUserOfPage;
-                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, roleId: roleId };
+                url = C.service.url.getRoleMenus;
+                data  = util.buildRequest(roleId);
             } else if (type == 2) {
                 //未授权数据
-                url = C.service.url.getRoleUnauthUserOfPage;
-                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, roleId: roleId };
+                url = C.service.url.getRoleUnauthMenus;
+                data  = util.buildRequest(roleId);
             } else {
                 console.log('未知的type:' + type);
             }
@@ -34,7 +34,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                             selectedIds: [],
                             allIds: [],
                             unSelectedIds: [],
-                            pageData: data,
+                            menus: data,
                             isCheckAll: false
                         },
                         watch: {
@@ -49,13 +49,13 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                         },
                         computed: {
                             allHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=0";
+                                return "rmenu.html?roleId=" + roleId + "&type=0";
                             },
                             authHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=1";
+                                return "rmenu.html?roleId=" + roleId + "&type=1";
                             },
                             unAuthHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=2";
+                                return "rmenu.html?roleId=" + roleId + "&type=2";
                             }
                         },
                         methods: {
@@ -79,17 +79,26 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                                     var result = that._addAuthItems(roleId, selIds);
                                     that._showResult(result);
                                 }
+                            },
+                            getTrClass: function (menu) {
+                                if (!menu.root) {
+                                    return 'child-of-' + menu.parentId;
+                                } else {
+                                    return null;
+                                }
                             }
                         },
                         mounted: function () {
                             console.log('mounted');
+                            $('.treeTable').treeTable({initialState: 'expanded'});
                         }
                     });
 
                     //设置allIds
-                    var allIds = that._getDataIds(data.items);
+                    var allIds = that._getDataIds(data);
                     v.$data.allIds = allIds;
                     that._initAuthedItems(v, allIds);
+                    that.v = v;
                 }
             });
         },
@@ -99,7 +108,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             param.roleId = roleId;
             param.authIds = authIds;
             util.httpPost({
-                url: C.service.url.addRoleUsers,
+                url: C.service.url.addRoleMenus,
                 async: false,
                 data: param,
                 success: function (data) {
@@ -114,7 +123,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             param.roleId = roleId;
             param.authIds = unAuthIds;
             util.httpPost({
-                url: C.service.url.removeRoleUsers,
+                url: C.service.url.removeRoleMenus,
                 async: false,
                 data: param,
                 success: function (data) {
@@ -127,11 +136,14 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             var that = this;
             //设置已授权用户角色
             util.httpPost({
-                url: C.service.url.queryUserRoles,
+                url: C.service.url.getRoleMenus,
                 data: util.buildRequest(v.$data.roleId),
                 success: function (data) {
                     var selIds = arrayUtil.getSameDataOfArray(that._getDataIds(data), allIds);
                     v.$data.selectedIds = selIds;
+                    for (var i = 0; i < selIds.length; i++) {
+                        $('input[mid="' + selIds[i] + '"]').attr('checked', 'checked');
+                    }
                 }
             });
         },

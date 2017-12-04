@@ -1,24 +1,24 @@
-define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], function ($, Vue, C, util, arrayUtil) {
+define('user_role_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], function ($, Vue, C, util, arrayUtil) {
     return {
         init: function () {
             var that = this;
             util.checkToken();
 
-            var roleId = util.getParam('roleId');
+            var userId = util.getParam('userId');
             var type = util.getParam('type');
             var url, data;
             if (type == 0) {
                 //全部数据
-                url = C.service.url.getUserOfPage;
+                url = C.service.url.getRoleOfPage;
                 data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {} };
             } else if (type == 1) {
                 //已授权数据
-                url = C.service.url.getRoleUserOfPage;
-                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, roleId: roleId };
+                url = C.service.url.getUserRoleOfPage;
+                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, userId: userId };
             } else if (type == 2) {
                 //未授权数据
-                url = C.service.url.getRoleUnauthUserOfPage;
-                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, roleId: roleId };
+                url = C.service.url.getUserUnauthRoleOfPage;
+                data  = { pageIndex: 1, pageSize: C.pager.pageSize, pageParam: {}, userId: userId };
             } else {
                 console.log('未知的type:' + type);
             }
@@ -29,7 +29,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                     var v = new Vue({
                         el: '#data',
                         data: {
-                            roleId: roleId,
+                            userId: userId,
                             type: type,
                             selectedIds: [],
                             allIds: [],
@@ -49,13 +49,13 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                         },
                         computed: {
                             allHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=0";
+                                return "urole.html?userId=" + userId + "&type=0";
                             },
                             authHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=1";
+                                return "urole.html?userId=" + userId + "&type=1";
                             },
                             unAuthHref: function() {
-                                return "ruser.html?roleId=" + roleId + "&type=2";
+                                return "urole.html?userId=" + userId + "&type=2";
                             }
                         },
                         methods: {
@@ -67,16 +67,16 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
 
                                 if (type == 0) {
                                     //全部数据
-                                    var result1 = that._addAuthItems(roleId, selIds);
-                                    var result2 = that._addUnAuthItems(roleId, unSelIds);
+                                    var result1 = that._addAuthItems(userId, selIds);
+                                    var result2 = that._addUnAuthItems(userId, unSelIds);
                                     that._showResult(result1 && result2);
                                 } else if (type == 1) {
                                     //已授权数据
-                                    var result = that._addUnAuthItems(roleId, unSelIds);
+                                    var result = that._addUnAuthItems(userId, unSelIds);
                                     that._showResult(result);
                                 } else if (type == 2) {
                                     //未授权数据
-                                    var result = that._addAuthItems(roleId, selIds);
+                                    var result = that._addAuthItems(userId, selIds);
                                     that._showResult(result);
                                 }
                             }
@@ -93,13 +93,13 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
                 }
             });
         },
-        _addAuthItems: function (roleId, authIds) {
+        _addAuthItems: function (userId, authIds) {
             var result = false;
             var param = util.buildRequest();
-            param.roleId = roleId;
+            param.userId = userId;
             param.authIds = authIds;
             util.httpPost({
-                url: C.service.url.addRoleUsers,
+                url: C.service.url.addUserRoles,
                 async: false,
                 data: param,
                 success: function (data) {
@@ -114,7 +114,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             param.roleId = roleId;
             param.authIds = unAuthIds;
             util.httpPost({
-                url: C.service.url.removeRoleUsers,
+                url: C.service.url.removeUserRoles,
                 async: false,
                 data: param,
                 success: function (data) {
@@ -127,7 +127,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
             var that = this;
             //设置已授权用户角色
             util.httpPost({
-                url: C.service.url.queryUserRoles,
+                url: C.service.url.getUserRoleOfPage,
                 data: util.buildRequest(v.$data.roleId),
                 success: function (data) {
                     var selIds = arrayUtil.getSameDataOfArray(that._getDataIds(data), allIds);
@@ -137,6 +137,7 @@ define('role_user_ctl', ['jquery', 'vue', 'constant', 'util', 'array_util'], fun
         },
         _getDataIds: function (data) {
             if (data && data.length > 0) {
+                var items = data.items;
                 var ids = [];
                 for (var i = 0; i < data.length; i++) {
                     ids.push(data[i].id);

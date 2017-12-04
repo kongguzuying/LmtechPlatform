@@ -44,7 +44,7 @@ define('util', ['jquery', 'jquery_ui', 'constant'], function ($, ui, C) {
                 contentType: (options.contentType ? options.contentType : "application/json"),
                 dataType: (options.dataType ? options.dataType : "json"),
                 data: (options.data ? JSON.stringify(options.data) : null),
-                async: (options.async ? options.async : true),
+                async: (typeof options.async != 'undefined' ? options.async : true),
                 success: function (data) {
                     if (data.success) {
                         if (options.success) {

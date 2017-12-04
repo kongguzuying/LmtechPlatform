@@ -1,21 +1,17 @@
-define('menu_edit_ctl', ['jquery', 'vue', 'constant', 'util', 'index_ctl'], function ($, Vue, C, util, index) {
+define('user_edit_ctl', ['jquery', 'jquery_validate', 'vue', 'constant', 'util'], function ($, $valid, Vue, C, util) {
     return {
         init: function () {
             var that = this;
             util.checkToken();
 
             var id = util.getParam('id');
-            var parentId = util.getParam('parentId');
-            var parentName = util.getParam('parentName');
             if (id) {
                 util.httpPost({
-                    url: C.service.url.getMenu,
+                    url: C.service.url.getUser,
                     data: util.buildRequest(id),
                     success: function (data) {
                         that._buildVuePage({
                             id: id,
-                            parentId: parentId,
-                            parentName: parentName,
                             entity: data
                         });
                     }
@@ -23,18 +19,12 @@ define('menu_edit_ctl', ['jquery', 'vue', 'constant', 'util', 'index_ctl'], func
             } else {
                 that._buildVuePage({
                     id: id,
-                    parentId: '0',
-                    parentName: '',
                     entity: {
-                        parentId: '0',
                         visible: true
                     }
                 });
             }
-
-            if (parentId == "0") {
-                $("#parentName").val("根菜单");
-            }
+            that._buildValidForm();
         },
         _buildVuePage: function (data) {
             var v = new Vue({
@@ -42,56 +32,57 @@ define('menu_edit_ctl', ['jquery', 'vue', 'constant', 'util', 'index_ctl'], func
                 data: data,
                 methods: {
                     submit: function () {
-                        v.$data.entity.parentId = v.$data.parentId;
-                        v.$data.entity.parentName = v.$data.parentName;
                         var reqData = util.buildRequest(v.$data.entity);
-                        var url = (v.$data.entity.id ? C.service.url.editMenu : C.service.url.addMenu);
+                        var url = (v.$data.entity.id ? C.service.url.editUser : C.service.url.addUser);
                         util.httpPost({
                             url: url,
                             data: reqData,
                             success: function (data) {
-                                alert('维护菜单成功！');
+                                alert('维护用户数据成功！');
                                 window.location.href='index.html';
                             }
                         });
-                    },
-                    setParentMenu: function (entity) {
-                        var id = entity.id;
-                        var parentId = v.$data.parentId;
-                        top.indexCtl.showDialog({
-                            width: 800,
-                            height: 500,
-                            title: '父菜单 - 设置',
-                            url: C.basePath + 'page/platform/menu/selparent.html?id=' + (id ? id : "") + '&parentId=' + (parentId ? parentId : '0'),
-                            opener: window,
-                            refreshFinish: false,
-                            okFunc: function () {
-                                var content = top.indexCtl.getDialogContent();
-                                var parentId = content.find('#parentId').val();
-                                var parentName = content.find('#parentName').val();
-
-                                if (parentId) {
-                                    v.$data.parentId = parentId;
-                                    v.$data.parentName = parentName;
-                                } else {
-                                    v.$data.parentId = '0';
-                                    v.$data.parentName = '根菜单';
-                                }
-                            }
-                        });
-                    },
-                    setRootMenu: function () {
-                        $('#parentId').val('0');
-                        $('#parentName').val('根菜单');
-                    },
-                    changeIcon: function (obj) {
-                        $('#icon_img').attr('class', "").addClass('fa icon_fa').addClass($(obj).val());
                     }
                 },
                 mounted: function () {
                     console.log('mounted');
                 }
             });
+        },
+        _buildValidForm: function () {
+            $("form").validate({
+                rules: {
+                    "name":  {
+                        required: true,
+                        maxlength: 50
+                    },
+                    "email":  {
+                        email: true
+                    },
+                    "mobile":  {
+                        number : true
+                    },
+                    "qq":  {
+                        number : true
+                    }
+                },
+                messages: {
+                    "name": {
+                        required: "请输入姓名",
+                        maxlength: "最多输入50个字符"
+                    },
+                    "email":  {
+                        email: "请输入正确格式"
+                    },
+                    "mobile":  {
+                        number: "请输入正确格式"
+                    },
+                    "qq":  {
+                        number: "请输入正确格式"
+                    }
+                }
+            });
+            return $("form").valid();
         }
     }
 });
