@@ -102,6 +102,34 @@ public class CollectionUtil {
 		return result;
 	}
 	/**
+	 * 将byte列表转换为字符串列表
+	 * @param bytes
+	 * @return
+	 */
+	public static List<String> convertByteToStringList(List<byte[]> bytes) {
+		List<String> result = new ArrayList<>();
+		if (bytes != null && bytes.size() > 0) {
+			for (byte[] item : bytes) {
+				result.add(new String((item)));
+			}
+		}
+		return result;
+	}
+	/**
+	 * 将byteMap转换为字符串Map
+	 * @param bytes
+	 * @return
+	 */
+	public static Map<String, String> convertByteToStringMap(Map<byte[], byte[]> bytes) {
+		Map<String, String> result = new HashMap<>();
+		if (bytes != null && bytes.size() > 0) {
+			for (byte[] key : bytes.keySet()) {
+				result.put(new String(key), new String(bytes.get(key)));
+			}
+		}
+		return result;
+	}
+	/**
 	 * 将对象集合转为对象列表
 	 * @param objs
 	 * @return

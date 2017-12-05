@@ -5,17 +5,19 @@ import com.lmtech.redis.constants.RedisConstants;
 import com.lmtech.redis.constants.RedisQueueStatus;
 import com.lmtech.redis.exception.RedisJsonParseException;
 import com.lmtech.redis.service.RedisDataService;
+import com.lmtech.redis.service.RedisInvoker;
 import com.lmtech.util.CollectionUtil;
 import com.lmtech.util.JsonUtil;
 import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.Pipeline;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,14 +34,34 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	private String REDIS_KEY_PREFIX = "ea_card_crm:";
 
+	@Autowired
+	private LmRedisConnectionFactory redisConnectionFactory;
+
 	@Override
 	public String getKey(String key) {
-		Jedis client = this.getJedis();
-		return client.get(getRedisKey(key));
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
+		}
+
+		RedisInvoker<String> redisInvoker = new RedisInvoker<String>(redisConnectionFactory) {
+			@Override
+			public String invoke(RedisConnection connection) {
+				byte[] result = connection.get(getRedisKey(key).getBytes());
+				if (result != null) {
+					return new String(result);
+				} else {
+					return null;
+				}
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
 	public <T> T getKeyObject(String key, Class<?> type) {
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
+		}
 		return getKeyObject(getRedisKey(key), type, false);
 	}
 
@@ -65,28 +87,42 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	@Override
 	public List<String> getKeys(List<String> keys) {
-		List<String> result = new ArrayList<String>();
 		if (CollectionUtil.isNullOrEmpty(keys)) {
-			return result;
+			throw new IllegalArgumentException("传入key列表不允许为空");
 		}
 
-		Jedis client = this.getJedis();
-		Pipeline pipeline = client.pipelined();
-		for (String key : keys) {
-			pipeline.get(getRedisKey(key));
-		}
-		List<Object> values = pipeline.syncAndReturnAll();
-		for (Object value : values) {
-			result.add(String.valueOf(value));
-		}
-		return result;
+		RedisInvoker<List<String>> redisInvoker = new RedisInvoker<List<String>>(redisConnectionFactory) {
+			@Override
+			public List<String> invoke(RedisConnection connection) {
+				List<String> result = new ArrayList<String>();
+				connection.openPipeline();
+				for (String key : keys) {
+					connection.get(getRedisKey(key).getBytes());
+				}
+				List<Object> values = connection.closePipeline();
+				for (Object value : values) {
+					result.add(String.valueOf(value));
+				}
+				return result;
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
 	public boolean setKey(String key, String value) {
-		Jedis client = this.getJedis();
-		client.set(getRedisKey(key), value);
-		return true;
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.set(getRedisKey(key).getBytes(), value.getBytes());
+				return true;
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
@@ -97,72 +133,148 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	@Override
 	public boolean setKey(String key, String value, String nxxx, long expireTime) {
-		if (expireTime <= 0) {
-			throw new RuntimeException("redis expire time must > 0");
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
 		}
-		Jedis client = this.getJedis();
-		client.set(getRedisKey(key), value, nxxx, "EX"/*seconds*/, expireTime);
-		return true;
+		if (expireTime <= 0) {
+			throw new IllegalArgumentException("redis expire time must > 0");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.setEx(getRedisKey(key).getBytes(), expireTime, value.getBytes());
+				return true;
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
 	public boolean setKeyObject(String key, Object object, String nxxx, long expireTime) {
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
+		}
+		if (expireTime <= 0) {
+			throw new IllegalArgumentException("redis expire time must > 0");
+		}
+
 		String json = JsonUtil.toJson(object);
 		return this.setKey(getRedisKey(key), json, nxxx, expireTime);
 	}
 
 	@Override
 	public void removeKey(String key) {
-		Jedis client = this.getJedis();
-		client.del(getRedisKey(key));
+		if (StringUtil.isNullOrEmpty(key)) {
+			throw new IllegalArgumentException("传入key不允许为空");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.del(getRedisKey(key).getBytes());
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 
 	@Override
 	public void removeKeys(List<String> keys) {
-		Jedis client = this.getJedis();
-		Pipeline pipeline = client.pipelined();
-		for (String key : keys) {
-			pipeline.del(getRedisKey(key));
+		if (CollectionUtil.isNullOrEmpty(keys)) {
+			throw new IllegalArgumentException("传入key列表不允许为空");
 		}
-		pipeline.syncAndReturnAll();
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.openPipeline();
+				for (String key : keys) {
+					connection.del(getRedisKey(key).getBytes());
+				}
+				connection.closePipeline();
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 
 	@Override
 	public void setExpireTime(String key, int seconds) {
-		Jedis client = this.getJedis();
-		client.expire(getRedisKey(key), seconds);
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.expire(getRedisKey(key).getBytes(), seconds);
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 
 	@Override
 	public Map<String, String> get(String tableName, String id) {
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
+		}
+		if (StringUtil.isNullOrEmpty(id)) {
+			throw new IllegalArgumentException("传入id不允许为空");
+		}
+
 		String key = this.getStoreKey(tableName, id);
-		Jedis client = this.getJedis();
-		return client.hgetAll(getRedisKey(key));
+		RedisInvoker<Map<String, String>> redisInvoker = new RedisInvoker<Map<String, String>>(redisConnectionFactory) {
+			@Override
+			public Map<String, String> invoke(RedisConnection connection) {
+				Map<String, String> strResult = new HashMap<>();
+				Map<byte[], byte[]> result = connection.hGetAll(getRedisKey(key).getBytes());
+				if (result != null && result.size() > 0) {
+					for (byte[] key : result.keySet()) {
+						String keyStr = new String(key);
+						String valueStr = new String(result.get(key));
+						strResult.put(keyStr, valueStr);
+					}
+				}
+				return strResult;
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
 	public List<Map<String, String>> getAll(String tableName) {
-		Jedis client = this.getJedis();
-		if (client.exists(tableName)) {
-			long len = client.llen(tableName);
-			List<String> ids = client.lrange(tableName, 0, len);
-			Pipeline pipeline = client.pipelined();
-			for (String id : ids) {
-				String key = this.getStoreKey(tableName, id);
-				pipeline.hgetAll(getRedisKey(key));
-			}
-			List<Object> allResults = pipeline.syncAndReturnAll();
-			
-			List<Map<String, String>> result = new ArrayList<Map<String, String>>();
-			if (allResults != null && allResults.size() > 0) {
-				for (Object item : allResults) {
-					result.add((Map<String, String>) item);
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
+		}
+
+		RedisInvoker<List<Map<String, String>>> redisInvoker = new RedisInvoker<List<Map<String, String>>>(redisConnectionFactory) {
+			@Override
+			public List<Map<String, String>> invoke(RedisConnection connection) {
+				byte[] tbName = tableName.getBytes();
+				if (connection.exists(tbName)) {
+					long len = connection.lLen(tbName);
+					List<byte[]> idBytes = connection.lRange(tbName, 0L, len);
+					List<String> ids = CollectionUtil.convertByteToStringList(idBytes);
+					connection.openPipeline();
+					for (String id : ids) {
+						String key = getStoreKey(tableName, id);
+						connection.hGetAll(getRedisKey(key).getBytes());
+					}
+					List<Object> allResults = connection.closePipeline();
+
+					List<Map<String, String>> result = new ArrayList<>();
+					if (allResults != null && allResults.size() > 0) {
+						for (Object item : allResults) {
+							Map<byte[], byte[]> itemByteMap = (Map<byte[], byte[]>) item;
+							Map<String, String> itemMap = CollectionUtil.convertByteToStringMap(itemByteMap);
+							result.add(itemMap);
+						}
+					}
+					return result;
+				} else {
+					return new ArrayList<>();
 				}
 			}
-			return result;
-		} else {
-			return new ArrayList<Map<String, String>>();
-		}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
@@ -172,57 +284,89 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	@Override
 	public void addOrUpdate(String tableName, String id, Map<String, String> entity) {
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
+		}
+		if (StringUtil.isNullOrEmpty(id)) {
+			throw new IllegalArgumentException("传入id不允许为空");
+		}
+
 		String key = this.getStoreKey(tableName, id);
-		Jedis client = this.getJedis();
-		
-		boolean isAdd = false;
-		if (!client.exists(getRedisKey(key))) {
-			isAdd = true;
-		}
-		Pipeline pipelien = client.pipelined();
-		//写入行数据
-		for (String item : entity.keySet()) {
-			String value = entity.get(item);
-			pipelien.hset(getRedisKey(key), item, (value != null ? value : ""));
-		}
-		if (isAdd) {
-			//如果添加行，将表的行id写入列表中
-			pipelien.lpush(tableName, id);
-		}
-		pipelien.sync();
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				boolean isAdd = false;
+				if (!connection.exists(getRedisKey(key).getBytes())) {
+					isAdd = true;
+				}
+				connection.openPipeline();
+				//写入行数据
+				for (String item : entity.keySet()) {
+					String value = entity.get(item);
+					connection.hSet(getRedisKey(key).getBytes(), item.getBytes(), (value != null ? value : "").getBytes());
+				}
+				if (isAdd) {
+					//如果添加行，将表的行id写入列表中
+					connection.lPush(tableName.getBytes(), id.getBytes());
+				}
+				connection.closePipeline();
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 	
 	public void addOrUpdateMany(String tableName, Map<String, Map<String, String>> entitys) {
-		Jedis client = this.getJedis();
-		Pipeline pipelien = client.pipelined();
-		
-		//清空行数据
-		pipelien.ltrim(tableName, Integer.MAX_VALUE, Integer.MAX_VALUE);
-		for (String id : entitys.keySet()) {
-			String key = this.getStoreKey(tableName, id);
-			
-			Map<String, String> entity = entitys.get(id);
-			//写入行数据
-			for (String item : entity.keySet()) {
-				String value = entity.get(item);
-				pipelien.hset(getRedisKey(key), item, (value != null ? value : ""));
-			}
-			pipelien.lpush(tableName, id);
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
 		}
-		
-		pipelien.sync();
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				byte[] tbName = tableName.getBytes();
+				//清空行数据
+				connection.openPipeline();
+				connection.lTrim(tbName, Integer.MAX_VALUE, Integer.MAX_VALUE);
+				for (String id : entitys.keySet()) {
+					String key = getStoreKey(tableName, id);
+
+					Map<String, String> entity = entitys.get(id);
+					//写入行数据
+					for (String item : entity.keySet()) {
+						String value = entity.get(item);
+						connection.hSet(getRedisKey(key).getBytes(), item.getBytes(), (value != null ? value : "").getBytes());
+					}
+					connection.lPush(tbName, id.getBytes());
+				}
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 
 	@Override
 	public void remove(String tableName, String id) {
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
+		}
+		if (StringUtil.isNullOrEmpty(id)) {
+			throw new IllegalArgumentException("传入id不允许为空");
+		}
+
 		String key = this.getStoreKey(tableName, id);
-		Jedis client = this.getJedis();
-		Pipeline pipeline = client.pipelined();
-		//删除行数据
-		pipeline.del(getRedisKey(key));
-		//在表中删除行
-		pipeline.lrem(tableName, 0, id);
-		pipeline.sync();
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.openPipeline();
+				//删除行数据
+				connection.del(getRedisKey(key).getBytes());
+				//在表中删除行
+				connection.lRem(tableName.getBytes(), 0, id.getBytes());
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 	
 	@Override
@@ -251,39 +395,72 @@ public class RedisDataServiceImpl implements RedisDataService {
 		} else {
 			setKey(statusKey, RedisQueueStatus.QUEUE_STATUS_BUILDING, RedisConstants.SET_KEY_NOT_EXIST, expireTime);
 
-			Jedis client = this.getJedis();
-			Pipeline pipeline = client.pipelined();
-			String storeKey = getRedisKey(queueKey);
-			//清空数据
-			pipeline.ltrim(storeKey, -1, 0);
-			//插入行数据
-			for (String item : list) {
-				pipeline.lpush(storeKey, item);
-			}
-			if (expireTime > 0) {
-				pipeline.expire(storeKey, (int) expireTime);
-			}
-			pipeline.sync();
+			RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+				@Override
+				public Boolean invoke(RedisConnection connection) {
+					connection.openPipeline();
+					String storeKey = getRedisKey(queueKey);
+					//清空数据
+					connection.lTrim(storeKey.getBytes(), -1, 0);
+					//插入行数据
+					for (String item : list) {
+						connection.lPush(storeKey.getBytes(), item.getBytes());
+					}
+					if (expireTime > 0) {
+						connection.expire(storeKey.getBytes(), (int) expireTime);
+					}
+					connection.closePipeline();
 
-			setKey(statusKey, RedisQueueStatus.QUEUE_STATUS_FINISH, RedisConstants.SET_KEY_EXIST, expireTime);
+					setKey(statusKey, RedisQueueStatus.QUEUE_STATUS_FINISH, RedisConstants.SET_KEY_EXIST, expireTime);
+
+					return true;
+				}
+			};
+			redisInvoker.execute();
 		}
 	}
 
 	@Override
 	public void pushQueue(String queueKey, String value) {
-		Jedis client = this.getJedis();
-		client.lpush(getRedisKey(queueKey), value);
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+		if (StringUtil.isNullOrEmpty(value)) {
+			throw new IllegalArgumentException("传入value不允许为空");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				connection.lPush(getRedisKey(queueKey).getBytes(), value.getBytes());
+				return true;
+			}
+		};
+		redisInvoker.execute();
 	}
 
 	@Override
 	public String popQueue(String queueKey) {
-		Jedis client = this.getJedis();
-		String value = client.lpop(getRedisKey(queueKey));
-		return value;
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+
+		RedisInvoker<String> redisInvoker = new RedisInvoker<String>(redisConnectionFactory) {
+			@Override
+			public String invoke(RedisConnection connection) {
+				byte[] value = connection.lPop(getRedisKey(queueKey).getBytes());
+				return new String(value);
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
 	public boolean isBuildFinished(String queueKey) {
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+
 		String statusKey = (queueKey + "_status");
 		if (!StringUtil.isNullOrEmpty(statusKey) && statusKey.equalsIgnoreCase(RedisQueueStatus.QUEUE_STATUS_FINISH)) {
 			return true;
@@ -294,10 +471,19 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	@Override
 	public boolean existQueue(String queueKey) {
-		Jedis client = this.getJedis();
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+
 		String statusKey = (queueKey + "_status");
 		String key = getRedisKey(statusKey);
-		return client.exists(key);
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				return connection.exists(key.getBytes());
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
@@ -307,6 +493,10 @@ public class RedisDataServiceImpl implements RedisDataService {
 	}
 
 	private void waitQueueBuildFinish(String queueKey, int times, int maxTimes) {
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+
 		String statusKey = (queueKey + "_status");
 		String statusValue = getKey(statusKey);
 		if (!StringUtil.isNullOrEmpty(statusValue) && statusValue.equalsIgnoreCase(RedisQueueStatus.QUEUE_STATUS_BUILDING)) {
@@ -328,9 +518,18 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	@Override
 	public boolean isEmptyQueue(String queueKey) {
-		Jedis client = this.getJedis();
-		long len = client.llen(getRedisKey(queueKey));
-		return len <= 0;
+		if (StringUtil.isNullOrEmpty(queueKey)) {
+			throw new IllegalArgumentException("传入queueKey不允许为空");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				long len = connection.lLen(getRedisKey(queueKey).getBytes());
+				return len <= 0;
+			}
+		};
+		return redisInvoker.execute();
 	}
 
 	@Override
@@ -348,14 +547,6 @@ public class RedisDataServiceImpl implements RedisDataService {
 	 */
 	private String getStoreKey(String tableName, String id) {
 		return tableName + ":" + id;
-	}
-
-	private Jedis getJedis() {
-		Jedis client = new Jedis(redisIpAddress, Integer.parseInt(redisPort));
-		if (!StringUtil.isNullOrEmpty(auth)) {
-			client.auth(auth);
-		}
-		return client;
 	}
 
 	private String getRedisKey(String key) {
