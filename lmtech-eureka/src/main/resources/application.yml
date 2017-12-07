@@ -5,6 +5,7 @@ eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
     prefer-ip-address: true
+    hostname: 127.0.0.1
   server:
     enable-self-preservation: false
   client:

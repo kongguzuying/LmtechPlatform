@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer/LmtechConfigServer.iml" filepath="$PROJECT_DIR$/../GitConfig/LmtechConfigServer/LmtechConfigServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer_n1/LmtechConfigServer_n1.iml" filepath="$PROJECT_DIR$/../GitConfig/LmtechConfigServer_n1/LmtechConfigServer_n1.iml" />
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm.iml" />
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" />
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" />

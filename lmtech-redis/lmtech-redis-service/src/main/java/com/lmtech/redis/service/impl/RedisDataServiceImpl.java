@@ -11,9 +11,9 @@ import com.lmtech.util.JsonUtil;
 import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,20 +22,12 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@RefreshScope
 public class RedisDataServiceImpl implements RedisDataService {
-
-	@Value("${redis.ip}")
-	private String redisIpAddress;
-	@Value("${redis.port}")
-	private String redisPort;
-	@Value("${redis.auth}")
-	private String auth;
 
 	private String REDIS_KEY_PREFIX = "ea_card_crm:";
 
 	@Autowired
-	private LmRedisConnectionFactory redisConnectionFactory;
+	private RedisConnectionFactory redisConnectionFactory;
 
 	@Override
 	public String getKey(String key) {
@@ -551,30 +543,5 @@ public class RedisDataServiceImpl implements RedisDataService {
 
 	private String getRedisKey(String key) {
 		return REDIS_KEY_PREFIX + key;
-	}
-
-	// getter and setter
-	public String getRedisIpAddress() {
-		return redisIpAddress;
-	}
-
-	public void setRedisIpAddress(String redisIpAddress) {
-		this.redisIpAddress = redisIpAddress;
-	}
-
-	public String getRedisPort() {
-		return redisPort;
-	}
-
-	public void setRedisPort(String redisPort) {
-		this.redisPort = redisPort;
-	}
-
-	public String getAuth() {
-		return auth;
-	}
-
-	public void setAuth(String auth) {
-		this.auth = auth;
 	}
 }

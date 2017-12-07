@@ -147,6 +147,7 @@
             <properties>
                 <lmtech.eureka.server>http://172.30.8.224:9999/eureka/</lmtech.eureka.server>
                 <lmtech.config.server>http://172.30.8.216:8888</lmtech.config.server>
+                <lmtech.profile>local</lmtech.profile>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -157,6 +158,7 @@
             <properties>
                 <lmtech.eureka.server>http://172.30.8.216:9999/eureka/</lmtech.eureka.server>
                 <lmtech.config.server>http://172.30.8.216:8888</lmtech.config.server>
+                <lmtech.profile>dev</lmtech.profile>
             </properties>
         </profile>
         <profile>
@@ -164,6 +166,7 @@
             <properties>
                 <lmtech.eureka.server>http://47.100.130.91:9999/eureka/</lmtech.eureka.server>
                 <lmtech.config.server>http://47.100.130.91:8888</lmtech.config.server>
+                <lmtech.profile>test</lmtech.profile>
             </properties>
         </profile>
     </profiles>

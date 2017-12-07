@@ -1,8 +1,8 @@
 package com.lmtech.redis.service;
 
 import com.lmtech.redis.exception.RedisInvokeException;
-import com.lmtech.redis.service.impl.LmRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 /**
  * Redis方法体执行接口
@@ -11,9 +11,9 @@ import org.springframework.data.redis.connection.RedisConnection;
  */
 public abstract class RedisInvoker<R> {
 
-    private LmRedisConnectionFactory redisConnectionFactory;
+    private RedisConnectionFactory redisConnectionFactory;
 
-    public RedisInvoker(LmRedisConnectionFactory redisConnectionFactory) {
+    public RedisInvoker(RedisConnectionFactory redisConnectionFactory) {
         this.redisConnectionFactory = redisConnectionFactory;
     }
 
