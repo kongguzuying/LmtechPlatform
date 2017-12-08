@@ -2,7 +2,7 @@ package com.lmtech.facadeaop.interceptor;
 
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.ExeResult;
-import com.lmtech.constants.ErrorConstants;
+import com.lmtech.constants.LmErrorConstants;
 import com.lmtech.exceptions.ErrorCodeException;
 import com.lmtech.util.JsonUtil;
 import com.lmtech.util.LoggerManager;
@@ -73,21 +73,21 @@ public class FacadeAop {
             return object;
         } catch (IllegalArgumentException e) {
             buildErrorResult(result);
-            result.setErrCode(ErrorConstants.ERR_ARG_ERROR);
+            result.setErrCode(LmErrorConstants.ERR_ARG_ERROR);
             result.setMessage(e.getMessage());
             printResult(result);
             LoggerManager.warn(e.getMessage());
             return result.getResult();
         } catch (MissingServletRequestParameterException e) {
             buildErrorResult(result);
-            result.setErrCode(ErrorConstants.ERR_ARG_ERROR);
+            result.setErrCode(LmErrorConstants.ERR_ARG_ERROR);
             result.setMessage(e.getMessage());
             LoggerManager.warn(e.getMessage());
             printResult(result);
             return result.getResult();
         } catch (MethodArgumentNotValidException e) {
             buildErrorResult(result);
-            result.setErrCode(ErrorConstants.ERR_ARG_ERROR);
+            result.setErrCode(LmErrorConstants.ERR_ARG_ERROR);
             List<FieldError> errors = e.getBindingResult().getFieldErrors();
             for (FieldError fieldError : errors) {
                 result.setMessage(fieldError.getDefaultMessage());
@@ -104,8 +104,8 @@ public class FacadeAop {
             return result.getResult();
         } catch (Exception e) {
             buildErrorResult(result);
-            result.setErrCode(ErrorConstants.ERR_UNKNOW);
-            result.setMessage(ErrorConstants.ERR_UNKNOW_MSG);
+            result.setErrCode(LmErrorConstants.ERR_UNKNOW);
+            result.setMessage(LmErrorConstants.ERR_UNKNOW_MSG);
             LoggerManager.error(e);
             printResult(result);
             return result.getResult();

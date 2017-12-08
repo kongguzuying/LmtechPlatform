@@ -4,10 +4,10 @@ import com.lmtech.facade.exceptions.RequestValidateException;
 import com.lmtech.util.StringUtil;
 
 /**
- * String带权限认证控制的请求
+ * String的请求
  * Created by huang.jb on 2017-1-22.
  */
-public class StringRequest extends AuthRequest<String> {
+public class StringRequest extends CommonRequest<String> {
 
     public StringRequest() {
 

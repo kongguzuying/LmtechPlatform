@@ -11,6 +11,7 @@ import java.io.Serializable;
 public abstract class CommonRequest<T> implements Serializable, RequestValidator {
     private RequestInfo reqInfo;    //请求信息
     private T reqData;              //请求数据
+    private String token;           //Token
 
     public RequestInfo getReqInfo() {
         return reqInfo;
@@ -26,5 +27,12 @@ public abstract class CommonRequest<T> implements Serializable, RequestValidator
 
     public void setReqData(T reqData) {
         this.reqData = reqData;
+    }
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

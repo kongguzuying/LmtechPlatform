@@ -1,6 +1,6 @@
 package com.lmtech.auth.service.impl;
 
-import com.lmtech.auth.constants.TokenConstValue;
+import com.lmtech.auth.constants.AuthConstants;
 import com.lmtech.auth.dao.TokenLogDao;
 import com.lmtech.auth.model.TokenLog;
 import com.lmtech.auth.service.TokenLogService;
@@ -41,7 +41,7 @@ public class TokenLogServiceImpl extends AbstractDbServiceBaseImpl<TokenLog> imp
         if (!CollectionUtil.isNullOrEmpty(activeTokens)) {
             List<String> keys = new ArrayList<String>();
             for (String activeToken : activeTokens) {
-                keys.add(TokenConstValue.REDIS_PREFIX + activeToken);
+                keys.add(AuthConstants.REDIS_PREFIX + activeToken);
             }
             //清除redis缓存token
             try {
@@ -65,7 +65,7 @@ public class TokenLogServiceImpl extends AbstractDbServiceBaseImpl<TokenLog> imp
                     List<String> keys = new ArrayList<String>();
                     List<String> allTokens = new ArrayList<String>();
                     for (TokenLog item : list) {
-                        keys.add(TokenConstValue.REDIS_PREFIX + item.getToken());
+                        keys.add(AuthConstants.REDIS_PREFIX + item.getToken());
                     }
                     List<String> activeTokens = redisDataService.getKeys(keys);
 

@@ -13,6 +13,7 @@ public class RequestInfo implements Serializable {
     private String address;         //请求地圵
     private String userId;          //请求用户编号
     private String userName;        //请求用户名称
+    private String comment;         //请求说明
 
     public String getSysVersion() {
         return sysVersion;
@@ -60,5 +61,13 @@ public class RequestInfo implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

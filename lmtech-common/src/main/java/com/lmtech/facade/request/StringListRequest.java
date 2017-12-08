@@ -6,7 +6,7 @@ import com.lmtech.util.CollectionUtil;
 import java.util.List;
 
 /**
- * String列表带权限认证控制的请求
+ * String列表的请求
  * Created by huang.jb on 2017-1-22.
  */
 public class StringListRequest extends CommonRequest<List<String>> {

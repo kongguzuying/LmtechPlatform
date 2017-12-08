@@ -14,9 +14,14 @@ import com.lmtech.auth.model.Token;
 import com.lmtech.auth.service.AccountManager;
 import com.lmtech.auth.service.AccountService;
 import com.lmtech.auth.service.TokenService;
-import com.lmtech.facade.request.NormalRequest;
+import com.lmtech.facade.exceptions.ServiceInvokeException;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
+import com.lmtech.facade.util.ServiceRequestUtil;
+import com.lmtech.infrastructure.facade.response.UserResponse;
+import com.lmtech.infrastructure.facade.stub.CodeFacade;
+import com.lmtech.infrastructure.facade.stub.UserFacade;
+import com.lmtech.infrastructure.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +47,8 @@ public class AccountFacadeImpl implements AccountFacade {
     private AccountService accountService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private UserFacade userFacade;
 
     @Override
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -63,9 +70,11 @@ public class AccountFacadeImpl implements AccountFacade {
             Account account = request.getReqData();
 
             accountService.authenticate(account.getLoginName(), account.getPassword());
-            String currentTimeStr = String.valueOf(System.currentTimeMillis());
-            Token token = tokenService.genToken(account.getLoginName(), currentTimeStr);
             Account dbAccount = accountService.getByLoginName(account.getLoginName());
+
+            User user = this.getUser(dbAccount.getUserId());
+            String currentTimeStr = String.valueOf(System.currentTimeMillis());
+            Token token = tokenService.genToken(account.getLoginName(), user.getId(), user.getStoreId(), user.getGroupId(), currentTimeStr);
 
             AuthResultResponse response = new AuthResultResponse();
             response.setSuccess(true);
@@ -113,5 +122,16 @@ public class AccountFacadeImpl implements AccountFacade {
         response.setMessage("获取帐户信息列表成功");
         response.setData(accountInfoList);
         return response;
+    }
+
+    private User getUser(String userId) {
+        //获取用户信息
+        StringRequest getUserRequest = ServiceRequestUtil.buildStringRequest(userId);
+        UserResponse response = userFacade.getUser(getUserRequest);
+        if (response.isSuccess()) {
+            return response.getData();
+        } else {
+            throw new ServiceInvokeException(userFacade.getClass().getName(), "getUser");
+        }
     }
 }

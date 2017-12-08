@@ -1,13 +1,14 @@
 package com.lmtech.auth.service.impl;
 
-import com.lmtech.auth.constants.TokenConstValue;
-import com.lmtech.auth.constants.TokenValidateResultCode;
+import com.lmtech.auth.constants.AuthErrorConstants;
+import com.lmtech.auth.constants.AuthConstants;
 import com.lmtech.auth.model.Token;
 import com.lmtech.auth.model.TokenLog;
 import com.lmtech.auth.model.TokenValidateResult;
 import com.lmtech.auth.service.TokenLogManager;
 import com.lmtech.auth.service.TokenLogService;
 import com.lmtech.auth.service.TokenService;
+import com.lmtech.constants.LmPltConstants;
 import com.lmtech.redis.service.RedisDataService;
 import com.lmtech.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class TokenServiceImpl implements TokenService {
     @Autowired
     private RedisDataService redisDataService;
 
-    private long expireSeconds = TokenConstValue.EXPIRE_SECONDS;
+    private long expireSeconds = AuthConstants.EXPIRE_SECONDS;
 
     @Override
     public Token genToken(String... keys) {
@@ -38,7 +39,7 @@ public class TokenServiceImpl implements TokenService {
         String[] newKeys = new String[keysList.size()];
         keysList.toArray(newKeys);
         String key = StringUtil.encryptStrings(newKeys);
-        boolean result = redisDataService.setKey(TokenConstValue.REDIS_PREFIX + key, key, "NX", expireSeconds);
+        boolean result = redisDataService.setKey(AuthConstants.REDIS_PREFIX + key, key, "NX", expireSeconds);
         if (result) {
             //添加Token日志
             try {
@@ -66,7 +67,6 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public List<String> parseToken(String tokenCode) {
         List<String> keys = StringUtil.decryptStrings(tokenCode);
-        keys.remove(keys.size() - 1);
         return keys;
     }
 
@@ -77,16 +77,16 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public TokenValidateResult validateToken(Token token) {
-        String value = redisDataService.getKey(TokenConstValue.REDIS_PREFIX + token.getTokenCode());
+        String value = redisDataService.getKey(AuthConstants.REDIS_PREFIX + token.getTokenCode());
         TokenValidateResult result = new TokenValidateResult();
         if (StringUtil.isNullOrEmpty(value)) {
-            result.setCode(TokenValidateResultCode.ERROR);
+            result.setCode(AuthErrorConstants.ERR_TOKEN_VALIDATE);
             result.setValidSuccess(false);
-            result.setMessage("Token无效或者已经过期，请重新申请。");
+            result.setMessage(AuthErrorConstants.ERR_TOKEN_VALIDATE_MSG);
         } else {
             //刷新过期时间
-            redisDataService.setExpireTime(TokenConstValue.REDIS_PREFIX + token.getTokenCode(), TokenConstValue.EXPIRE_SECONDS);
-            result.setCode(TokenValidateResultCode.SUCCESS);
+            redisDataService.setExpireTime(AuthConstants.REDIS_PREFIX + token.getTokenCode(), AuthConstants.EXPIRE_SECONDS);
+            result.setCode(LmPltConstants.SUCCESS);
             result.setValidSuccess(true);
             result.setMessage("Token验证成功");
         }

@@ -279,7 +279,7 @@ public class MemberCardFacadeImpl implements MemberCardFacade {
         } catch (IllegalArgumentException e) {
             result.setSuccess(false);
             result.setMessage(e.getMessage());
-            result.setErrCode(ErrorConstants.ERR_ARG_ERROR);
+            result.setErrCode(LmErrorConstants.ERR_ARG_ERROR);
         } catch (ErrorCodeException e) {
             result.setSuccess(false);
             result.setMessage(e.getMessage());
@@ -287,8 +287,8 @@ public class MemberCardFacadeImpl implements MemberCardFacade {
         } catch (Exception e) {
             LoggerManager.error(e);
             result.setSuccess(false);
-            result.setErrCode(ErrorConstants.ERR_UNKNOW);
-            result.setMessage(ErrorConstants.ERR_UNKNOW_MSG);
+            result.setErrCode(LmErrorConstants.ERR_UNKNOW);
+            result.setMessage(LmErrorConstants.ERR_UNKNOW_MSG);
         }
     	return result.getResult();
     }*/

@@ -7,15 +7,15 @@ import java.io.Serializable;
  * Created by huang.jb on 2017-1-6.
  */
 public class TokenValidateResult implements Serializable {
-    private int code;
+    private long code;
     private String message;
     private boolean validSuccess;
 
-    public int getCode() {
+    public long getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(long code) {
         this.code = code;
     }
 

@@ -1,6 +1,9 @@
 package com.lmtech.auth.facade;
 
+import com.lmtech.auth.constants.AuthErrorConstants;
+import com.lmtech.auth.facade.dto.TokenData;
 import com.lmtech.auth.facade.request.TokenValidateRequest;
+import com.lmtech.auth.facade.response.TokenDataResponse;
 import com.lmtech.auth.facade.response.TokenValidateResponse;
 import com.lmtech.auth.facade.stub.TokenFacade;
 import com.lmtech.auth.model.Account;
@@ -12,7 +15,9 @@ import com.lmtech.auth.service.TokenLogService;
 import com.lmtech.auth.service.TokenService;
 import com.lmtech.common.PageData;
 import com.lmtech.facade.request.PageRequest;
+import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.PageDataResponse;
+import com.lmtech.util.CollectionUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,10 +59,32 @@ public class TokenFacadeImpl implements TokenFacade {
         response.setCode(validateResult.getCode());
         if (returnAccountInfo) {
             //获取帐户信息
-            List<String> keys = tokenService.parseToken(token);
-            String loginName = keys.get(0);
-            Account account = accountService.getByLoginName(loginName);
+            TokenData tokenData = this.getTokenData(token);
+            Account account = accountService.getByLoginName(tokenData.getLoginName());
             response.setData(account.buildAccountInfo());
+        }
+
+        return response;
+    }
+
+    @Override
+    @RequestMapping(value = "/parseToken", method = RequestMethod.POST)
+    @ApiOperation(value = "解析token数据")
+    public TokenDataResponse parseToken(StringRequest request) {
+        String token = request.getToken();
+
+        TokenDataResponse response = new TokenDataResponse();
+        //校验token
+        TokenValidateResult validateResult = tokenService.validateToken(new Token(token));
+        if (validateResult.isValidSuccess()) {
+            //获取token数据
+            TokenData tokenData = this.getTokenData(token);
+            response.setData(tokenData);
+            response.setSuccess(true);
+        } else {
+            response.setSuccess(false);
+            response.setCode(AuthErrorConstants.ERR_TOKEN_VALIDATE);
+            response.setMessage(AuthErrorConstants.ERR_TOKEN_VALIDATE_MSG);
         }
 
         return response;
@@ -74,5 +101,28 @@ public class TokenFacadeImpl implements TokenFacade {
         response.setMessage("获取Token数据日志成功。");
         response.setData(pageData);
         return response;
+    }
+
+    private TokenData getTokenData(String token) {
+        List<String> keys = tokenService.parseToken(token);
+        if (!CollectionUtil.isNullOrEmpty(keys) && keys.size() >= 6) {
+            String loginName = keys.get(0);
+            String userId = keys.get(1);
+            String storeId = keys.get(2);
+            String groupId = keys.get(3);
+            String currentTimeStr = keys.get(4);
+            String tid = keys.get(5);
+
+            TokenData tokenData = new TokenData();
+            tokenData.setLoginName(loginName);
+            tokenData.setUserId(userId);
+            tokenData.setStoreId(storeId);
+            tokenData.setGroupId(groupId);
+            tokenData.setCurrentTimeStr(currentTimeStr);
+            tokenData.setTid(tid);
+            return tokenData;
+        } else {
+            return null;
+        }
     }
 }

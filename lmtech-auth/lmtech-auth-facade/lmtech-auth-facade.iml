@@ -215,5 +215,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.21" level="project" />
+    <orderEntry type="module" module-name="lmtech-infrastructure-facade-stub" />
+    <orderEntry type="module" module-name="lmtech-infrastructure-model" />
   </component>
 </module>
