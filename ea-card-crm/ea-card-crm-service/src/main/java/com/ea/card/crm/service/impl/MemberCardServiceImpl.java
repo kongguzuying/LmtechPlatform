@@ -42,9 +42,6 @@ import java.util.Map;
 @RefreshScope
 public class MemberCardServiceImpl implements MemberCardService {
 
-	@Value("${service.url_uc_getsmscode}")
-	public String URL_UC_GETSMSCODE;
-
 	@Value("${service.url_uc_register}")
     public String URL_UC_REGISTER;
 
@@ -74,13 +71,12 @@ public class MemberCardServiceImpl implements MemberCardService {
     private MemberRegisterService memberRegisterService;
     @Autowired
     private RestTemplate restTemplate;
-
     @Autowired
     private GiftMemberCardService giftMemberCardService;
     @Autowired
-    private MemberService memberService;
-    @Autowired
     private ReceiveCardMessageHandler receiveCardMessageHandler;
+    @Autowired
+    private AliyunMessageService aliyunMessageService;
 
     @Override
     public StateResult userAuth(String code) {
@@ -187,24 +183,6 @@ public class MemberCardServiceImpl implements MemberCardService {
         data.put("phone", phone);
         result.setData(data);
         return result.getResult();
-    }
-
-    @Override
-    public GetSmsCodeResult getSmsCode(String phone, String appName, Map<String, String> reqParams) {
-        String tid = IdWorkerUtil.generateStringId();
-        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("t_id", tid);
-        map.add("phone", phone);
-        map.add("mobile", phone);
-        map.add("msmtype", null);
-        map.setAll(reqParams);
-        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-        headers.add("appname", appName);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-
-        GetSmsCodeResult response = restTemplate.postForObject(URL_UC_GETSMSCODE, request, GetSmsCodeResult.class);
-
-        return response;
     }
 
     @Override
@@ -331,6 +309,12 @@ public class MemberCardServiceImpl implements MemberCardService {
             record.setUserId(IdWorkerUtil.generateStringId());
             record.setBalance(0);
             record.setUserType("1");
+
+            //校验验证码
+            ExeResult smsCheckResult = aliyunMessageService.checkSmsValidCode(request.getVerifyKey(), request.getVerifyCode());
+            if (!smsCheckResult.isSuccess()) {
+                throw new RuntimeException(smsCheckResult.getMessage());
+            }
 
             /*
             String tid = IdWorkerUtil.generateStringId();

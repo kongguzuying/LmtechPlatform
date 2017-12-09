@@ -71,11 +71,22 @@ public interface RedisDataService {
      *
      * @param key
      * @param value
+     * @param expireTime seconds
+     * @return
+     */
+    boolean setKey(String key, String value, long expireTime);
+
+    /**
+     * 设置key值，包含过期时间
+     *
+     * @param key
+     * @param value
      * @param nxxx       :  NX|XX, NX -- Only set the key if it does not already exist. XX -- Only set the key
      *                   if it already exist.
      * @param expireTime seconds
      * @return
      */
+    @Deprecated
     boolean setKey(String key, String value, String nxxx, long expireTime);
 
     /**
@@ -126,7 +137,7 @@ public interface RedisDataService {
      * @param tableName
      * @return
      */
-    List<Map<String, String>> getAll(String tableName);
+    <T> List<T> getAll(String tableName, Class<T> clazz);
 
     /**
      * 获取分页数据
@@ -145,15 +156,7 @@ public interface RedisDataService {
      * @param id        主键id
      * @param entity    缓存数据
      */
-    void addOrUpdate(String tableName, String id, Map<String, String> entity);
-
-    /**
-     * 添加或更新多条数据
-     *
-     * @param tableName
-     * @param entitys   key值为主键id,value值为缓存数据
-     */
-    void addOrUpdateMany(String tableName, Map<String, Map<String, String>> entitys);
+    void addOrUpdate(String tableName, String id, Object entity);
 
     /**
      * 删除数据

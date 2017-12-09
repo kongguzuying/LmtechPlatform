@@ -1,10 +1,10 @@
 package com.lmtech.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.lmtech.util.IdWorkerUtil;
 import com.lmtech.util.StringUtil;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * context manager
@@ -13,8 +13,8 @@ import com.lmtech.util.StringUtil;
  */
 public class ContextManager {
 	
-	private static InheritableThreadLocal<Context> contextLocal = new InheritableThreadLocal<Context>();
-	private static InheritableThreadLocal<Map<String, Object>> valueLocal = new InheritableThreadLocal<Map<String, Object>>();
+	private static ThreadLocal<Context> contextLocal = new ThreadLocal<Context>();
+	private static ThreadLocal<Map<String, Object>> valueLocal = new ThreadLocal<Map<String, Object>>();
 	
 	private static final String DATA_ACTION_TYPE_KEY = "dataActionType";
 	private static final String SERIAL_NUMBER_KEY = "serialNumber";

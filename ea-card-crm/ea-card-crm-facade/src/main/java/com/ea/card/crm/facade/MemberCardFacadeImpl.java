@@ -69,13 +69,12 @@ public class MemberCardFacadeImpl implements MemberCardFacade {
     @Autowired
     private CodeAdaptorService codeAdaptorService;
     @Autowired
-    private CodeFacade codeFacade;
+    private AliyunMessageService aliyunMessageService;
 
 
     @ApiOperation(value = "获取用户授权")
     @Override
     public StateResult getUserAuth(@RequestParam String code) {
-        ExeResult result = new ExeResult();
         return memberCardService.userAuth(code);
     }
 
@@ -87,29 +86,15 @@ public class MemberCardFacadeImpl implements MemberCardFacade {
 
     @ApiOperation(value = "获取短信验证码")
     @RequestMapping(value = "/getSmsCode", method = RequestMethod.GET)
-    public GetSmsCodeResult getSmsCode(HttpServletRequest request, @RequestParam String phone) {
-        try {
-            //短信接口暂时使用appname校验，防止恶意攻击
-            String appName = request.getHeader("appname");
-            if (StringUtil.isNullOrEmpty(appName)) {
-                throw new IllegalArgumentException("必填参数不允许为空");
-            }
-
-            Map<String, String> reqParams = this.getRequestParams(request);
-            GetSmsCodeResult response = memberCardService.getSmsCode(phone, appName, reqParams);
-            return response;
-        } catch (IllegalArgumentException e) {
-            GetSmsCodeResult errResponse = new GetSmsCodeResult();
-            errResponse.setState(ErrorConstants.ERR_ARG_ERROR);
-            errResponse.setMsg(e.getMessage());
-            return errResponse;
-        } catch (Exception e) {
-            LoggerManager.error(e);
-            GetSmsCodeResult errResponse = new GetSmsCodeResult();
-            errResponse.setState(ErrorConstants.ERR_UNKNOW);
-            errResponse.setMsg(ErrorConstants.ERR_UNKNOW_MSG);
-            return errResponse;
+    public StateResult getSmsCode(HttpServletRequest request, @RequestParam String phone) {
+        //短信接口暂时使用appname校验，防止恶意攻击
+        String appName = request.getHeader("appname");
+        if (StringUtil.isNullOrEmpty(appName)) {
+            throw new IllegalArgumentException("必填参数不允许为空");
         }
+        String validCode = RandomUtil.genRandomNumberString(4);
+        ExeResult result = aliyunMessageService.sendSmsValidCode(phone, validCode);
+        return result.getResult();
     }
 
     @ApiOperation(value = "激活会员卡")

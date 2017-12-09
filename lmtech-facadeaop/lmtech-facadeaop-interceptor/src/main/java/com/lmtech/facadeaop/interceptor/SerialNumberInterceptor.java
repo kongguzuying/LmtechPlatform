@@ -11,16 +11,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class SerialNumberInterceptor extends InterceptorBase implements Interceptor {
 
-    public void invoke(ProceedingJoinPoint pjp) throws Throwable{
+    public void invoke(ProceedingJoinPoint pjp) {
         String serialNumber = ContextManager.buildSerialNumber();
         LoggerManager.info("生成业务流水号：" + serialNumber);
-        try {
-            pjp.proceed();
-        } catch (Throwable e) {
-            throw e;
-        } finally {
-            ContextManager.cleanContext();
-        }
     }
 
     @Override

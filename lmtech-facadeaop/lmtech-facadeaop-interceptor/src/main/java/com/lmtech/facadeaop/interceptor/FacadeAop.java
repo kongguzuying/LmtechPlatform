@@ -70,6 +70,7 @@ public class FacadeAop {
             }
 
             Object object = ContextManager.getValue("result");
+            ContextManager.cleanContext();
             return object;
         } catch (IllegalArgumentException e) {
             buildErrorResult(result);

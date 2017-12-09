@@ -40,7 +40,7 @@ public interface MemberCardFacade {
      * @return
      */
     @RequestMapping(value = "/getSmsCode", method = RequestMethod.GET)
-    GetSmsCodeResult getSmsCode(HttpServletRequest request, @RequestParam String phone);
+    StateResult getSmsCode(HttpServletRequest request, @RequestParam String phone);
 
     /**
      * 激活会员卡

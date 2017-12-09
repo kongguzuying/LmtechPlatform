@@ -33,13 +33,6 @@ public interface MemberCardService {
     StateResult appletUserAuth(String code,String encryptedData, String iv) 
     		throws InvalidAlgorithmParameterException, UnsupportedEncodingException;
 
-    /**
-     * 获取激活短信验证码
-     * @param phone
-     * @return
-     */
-    GetSmsCodeResult getSmsCode(String phone, String appName, Map<String, String> reqParams);
-
 	/**
 	 * 激活会员卡
 	 * @param request

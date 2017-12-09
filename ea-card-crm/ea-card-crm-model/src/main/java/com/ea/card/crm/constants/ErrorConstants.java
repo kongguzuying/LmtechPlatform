@@ -155,4 +155,8 @@ public class ErrorConstants {
     /** 积分兑换商品记录操作插入失败 **/
     public static final long ERR_EXCHANGE_INTEGRAL_INSERT_ERROR = 3504003;
     public static final String ERR_EXCHANGE_INTEGRAL_INSERT_ERROR_MSG = "兑换积分流水记录操作插入失败";
+
+    /** 发送短信异常 **/
+    public static final long ERR_SEND_SMS_ERROR = 3504003;
+    public static final String ERR_SEND_SMS_ERROR_MSG = "发送短信出错";
 }
