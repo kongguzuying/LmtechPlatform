@@ -45,6 +45,7 @@
                         <div class="span3">
                             <div class="dataTables_filter" id="dynamic-table_filter">
                             	<a class="btn btn-primary" onclick="edit('','${code}');return false;">添加</a>
+                                <a href="${pageContext.request.contextPath}/platform/code/list.do" class="btn btn-primary">返回</a>
                             </div>
                         </div>
                     </div>

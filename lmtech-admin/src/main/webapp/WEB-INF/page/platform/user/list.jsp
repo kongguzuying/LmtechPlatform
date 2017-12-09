@@ -40,8 +40,8 @@
                         <div class="span3">
                             <div id="dynamic-table_length" class="dataTables_length">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="filter_LIKES_name"
-                                           value="${filter_LIKES_name}" placeholder="请输入用户名">
+                                    <input type="text" class="form-control" name="filter_LIKES_nickName"
+                                           value="${filter_LIKES_nickName}" placeholder="请输入用户名">
                                 </div>
                                 <input type="submit" class="btn btn-primary" value="搜索"/>
                             </div>
@@ -66,7 +66,7 @@
                         <tbody>
                         <c:forEach items="${pageData.items}" var="item">
                             <tr>
-                                <td>${item.name}</td>
+                                <td>${item.nickName}</td>
                                 <td>${item.email}</td>
                                 <td>${item.mobile}</td>
                                 <td>${item.qq}</td>

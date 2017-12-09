@@ -113,7 +113,7 @@
                 <li class=""><a href="${pageContext.request.contextPath}/platform/portal/welcome.do" target="mainFrame"><i
                         class="fa fa-home"></i> <span>首  页</span></a></li>
                 <c:forEach items="${menus}" var="menu">
-                    <li class="menu-list"><a href=""><i class="fa ${menu.icon}"></i> <span>${menu.name}</span></a>
+                    <li class="menu-list"><a href="javascript:void(0);"><i class="fa ${menu.icon}"></i> <span>${menu.name}</span></a>
                         <ul class="sub-menu-list">
                             <c:forEach items="${menu.childrens}" var="child">
                                 <li><a onclick="menuClick(this, '${pageContext.request.contextPath}/${child.href}')" href="javascript:void(0)"
@@ -150,7 +150,7 @@
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                             <%--<img src="images/photos/user-avatar.png" alt=""/>--%>
-                            ${cur_user.name}
+                            ${cur_user.nickName}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
