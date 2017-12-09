@@ -45,7 +45,7 @@ public class UserController extends ManagerControllerBase<User> {
 
 	@Override
     public void fillEntity(User dbEntity, User pageEntity) {
-        dbEntity.setName(pageEntity.getName());
+        dbEntity.setNickName(pageEntity.getNickName());
         dbEntity.setEmail(pageEntity.getEmail());
         dbEntity.setMobile(pageEntity.getMobile());
         dbEntity.setQq(pageEntity.getQq());
@@ -127,7 +127,7 @@ public class UserController extends ManagerControllerBase<User> {
 		model.setName(model.getName().trim());
 
 		User user = new User();
-		user.setName(model.getName());
+		user.setNickName(model.getName());
 		user.setId(model.getId());
 		user.setEmail(model.getEmail());
 		user.setQq(model.getQq());
@@ -143,7 +143,7 @@ public class UserController extends ManagerControllerBase<User> {
 			dbUser.setMobile(user.getMobile());
 			dbUser.setQq(user.getQq());
 			dbUser.setEmail(user.getEmail());
-			dbUser.setName(user.getName());
+			dbUser.setNickName(user.getNickName());
 			dbUser.increaseDataVersion();
 			userAdaptor.edit(dbUser);
 		}
@@ -158,11 +158,7 @@ public class UserController extends ManagerControllerBase<User> {
 		}
 		User user = userAdaptor.get(id);
 		if (user != null) {
-			if (user.isEnable()) {
-				user.setEnable(false);
-			} else {
-				user.setEnable(true);
-			}
+			user.setStatus(User.STATUS_DISABLE);
 			userAdaptor.edit(user);
 		}
 		return returnSuccess(response, "设置用户状态成功", user);

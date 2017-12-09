@@ -41,7 +41,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             String token = (String) request.getSession().getAttribute("LmToken");
             Context context = new Context();
             context.setUserId(user.getId());
-            context.setUserName(user.getName());
+            context.setUserName(user.getNickName());
             context.setAccountId(account.getAccountId());
             context.setAccountName(account.getAccountName());
             context.setLoginName(account.getLoginName());
