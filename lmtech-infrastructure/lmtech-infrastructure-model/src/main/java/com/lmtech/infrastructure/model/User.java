@@ -26,29 +26,29 @@ public class User extends DbEntityBase {
 	public static final int SEX_OTHER = 3;
 	
 	@TableField("nick_name")
-	private String nickName;
-	@TableField("true_name")
-	private String trueName;
+	private String nickName;	//昵称
+	@TableField("real_name")
+	private String realName;	//真实姓名
 	@TableField("qq")
-	private String qq;
+	private String qq;			//QQ
 	@TableField("email")
-	private String email;
+	private String email;		//邮箱
 	@TableField("birthday")
-	private Date birthday;
+	private Date birthday;		//生日
 	@TableField("sex")
-	private int sex;
+	private int sex;			//性别
 	@TableField("mobile")
-	private String mobile;
+	private String mobile;		//手机号
 	@TableField("header_img")
-	private String headerImg;
+	private String headerImg;	//头像
 	@TableField("card_id")
-	private String cardId;
+	private String cardId;		//生份证ID
 	@TableField("store_id")
-	private String storeId;
+	private String storeId;		//租户ID
 	@TableField("group_id")
-	private String groupId;
+	private String groupId;		//群组ID
 	@TableField("status")
-	private int status;
+	private int status;			//状态 1:活动,2:禁用
 
 	public String getNickName() {
 		return nickName;
@@ -58,12 +58,12 @@ public class User extends DbEntityBase {
 		this.nickName = nickName;
 	}
 
-	public String getTrueName() {
-		return trueName;
+	public String getRealName() {
+		return realName;
 	}
 
-	public void setTrueName(String trueName) {
-		this.trueName = trueName;
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 
 	public String getQq() {

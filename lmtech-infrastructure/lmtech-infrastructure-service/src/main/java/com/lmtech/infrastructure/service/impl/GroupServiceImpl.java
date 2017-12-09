@@ -31,7 +31,7 @@ public class GroupServiceImpl extends AbstractDbServiceBaseImpl<Group> implement
 	public List<User> queryGroupUsers(String groupId) {
 		//TODO 根据当前登录用户权限判断是否有权限查询
 		User param = new User();
-		param.setEnable(true);
+		//param.setEnable(true);
 		return userDao.selectUserInGroup(groupId, param, null);
 	}
 

@@ -76,7 +76,7 @@ public class UserFacadeImpl implements UserFacade {
             for (User user : userList) {
                 UserInfo ui = new UserInfo();
                 ui.setUserId(user.getId());
-                ui.setUserName(user.getName());
+                ui.setUserName(user.getNickName());
                 userInfoList.add(ui);
             }
         }

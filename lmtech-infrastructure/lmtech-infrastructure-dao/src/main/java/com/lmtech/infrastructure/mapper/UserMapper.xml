@@ -4,25 +4,33 @@
 <mapper namespace="com.lmtech.infrastructure.mapper.UserMapper">
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
-        ID, URL, QQ, EMAIL, MOBILE, ENABLE,
-        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        nick_name,real_name,qq,email,birthday,sex,mobile,header_img,card_id,store_id,group_id,status
     </sql>
 
     <resultMap id="userMap" type="com.lmtech.infrastructure.model.User">
-        <id column="ID" property="id"></id>
-        <result column="NAME" property="name"></result>
-        <result column="QQ" property="qq"></result>
-        <result column="EMAIL" property="email"></result>
-        <result column="MOBILE" property="mobile"></result>
-        <result column="ENABLE" property="enable"></result>
-        <result column="CREATE_DATE" property="createDate"></result>
-        <result column="CREATE_USER" property="createUser"></result>
-        <result column="CREATE_USER_NAME" property="createUserName"></result>
-        <result column="UPDATE_DATE" property="updateDate"></result>
-        <result column="UPDATE_USER" property="updateUser"></result>
-        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
-        <result column="DATA_VERSION" property="dataVersion"></result>
-        <result column="IS_DELETE" property="isDelete"></result>
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="nick_name" property="nickName"></result>
+        <result column="real_name" property="realName"></result>
+        <result column="qq" property="qq"></result>
+        <result column="email" property="email"></result>
+        <result column="birthday" property="birthday"></result>
+        <result column="sex" property="sex"></result>
+        <result column="mobile" property="mobile"></result>
+        <result column="header_img" property="headerImg"></result>
+        <result column="card_id" property="cardId"></result>
+        <result column="store_id" property="storeId"></result>
+        <result column="group_id" property="groupId"></result>
+        <result column="status" property="status"></result>
     </resultMap>
 
     <select id="selectUserByAccount" resultMap="userMap">
@@ -61,9 +69,8 @@
 
     <sql id="whereCond">
         <if test="param != null">
-            and t1.enable=#{param.enable}
-            <if test="param.name != null and param.name != ''">
-                and t1.name like '%${param.name}%'
+            <if test="param.nickName != null and param.nickName != ''">
+                and t1.nick_name like '%${param.nickName}%'
             </if>
         </if>
         <if test="excludeUserIds != null and excludeUserIds.length > 0">
@@ -84,8 +91,8 @@
     <select id="selectPageList" parameterType="com.lmtech.infrastructure.model.User" resultMap="userMap">
         select * from lm_user
         <trim prefix="WHERE" prefixOverrides="AND|OR">
-            <if test="name !=null and name != ''">
-                and name like concat('%', #{name},'%')
+            <if test="nickName !=null and nickName != ''">
+                and nick_name like concat('%', #{nickName},'%')
             </if>
         </trim>
     </select>

@@ -99,7 +99,7 @@ public class UserServiceImpl extends AbstractDbServiceBaseImpl<User> implements 
 			User user = userDao.selectUserByAccount(account);
 			UserInfo ui = new UserInfo();
 			ui.setUserId(user.getId());
-			ui.setUserName(user.getName());
+			ui.setUserName(user.getNickName());
 			redisDataService.setKey(key, JsonUtil.toJson(ui));
 			return ui;
 		}

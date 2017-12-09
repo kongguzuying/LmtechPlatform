@@ -137,8 +137,8 @@
         <profile>
             <id>local</id>
             <properties>
-                <lmtech.eureka.server>http://172.30.8.224:9999/eureka/</lmtech.eureka.server>
-                <lmtech.config.server>http://172.30.8.216:8888</lmtech.config.server>
+                <lmtech.eureka.server>http://localhost:9999/eureka/</lmtech.eureka.server>
+                <lmtech.config.server>http://47.100.130.91:8888</lmtech.config.server>
                 <lmtech.profile>local</lmtech.profile>
             </properties>
             <activation>
