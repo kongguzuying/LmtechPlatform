@@ -33,16 +33,16 @@ public class AliyunMessageServiceImpl implements AliyunMessageService {
     private String domain = "dysmsapi.aliyuncs.com";    //产品域名
     private String cacheTableName = "sms_record";   //缓存表前缀
 
-    @Value("sms.expire_time")
+    @Value("${sms.expire_time}")
     private long smsExpireTime;     //验证码过期时间(秒)
-    @Value("sms.access_key_id")
-    private String accessKeyId;
-    @Value("sms.access_key_secret")
-    private String accessKeySecret;
-    @Value("sms.sign_name")
-    private String signName;
-    @Value("sms.template_code")
-    private String templateCode;
+    @Value("${sms.access_key_id}")
+    private String accessKeyId;     //accessKey
+    @Value("${sms.access_key_secret}")
+    private String accessKeySecret; //accessSecret
+    @Value("${sms.sign_name}")
+    private String signName;        //签名
+    @Value("${sms.template_code}")
+    private String templateCode;    //短信模板code
 
     @Autowired
     private RedisDataService redisDataService;
