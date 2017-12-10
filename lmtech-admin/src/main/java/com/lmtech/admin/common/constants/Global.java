@@ -1,5 +1,6 @@
 package com.lmtech.admin.common.constants;
 
+import com.ea.card.crm.model.IntegralLog;
 import com.google.common.collect.Maps;
 
 import java.util.Map;
@@ -32,6 +33,12 @@ public class Global {
     public static String getFtpIp()
     {
         return Global.getConfig("ftp.ip");
+    }
+
+    public static int getFtpPort()
+    {
+        String portStr = Global.getConfig("ftp.port");
+        return Integer.parseInt(portStr);
     }
     
     public static String getFtpUsername()

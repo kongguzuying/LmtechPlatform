@@ -42,6 +42,10 @@ public class FtpTool {
         FTPClient ftp = new FTPClient();
         try {
             int reply;
+            int port = Global.getFtpPort();
+            if (port > 0) {
+                ftp.setDefaultPort(port);
+            }
             ftp.connect(url);
             ftp.login(username, password);
             reply = ftp.getReplyCode();
