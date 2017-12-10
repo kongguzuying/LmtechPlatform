@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/../GitConfig/LmtechConfigServer_n1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../WxCard/WxCardApplet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../WxCard/WxCardH5" vcs="Git" />
   </component>
 </project>
