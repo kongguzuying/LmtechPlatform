@@ -7,6 +7,7 @@ import com.ea.card.crm.facade.stub.WxTokenFacade;
 import com.ea.card.crm.service.MemberRegisterService;
 import com.ea.card.crm.service.WxService;
 import com.ea.card.crm.service.constants.WxConstants;
+import com.ea.card.crm.service.util.WxUrlSignUtil;
 import com.ea.card.crm.service.vo.JsapiAddressRequest;
 import com.ea.card.crm.service.vo.PageAuthResponse;
 import com.lmtech.common.ExeResult;
@@ -208,20 +209,20 @@ public class WxTokenFacadeImpl implements WxTokenFacade {
     @ApiOperation(value = "微信消息接收处理")
     @RequestMapping(value = "/wxMessage")
     public Object wxMessage(String signature, String timestamp, String nonce, String echostr, @RequestBody(required = false) String xml) {
-        /*String token = "weixinAccessToken";
+        String token = "weixinAccessToken";
         if(WxUrlSignUtil.checkSignature(token, signature, timestamp, nonce)){
             return echostr;
         }
-        return echostr;*/
+        return echostr;
 
-        LoggerManager.debug("接收微信XML：" + xml);
+        /*LoggerManager.debug("接收微信XML：" + xml);
         String result = wxService.handleWxMessag(xml);
         LoggerManager.debug("返回微信消息：" + result);
         if (!StringUtil.isNullOrEmpty(result)) {
             return result;
         } else {
             return echostr;
-        }
+        }*/
     }
 
     @ApiOperation(value = "通知微信余额变更")
