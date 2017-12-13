@@ -1,10 +1,9 @@
 package com.lmtech.auth.facade.stub;
 
 import com.lmtech.auth.facade.request.AccountQueryRequest;
-import com.lmtech.auth.facade.request.AccountRequest;
+import com.lmtech.auth.facade.request.AccountAuthRequest;
 import com.lmtech.auth.facade.response.AccountInfoListResponse;
 import com.lmtech.auth.facade.response.AuthResultResponse;
-import com.lmtech.facade.request.NormalRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -24,7 +23,7 @@ public interface AccountFacade {
      * @return
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    NormalResponse register(AccountRequest request);
+    NormalResponse register(AccountAuthRequest request);
 
     /**
      * 认证帐户
@@ -32,7 +31,7 @@ public interface AccountFacade {
      * @return
      */
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    AuthResultResponse authenticate(AccountRequest request);
+    AuthResultResponse authenticate(AccountAuthRequest request);
 
     /**
      * 注销登录

@@ -10,16 +10,7 @@ import com.lmtech.util.StringUtil;
  */
 public class TokenValidateRequest extends CommonRequest<Object> {
 
-    private String token;
     private boolean returnAccountInfo;
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
     public boolean isReturnAccountInfo() {
         return returnAccountInfo;
@@ -31,7 +22,7 @@ public class TokenValidateRequest extends CommonRequest<Object> {
 
     @Override
     public void validate() {
-        if (StringUtil.isNullOrEmpty(token)) {
+        if (StringUtil.isNullOrEmpty(super.getToken())) {
             throw new RequestValidateException("传入校验Token值不允许为空");
         }
     }

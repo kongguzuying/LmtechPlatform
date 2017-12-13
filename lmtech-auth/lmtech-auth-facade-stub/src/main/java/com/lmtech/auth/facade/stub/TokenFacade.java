@@ -1,9 +1,9 @@
 package com.lmtech.auth.facade.stub;
 
+import com.lmtech.auth.facade.dto.TokenLogQueryParam;
 import com.lmtech.auth.facade.request.TokenValidateRequest;
 import com.lmtech.auth.facade.response.TokenDataResponse;
 import com.lmtech.auth.facade.response.TokenValidateResponse;
-import com.lmtech.auth.model.TokenLog;
 import com.lmtech.facade.request.PageRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.PageDataResponse;
@@ -41,5 +41,5 @@ public interface TokenFacade {
      * @return
      */
     @RequestMapping(value = "/getTokenLogs", method = RequestMethod.POST)
-    PageDataResponse getTokenLogs(PageRequest<TokenLog, Object> request);
+    PageDataResponse getTokenLogs(PageRequest<TokenLogQueryParam, Object> request);
 }

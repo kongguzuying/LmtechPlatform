@@ -1,6 +1,6 @@
 package com.lmtech.admin.common.adaptor;
 
-import com.lmtech.auth.facade.request.AccountRequest;
+import com.lmtech.auth.facade.request.AccountAuthRequest;
 import com.lmtech.auth.facade.stub.AccountFacade;
 import com.lmtech.auth.model.Account;
 import com.lmtech.common.ContextManager;
@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 用户服务适配器
@@ -72,7 +71,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     }
 
     private void registerAccount(Account account) {
-        AccountRequest request = new AccountRequest();
+        AccountAuthRequest request = new AccountAuthRequest();
         request.setReqData(account);
         initRequest(request);
 

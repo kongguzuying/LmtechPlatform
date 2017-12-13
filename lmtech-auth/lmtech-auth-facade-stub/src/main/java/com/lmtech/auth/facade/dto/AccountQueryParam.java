@@ -1,4 +1,4 @@
-package com.lmtech.auth.facade.request;
+package com.lmtech.auth.facade.dto;
 
 /**
  * 帐户查询参数

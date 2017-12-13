@@ -1,5 +1,6 @@
 package com.lmtech.auth.facade.request;
 
+import com.lmtech.auth.facade.dto.AccountQueryParam;
 import com.lmtech.facade.request.CommonRequest;
 
 /**
