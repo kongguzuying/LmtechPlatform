@@ -12,7 +12,7 @@
 .dataTables_paginate { width: auto; }
 .dataTables_info { padding: 7px 0 0 80px; color: #878787; }
 
-table.display thead th { padding: 4px 0px 3px 10px; cursor: pointer; * cursor: hand; font-size: 11px; }
+table.display thead th { padding: 4px 0px 3px 10px; cursor: pointer; * cursor: hand; font-size: 11px; border: 1px solid #e7e7e7; }
 
 div.dataTables_wrapper .ui-widget-header { font-weight: normal; background: #efefef url(../images/backgrounds/titleBg.png) repeat-x; border-top: 1px solid #D5D5D5; margin-top: -1px;	 border-right: none; }
 
@@ -48,7 +48,7 @@ table.display thead th div.DataTables_sort_wrapper span { position: absolute; to
 table.display { margin: 0 auto; width: 100%; border-collapse: collapse; }
 table.display tfoot th { padding: 3px 0px 3px 10px; font-weight: bold; font-weight: normal; }
 table.display tr.heading2 td { border-bottom: 1px solid #aaa; }
-table.display td { padding: 8px 10px; }
+table.display td { padding: 0px 5px; }
 table.display td.center { text-align: center; }
 
 

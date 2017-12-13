@@ -16,3 +16,19 @@
 .btn-group a {
     margin-left: 0px;
 }
+
+.searchPanel input {
+    font-size: 11px;
+    padding: 7px 6px;
+    background: white;
+    border: 1px solid #DDD;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 0 2px #f4f4f4;
+    -webkit-box-shadow: 0 0 0 2px #f4f4f4;
+    -moz-box-shadow: 0 0 0 2px #f4f4f4;
+    color: #656565;
+}
+
+.searchPanel label {
+    font-weight: bold;
+}

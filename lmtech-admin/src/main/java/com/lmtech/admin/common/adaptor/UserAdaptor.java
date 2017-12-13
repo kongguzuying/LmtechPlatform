@@ -1,5 +1,6 @@
 package com.lmtech.admin.common.adaptor;
 
+import com.lmtech.auth.facade.dto.AccountAuthData;
 import com.lmtech.auth.facade.request.AccountAuthRequest;
 import com.lmtech.auth.facade.stub.AccountFacade;
 import com.lmtech.auth.model.Account;
@@ -72,7 +73,10 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
 
     private void registerAccount(Account account) {
         AccountAuthRequest request = new AccountAuthRequest();
-        request.setReqData(account);
+        AccountAuthData data = new AccountAuthData();
+        data.setLoginName(account.getLoginName());
+        data.setPassword(account.getPassword());
+        request.setReqData(data);
         initRequest(request);
 
         NormalResponse response = accountFacade.register(request);

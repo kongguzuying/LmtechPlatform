@@ -1,9 +1,9 @@
 package com.lmtech.admin.common.adaptor;
 
+import com.lmtech.auth.facade.dto.AccountAuthData;
 import com.lmtech.auth.facade.request.AccountAuthRequest;
 import com.lmtech.auth.facade.response.AuthResultResponse;
 import com.lmtech.auth.facade.stub.AccountFacade;
-import com.lmtech.auth.model.Account;
 import com.lmtech.auth.model.AuthResult;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
@@ -35,10 +35,10 @@ public class AccountAdaptor extends ServiceAdaptorBase {
      */
     public User authenticate(String loginName, String password) {
         AccountAuthRequest request = new AccountAuthRequest();
-        Account account = new Account();
-        account.setLoginName(loginName);
-        account.setPassword(password);
-        request.setReqData(account);
+        AccountAuthData accountAuthData = new AccountAuthData();
+        accountAuthData.setLoginName(loginName);
+        accountAuthData.setPassword(password);
+        request.setReqData(accountAuthData);
         initRequest(request);
 
         AuthResultResponse response = accountFacade.authenticate(request);

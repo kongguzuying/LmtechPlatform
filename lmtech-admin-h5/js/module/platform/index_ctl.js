@@ -66,7 +66,7 @@ define('index_ctl', ['jquery', 'jquery_collapsible', 'vue', 'constant', 'util'],
             });
 
             //设置frame页面高度
-            var bodyHeight = $(window).height() - 75;
+            var bodyHeight = $(window).height() - 68;
             $("#mainFrame").height(bodyHeight);
 
             //初始化Dialog组件

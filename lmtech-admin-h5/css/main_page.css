@@ -36,7 +36,7 @@
 
 html { height: 100%; background: transparent url(../images/backgrounds/bg.jpg); }
 .html { height: 100%;  }
-body { font-size: 12px; color: #595959; font-family: Arial, Helvetica, sans-serif; line-height: 20px; position: relative; }
+body { font-size: 12px; color: #595959; font-family: Arial, Helvetica, sans-serif; line-height: 20px; position: relative; padding: 5px; }
 .wrapper { position: relative; margin: 0 3%; }
 .contentWrapper { position: relative; margin: 0 3%; float: right; width: 94%; }
 .chart, .bars, .updating, .pie { height: 250px; z-index: 90; max-width: 100%; }
@@ -686,7 +686,7 @@ input[type=submit], input[type=reset], input[type=button], button { padding: 7px
 
 /* General widgets styles */
 
-.widget { background: #f9f9f9; border: 1px solid #cdcdcd; margin-top: 32px; clear: both; }
+.widget { background: #f9f9f9; border: 1px solid #cdcdcd; margin-top: 10px; clear: both; }
 .widget .title { height: 36px; background: #efefef url(../images/backgrounds/titleBg.png) repeat-x; border-bottom: 1px solid #cdcdcd; }
 .widget .title .titleIcon { float: left; padding: 11px 11px; border-right: 1px solid #D5D5D5; }
 
@@ -894,7 +894,7 @@ html ul.tabs li.activeTab a { color: #2E6B9B; }
 
 /* ===== Notification messages ===== */
 
-.nNote { cursor: pointer; margin: 32px 0px 0px 0px; box-shadow: inset 0 0 1px #fff; -webkit-box-shadow: inset 0 0 1px #fff; -moz-box-shadow: inset 0 0 1px #fff; }
+.nNote { cursor: pointer; margin: 10px 0px 0px 0px; box-shadow: inset 0 0 1px #fff; -webkit-box-shadow: inset 0 0 1px #fff; -moz-box-shadow: inset 0 0 1px #fff; }
 .nNote strong { margin-right: 5px; }
 .nNote p { font-size: 11px; padding: 10px 25px 10px 54px; margin: 0px; color: #565656; }
 .nMessage p { font-size: 11px; }
@@ -1008,7 +1008,7 @@ table thead td.headerSortDown span { background: url(../images/icons/sortDown.pn
 
 /* ===== General form styles ===== */
 
-.formRow { padding: 22px 14px; clear: both; border-bottom: 1px solid #E2E2E2; border-top: 1px solid white; position: relative; }
+.formRow { padding: 8px 10px; clear: both; border-bottom: 1px solid #E2E2E2; border-top: 1px solid white; position: relative; }
 .formRow:first-child { border-top: none; }
 .formRow:last-child { border-bottom: none; }
 .ui-formwizard .formRow:last-child { border-bottom: 1px solid #E2E2E2 ; }

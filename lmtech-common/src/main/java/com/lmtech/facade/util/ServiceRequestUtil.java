@@ -17,7 +17,6 @@ public class ServiceRequestUtil {
 
     private static RequestInfo buildServiceRequestInfo() {
         RequestInfo requestInfo = new RequestInfo();
-        requestInfo.setComment("服务内部调用");
         return requestInfo;
     }
 }

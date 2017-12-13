@@ -9,6 +9,9 @@
         .selectedTr {
             background-color: #eeeeee;
         }
+        table.display td.left-td {
+            padding-left: 15px;
+        }
     </style>
 </head>
 
@@ -22,15 +25,15 @@
                 <a href="javascript:void(0)" title="" class="smallButton" style="margin: 5px;" @click="addMenu"><img src="../../../images/icons/color/plus.png" alt=""></a>
             </div>
         </div>
-        <table id="treeTable" cellpadding="0" cellspacing="0" width="100%" class="sTable treeTable">
+        <table id="treeTable" cellpadding="0" cellspacing="0" width="100%" class="display dTable treeTable">
             <thead>
             <tr>
-                <td width="20%">菜单名称</td>
-                <td width="30%">菜单地址</td>
-                <td width="10%">菜单类型</td>
-                <td width="10%">是否可见</td>
-                <td width="10%">排序号</td>
-                <td>操作</td>
+                <th width="20%">菜单名称</th>
+                <th width="30%">菜单地址</th>
+                <th width="10%">菜单类型</th>
+                <th width="10%">是否可见</th>
+                <th width="10%">排序号</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>

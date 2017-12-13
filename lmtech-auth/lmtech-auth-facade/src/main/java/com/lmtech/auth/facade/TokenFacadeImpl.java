@@ -2,6 +2,7 @@ package com.lmtech.auth.facade;
 
 import com.lmtech.auth.constants.AuthErrorConstants;
 import com.lmtech.auth.facade.dto.TokenData;
+import com.lmtech.auth.facade.dto.TokenLogQueryParam;
 import com.lmtech.auth.facade.request.TokenValidateRequest;
 import com.lmtech.auth.facade.response.TokenDataResponse;
 import com.lmtech.auth.facade.response.TokenValidateResponse;
@@ -93,8 +94,16 @@ public class TokenFacadeImpl implements TokenFacade {
     @Override
     @RequestMapping(value = "/getTokenLogs", method = RequestMethod.POST)
     @ApiOperation(value = "获取Token记录日志")
-    public PageDataResponse getTokenLogs(@RequestBody PageRequest<TokenLog, Object> request) {
-        PageData pageData = tokenLogService.getActiveTokens(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+    public PageDataResponse getTokenLogs(@RequestBody PageRequest<TokenLogQueryParam, Object> request) {
+        TokenLog param = null;
+        if (request.getPageParam() != null) {
+            param = new TokenLog();
+            param.setToken(request.getPageParam().getToken());
+            param.setAccount(request.getPageParam().getAccount());
+            param.setStatus(request.getPageParam().getStatus());
+        }
+
+        PageData pageData = tokenLogService.getActiveTokens(param, request.getPageIndex(), request.getPageSize());
 
         PageDataResponse response = new PageDataResponse();
         response.setSuccess(true);
