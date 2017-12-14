@@ -48,7 +48,7 @@ table.display thead th div.DataTables_sort_wrapper span { position: absolute; to
 table.display { margin: 0 auto; width: 100%; border-collapse: collapse; }
 table.display tfoot th { padding: 3px 0px 3px 10px; font-weight: bold; font-weight: normal; }
 table.display tr.heading2 td { border-bottom: 1px solid #aaa; }
-table.display td { padding: 0px 5px; }
+table.display td { padding: 5px 10px; }
 table.display td.center { text-align: center; }
 
 

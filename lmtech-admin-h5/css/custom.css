@@ -11,10 +11,10 @@
 .btn-group {
     display: block;
     padding-left: 10px;
-    margin: 5px;
 }
-.btn-group a {
+.btn-group a.button {
     margin-left: 0px;
+    margin-top: 3px;
 }
 
 .searchPanel input {
@@ -43,4 +43,9 @@
 }
 .searchPanel .searchBtn {
     margin-left: 40px;
+}
+
+table.display thead th.left-th {
+    text-align: left;
+    padding: 5px 10px;
 }

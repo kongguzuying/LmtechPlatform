@@ -98,7 +98,7 @@
                 and email like concat('%', #{email},'%')
             </if>
             <if test="mobile !=null and mobile != ''">
-                and mobile = #{nickName}
+                and mobile = #{mobile}
             </if>
             <if test="sex != 0">
                 and sex = #{sex}
