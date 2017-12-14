@@ -71,7 +71,7 @@ public class IntegralRuleAdaptor extends ServiceAdaptorBase implements Controlle
     public PageData<IntegralRule> getPageData(IntegralRule param, int pageIndex, int pageSize) {
         IntegralRulePageRequest request = new IntegralRulePageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

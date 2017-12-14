@@ -70,7 +70,7 @@ public class RechargePayRecordAdaptor extends ServiceAdaptorBase implements Cont
     public PageData<RechargePayRecord> getPageData(RechargePayRecord param, int pageIndex, int pageSize) {
         RechargePayRecordPageRequest request = new RechargePayRecordPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

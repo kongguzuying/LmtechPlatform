@@ -70,7 +70,7 @@ public class CardPayRecordAdaptor extends ServiceAdaptorBase implements Controll
     public PageData<CardPayRecord> getPageData(CardPayRecord param, int pageIndex, int pageSize) {
         CardPayRecordPageRequest request = new CardPayRecordPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

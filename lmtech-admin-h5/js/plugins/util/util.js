@@ -87,8 +87,7 @@ define('util', ['jquery', 'jquery_ui', 'constant'], function ($, ui, C) {
         buildPageRequest: function (data) {
             data.pageIndex = (data.pageIndex ? data.pageIndex : 1);
             data.pageSize = (data.pageSize ? data.pageSize : 10);
-            data.pageParam = data.pageParam;
-            data.reqData = {};
+            data.reqData = data.pageParam;
             data.reqInfo = {};
             return data;
         },

@@ -271,7 +271,7 @@ public class UserFacadeImpl implements UserFacade {
     @RequestMapping(value = "/getUserOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取用户分页数据")
     public UserPageResponse getUserOfPage(@RequestBody UserPageRequest request) {
-        PageData<User> pageData = userManager.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<User> pageData = userManager.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         UserPageResponse response = new UserPageResponse();
         response.setSuccess(true);

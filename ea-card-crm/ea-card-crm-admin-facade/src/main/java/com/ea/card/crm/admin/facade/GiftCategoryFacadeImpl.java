@@ -35,7 +35,7 @@ public class GiftCategoryFacadeImpl implements GiftCategoryFacade {
     @RequestMapping(value = "/getGiftOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取礼品分页数据")
     public GiftPageResponse getGiftOfPage(@RequestBody GiftPageRequest request) {
-        GiftCategory giftParam = request.getPageParam();
+        GiftCategory giftParam = request.getReqData();
         PageData<GiftCategory> pageData = giftCategoryService.getPageData(giftParam, request.getPageIndex(), request.getPageSize());
 
         GiftPageResponse response = new GiftPageResponse();

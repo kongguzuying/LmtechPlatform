@@ -35,7 +35,7 @@ public class CardPresentRecordFacadeImpl implements CardPresentRecordFacade {
     @RequestMapping(value = "/getCardPresentRecordOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取卡片赠送记录分页数据")
     public CardPresentRecordPageResponse getCardPresentRecordOfPage(@RequestBody CardPresentRecordPageRequest request) {
-        PageData<CardPresentRecord> pageData = cardPresentRecordService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<CardPresentRecord> pageData = cardPresentRecordService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         CardPresentRecordPageResponse response = new CardPresentRecordPageResponse();
         response.setSuccess(true);

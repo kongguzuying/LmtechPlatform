@@ -15,8 +15,10 @@
             <div class="horControlB" style="float:left;">
                 <div class="searchPanel">
                     <label>角色名称：</label>
-                    <input type="text"/>
-                    <a href="#" title="" class="button blueB" style="margin: 5px;">
+                    <input type="text" v-model="queryParam.roleName"/>
+                    <label>角色描述：</label>
+                    <input type="text" v-model="queryParam.roleRemark"/>
+                    <a href="#" title="" class="button blueB" style="margin: 5px;" @click="search">
                         <img src="../../../images/icons/light/magnify.png" alt="" class="icon"><span>搜索</span>
                     </a>
                 </div>

@@ -36,7 +36,7 @@ public class RechargePayRecordFacadeImpl implements RechargePayRecordFacade {
     @RequestMapping(value = "/getRechargePayRecordOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取充值记录分页数据")
     public RechargePayRecordPageResponse getRechargePayRecordOfPage(@RequestBody RechargePayRecordPageRequest request) {
-        PageData<RechargePayRecord> pageData = rechargePayRecordService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<RechargePayRecord> pageData = rechargePayRecordService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         RechargePayRecordPageResponse response = new RechargePayRecordPageResponse();
         response.setSuccess(true);

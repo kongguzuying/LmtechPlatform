@@ -123,7 +123,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     @Override
     public PageData<User> getPageData(User param, int pageIndex, int pageSize) {
         UserPageRequest request = new UserPageRequest();
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);
@@ -200,7 +200,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<Role> getUserRoleOfPage(String userId, Role param, int pageIndex, int pageSize) {
         UserRolePageRequest request = new UserRolePageRequest();
         request.setUserId(userId);
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);
@@ -221,7 +221,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<Role> getUserUnauthRoleOfPage(String userId, Role param, int pageIndex, int pageSize) {
         UserRolePageRequest request = new UserRolePageRequest();
         request.setUserId(userId);
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

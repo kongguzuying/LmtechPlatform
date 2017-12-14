@@ -70,7 +70,7 @@ public class IntegralSetAdaptor extends ServiceAdaptorBase implements Controller
     public PageData<IntegralSet> getPageData(IntegralSet param, int pageIndex, int pageSize) {
         IntegralSetPageRequest request = new IntegralSetPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

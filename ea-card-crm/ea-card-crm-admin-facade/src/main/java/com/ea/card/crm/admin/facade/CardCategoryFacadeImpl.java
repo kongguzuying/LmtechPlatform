@@ -36,7 +36,7 @@ public class CardCategoryFacadeImpl implements CardCategoryFacade {
     @RequestMapping(value = "/getCardOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取卡分页数据")
     public CardPageResponse getCardOfPage(@RequestBody CardPageRequest request) {
-        PageData<CardCategory> pageData = cardCategoryService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<CardCategory> pageData = cardCategoryService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         CardPageResponse response = new CardPageResponse();
         response.setSuccess(true);

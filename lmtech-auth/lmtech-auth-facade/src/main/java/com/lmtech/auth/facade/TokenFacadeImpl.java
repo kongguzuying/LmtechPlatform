@@ -94,13 +94,13 @@ public class TokenFacadeImpl implements TokenFacade {
     @Override
     @RequestMapping(value = "/getTokenLogs", method = RequestMethod.POST)
     @ApiOperation(value = "获取Token记录日志")
-    public PageDataResponse getTokenLogs(@RequestBody PageRequest<TokenLogQueryParam, Object> request) {
+    public PageDataResponse getTokenLogs(@RequestBody PageRequest<TokenLogQueryParam> request) {
         TokenLog param = null;
-        if (request.getPageParam() != null) {
+        if (request.getReqData() != null) {
             param = new TokenLog();
-            param.setToken(request.getPageParam().getToken());
-            param.setAccount(request.getPageParam().getAccount());
-            param.setStatus(request.getPageParam().getStatus());
+            param.setToken(request.getReqData().getToken());
+            param.setAccount(request.getReqData().getAccount());
+            param.setStatus(request.getReqData().getStatus());
         }
 
         PageData pageData = tokenLogService.getActiveTokens(param, request.getPageIndex(), request.getPageSize());

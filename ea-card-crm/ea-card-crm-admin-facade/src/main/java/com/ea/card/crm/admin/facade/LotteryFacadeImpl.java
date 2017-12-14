@@ -35,7 +35,7 @@ public class LotteryFacadeImpl implements LotteryFacade {
     @RequestMapping(value = "/getLotteryOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取积分抽奖产品分页数据")
     public LotteryPageResponse getLotteryOfPage(@RequestBody LotteryPageRequest request) {
-        PageData<LotteryProduct> pageData = lotteryProductService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<LotteryProduct> pageData = lotteryProductService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         LotteryPageResponse response = new LotteryPageResponse();
         response.setSuccess(true);

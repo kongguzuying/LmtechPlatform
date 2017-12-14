@@ -70,7 +70,7 @@ public class CardActiveRecordAdaptor extends ServiceAdaptorBase implements Contr
     public PageData<CardActiveRecord> getPageData(CardActiveRecord param, int pageIndex, int pageSize) {
         CardActiveRecordPageRequest request = new CardActiveRecordPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

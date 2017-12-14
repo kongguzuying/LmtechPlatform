@@ -122,7 +122,12 @@ public class RoleFacadeImpl implements RoleFacade {
     @RequestMapping(value = "/getRoleOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取角色分页数据")
     public RolePageResponse getRoleOfPage(@RequestBody RolePageRequest request) {
-        PageData<Role> pageData = roleManager.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        Role param = new Role();
+        if (request.getReqData() != null) {
+            param.setName(request.getReqData().getRoleName());
+            param.setRemark(request.getReqData().getRoleRemark());
+        }
+        PageData<Role> pageData = roleManager.getPageData(param, request.getPageIndex(), request.getPageSize());
 
         RolePageResponse response = new RolePageResponse();
         response.setSuccess(true);

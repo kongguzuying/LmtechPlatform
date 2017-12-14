@@ -7,7 +7,7 @@ import com.lmtech.infrastructure.model.User;
  * 角色用户分页数据请求
  * Created by huang.jb on 2017-4-10.
  */
-public class RoleUserPageRequest extends PageRequest<User, Object> {
+public class RoleUserPageRequest extends PageRequest<User> {
 
     private String roleId;
 

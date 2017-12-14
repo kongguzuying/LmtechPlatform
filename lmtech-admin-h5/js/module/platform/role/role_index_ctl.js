@@ -34,7 +34,11 @@ define('role_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
                 el: '#data',
                 data: {
                     pageData: data,
-                    pager: util.buildPageCompData(data)
+                    pager: util.buildPageCompData(data),
+                    queryParam: {
+                        roleName: '',
+                        roleRemark: ''
+                    }
                 },
                 methods: {
                     addRole: function () {
@@ -54,6 +58,9 @@ define('role_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
                                 window.location.reload();
                             }
                         });
+                    },
+                    search: function () {
+                        that._requestData(1, v.$data.queryParam, false);
                     },
                     authUser: function (roleId) {
                         window.location.href = "ruser.html?roleId=" + roleId + "&type=0";

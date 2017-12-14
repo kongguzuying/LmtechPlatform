@@ -9,7 +9,7 @@ import com.lmtech.util.StringUtil;
  * 用户角色分页数据请求
  * Created by huang.jb on 2017-4-1.
  */
-public class UserRolePageRequest extends PageRequest<Role, Object> {
+public class UserRolePageRequest extends PageRequest<Role> {
 
     private String userId;
 
