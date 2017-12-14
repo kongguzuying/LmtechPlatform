@@ -5,14 +5,14 @@ define('user_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
             util.checkToken();
             that._requestData(1, null, true);
         },
-        _requestData: function (pageIndex, pageParam, initVue) {
+        _requestData: function (pageIndex, queryParam, initVue) {
             var that = this;
             util.httpPost({
                 url: C.service.url.getUserOfPage,
                 data: util.buildPageRequest({
                     pageIndex: pageIndex,
                     pageSize: C.pager.pageSize,
-                    pageParam: pageParam
+                    queryParam: queryParam
                 }),
                 success: function (data) {
                     if (initVue) {
@@ -34,7 +34,13 @@ define('user_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
                 el: '#data',
                 data: {
                     pageData: data,
-                    pager: util.buildPageCompData(data)
+                    pager: util.buildPageCompData(data),
+                    queryParam: {
+                        nickName: '',
+                        email: '',
+                        mobile: '',
+                        sex: ''
+                    }
                 },
                 methods: {
                     addUser: function () {
@@ -54,6 +60,9 @@ define('user_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
                                 window.location.reload();
                             }
                         });
+                    },
+                    search: function () {
+                        that._requestData(1, v.$data.queryParam, false);
                     },
                     authRole: function (userId) {
                         window.location.href = "urole.html?userId=" + userId + "&type=0";

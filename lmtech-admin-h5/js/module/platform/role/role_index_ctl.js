@@ -5,14 +5,14 @@ define('role_index_ctl', ['jquery', 'vue', 'vue_comps', 'constant', 'util'], fun
             util.checkToken();
             that._requestData(1, null, true);
         },
-        _requestData: function (pageIndex, pageParam, initVue) {
+        _requestData: function (pageIndex, queryParam, initVue) {
             var that = this;
             util.httpPost({
                 url: C.service.url.getRoleOfPage,
                 data: util.buildPageRequest({
                     pageIndex: pageIndex,
                     pageSize: C.pager.pageSize,
-                    pageParam: pageParam
+                    queryParam: queryParam
                 }),
                 success: function (data) {
                     if (initVue) {

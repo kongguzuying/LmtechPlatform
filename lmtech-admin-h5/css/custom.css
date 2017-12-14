@@ -28,8 +28,19 @@
     -moz-box-shadow: 0 0 0 2px #f4f4f4;
     color: #656565;
 }
-
 .searchPanel label {
     font-weight: bold;
     margin-left: 5px;
+}
+.searchPanel select.selector {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 11px;
+    padding: 7px 6px;
+    background: white;
+    border: 1px solid #DDD;
+}
+.searchPanel .searchBtn {
+    margin-left: 40px;
 }
