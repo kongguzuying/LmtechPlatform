@@ -11,10 +11,7 @@ import com.ea.card.crm.service.AliyunMessageService;
 import com.ea.card.crm.service.exception.SendSmsException;
 import com.lmtech.common.ExeResult;
 import com.lmtech.redis.service.RedisDataService;
-import com.lmtech.util.DateUtil;
-import com.lmtech.util.IdWorkerUtil;
-import com.lmtech.util.JsonUtil;
-import com.lmtech.util.StringUtil;
+import com.lmtech.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -91,6 +88,7 @@ public class AliyunMessageServiceImpl implements AliyunMessageService {
                     result.setMessage("短信写入失败");
                 }
             } else {
+                LoggerManager.error("短信发送失败，返回结果：" + JsonUtil.toJson(sendSmsResponse));
                 result.setSuccess(false);
                 result.setMessage("短信发送失败");
             }
