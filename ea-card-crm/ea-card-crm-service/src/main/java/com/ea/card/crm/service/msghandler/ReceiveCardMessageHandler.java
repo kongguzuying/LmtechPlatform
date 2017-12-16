@@ -427,7 +427,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      */
     public double getMyBalance(String tid, String userId, String phone) {
         // 星链帐户存在，查询余额
-        MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
+        /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
         balanceMap.add("tid", tid);
         balanceMap.add("userid", userId);
         balanceMap.add("phone", phone);
@@ -438,8 +438,8 @@ public class ReceiveCardMessageHandler implements MessageHandler {
         if (balanceResult.getState() == 0) {
             balance = balanceResult.getMyBalance();
         }
-        return balance;
-
+        return balance;*/
+        return 0;
     }
 
     /**
@@ -451,7 +451,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      * @param money
      */
     public void updMyBalance(String tid, String phone, String userId, double money) {
-        MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
+        /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
         balanceMap.add("tid", tid);
         balanceMap.add("phone", phone);
         balanceMap.add("userid", userId);
@@ -466,7 +466,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
             LoggerManager.debug("userId" + balanceMap.get("userid") + "余额,更新[" + money + "]成功！");
         } else {
             LoggerManager.debug("userId" + balanceMap.get("userid") + "余额,更新[" + money + "]失败！");
-        }
+        }*/
     }
     
     /**
