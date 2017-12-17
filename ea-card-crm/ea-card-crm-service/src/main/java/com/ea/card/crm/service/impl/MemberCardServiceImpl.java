@@ -322,9 +322,9 @@ public class MemberCardServiceImpl implements MemberCardService {
             String userId = registerAndBindUser(tid, request.getVerifyCode(), request.getVerifyKey(), request.isIgnoreVerifyCode(), request.getPhone(), record.getUniqueId(), record);
             LoggerManager.info("校验用户中心数据 => 结束");
 
-            LoggerManager.info("校验星链卡帐户 => 开始");
+            LoggerManager.info("校验游物欧品卡帐户 => 开始");
             registerAccount(tid, request.getPhone(), userId, record);
-            LoggerManager.info("校验星链卡帐户 => 结束");
+            LoggerManager.info("校验游物欧品卡帐户 => 结束");
 
             if (WxConstants.isWxApplet()) {
                 //小程序登录门户
@@ -443,7 +443,7 @@ public class MemberCardServiceImpl implements MemberCardService {
         double balance = 0;
         String type = "1";
         if (checkUserResult.getState() == 0) {
-            // 星链帐户不存在，注册帐户
+            // 游物欧品帐户不存在，注册帐户
             MultiValueMap<String, Object> accountRegisterMap = new LinkedMultiValueMap<String, Object>();
             accountRegisterMap.add("tid", tid);
             accountRegisterMap.add("type", type);
@@ -454,10 +454,10 @@ public class MemberCardServiceImpl implements MemberCardService {
             StateResult accountRegisterResult = restTemplate.postForObject(URL_ACCOUNT_REGISTER, accountRegisterRequest, StateResult.class);
 
             if (accountRegisterResult.getState() != 0) {
-                throw new ActiveMemberCardException("注册星链卡帐户失败，" + accountRegisterResult.getMsg());
+                throw new ActiveMemberCardException("注册游物欧品卡帐户失败，" + accountRegisterResult.getMsg());
             }
         } else if (checkUserResult.getState() == 1) {
-            // 星链帐户存在，查询余额
+            // 游物欧品帐户存在，查询余额
             MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
             balanceMap.add("tid", tid);
             balanceMap.add("userid", userId);

@@ -428,7 +428,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      * @return
      */
     public double getMyBalance(String tid, String userId, String phone) {
-        // 星链帐户存在，查询余额
+        // 游物欧品帐户存在，查询余额
         /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
         balanceMap.add("tid", tid);
         balanceMap.add("userid", userId);

@@ -321,7 +321,7 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
         MemberRegister register = memberRegisterService.getByUserId(userId);
         if (register != null) {
-            wxService.updateCardBalance(register.getCardId(), register.getCode(), balance, "星链卡服务端余额变更通知", false);
+            wxService.updateCardBalance(register.getCardId(), register.getCode(), balance, "游物欧品卡服务端余额变更通知", false);
             result.setSuccess(true);
             result.setMessage("余额通知成功");
         } else {

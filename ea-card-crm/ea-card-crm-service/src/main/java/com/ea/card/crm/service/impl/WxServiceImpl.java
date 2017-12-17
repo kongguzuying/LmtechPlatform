@@ -358,7 +358,7 @@ public class WxServiceImpl implements WxService {
             LoggerManager.info("处理公众号关注事件 => 开始");
             sendCardToUser(messageBase.getFromUserName());
             //TODO 配置在系统参数中
-            String message = "嗨，欢迎关注，小星总算等到您啦！花的更少，过得更好，星链通为您开启品质生活！";
+            String message = "嗨，欢迎关注，小星总算等到您啦！花的更少，过得更好，游物欧品为您开启品质生活！";
             //sendTextMessageToUser(messageBase.getFromUserName(), message);
             LoggerManager.info("处理公众号关注事件 => 结束");
         } else if (equalsEvent(messageBase, WxConstants.WX_EVENT_CLICK)) {
