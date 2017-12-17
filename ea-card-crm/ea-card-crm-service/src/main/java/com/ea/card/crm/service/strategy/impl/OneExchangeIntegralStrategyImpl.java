@@ -125,8 +125,8 @@ public class OneExchangeIntegralStrategyImpl extends AbstractDbManagerBaseImpl<E
 					sb.append("'keyword5':{'value':'"+paytime+"'},");//消费时间
 					sb.append("'remark':{'value':'点击查看积分奖励详情，第一时间了解积分奖励动态>>'}}");
 					//TODO 待申请模块
-					String msgContent = sb.toString();
-					integralService.sendIntegralMsgToWx(wxActiveMessage.getFromUserName(),msgContent);
+					//String msgContent = sb.toString();
+					//integralService.sendIntegralMsgToWx(wxActiveMessage.getFromUserName(),msgContent);
 				}else {
 					LoggerManager.debug("用户UserId:["+userId+"]code:["+memberRegister.getCode()+"],激活过星联卡数据异常,激活时未记录微信公众号openId");
 				}
