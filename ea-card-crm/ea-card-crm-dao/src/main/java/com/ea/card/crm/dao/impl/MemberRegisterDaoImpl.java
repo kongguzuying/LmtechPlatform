@@ -92,7 +92,12 @@ public class MemberRegisterDaoImpl extends MyBatisDaoBase<MemberRegisterMapper, 
         baseMapper.updateIsDelete(id, isDelete);
     }
 
-	@Override
+    @Override
+    public void updateIntegral(String id, long integral) {
+        baseMapper.updateIntegral(id, integral, new Date());
+    }
+
+    @Override
 	public MemberRegister getByCodeAndIsDelete(String code, int isDelete) {
 		return baseMapper.selectByCodeAndIsDelete(code, isDelete);
 	}

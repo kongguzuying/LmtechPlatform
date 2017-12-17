@@ -39,4 +39,6 @@ public interface MemberRegisterMapper extends LmtechBaseMapper<MemberRegister> {
     void updateIsDelete(@Param("id") String id, @Param("isDelete") int status);
 
     void updateIsDeleteBy(@Param("openId") String openId, @Param("isDelete") int status);
+
+    void updateIntegral(@Param("id") String id, @Param("integral") long integral, @Param("updateDate") Date updateDate);
 }

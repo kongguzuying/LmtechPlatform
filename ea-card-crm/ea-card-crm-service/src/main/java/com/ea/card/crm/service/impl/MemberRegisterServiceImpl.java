@@ -14,7 +14,6 @@ import com.lmtech.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -166,5 +165,10 @@ public class MemberRegisterServiceImpl extends AbstractDbManagerBaseImpl<MemberR
             LoggerManager.info("不存在任何试用中的用户，操作结束");
         }
         LoggerManager.info("设置试用超时状态 => 结束");
+    }
+
+    @Override
+    public void updateIntegral(String id, long integral) {
+        memberRegisterDao.updateIntegral(id, integral);
     }
 }

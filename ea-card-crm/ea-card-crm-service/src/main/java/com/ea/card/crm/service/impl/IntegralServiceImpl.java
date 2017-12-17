@@ -64,9 +64,10 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
     @Value("${wx.template_id}")
     public String TEMPLATE_ID;
 
+    private Object lockObj = new Object();
+
     @Autowired
     private RestTemplate restTemplate;
-
     @Autowired
     private MemberService memberService;
     @Autowired
@@ -669,6 +670,11 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
     }
 
     private void integralChange(String userId, int integralType, int integralSource, String integralOrderId, int integralNumber) {
+        MemberRegister memberRegister = memberRegisterService.getByUserId(userId);
+        if (memberRegister == null) {
+            throw new NoneRegisterException();
+        }
+
         if (integralType == IntegralConstants.TYPE_TWO) {
             //消费积分，需先判断用户积分是否足够
             GetIntegralResult result = getIntegral(userId);
@@ -677,8 +683,21 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
                 if (integral < integralNumber) {
                     throw new NoEnoughIntegralException();
                 }
+                synchronized (lockObj) {
+                    //锁定，防止多个线程同时变更积分导致数据不一致
+                    integral -= integralNumber;
+                    memberRegisterService.updateIntegral(memberRegister.getId(), integral);
+                }
             } else {
                 throw new RuntimeException("获取用户积分出错。");
+            }
+        } else if (integralType == IntegralConstants.TYPE_ONE) {
+            //积分增加
+            synchronized (lockObj) {
+                //锁定，防止多个线程同时变更积分导致数据不一致
+                long integral = memberRegister.getIntegral();
+                integral += integralNumber;
+                memberRegisterService.updateIntegral(memberRegister.getId(), integral);
             }
         }
 

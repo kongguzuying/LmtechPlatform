@@ -411,22 +411,26 @@ public class WxServiceImpl implements WxService {
 
     @Override
     public void updateCardBonus(String cardId, String code, long bonus, String message, boolean notify) {
-        String accessToken = this.getAccessToken();
-        String url = getURL_WX_UPDATE_USER() + accessToken;
+        try {
+            String accessToken = this.getAccessToken();
+            String url = getURL_WX_UPDATE_USER() + accessToken;
 
-        WxUpdateCardRequest request = new WxUpdateCardRequest();
-        request.setAdd_bonus(10L);
-        request.setBonus(bonus);
-        request.setRecord_bonus(message);
-        request.setCard_id(cardId);
-        request.setCode(code);
-        WxUpdateCardRequest.NotifyOptional notifyOptional = new WxUpdateCardRequest.NotifyOptional();
-        notifyOptional.setIs_notify_bonus(notify);
-        request.setNotify_optional(notifyOptional);
+            WxUpdateCardRequest request = new WxUpdateCardRequest();
+            request.setAdd_bonus(10L);
+            request.setBonus(bonus);
+            request.setRecord_bonus(message);
+            request.setCard_id(cardId);
+            request.setCode(code);
+            WxUpdateCardRequest.NotifyOptional notifyOptional = new WxUpdateCardRequest.NotifyOptional();
+            notifyOptional.setIs_notify_bonus(notify);
+            request.setNotify_optional(notifyOptional);
 
-        WxUpdateCardResponse response = restTemplate.postForObject(url, request, WxUpdateCardResponse.class);
-        if (!response.isSuccess()) {
-            throw new WxIntfInvokeException(response);
+            WxUpdateCardResponse response = restTemplate.postForObject(url, request, WxUpdateCardResponse.class);
+            if (!response.isSuccess()) {
+                throw new WxIntfInvokeException(response);
+            }
+        } catch (Exception e) {
+            LoggerManager.error("通知微信改变积分失败", e);
         }
     }
 

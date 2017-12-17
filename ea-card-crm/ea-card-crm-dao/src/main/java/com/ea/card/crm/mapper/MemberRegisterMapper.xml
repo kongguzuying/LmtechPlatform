@@ -113,6 +113,12 @@
         order by create_date desc limit 1
     </update>
 
+    <update id="updateIntegral">
+        update ea_member_register
+        set integral=#{integral},update_date=#{updateDate},data_version=(data_version+1)
+        where id=#{id}
+    </update>
+
     <select id="selectPageList" parameterType="com.ea.card.crm.model.MemberRegister" resultMap="memberRegisterMap">
         select * from ea_member_register
         <trim prefix="WHERE" prefixOverrides="AND|OR">

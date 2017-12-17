@@ -125,6 +125,8 @@ public class ReceiveCardMessageHandler implements MessageHandler {
             if (memberRegister != null) {
                 String uniqueId = memberRegister.getUniqueId();
                 record = cardActiveRecordService.getAppliedRecordByUniqueId(uniqueId);
+                //取旧的用户id，保证领卡多次用户id还是一致
+                record.setUserId(memberRegister.getUserId());
             } else {
                 throw new ActiveMemberCardException("微信卡删除,再次激活code[" + code + "]数据不存在！");
             }

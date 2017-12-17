@@ -100,4 +100,11 @@ public interface MemberRegisterService extends DbManagerBase<MemberRegister> {
      * 设置试用会员超时
      */
     void setTrailOvertime();
+
+    /**
+     * 改变用户积分
+     * @param id
+     * @param integral
+     */
+    void updateIntegral(String id, long integral);
 }

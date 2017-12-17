@@ -39,4 +39,6 @@ public interface MemberRegisterDao extends Dao<MemberRegister> {
     void updateRefreshToken(String openId, String refreshToken);
 
     void updateIsDelete(String id, int isDelete);
+
+    void updateIntegral(String id, long integral);
 }

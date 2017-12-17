@@ -165,7 +165,8 @@ public class PaymentFacadeImpl implements PaymentFacade {
             ContextManager.setValue(CardPayRecord.CONTEXT_KEY, record);
             String tid = IdWorkerUtil.generateStringId();
 
-            String orderNo = paymentService.rechargeRequest(tid, register.getUserId(), register.getPhone(), request.getTotalAmount(), PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
+            //String orderNo = paymentService.rechargeRequest(tid, register.getUserId(), register.getPhone(), request.getTotalAmount(), PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
+            String orderNo = IdWorkerUtil.generateStringId();
             RechargePayResult stateResult = paymentService.rechargePayment(tid, register.getUserId(), register.getPhone(), orderNo, request.getOfficialOpenId());
             if (stateResult.isSuccess()) {
                 Map<String, String> signResult = wxService.getPaySign(stateResult.getData().getPrepayId());
@@ -233,7 +234,12 @@ public class PaymentFacadeImpl implements PaymentFacade {
         MemberRegister memberRegister = memberRegisterService.getByOpenId(openId);
         if (memberRegister != null) {
             String tid = IdWorkerUtil.generateStringId();
-            String balanceResult = paymentService.getBalance(tid, memberRegister.getUserId(), memberRegister.getPhone());
+            //String balanceResult = paymentService.getBalance(tid, memberRegister.getUserId(), memberRegister.getPhone());
+
+            Map<String, Object> balanceResult = new HashMap<>();
+            balanceResult.put("hasPayPwd", 1);
+            balanceResult.put("myBalance", 0);
+            balanceResult.put("state", 0);
             return balanceResult;
         } else {
             throw new NoneRegisterException();
