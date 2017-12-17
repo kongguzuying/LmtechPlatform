@@ -9,6 +9,7 @@ import com.ea.card.crm.service.*;
 import com.ea.card.crm.service.exception.NoneRegisterException;
 import com.ea.card.crm.service.exception.RechargePayException;
 import com.ea.card.crm.service.vo.BalanceLockResult;
+import com.ea.card.crm.service.vo.RechargePayData;
 import com.ea.card.crm.service.vo.RechargePayResult;
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.ExeResult;
@@ -169,6 +170,9 @@ public class PaymentFacadeImpl implements PaymentFacade {
             //RechargePayResult stateResult = paymentService.rechargePayment(tid, register.getUserId(), register.getPhone(), orderNo, request.getOfficialOpenId());
             RechargePayResult stateResult = new RechargePayResult();
             stateResult.setState(0);
+            RechargePayData payData = new RechargePayData();
+            payData.setPrepayId(IdWorkerUtil.generateStringId());
+            stateResult.setData(payData);
             String orderNo = IdWorkerUtil.generateStringId();
             if (stateResult.isSuccess()) {
                 Map<String, String> signResult = wxService.getPaySign(stateResult.getData().getPrepayId());
