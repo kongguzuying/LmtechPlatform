@@ -168,12 +168,23 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
             //String orderNo = paymentService.rechargeRequest(tid, register.getUserId(), register.getPhone(), request.getTotalAmount(), PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
             //RechargePayResult stateResult = paymentService.rechargePayment(tid, register.getUserId(), register.getPhone(), orderNo, request.getOfficialOpenId());
+
+            //使用临时解决办法，绕过支付功能
             RechargePayResult stateResult = new RechargePayResult();
             stateResult.setState(0);
             RechargePayData payData = new RechargePayData();
             payData.setPrepayId(IdWorkerUtil.generateStringId());
             stateResult.setData(payData);
             String orderNo = IdWorkerUtil.generateStringId();
+            record.setUserId(register.getUserId());
+            record.setPhone(register.getPhone());
+            record.setProId(IdWorkerUtil.generateStringId());
+            record.setTotalAmount(request.getTotalAmount());
+            record.setType(PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
+            record.setEntry(3);
+            record.setOrderNo(orderNo);
+            record.setStatus(CardPayRecord.STATUS_FINISHED);
+
             if (stateResult.isSuccess()) {
                 Map<String, String> signResult = wxService.getPaySign(stateResult.getData().getPrepayId());
                 signResult.put("orderNo", orderNo);
