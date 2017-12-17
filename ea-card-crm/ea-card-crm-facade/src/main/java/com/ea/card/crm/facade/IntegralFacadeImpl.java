@@ -59,7 +59,7 @@ public class IntegralFacadeImpl implements IntegralFacade {
                 throw new IllegalArgumentException(IntegralConstants.NO_REGIST);
             }
             userId = register.getUserId();
-            GetIntegralResult response = integralService.getIntegral(userId, t_id);
+            GetIntegralResult response = integralService.getIntegral(userId);
             if (response.isSuccess()) {
                 LoggerManager.info("积分获取接口被调用成功");
             }

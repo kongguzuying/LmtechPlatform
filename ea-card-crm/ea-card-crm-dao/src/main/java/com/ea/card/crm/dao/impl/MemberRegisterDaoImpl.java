@@ -98,6 +98,11 @@ public class MemberRegisterDaoImpl extends MyBatisDaoBase<MemberRegisterMapper, 
 	}
 
     @Override
+	public MemberRegister getByUserIdAndIsDelete(String userId, int isDelete) {
+        return baseMapper.selectByUserIdAndIsDelete(userId, isDelete);
+    }
+
+    @Override
     public List<MemberRegister> getTrialOvertime() {
         return baseMapper.selectTrialOvertime(new Date());
     }

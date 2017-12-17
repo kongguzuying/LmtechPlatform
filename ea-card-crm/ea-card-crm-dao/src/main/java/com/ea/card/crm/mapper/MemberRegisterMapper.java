@@ -24,6 +24,8 @@ public interface MemberRegisterMapper extends LmtechBaseMapper<MemberRegister> {
     
     MemberRegister selectByCodeAndIsDelete(@Param("code") String code, @Param("isDelete") int status);
 
+    MemberRegister selectByUserIdAndIsDelete(@Param("userId") String userId, @Param("isDelete") int status);
+
     List<MemberRegister> selectTrialOvertime(@Param("date") Date date);
 
     void updateTrialOvertime(@Param("date") Date date, @Param("ids") List<String> ids);

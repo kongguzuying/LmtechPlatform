@@ -20,7 +20,14 @@ public interface IntegralService {
     /**
      * 积分获取接口
      */
-    GetIntegralResult getIntegral(String userId, String t_id);
+    GetIntegralResult getIntegral(String userId);
+
+    /**
+     * 获取历史积分记录
+     * @param userId
+     * @return
+     */
+    GetIntegralResult getHistoryIntegral(String userId);
 
     /**
      * 积分签到接口

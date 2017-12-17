@@ -28,6 +28,14 @@ public class ErrorConstants {
     public static final long ERR_UC_REGISTER_PHONE_EXIST = 3200202;
     public static final String ERR_UC_REGISTER_PHONE_EXIST_MSG = "手机号已注册";
 
+    /** 用户未注册 **/
+    public static final long ERR_NONE_REGISTER = 300212002;
+    public static final String ERR_NONE_REGISTER_MSG = "用户未注册";
+
+    /** 用户未注册 **/
+    public static final long ERR_HISTORY_NONE_REGISTER = 300212004;
+    public static final String ERR_HISTORY_NONE_REGISTER_MSG = "用户未注册";
+
     /** 手机号或微信重复激活 **/
     public static final long ERR_CRM_ACTIVE_REPEAT = 3502004;
     public static final String ERR_CRM_ACTIVE_REPEAT_MSG = "手机号或微信重复激活";

@@ -102,7 +102,7 @@ public class IntegralTradingServiceImpl extends AbstractDbManagerBaseImpl<Integr
 	public IntegralTradingRecord consumerProduct(IntegralTradingRequest request) {
 		
 		//查询积分值
-		GetIntegralResult integralResult = integralService.getIntegral(request.getUserId(), request.gettId());
+		GetIntegralResult integralResult = integralService.getIntegral(request.getUserId());
 		GetIntegralData integralData= integralResult.getData();
 		long integralNumber = integralData.getSumIntegralNumber();
 		//积分不足

@@ -407,7 +407,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      */
     public long getActivePresentBonus(String userId, long activePresentBonus) {
         //查询用户当前积分
-        GetIntegralResult integralResult = integralService.getIntegral(userId, IdWorkerUtil.generateStringId());
+        GetIntegralResult integralResult = integralService.getHistoryIntegral(userId);
         if (integralResult.getState() != 0)
             throw new ActiveMemberCardException(integralResult.getMsg(), integralResult.getState());
         GetIntegralData integralData = integralResult.getData();

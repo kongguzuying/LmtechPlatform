@@ -85,7 +85,7 @@ public class OneExchangeIntegralStrategyImpl extends AbstractDbManagerBaseImpl<E
 			integralService.increaseIntegral(userId, integralNum, IntegralConstants.THERE);
 		}else if(type == IntegralConstants.ONE){//扣减积分
 			//查询积分值
-			GetIntegralResult integralResult = integralService.getIntegral(userId, tId);
+			GetIntegralResult integralResult = integralService.getIntegral(userId);
 			GetIntegralData integralData= integralResult.getData();
 			long integralNumber = integralData.getSumIntegralNumber();
 			//积分不足

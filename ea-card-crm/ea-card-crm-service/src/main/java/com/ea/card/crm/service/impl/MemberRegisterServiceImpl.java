@@ -107,6 +107,11 @@ public class MemberRegisterServiceImpl extends AbstractDbManagerBaseImpl<MemberR
     }
 
     @Override
+    public MemberRegister getByUserIdAndIsDelete(String userId, int isDelete) {
+        return memberRegisterDao.getByUserIdAndIsDelete(userId, isDelete);
+    }
+
+    @Override
     public void setTrailOvertime() {
         LoggerManager.info("设置试用超时状态 => 开始");
         List<MemberRegister> memberRegisters = memberRegisterDao.getTrialOvertime();

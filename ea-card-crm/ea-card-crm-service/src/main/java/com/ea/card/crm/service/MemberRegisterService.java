@@ -89,6 +89,14 @@ public interface MemberRegisterService extends DbManagerBase<MemberRegister> {
     MemberRegister getByCodeAndIsDelete(String code, int isDelete);
 
     /**
+     * 通过用户code和is_delete获取会员注册信息
+     * @param userId
+     * @param isDelete
+     * @return
+     */
+    MemberRegister getByUserIdAndIsDelete(String userId, int isDelete);
+
+    /**
      * 设置试用会员超时
      */
     void setTrailOvertime();
