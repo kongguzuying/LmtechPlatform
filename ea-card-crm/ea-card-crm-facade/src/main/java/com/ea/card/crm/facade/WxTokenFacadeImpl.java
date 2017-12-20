@@ -209,12 +209,12 @@ public class WxTokenFacadeImpl implements WxTokenFacade {
     @ApiOperation(value = "微信消息接收处理")
     @RequestMapping(value = "/wxMessage")
     public Object wxMessage(String signature, String timestamp, String nonce, String echostr, @RequestBody(required = false) String xml) {
-        String token = "weixinAccessToken";
+        /*String token = "weixinAccessToken";
         if(WxUrlSignUtil.checkSignature(token, signature, timestamp, nonce)){
             return echostr;
         }
-        return echostr;
-/*
+        return echostr;*/
+
         LoggerManager.debug("接收微信XML：" + xml);
         String result = wxService.handleWxMessag(xml);
         LoggerManager.debug("返回微信消息：" + result);
@@ -222,7 +222,7 @@ public class WxTokenFacadeImpl implements WxTokenFacade {
             return result;
         } else {
             return echostr;
-        }*/
+        }
     }
 
     @ApiOperation(value = "通知微信余额变更")
