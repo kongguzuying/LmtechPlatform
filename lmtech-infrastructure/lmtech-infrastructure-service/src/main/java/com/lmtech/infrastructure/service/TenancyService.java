@@ -8,4 +8,10 @@ import com.lmtech.service.DbManagerBase;
  * @author huang.jb
  */
 public interface TenancyService extends DbManagerBase<Tenancy> {
+    /**
+     * 通过code获取租户信息
+     * @param code
+     * @return
+     */
+    Tenancy getByCode(String code);
 }

@@ -18,4 +18,9 @@ public class TenancyServiceImpl extends AbstractDbManagerBaseImpl<Tenancy> imple
     public Dao getDao() {
         return tenancyDao;
     }
+
+    @Override
+    public Tenancy getByCode(String code) {
+        return null;
+    }
 }

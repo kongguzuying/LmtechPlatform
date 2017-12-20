@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/route")
-public class RouteFacade {
+public class RouteFacadeImpl {
 
     @Autowired
     private RefreshRouteService refreshRouteService;
