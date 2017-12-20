@@ -106,7 +106,7 @@ public class PaymentServiceImpl implements PaymentService {
         requestMap.add("prodName", (totalAmount + "元"));
         requestMap.add("mobile", phone);
         requestMap.add("totalamount", totalAmount);
-        requestMap.add("type", type); //星链通充值
+        requestMap.add("type", type); //游物欧品充值
         requestMap.add("entry", entry); //微信卡包
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(requestMap, null);
         RechargeReqResult result = restTemplate.postForObject(URL_RECHARGE_REQUEST, request, RechargeReqResult.class);
@@ -159,7 +159,7 @@ public class PaymentServiceImpl implements PaymentService {
         requestMap.add("userid", userId);
         requestMap.add("phone", phone);
         requestMap.add("paychannel", payChannel);    //微信
-        requestMap.add("type", type);                //星链通卡包充值
+        requestMap.add("type", type);                //游物欧品卡包充值
         requestMap.add("openid", openId);
         requestMap.add("orderno", orderNo);
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(requestMap, null);

@@ -88,7 +88,7 @@ public class CodeFacadeImpl implements CodeFacade {
     @RequestMapping(value = "/getCodeTypeOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取代码类别列表")
     public PageDataResponse getCodeTypeOfPage(@RequestBody CodeTypePageRequest request) {
-        PageData pageData = codeManager.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData pageData = codeManager.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         PageDataResponse response = new PageDataResponse();
         response.setSuccess(true);

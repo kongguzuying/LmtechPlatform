@@ -24,11 +24,7 @@ public class ServiceAdaptorBase  {
     protected RequestInfo buildRequestInfo() {
         Context context = ContextManager.getContext();
         RequestInfo requestInfo = new RequestInfo();
-        requestInfo.setUserName(context.getUserName());
-        requestInfo.setAccount(context.getLoginName());
-        requestInfo.setAppVersion(APP_VERSION);
         requestInfo.setSysVersion(SYS_VERSION);
-        requestInfo.setUserId(context.getUserId());
 
         return requestInfo;
     }

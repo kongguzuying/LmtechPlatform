@@ -6,8 +6,8 @@
 </head>
 
 <body class="body">
-<div>
-    <div class="widget" id="data">
+<div class="row" id="data">
+    <div class="widget">
         <div class="title">
             <img src="../../../images/icons/dark/full2.png" alt="" class="titleIcon">
             <h6>用户授权</h6>
@@ -22,17 +22,19 @@
         <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
             <thead>
             <tr>
-                <th class="left-th" width="10%">
+                <th class="left-th" width="40px">
                     <input id="allBtn" type="checkbox" v-model="isCheckAll"/>全选
                 </th>
-                <th width="12%">姓名</th>
-                <th>手机</th>
+                <th>昵称</th>
+                <th width="20%">邮箱</th>
+                <th width="20%">手机</th>
             </tr>
             </thead>
             <tbody>
             <tr v-cloak v-for="item in pageData.items">
                 <td class="left-td"><input type="checkbox" name="selectedIds" v-model="selectedIds" v-bind:value="item.id"/></td>
-                <td>{{item.name}}</td>
+                <td>{{item.nickName}}</td>
+                <td>{{item.email}}</td>
                 <td>{{item.mobile}}</td>
             </tr>
             </tbody>

@@ -70,7 +70,7 @@ public class GiftMemberCardAdaptor extends ServiceAdaptorBase implements Control
     public PageData<GiftMemberCard> getPageData(GiftMemberCard param, int pageIndex, int pageSize) {
         GiftMemberCardPageRequest request = new GiftMemberCardPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

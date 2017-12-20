@@ -70,7 +70,7 @@ public class LotteryAdaptor extends ServiceAdaptorBase implements ControllerMana
     public PageData<LotteryProduct> getPageData(LotteryProduct param, int pageIndex, int pageSize) {
         LotteryPageRequest request = new LotteryPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

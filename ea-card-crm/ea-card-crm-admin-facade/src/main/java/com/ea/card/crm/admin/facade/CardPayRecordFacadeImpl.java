@@ -35,7 +35,7 @@ public class CardPayRecordFacadeImpl implements CardPayRecordFacade {
     @RequestMapping(value = "/getCardPayRecordOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取卡片购买记录分页数据")
     public CardPayRecordPageResponse getCardPayRecordOfPage(@RequestBody CardPayRecordPageRequest request) {
-        PageData<CardPayRecord> pageData = cardPayRecordService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<CardPayRecord> pageData = cardPayRecordService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         CardPayRecordPageResponse response = new CardPayRecordPageResponse();
         response.setSuccess(true);

@@ -16,7 +16,7 @@
     background: #2a323f;
 }
 </style>
-    <title>星链通管理后台</title>
+    <title>游物欧品管理后台</title>
 
     <!--common-->
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">

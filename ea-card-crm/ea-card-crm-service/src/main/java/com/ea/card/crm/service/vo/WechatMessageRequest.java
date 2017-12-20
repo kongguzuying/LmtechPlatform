@@ -23,7 +23,7 @@ public class WechatMessageRequest {
 	//微信消息的跳转链接
 	private String url;
 	
-	//微信公众号类型：1=星链生活， 2=星链通
+	//微信公众号类型：2=游物欧品
 	private String weChatType;
 
 	public String gettId() {

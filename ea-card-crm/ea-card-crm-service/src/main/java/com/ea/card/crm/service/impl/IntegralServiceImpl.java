@@ -8,6 +8,7 @@ import com.ea.card.crm.model.*;
 import com.ea.card.crm.service.*;
 import com.ea.card.crm.service.exception.IntegralConsumeException;
 import com.ea.card.crm.service.exception.NoEnoughIntegralException;
+import com.ea.card.crm.service.exception.NoneHistoryRegisterException;
 import com.ea.card.crm.service.exception.NoneRegisterException;
 import com.ea.card.crm.service.strategy.IntegralLotteryStrategy;
 import com.ea.card.crm.service.strategy.LotterySuccessStrategy;
@@ -63,9 +64,10 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
     @Value("${wx.template_id}")
     public String TEMPLATE_ID;
 
+    private Object lockObj = new Object();
+
     @Autowired
     private RestTemplate restTemplate;
-
     @Autowired
     private MemberService memberService;
     @Autowired
@@ -77,7 +79,7 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
      * 积分获取接口
      */
     @Override
-    public GetIntegralResult getIntegral(String userId, String t_id) {
+    public GetIntegralResult getIntegral(String userId) {
         MemberRegister memberRegister = memberRegisterService.getByUserId(userId);
         if (memberRegister == null) {
             throw new NoneRegisterException();
@@ -89,7 +91,22 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
         getIntegralData = newGetIntegralData(userId, getIntegralData);
 
         result.setData(getIntegralData);
-        result.settId(t_id);
+        return result;
+    }
+
+    @Override
+    public GetIntegralResult getHistoryIntegral(String userId) {
+        MemberRegister historyRegister = memberRegisterService.getByUserIdAndIsDelete(userId, MemberRegister.DELETE_YES);
+        if (historyRegister == null) {
+            throw new NoneHistoryRegisterException();
+        }
+
+        GetIntegralResult result = new GetIntegralResult();
+        GetIntegralData getIntegralData = new GetIntegralData();
+        getIntegralData.setSumIntegralNumber(historyRegister.getIntegral());
+        getIntegralData = newGetIntegralData(userId, getIntegralData);
+
+        result.setData(getIntegralData);
         return result;
     }
 
@@ -653,16 +670,34 @@ public class IntegralServiceImpl extends AbstractDbManagerBaseImpl<IntegralSignL
     }
 
     private void integralChange(String userId, int integralType, int integralSource, String integralOrderId, int integralNumber) {
+        MemberRegister memberRegister = memberRegisterService.getByUserId(userId);
+        if (memberRegister == null) {
+            throw new NoneRegisterException();
+        }
+
         if (integralType == IntegralConstants.TYPE_TWO) {
             //消费积分，需先判断用户积分是否足够
-            GetIntegralResult result = getIntegral(userId, null);
+            GetIntegralResult result = getIntegral(userId);
             if (result.isSuccess()) {
                 long integral = result.getData().getSumIntegralNumber();
                 if (integral < integralNumber) {
                     throw new NoEnoughIntegralException();
                 }
+                synchronized (lockObj) {
+                    //锁定，防止多个线程同时变更积分导致数据不一致
+                    integral -= integralNumber;
+                    memberRegisterService.updateIntegral(memberRegister.getId(), integral);
+                }
             } else {
                 throw new RuntimeException("获取用户积分出错。");
+            }
+        } else if (integralType == IntegralConstants.TYPE_ONE) {
+            //积分增加
+            synchronized (lockObj) {
+                //锁定，防止多个线程同时变更积分导致数据不一致
+                long integral = memberRegister.getIntegral();
+                integral += integralNumber;
+                memberRegisterService.updateIntegral(memberRegister.getId(), integral);
             }
         }
 

@@ -41,5 +41,5 @@ public interface TokenFacade {
      * @return
      */
     @RequestMapping(value = "/getTokenLogs", method = RequestMethod.POST)
-    PageDataResponse getTokenLogs(PageRequest<TokenLogQueryParam, Object> request);
+    PageDataResponse getTokenLogs(PageRequest<TokenLogQueryParam> request);
 }

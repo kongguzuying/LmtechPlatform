@@ -35,7 +35,7 @@ public class CardActiveRecordFacadeImpl implements CardActiveRecordFacade {
     @RequestMapping(value = "/getCardActiveRecordOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取卡激活记录分页数据")
     public CardActiveRecordPageResponse getCardActiveRecordOfPage(@RequestBody CardActiveRecordPageRequest request) {
-        PageData<CardActiveRecord> pageData = cardActiveRecordService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<CardActiveRecord> pageData = cardActiveRecordService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         CardActiveRecordPageResponse response = new CardActiveRecordPageResponse();
         response.setSuccess(true);

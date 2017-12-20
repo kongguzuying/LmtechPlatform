@@ -125,6 +125,8 @@ public class ReceiveCardMessageHandler implements MessageHandler {
             if (memberRegister != null) {
                 String uniqueId = memberRegister.getUniqueId();
                 record = cardActiveRecordService.getAppliedRecordByUniqueId(uniqueId);
+                //取旧的用户id，保证领卡多次用户id还是一致
+                record.setUserId(memberRegister.getUserId());
             } else {
                 throw new ActiveMemberCardException("微信卡删除,再次激活code[" + code + "]数据不存在！");
             }
@@ -407,7 +409,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      */
     public long getActivePresentBonus(String userId, long activePresentBonus) {
         //查询用户当前积分
-        GetIntegralResult integralResult = integralService.getIntegral(userId, IdWorkerUtil.generateStringId());
+        GetIntegralResult integralResult = integralService.getHistoryIntegral(userId);
         if (integralResult.getState() != 0)
             throw new ActiveMemberCardException(integralResult.getMsg(), integralResult.getState());
         GetIntegralData integralData = integralResult.getData();
@@ -426,8 +428,8 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      * @return
      */
     public double getMyBalance(String tid, String userId, String phone) {
-        // 星链帐户存在，查询余额
-        MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
+        // 游物欧品帐户存在，查询余额
+        /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
         balanceMap.add("tid", tid);
         balanceMap.add("userid", userId);
         balanceMap.add("phone", phone);
@@ -438,8 +440,8 @@ public class ReceiveCardMessageHandler implements MessageHandler {
         if (balanceResult.getState() == 0) {
             balance = balanceResult.getMyBalance();
         }
-        return balance;
-
+        return balance;*/
+        return 0;
     }
 
     /**
@@ -451,7 +453,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      * @param money
      */
     public void updMyBalance(String tid, String phone, String userId, double money) {
-        MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
+        /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
         balanceMap.add("tid", tid);
         balanceMap.add("phone", phone);
         balanceMap.add("userid", userId);
@@ -466,7 +468,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
             LoggerManager.debug("userId" + balanceMap.get("userid") + "余额,更新[" + money + "]成功！");
         } else {
             LoggerManager.debug("userId" + balanceMap.get("userid") + "余额,更新[" + money + "]失败！");
-        }
+        }*/
     }
     
     /**

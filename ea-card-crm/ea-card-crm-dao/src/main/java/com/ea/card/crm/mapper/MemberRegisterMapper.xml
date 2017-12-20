@@ -84,6 +84,10 @@
 	<select id="selectByCodeAndIsDelete" resultMap="memberRegisterMap">
         select * from ea_member_register where code=#{code} and is_delete=#{isDelete} order by create_date desc limit 1
     </select>
+
+    <select id="selectByUserIdAndIsDelete" resultMap="memberRegisterMap">
+        select * from ea_member_register where user_id=#{userId} and is_delete=#{isDelete} order by create_date desc limit 1
+    </select>
     
     <update id="updateTrialData" parameterType="com.ea.card.crm.model.MemberRegister">
         update ea_member_register
@@ -107,6 +111,12 @@
         set is_delete=#{isDelete}
         where id=#{id}
         order by create_date desc limit 1
+    </update>
+
+    <update id="updateIntegral">
+        update ea_member_register
+        set integral=#{integral},update_date=#{updateDate},data_version=(data_version+1)
+        where id=#{id}
     </update>
 
     <select id="selectPageList" parameterType="com.ea.card.crm.model.MemberRegister" resultMap="memberRegisterMap">

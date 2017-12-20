@@ -70,7 +70,7 @@ public class GiftAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<GiftCategory> getPageData(GiftCategory param, int pageIndex, int pageSize) {
         GiftPageRequest request = new GiftPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

@@ -61,9 +61,12 @@
     <!-- 列表页面数据查询 -->
     <select id="selectPageList" parameterType="com.lmtech.infrastructure.model.Role" resultMap="roleMap">
         select * from lm_role
-        <trim prefix="WHERE" prefixOverrides="AND|OR">
+        <trim prefix="where" prefixOverrides="and|or">
             <if test="name !=null and name != ''">
                 and name like concat('%', #{name},'%')
+            </if>
+            <if test="remark !=null and remark != ''">
+                and remark like concat('%', #{remark},'%')
             </if>
         </trim>
     </select>

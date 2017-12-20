@@ -7,7 +7,7 @@ import com.lmtech.infrastructure.model.Resource;
  * 角色关联资源分页请求
  * Created by huang.jb on 2017-4-21.
  */
-public class RoleResourcePgaeRequest extends PageRequest<Resource, Object> {
+public class RoleResourcePgaeRequest extends PageRequest<Resource> {
 
     private String roleId;
 

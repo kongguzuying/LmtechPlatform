@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import com.ea.card.crm.service.exception.NoneRegisterException;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -120,15 +122,15 @@ public class IntegralTradingFacadeImpl implements IntegralTradingFacade {
 	
 	@ApiOperation(value = "兑换积分")
 	@RequestMapping(value = "/exchangeIntegral", method = RequestMethod.POST)
-	public StateResult exchangeIntegral (@RequestParam String userId,@RequestParam String orderSn,
-			@RequestParam String productIds,@RequestParam long integralNum,@RequestParam int type,
-			@RequestParam String shopName,@RequestParam String payChannel,@RequestParam String paytime,
-			@RequestParam String sourceType) {
+	public StateResult exchangeIntegral (@ApiParam("微信开放平台用户唯一id") @RequestParam String unionId, @ApiParam("订单编号") @RequestParam String orderSn,
+										 @ApiParam("订单包含商品id列表，多个用逗号分隔") @RequestParam String productIds, @ApiParam("增加积分数，如消费60.5元则填60") @RequestParam long integralNum,
+										 @ApiParam("兑换类型:0-增加积分,1-扣减积分") @RequestParam int type, @ApiParam("商家名称") @RequestParam String shopName, @ApiParam("支付渠道，按调用方系统值填写") @RequestParam String payChannel,
+										 @ApiParam("订单支付时间:yyyy-MM-dd HH:mm:ss") @RequestParam String paytime, @ApiParam("订单来源:1-线上购买支付,2-扫码支付") @RequestParam String sourceType) {
 		
 		ExeResult result = new ExeResult();
 
-		if(StringUtil.isNullOrEmpty(userId)) {
-			throw new IllegalArgumentException("用户userId不能为空");
+		if(StringUtil.isNullOrEmpty(unionId)) {
+			throw new IllegalArgumentException("用户unionId不能为空");
 		}
 		if(StringUtil.isNullOrEmpty(orderSn)) {
 			throw new IllegalArgumentException("订单号orderSn不能为空");
@@ -154,9 +156,14 @@ public class IntegralTradingFacadeImpl implements IntegralTradingFacade {
 		if(StringUtil.isNullOrEmpty(sourceType)) {
 			throw new IllegalArgumentException("支付类型不能为空");
 		}
+
+		MemberRegister memberRegister = memberRegisterService.getByOpenId(unionId);
+		if (memberRegister == null) {
+			throw new NoneRegisterException();
+		}
 		
 		String tId = IdWorkerUtil.generateStringId();
-		exchangeIntegralStrategy.exchangeIntegral(userId, tId, orderSn, productIds,
+		exchangeIntegralStrategy.exchangeIntegral(memberRegister.getUserId(), tId, orderSn, productIds,
 				integralNum, type, shopName, payChannel, paytime, sourceType);
 		result.setErrCode(0);
 		result.setSuccess(true);

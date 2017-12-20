@@ -1,10 +1,11 @@
 package com.ea.card.crm.service.exception;
 
+import com.ea.card.crm.constants.ErrorConstants;
 import com.lmtech.exceptions.ErrorCodeException;
 
 public class NoneRegisterException extends ErrorCodeException {
     public NoneRegisterException() {
-        super("用户未注册", 300212002);
+        super(ErrorConstants.ERR_NONE_REGISTER_MSG, ErrorConstants.ERR_NONE_REGISTER);
     }
 
     public NoneRegisterException(String message, long errorCode) {

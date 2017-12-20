@@ -6,6 +6,7 @@ import com.lmtech.facade.request.NormalRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.StringResponse;
+import com.lmtech.infrastructure.facade.dto.UserQueryParam;
 import com.lmtech.infrastructure.facade.request.*;
 import com.lmtech.infrastructure.facade.response.*;
 import com.lmtech.infrastructure.facade.stub.UserFacade;
@@ -271,7 +272,17 @@ public class UserFacadeImpl implements UserFacade {
     @RequestMapping(value = "/getUserOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取用户分页数据")
     public UserPageResponse getUserOfPage(@RequestBody UserPageRequest request) {
-        PageData<User> pageData = userManager.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        User param = new User();
+        if (request.getReqData() != null) {
+            UserQueryParam queryParam = request.getReqData();
+            param.setNickName(queryParam.getNickName());
+            param.setEmail(queryParam.getEmail());
+            param.setMobile(queryParam.getMobile());
+            if (queryParam.getSex() != null) {
+                param.setSex(queryParam.getSex());
+            }
+        }
+        PageData<User> pageData = userManager.getPageData(param, request.getPageIndex(), request.getPageSize());
 
         UserPageResponse response = new UserPageResponse();
         response.setSuccess(true);

@@ -35,7 +35,7 @@ public class MemberRegisterFacadeImpl implements MemberRegisterFacade {
     @RequestMapping(value = "/getMemberRegisterOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取会员注册分页数据")
     public MemberRegisterPageResponse getMemberRegisterOfPage(@RequestBody MemberRegisterPageRequest request) {
-        PageData<MemberRegister> pageData = memberRegisterService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<MemberRegister> pageData = memberRegisterService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         MemberRegisterPageResponse response = new MemberRegisterPageResponse();
         response.setSuccess(true);

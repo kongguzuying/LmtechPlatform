@@ -11,10 +11,7 @@ import com.ea.card.crm.service.AliyunMessageService;
 import com.ea.card.crm.service.exception.SendSmsException;
 import com.lmtech.common.ExeResult;
 import com.lmtech.redis.service.RedisDataService;
-import com.lmtech.util.DateUtil;
-import com.lmtech.util.IdWorkerUtil;
-import com.lmtech.util.JsonUtil;
-import com.lmtech.util.StringUtil;
+import com.lmtech.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -43,6 +40,8 @@ public class AliyunMessageServiceImpl implements AliyunMessageService {
     private String signName;        //签名
     @Value("${sms.template_code}")
     private String templateCode;    //短信模板code
+    @Value("${sms.enable_sms}")
+    private boolean enableSms;       //启用短信，为否时则不发短信
 
     @Autowired
     private RedisDataService redisDataService;
@@ -72,7 +71,14 @@ public class AliyunMessageServiceImpl implements AliyunMessageService {
             //可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时,此处的值为
             request.setTemplateParam("{\"code\":\"" + validCode + "\"}");
 
-            SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);
+            SendSmsResponse sendSmsResponse;
+            if (enableSms) {
+                //启用短信发送
+                sendSmsResponse = acsClient.getAcsResponse(request);
+            } else {
+                sendSmsResponse = new SendSmsResponse();
+                sendSmsResponse.setCode("OK");
+            }
 
             ExeResult result = new ExeResult();
             if ("OK".equalsIgnoreCase(sendSmsResponse.getCode())) {
@@ -91,6 +97,7 @@ public class AliyunMessageServiceImpl implements AliyunMessageService {
                     result.setMessage("短信写入失败");
                 }
             } else {
+                LoggerManager.error("短信发送失败，返回结果：" + JsonUtil.toJson(sendSmsResponse));
                 result.setSuccess(false);
                 result.setMessage("短信发送失败");
             }

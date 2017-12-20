@@ -70,7 +70,7 @@ public class MemberRegisterAdaptor extends ServiceAdaptorBase implements Control
     public PageData<MemberRegister> getPageData(MemberRegister param, int pageIndex, int pageSize) {
         MemberRegisterPageRequest request = new MemberRegisterPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

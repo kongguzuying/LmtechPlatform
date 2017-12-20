@@ -10,22 +10,22 @@
 <body class="body">
 
 <div class="row" id="data">
-    <!--<div class="row-fluid">
-        <div class="span3">
-            <div id="dynamic-table_length" class="dataTables_length">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="filter_LIKES_name"
-                           value="${filter_LIKES_name}" placeholder="请输入角色名称">
+    <div class="statsRow">
+        <div class="wrapper">
+            <div class="horControlB" style="float:left;">
+                <div class="searchPanel">
+                    <label>角色名称：</label>
+                    <input type="text" v-model="queryParam.roleName"/>
+                    <label>角色描述：</label>
+                    <input type="text" v-model="queryParam.roleRemark"/>
+                    <a href="#" title="" class="button blueB searchBtn" @click="search">
+                        <img src="../../../images/icons/light/magnify.png" alt="" class="icon"><span>搜索</span>
+                    </a>
                 </div>
-                <input type="submit" class="btn btn-primary" value="搜索"/>
             </div>
+
         </div>
-        <div class="span3">
-            <div class="dataTables_filter" id="dynamic-table_filter">
-                <a class="btn btn-primary" onclick="edit('');return false;">添加</a>
-            </div>
-        </div>
-    </div>-->
+    </div>
 
     <div class="widget">
         <div class="title">
@@ -42,7 +42,7 @@
                 <th width="8%">级别</th>
                 <th width="20%">角色描述</th>
                 <th width="10%">是否可用</th>
-                <th width="10%">更新时间</th>
+                <th width="20%">更新时间</th>
                 <th>操作</th>
             </tr>
             </thead>

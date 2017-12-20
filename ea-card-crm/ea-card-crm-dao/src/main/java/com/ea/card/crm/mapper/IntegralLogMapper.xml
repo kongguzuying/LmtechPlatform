@@ -32,7 +32,7 @@
     <select id="selectDataList" resultMap="integralLogMap">
         select * from ea_integral_log
         <where>
-            gc.is_delete=0
+            is_delete=0
             <if test="type != null and type != 0">
                 and type=#{type}
             </if>

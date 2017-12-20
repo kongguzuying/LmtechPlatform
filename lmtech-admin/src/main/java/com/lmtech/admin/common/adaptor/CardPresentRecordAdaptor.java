@@ -70,7 +70,7 @@ public class CardPresentRecordAdaptor extends ServiceAdaptorBase implements Cont
     public PageData<CardPresentRecord> getPageData(CardPresentRecord param, int pageIndex, int pageSize) {
         CardPresentRecordPageRequest request = new CardPresentRecordPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

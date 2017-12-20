@@ -26,6 +26,8 @@ public interface MemberRegisterDao extends Dao<MemberRegister> {
     
     MemberRegister getByCodeAndIsDelete(String code, int isDelete);
 
+    MemberRegister getByUserIdAndIsDelete(String userId, int isDelete);
+
     List<MemberRegister> getTrialOvertime();
 
     void updateTrialOvertime(@Param("ids") List<String> ids);
@@ -37,4 +39,6 @@ public interface MemberRegisterDao extends Dao<MemberRegister> {
     void updateRefreshToken(String openId, String refreshToken);
 
     void updateIsDelete(String id, int isDelete);
+
+    void updateIntegral(String id, long integral);
 }

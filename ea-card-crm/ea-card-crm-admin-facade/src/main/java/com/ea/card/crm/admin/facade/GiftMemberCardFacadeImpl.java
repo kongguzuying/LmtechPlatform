@@ -36,7 +36,7 @@ public class GiftMemberCardFacadeImpl implements GiftMemberCardFacade {
     @RequestMapping(value = "/getGiftMemberCardOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取礼品会员卡分页数据")
     public GiftMemberCardPageResponse getGiftMemberCardOfPage(@RequestBody GiftMemberCardPageRequest request) {
-        PageData<GiftMemberCard> pageData = giftMemberCardService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<GiftMemberCard> pageData = giftMemberCardService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         GiftMemberCardPageResponse response = new GiftMemberCardPageResponse();
         response.setSuccess(true);

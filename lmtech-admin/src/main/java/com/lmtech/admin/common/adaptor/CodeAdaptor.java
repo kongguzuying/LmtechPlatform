@@ -80,7 +80,7 @@ public class CodeAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData getPageData(CodeType param, int pageIndex, int pageSize) {
         CodeTypePageRequest request = new CodeTypePageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

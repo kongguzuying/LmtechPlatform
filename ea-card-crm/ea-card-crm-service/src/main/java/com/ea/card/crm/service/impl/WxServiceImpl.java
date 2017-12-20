@@ -358,7 +358,7 @@ public class WxServiceImpl implements WxService {
             LoggerManager.info("处理公众号关注事件 => 开始");
             sendCardToUser(messageBase.getFromUserName());
             //TODO 配置在系统参数中
-            String message = "嗨，欢迎关注，小星总算等到您啦！花的更少，过得更好，星链通为您开启品质生活！";
+            String message = "嗨，欢迎关注，小星总算等到您啦！花的更少，过得更好，游物欧品为您开启品质生活！";
             //sendTextMessageToUser(messageBase.getFromUserName(), message);
             LoggerManager.info("处理公众号关注事件 => 结束");
         } else if (equalsEvent(messageBase, WxConstants.WX_EVENT_CLICK)) {
@@ -411,22 +411,26 @@ public class WxServiceImpl implements WxService {
 
     @Override
     public void updateCardBonus(String cardId, String code, long bonus, String message, boolean notify) {
-        String accessToken = this.getAccessToken();
-        String url = getURL_WX_UPDATE_USER() + accessToken;
+        try {
+            String accessToken = this.getAccessToken();
+            String url = getURL_WX_UPDATE_USER() + accessToken;
 
-        WxUpdateCardRequest request = new WxUpdateCardRequest();
-        request.setAdd_bonus(10L);
-        request.setBonus(bonus);
-        request.setRecord_bonus(message);
-        request.setCard_id(cardId);
-        request.setCode(code);
-        WxUpdateCardRequest.NotifyOptional notifyOptional = new WxUpdateCardRequest.NotifyOptional();
-        notifyOptional.setIs_notify_bonus(notify);
-        request.setNotify_optional(notifyOptional);
+            WxUpdateCardRequest request = new WxUpdateCardRequest();
+            request.setAdd_bonus(10L);
+            request.setBonus(bonus);
+            request.setRecord_bonus(message);
+            request.setCard_id(cardId);
+            request.setCode(code);
+            WxUpdateCardRequest.NotifyOptional notifyOptional = new WxUpdateCardRequest.NotifyOptional();
+            notifyOptional.setIs_notify_bonus(notify);
+            request.setNotify_optional(notifyOptional);
 
-        WxUpdateCardResponse response = restTemplate.postForObject(url, request, WxUpdateCardResponse.class);
-        if (!response.isSuccess()) {
-            throw new WxIntfInvokeException(response);
+            WxUpdateCardResponse response = restTemplate.postForObject(url, request, WxUpdateCardResponse.class);
+            if (!response.isSuccess()) {
+                throw new WxIntfInvokeException(response);
+            }
+        } catch (Exception e) {
+            LoggerManager.error("通知微信改变积分失败", e);
         }
     }
 

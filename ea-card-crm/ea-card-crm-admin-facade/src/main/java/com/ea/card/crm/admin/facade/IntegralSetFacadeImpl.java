@@ -35,7 +35,7 @@ public class IntegralSetFacadeImpl implements IntegralSetFacade {
     @RequestMapping(value = "/getIntegralSetOfPage", method = RequestMethod.POST)
     @ApiOperation(value = "获取积分配置分页数据")
     public IntegralSetPageResponse getIntegralSetOfPage(@RequestBody IntegralSetPageRequest request) {
-        PageData<IntegralSet> pageData = integralSetService.getPageData(request.getPageParam(), request.getPageIndex(), request.getPageSize());
+        PageData<IntegralSet> pageData = integralSetService.getPageData(request.getReqData(), request.getPageIndex(), request.getPageSize());
 
         IntegralSetPageResponse response = new IntegralSetPageResponse();
         response.setSuccess(true);

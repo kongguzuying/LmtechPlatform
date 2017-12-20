@@ -24,6 +24,8 @@ public interface MemberRegisterMapper extends LmtechBaseMapper<MemberRegister> {
     
     MemberRegister selectByCodeAndIsDelete(@Param("code") String code, @Param("isDelete") int status);
 
+    MemberRegister selectByUserIdAndIsDelete(@Param("userId") String userId, @Param("isDelete") int status);
+
     List<MemberRegister> selectTrialOvertime(@Param("date") Date date);
 
     void updateTrialOvertime(@Param("date") Date date, @Param("ids") List<String> ids);
@@ -37,4 +39,6 @@ public interface MemberRegisterMapper extends LmtechBaseMapper<MemberRegister> {
     void updateIsDelete(@Param("id") String id, @Param("isDelete") int status);
 
     void updateIsDeleteBy(@Param("openId") String openId, @Param("isDelete") int status);
+
+    void updateIntegral(@Param("id") String id, @Param("integral") long integral, @Param("updateDate") Date updateDate);
 }

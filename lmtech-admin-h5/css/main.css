@@ -98,7 +98,7 @@ p { padding-top: 12px; }
 .sideMargin { margin: 0 12px; }
 
 #leftSide { background: url(../images/backgrounds/leftTop.png) repeat-x 0 0; margin: 0 2px; float: left; width: 216px; padding: 0 1px; padding-bottom: 60px; } 
-#rightSide { padding-bottom: 62px; overflow: hidden; }
+#rightSide { padding-bottom: 0px; overflow: hidden; }
 
 .scroll { height: 182px; overflow: auto; }
 
@@ -1267,7 +1267,7 @@ li.plupload_droptext:hover { background: #fff; }
 ================================================== */
 
 #footer { clear: both; position: absolute; bottom: 0; left: 0; width: 100%;  }
-#footer .wrapper { text-align: center; padding: 20px 0 20px 222px; margin: 0; }
+#footer .wrapper { text-align: center; padding: 5px 0 5px 222px; margin: 0; }
 
 
 

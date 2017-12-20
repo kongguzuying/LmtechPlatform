@@ -9,6 +9,7 @@ import com.ea.card.crm.service.*;
 import com.ea.card.crm.service.exception.NoneRegisterException;
 import com.ea.card.crm.service.exception.RechargePayException;
 import com.ea.card.crm.service.vo.BalanceLockResult;
+import com.ea.card.crm.service.vo.RechargePayData;
 import com.ea.card.crm.service.vo.RechargePayResult;
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.ExeResult;
@@ -165,8 +166,25 @@ public class PaymentFacadeImpl implements PaymentFacade {
             ContextManager.setValue(CardPayRecord.CONTEXT_KEY, record);
             String tid = IdWorkerUtil.generateStringId();
 
-            String orderNo = paymentService.rechargeRequest(tid, register.getUserId(), register.getPhone(), request.getTotalAmount(), PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
-            RechargePayResult stateResult = paymentService.rechargePayment(tid, register.getUserId(), register.getPhone(), orderNo, request.getOfficialOpenId());
+            //String orderNo = paymentService.rechargeRequest(tid, register.getUserId(), register.getPhone(), request.getTotalAmount(), PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
+            //RechargePayResult stateResult = paymentService.rechargePayment(tid, register.getUserId(), register.getPhone(), orderNo, request.getOfficialOpenId());
+
+            //使用临时解决办法，绕过支付功能
+            RechargePayResult stateResult = new RechargePayResult();
+            stateResult.setState(0);
+            RechargePayData payData = new RechargePayData();
+            payData.setPrepayId(IdWorkerUtil.generateStringId());
+            stateResult.setData(payData);
+            String orderNo = IdWorkerUtil.generateStringId();
+            record.setUserId(register.getUserId());
+            record.setPhone(register.getPhone());
+            record.setProId(IdWorkerUtil.generateStringId());
+            record.setTotalAmount(request.getTotalAmount());
+            record.setType(PaymentService.ORDER_REQUEST_TYPE_CARDPAY);
+            record.setEntry(3);
+            record.setOrderNo(orderNo);
+            record.setStatus(CardPayRecord.STATUS_FINISHED);
+
             if (stateResult.isSuccess()) {
                 Map<String, String> signResult = wxService.getPaySign(stateResult.getData().getPrepayId());
                 signResult.put("orderNo", orderNo);
@@ -233,7 +251,12 @@ public class PaymentFacadeImpl implements PaymentFacade {
         MemberRegister memberRegister = memberRegisterService.getByOpenId(openId);
         if (memberRegister != null) {
             String tid = IdWorkerUtil.generateStringId();
-            String balanceResult = paymentService.getBalance(tid, memberRegister.getUserId(), memberRegister.getPhone());
+            //String balanceResult = paymentService.getBalance(tid, memberRegister.getUserId(), memberRegister.getPhone());
+
+            Map<String, Object> balanceResult = new HashMap<>();
+            balanceResult.put("hasPayPwd", 1);
+            balanceResult.put("myBalance", 0);
+            balanceResult.put("state", 0);
             return balanceResult;
         } else {
             throw new NoneRegisterException();
@@ -298,7 +321,7 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
         MemberRegister register = memberRegisterService.getByUserId(userId);
         if (register != null) {
-            wxService.updateCardBalance(register.getCardId(), register.getCode(), balance, "星链卡服务端余额变更通知", false);
+            wxService.updateCardBalance(register.getCardId(), register.getCode(), balance, "游物欧品卡服务端余额变更通知", false);
             result.setSuccess(true);
             result.setMessage("余额通知成功");
         } else {

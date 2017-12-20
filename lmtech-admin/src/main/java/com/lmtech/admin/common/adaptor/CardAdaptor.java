@@ -78,7 +78,7 @@ public class CardAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<CardCategory> getPageData(CardCategory param, int pageIndex, int pageSize) {
         CardPageRequest request = new CardPageRequest();
 
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

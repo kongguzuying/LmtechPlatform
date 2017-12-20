@@ -1,5 +1,6 @@
 package com.lmtech.admin.common.adaptor;
 
+import com.lmtech.auth.facade.dto.AccountAuthData;
 import com.lmtech.auth.facade.request.AccountAuthRequest;
 import com.lmtech.auth.facade.stub.AccountFacade;
 import com.lmtech.auth.model.Account;
@@ -8,6 +9,7 @@ import com.lmtech.common.PageData;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.StringResponse;
+import com.lmtech.infrastructure.facade.dto.UserQueryParam;
 import com.lmtech.infrastructure.facade.request.*;
 import com.lmtech.infrastructure.facade.response.*;
 import com.lmtech.infrastructure.facade.stub.UserFacade;
@@ -72,7 +74,10 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
 
     private void registerAccount(Account account) {
         AccountAuthRequest request = new AccountAuthRequest();
-        request.setReqData(account);
+        AccountAuthData data = new AccountAuthData();
+        data.setLoginName(account.getLoginName());
+        data.setPassword(account.getPassword());
+        request.setReqData(data);
         initRequest(request);
 
         NormalResponse response = accountFacade.register(request);
@@ -119,7 +124,12 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     @Override
     public PageData<User> getPageData(User param, int pageIndex, int pageSize) {
         UserPageRequest request = new UserPageRequest();
-        request.setPageParam(param);
+        UserQueryParam queryParam = new UserQueryParam();
+        queryParam.setNickName(param.getNickName());
+        queryParam.setEmail(param.getEmail());
+        queryParam.setMobile(param.getMobile());
+        queryParam.setSex(param.getSex());
+        request.setReqData(queryParam);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);
@@ -196,7 +206,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<Role> getUserRoleOfPage(String userId, Role param, int pageIndex, int pageSize) {
         UserRolePageRequest request = new UserRolePageRequest();
         request.setUserId(userId);
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);
@@ -217,7 +227,7 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
     public PageData<Role> getUserUnauthRoleOfPage(String userId, Role param, int pageIndex, int pageSize) {
         UserRolePageRequest request = new UserRolePageRequest();
         request.setUserId(userId);
-        request.setPageParam(param);
+        request.setReqData(param);
         request.setPageIndex(pageIndex);
         request.setPageSize(pageSize);
         initRequest(request);

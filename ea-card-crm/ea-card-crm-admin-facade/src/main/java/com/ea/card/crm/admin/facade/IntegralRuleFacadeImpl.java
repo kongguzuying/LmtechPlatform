@@ -36,7 +36,7 @@ public class IntegralRuleFacadeImpl implements IntegralRuleFacade {
     @ApiOperation(value = "获取积分规则分页数据")
     public IntegralRulePageResponse getIntegralRuleOfPage(@RequestBody IntegralRulePageRequest request) {
         //TODO 根据参数条件过滤
-        IntegralRule integralRule = request.getPageParam();
+        IntegralRule integralRule = request.getReqData();
 
         PageData<IntegralRule> pageData = integralRuleService.getPageData(integralRule, request.getPageIndex(), request.getPageSize());
 
