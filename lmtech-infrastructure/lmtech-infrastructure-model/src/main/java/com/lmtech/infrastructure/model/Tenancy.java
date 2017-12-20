@@ -8,7 +8,7 @@ import com.lmtech.model.DbEntityBase;
  *
  * @author huang.jb
  */
-public class Store extends DbEntityBase {
+public class Tenancy extends DbEntityBase {
     /** 新申请 */
     public static final int STATUS_NEW = 1;
     /** 审核中 */
@@ -24,6 +24,8 @@ public class Store extends DbEntityBase {
 
     @TableField("code")
     private String code;            //编码
+    @TableField("name")
+    private String name;            //租户名称
     @TableField("phone")
     private String phone;           //电话
     @TableField("mobile")
@@ -66,6 +68,14 @@ public class Store extends DbEntityBase {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhone() {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.TenancyMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        code, name
+    </sql>
+</mapper>

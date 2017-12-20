@@ -2,15 +2,14 @@ package com.lmtech.cloud.zuul;
 
 import com.lmtech.http.interceptor.LoggingRequestInterceptor;
 import com.lmtech.util.RestTemplateBuilder;
-import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.WeightedResponseTimeRule;
-import com.netflix.loadbalancer.ZoneAvoidanceRule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
+@ComponentScan(value = {"com.lmtech"})
 @EnableZuulProxy
 @SpringBootApplication
 public class Application  {
