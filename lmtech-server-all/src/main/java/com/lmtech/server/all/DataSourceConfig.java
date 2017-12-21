@@ -1,16 +1,16 @@
-package com.lmtech.infrastructure;
+package com.lmtech.server.all;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.util.LoggerManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@ConfigurationServerAll
+@Configuration
 public class DataSourceConfig {
 
 	@Value("${data_source.driver_class_name}")
@@ -75,15 +75,15 @@ public class DataSourceConfig {
         bds.setMinIdle(this.getMinIdle());
         bds.setMaxWait(this.getMaxWait());
         bds.setTimeBetweenEvictionRunsMillis(this.getTimeBetweenEvictionRunsMillis());
-        List<String> initSqls = new ArrayList<>();
-        initSqls.add("set names 'utf8mb4'");
-        bds.setConnectionInitSqls(initSqls);
         bds.setMinEvictableIdleTimeMillis(this.getMinEvictableIdleTimeMillis());
         bds.setNumTestsPerEvictionRun(this.getNumTestsPerEvictionRun());
         bds.setRemoveAbandonedTimeout(this.getRemoveAbandonedTimeout());
         bds.setTestOnBorrow(this.isTestOnBorrow());
         bds.setTestWhileIdle(this.isTestWhileIdle());
         bds.setRemoveAbandoned(this.isRemoveAbandoned());
+        List<String> initSqls = new ArrayList<>();
+        initSqls.add("set names 'utf8mb4'");
+        bds.setConnectionInitSqls(initSqls);
         LoggerManager.info("初始化数据源 => 结束");
         return bds;
     }

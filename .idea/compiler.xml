@@ -34,34 +34,35 @@
         <module name="lmtech-redis-service" />
         <module name="lmtech-scheduler" />
         <module name="lmtech-server-admin" />
+        <module name="lmtech-server-all" />
         <module name="lmtech-zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="ea-card-crm" target="1.5" />
-      <module name="ea-card-crm-admin-facade" target="1.5" />
+      <module name="ea-card-crm-admin-facade" target="1.8" />
       <module name="ea-card-crm-admin-facade-stub" target="1.5" />
       <module name="ea-card-crm-dao" target="1.5" />
-      <module name="ea-card-crm-facade" target="1.5" />
+      <module name="ea-card-crm-facade" target="1.8" />
       <module name="ea-card-crm-facade-stub" target="1.5" />
       <module name="ea-card-crm-model" target="1.5" />
       <module name="ea-card-crm-service" target="1.8" />
       <module name="lmtech-admin" target="1.5" />
-      <module name="lmtech-auth" target="1.5" />
+      <module name="lmtech-auth" target="1.8" />
       <module name="lmtech-auth-dao" target="1.5" />
-      <module name="lmtech-auth-facade" target="1.5" />
+      <module name="lmtech-auth-facade" target="1.8" />
       <module name="lmtech-auth-facade-stub" target="1.5" />
       <module name="lmtech-auth-model" target="1.5" />
       <module name="lmtech-auth-service" target="1.5" />
       <module name="lmtech-common" target="1.5" />
-      <module name="lmtech-config" target="1.5" />
-      <module name="lmtech-eureka" target="1.5" />
+      <module name="lmtech-config" target="1.8" />
+      <module name="lmtech-eureka" target="1.8" />
       <module name="lmtech-facadeaop" target="1.5" />
       <module name="lmtech-facadeaop-interceptor" target="1.5" />
       <module name="lmtech-facadeaop-model" target="1.5" />
       <module name="lmtech-infrastructure" target="1.5" />
       <module name="lmtech-infrastructure-dao" target="1.5" />
-      <module name="lmtech-infrastructure-facade" target="1.5" />
+      <module name="lmtech-infrastructure-facade" target="1.8" />
       <module name="lmtech-infrastructure-facade-stub" target="1.5" />
       <module name="lmtech-infrastructure-model" target="1.5" />
       <module name="lmtech-infrastructure-service" target="1.5" />
@@ -69,8 +70,9 @@
       <module name="lmtech-redis-facade" target="1.5" />
       <module name="lmtech-redis-facade-stub" target="1.5" />
       <module name="lmtech-redis-service" target="1.5" />
-      <module name="lmtech-scheduler" target="1.5" />
-      <module name="lmtech-server-admin" target="1.5" />
+      <module name="lmtech-scheduler" target="1.8" />
+      <module name="lmtech-server-admin" target="1.8" />
+      <module name="lmtech-server-all" target="1.8" />
       <module name="lmtech-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,8 +1,8 @@
 package com.lmtech.auth;
 
+import com.lmtech.annotation.ConfigurationServerAll;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -14,7 +14,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * Created by huang.jb on 2017-7-28.
  */
-@Configuration
+
+@ConfigurationServerAll
 @EnableSwagger2
 public class SwaggerConfig {
     @Value("${swagger.ui.enable}") //该配置项在配置中心管理

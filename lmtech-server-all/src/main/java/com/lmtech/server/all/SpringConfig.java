@@ -1,15 +1,14 @@
-package com.lmtech.auth;
+package com.lmtech.server.all;
 
-import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.util.SpringUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
-
-@ConfigurationServerAll
+@Configuration
 @ImportResource(locations = { "classpath:spring-core.xml" })
 @Component
 public class SpringConfig implements ApplicationContextAware {

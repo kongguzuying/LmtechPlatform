@@ -1,18 +1,16 @@
 package com.lmtech.auth;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.util.LoggerManager;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
-@RefreshScope
+@ConfigurationServerAll
 public class DataSourceConfig {
 
 	@Value("${data_source.driver_class_name}")
