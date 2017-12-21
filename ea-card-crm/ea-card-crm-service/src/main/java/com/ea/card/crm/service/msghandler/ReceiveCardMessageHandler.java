@@ -430,10 +430,10 @@ public class ReceiveCardMessageHandler implements MessageHandler {
     public double getMyBalance(String tid, String userId, String phone) {
         // 游物欧品帐户存在，查询余额
         /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
-        balanceMap.add("tid", tid);
-        balanceMap.add("userid", userId);
-        balanceMap.add("phone", phone);
-        balanceMap.add("md5str", MD5Util.getMD5String("wallet" + tid + userId + phone));
+        balanceMap.save("tid", tid);
+        balanceMap.save("userid", userId);
+        balanceMap.save("phone", phone);
+        balanceMap.save("md5str", MD5Util.getMD5String("wallet" + tid + userId + phone));
         HttpEntity<MultiValueMap<String, Object>> balanceRequest = new HttpEntity<MultiValueMap<String, Object>>(balanceMap, null);
         GetMyBalanceResult balanceResult = restTemplate.postForObject(URL_ACCOUNT_MYBALANCE, balanceRequest, GetMyBalanceResult.class);
         double balance = 0L;
@@ -454,12 +454,12 @@ public class ReceiveCardMessageHandler implements MessageHandler {
      */
     public void updMyBalance(String tid, String phone, String userId, double money) {
         /*MultiValueMap<String, Object> balanceMap = new LinkedMultiValueMap<String, Object>();
-        balanceMap.add("tid", tid);
-        balanceMap.add("phone", phone);
-        balanceMap.add("userid", userId);
-        balanceMap.add("money", money);
+        balanceMap.save("tid", tid);
+        balanceMap.save("phone", phone);
+        balanceMap.save("userid", userId);
+        balanceMap.save("money", money);
         String md5Str = MD5Util.getMD5String("wallet" + tid + userId + phone + money);
-        balanceMap.add("md5str", md5Str);
+        balanceMap.save("md5str", md5Str);
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<MultiValueMap<String, Object>>(balanceMap, null);
         LoggerManager.debug("url:" + URL_ACCOUNT_ADDWXRECHARGEMONEY + ",request:" + JsonUtil.toJson(request));
         StateResult result = restTemplate.postForObject(URL_ACCOUNT_ADDWXRECHARGEMONEY, request, StateResult.class);

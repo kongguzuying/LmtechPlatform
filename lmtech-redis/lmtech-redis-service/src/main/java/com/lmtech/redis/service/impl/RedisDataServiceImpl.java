@@ -1,6 +1,7 @@
 package com.lmtech.redis.service.impl;
 
 import com.lmtech.common.PageData;
+import com.lmtech.model.IdEntity;
 import com.lmtech.redis.constants.RedisConstants;
 import com.lmtech.redis.constants.RedisQueueStatus;
 import com.lmtech.redis.exception.RedisJsonParseException;
@@ -269,10 +270,14 @@ public class RedisDataServiceImpl implements RedisDataService {
 	}
 
 	@Override
-	public void addOrUpdate(String tableName, String id, Object entity) {
+	public <T extends IdEntity> void save(String tableName, T entity) {
 		if (StringUtil.isNullOrEmpty(tableName)) {
 			throw new IllegalArgumentException("传入tableName不允许为空");
 		}
+		if (entity == null) {
+			throw new IllegalArgumentException("传入entity不允许为空");
+		}
+		String id = entity.getId();
 		if (StringUtil.isNullOrEmpty(id)) {
 			throw new IllegalArgumentException("传入id不允许为空");
 		}
@@ -290,6 +295,39 @@ public class RedisDataServiceImpl implements RedisDataService {
 				if (isAdd) {
 					//如果添加行，将表的行id写入列表中
 					connection.lPush(getRedisKey(tableName + "_page").getBytes(), id.getBytes());
+				}
+				connection.closePipeline();
+				return true;
+			}
+		};
+		redisInvoker.execute();
+	}
+
+	@Override
+	public <T extends IdEntity> void saveAll(String tableName, List<T> entityList) {
+		if (StringUtil.isNullOrEmpty(tableName)) {
+			throw new IllegalArgumentException("传入tableName不允许为空");
+		}
+		if (CollectionUtil.isNullOrEmpty(entityList)) {
+			throw new IllegalArgumentException("传入entityList不允许为空");
+		}
+
+		RedisInvoker<Boolean> redisInvoker = new RedisInvoker<Boolean>(redisConnectionFactory) {
+			@Override
+			public Boolean invoke(RedisConnection connection) {
+				boolean isAdd = false;
+				if (!connection.exists(getRedisKey(tableName).getBytes())) {
+					isAdd = true;
+				}
+				connection.openPipeline();
+				//写入行数据
+				for (T entity : entityList) {
+					String id = entity.getId();
+					connection.hSet(getRedisKey(tableName).getBytes(), id.getBytes(), JsonUtil.toJson(entity).getBytes());
+					if (isAdd) {
+						//如果添加行，将表的行id写入列表中
+						connection.lPush(getRedisKey(tableName + "_page").getBytes(), id.getBytes());
+					}
 				}
 				connection.closePipeline();
 				return true;

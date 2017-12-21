@@ -13,14 +13,18 @@ public class Tenancy extends DbEntityBase {
     public static final int STATUS_NEW = 1;
     /** 审核中 */
     public static final int STATUS_CHECKING = 10;
+    /** 审核成功 */
+    public static final int STATUS_CHECK_SUCCESS = 20;
     /** 审核失败 */
-    public static final int STATUS_CHECK_FAILED = 20;
+    public static final int STATUS_CHECK_FAILED = 30;
     /** 正常营业 */
-    public static final int STATUS_ACTIVE = 30;
+    public static final int STATUS_ACTIVE = 40;
+    /** 停止营业 */
+    public static final int STATUS_DISABLE = 50;
     /** 非法关闭 */
-    public static final int STATUS_ILLEGAL_CLOSE = 40;
+    public static final int STATUS_ILLEGAL_CLOSE = 60;
     /** 过期关闭 */
-    public static final int STATUS_TIMEOUT_CLOSE = 50;
+    public static final int STATUS_TIMEOUT_CLOSE = 70;
 
     @TableField("code")
     private String code;            //编码
