@@ -371,6 +371,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
         register.setAuthRefreshToken(record.getWapToken());
         register.setBeginDate(new Date());
         register.setCardBackground(record.getCardBackgorund());
+        register.setIntegral((int) record.getBonus());
         if (MemberRegister.USER_TYPE_INNER.equalsIgnoreCase(record.getUserType())&&param.getActionType() == OutStrParam.ACTION_TYPE_ACTIVE) {
             //自主激活领卡的内部用户，送积分、等级
             register.setmLevel(MemberRegister.MLEVEL_VPASS);
