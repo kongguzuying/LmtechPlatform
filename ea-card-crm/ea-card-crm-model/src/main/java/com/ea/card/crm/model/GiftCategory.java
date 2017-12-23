@@ -14,6 +14,8 @@ public class GiftCategory extends DbEntityBase {
     private String title;
     @TableField("price")
     private double price;
+    @TableField("price_title")
+    private String priceTitle;
     @TableField("sort_no")
     private String sortNo;
 
@@ -23,6 +25,14 @@ public class GiftCategory extends DbEntityBase {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getPriceTitle() {
+        return priceTitle;
+    }
+
+    public void setPriceTitle(String priceTitle) {
+        this.priceTitle = priceTitle;
     }
 
     public double getPrice() {

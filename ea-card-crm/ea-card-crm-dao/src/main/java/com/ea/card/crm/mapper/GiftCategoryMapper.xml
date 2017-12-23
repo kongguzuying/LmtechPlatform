@@ -17,6 +17,7 @@
 
         <result column="title" property="title"></result>
         <result column="price" property="price"></result>
+        <result column="price_title" property="priceTitle"></result>
         <result column="sort_no" property="sortNo"></result>
     </resultMap>
 
@@ -38,7 +39,7 @@
     </select>
 
     <select id="selectCategoryList" resultMap="giftCategoryMap">
-        select * from ea_gift_category order by sort_no
+        select * from ea_gift_category where is_delete=0 order by sort_no
     </select>
 
     <select id="existTitleName" resultType="java.lang.Integer">
