@@ -34,6 +34,7 @@
         <module name="lmtech-redis-service" />
         <module name="lmtech-scheduler" />
         <module name="lmtech-server-admin" />
+        <module name="lmtech-server-all" />
         <module name="lmtech-zuul" />
       </profile>
     </annotationProcessing>
@@ -71,6 +72,7 @@
       <module name="lmtech-redis-service" target="1.8" />
       <module name="lmtech-scheduler" target="1.8" />
       <module name="lmtech-server-admin" target="1.8" />
+      <module name="lmtech-server-all" target="1.8" />
       <module name="lmtech-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
