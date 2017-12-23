@@ -105,13 +105,13 @@ public class TenancyServiceImpl extends AbstractDbManagerBaseImpl<Tenancy> imple
         param.setDelete(false);
         List<Tenancy> tenancyList = tenancyDao.getDataList(param);
 
-        if (CollectionUtil.isNullOrEmpty(tenancyList)) {
+        if (!CollectionUtil.isNullOrEmpty(tenancyList)) {
             List<RouteConfig> configs = new ArrayList<>();
             for (Tenancy tenancy : tenancyList) {
                 for (String serviceId : dynamicServiceMap.keySet()) {
                     String servicePath = dynamicServiceMap.get(serviceId);
                     RouteConfig routeConfig = new RouteConfig();
-                    routeConfig.setId(tenancy.getCode());
+                    routeConfig.setId(serviceId + "-" + tenancy.getCode());
                     routeConfig.setApiName(tenancy.getCode());
                     routeConfig.setServiceId(serviceId + "-" + tenancy.getCode());
                     routeConfig.setPath("/" + tenancy.getCode() +servicePath);

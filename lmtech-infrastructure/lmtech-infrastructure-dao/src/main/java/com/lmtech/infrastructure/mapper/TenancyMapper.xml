@@ -42,6 +42,6 @@
     </resultMap>
 
     <select id="selectByCode" resultMap="tenancyMap">
-        selelct * from lm_tenancy where is_delete=0 and code=#{code}
+        select * from lm_tenancy where is_delete=0 and code=#{code}
     </select>
 </mapper>

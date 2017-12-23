@@ -16,6 +16,8 @@ import com.lmtech.infrastructure.facade.response.CodeTypeResponse;
 import com.lmtech.infrastructure.facade.stub.CodeFacade;
 import com.lmtech.infrastructure.model.CodeItem;
 import com.lmtech.infrastructure.model.CodeType;
+import com.lmtech.util.CollectionUtil;
+import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -124,6 +126,14 @@ public class CodeAdaptor extends ServiceAdaptorBase implements ControllerManager
      * @return
      */
     public String getCodeItemText(String typeCode, String codeItemValue) {
+        List<CodeItem> codeItems = getCodeItemOfType(typeCode);
+        if (!CollectionUtil.isNullOrEmpty(codeItems)) {
+            for (CodeItem codeItem : codeItems) {
+                if (!StringUtil.isNullOrEmpty(codeItem.getValue()) && codeItem.getValue().equals(codeItemValue)) {
+                    return codeItem.getName();
+                }
+            }
+        }
         return null;
     }
 

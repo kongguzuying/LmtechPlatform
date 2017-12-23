@@ -8,6 +8,7 @@ import com.lmtech.infrastructure.facade.response.TenancyPageResponse;
 import com.lmtech.infrastructure.facade.response.TenancyRequest;
 import com.lmtech.infrastructure.facade.response.TenancyResponse;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,7 +24,7 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/getTenancy", method = RequestMethod.POST)
-    TenancyResponse getTenancy(StringRequest request);
+    TenancyResponse getTenancy(@RequestBody StringRequest request);
 
     /**
      * 通过唯一code码获取租户
@@ -31,7 +32,7 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/getTenancyByCode", method = RequestMethod.POST)
-    TenancyResponse getTenancyByCode(StringRequest request);
+    TenancyResponse getTenancyByCode(@RequestBody StringRequest request);
 
     /**
      * 获取租户分页数据
@@ -39,7 +40,7 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/getTenancyOfPage", method = RequestMethod.POST)
-    TenancyPageResponse getTenancyOfPage(TenancyPageRequest request);
+    TenancyPageResponse getTenancyOfPage(@RequestBody TenancyPageRequest request);
 
     /**
      * 添加租户
@@ -47,7 +48,7 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/addTenancy", method = RequestMethod.POST)
-    StringResponse addTenancy(TenancyRequest request);
+    StringResponse addTenancy(@RequestBody TenancyRequest request);
 
     /**
      * 编辑租户
@@ -55,7 +56,7 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/editTenancy", method = RequestMethod.POST)
-    NormalResponse editTenancy(TenancyRequest request);
+    NormalResponse editTenancy(@RequestBody TenancyRequest request);
 
     /**
      * 删除租户
@@ -63,17 +64,19 @@ public interface TenancyFacade {
      * @return
      */
     @RequestMapping(value = "/removeTenancy", method = RequestMethod.POST)
-    NormalResponse removeTenancy(StringRequest request);
+    NormalResponse removeTenancy(@RequestBody StringRequest request);
 
     /**
      * 开始营业
      * @param request
      */
-    NormalResponse activeTenancy(StringRequest request);
+    @RequestMapping(value = "/activeTenancy", method = RequestMethod.POST)
+    NormalResponse activeTenancy(@RequestBody StringRequest request);
 
     /**
      * 停止营业
      * @param request
      */
-    NormalResponse disableTenancy(StringRequest request);
+    @RequestMapping(value = "/disableTenancy", method = RequestMethod.POST)
+    NormalResponse disableTenancy(@RequestBody StringRequest request);
 }

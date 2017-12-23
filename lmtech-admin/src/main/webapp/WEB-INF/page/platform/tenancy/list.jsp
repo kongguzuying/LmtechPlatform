@@ -2,6 +2,7 @@
 <%@taglib uri="/WEB-INF/tags/tags.tld" prefix="h" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="lm" uri="/WEB-INF/tags/tags.tld" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +25,33 @@
                 }
             });
         }
-        
         function del(id) {
             window.location.href = "${pageContext.request.contextPath}/platform/tenancy/remove.do?id=" + id;
         }
-        
+        function activeTenancy(code) {
+            $.ajax({
+               url: "${pageContext.request.contextPath}/platform/tenancy/activeTenancy.do?code=" + code,
+               success: function (data) {
+                   if (data.success) {
+                       window.location.reload();
+                   } else {
+                       alert(data.message);
+                   }
+               }
+            });
+        }
+        function disableTenancy(code) {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/platform/tenancy/disableTenancy.do?code=" + code,
+                success: function (data) {
+                    if (data.success) {
+                        window.location.reload();
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        }
     </script>
 </head>
 
@@ -75,12 +98,14 @@
                                 <td>${item.name}</td>
                                 <td>${item.code}</td>
                                 <td>${item.info}</td>
-                                <td>${item.status}</td>
+                                <td><h:codeText codeType="tenancyStatus" itemValue="${item.status}"></h:codeText></td>
                                 <td>${item.mobile}</td>
                                 <td>${item.address}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-default btn-xs" onclick="edit('${item.id}');return false;">编辑</a>
+                                        <a class="btn btn-default btn-xs" onclick="activeTenancy('${item.code}');">正常营业</a>
+                                        <a class="btn btn-default btn-xs" onclick="disableTenancy('${item.code}');">停止营业</a>
                                         <a class="btn btn-default btn-xs"
                                            href="javascript:listRemove('${pageContext.request.contextPath}/platform/tenancy/remove.do?id=${item.id}')">删除</a>
                                     </div>

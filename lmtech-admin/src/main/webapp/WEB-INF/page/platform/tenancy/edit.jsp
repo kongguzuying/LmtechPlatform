@@ -46,33 +46,87 @@
                 </div>
             </div>
             <div class="form-group ">
+                <label for="info" class="control-label col-xs-2 text-right">租户手机</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="mobile" name="mobile" value="${entity.mobile}">
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="info" class="control-label col-xs-2 text-right">租户QQ</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="qq" name="qq" value="${entity.qq}">
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="weixin" class="control-label col-xs-2 text-right">租户微信</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="weixin" name="weixin" value="${entity.weixin}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="status" class="control-label col-xs-2 text-right">租户状态</label>
+                <div class="col-xs-8">
+                    <h:codeDropDownList id="status" name="status" codeType="tenancyStatus" value="${entity.status}"></h:codeDropDownList>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="appId" class="control-label col-xs-2 text-right">公众号appId</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="appId" name="appId" value="${entity.appId}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="secret" class="control-label col-xs-2 text-right">公众号secret</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="secret" name="secret" value="${entity.secret}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="cardId" class="control-label col-xs-2 text-right">公众号卡片Id</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="cardId" name="cardId" value="${entity.cardId}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="payApiKey" class="control-label col-xs-2 text-right">公众号支付Id</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="payApiKey" name="payApiKey" value="${entity.payApiKey}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="appletAppId" class="control-label col-xs-2 text-right">小程序appId</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="appletAppId" name="appletAppId" value="${entity.appletAppId}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="appletSecret" class="control-label col-xs-2 text-right">小程序secret</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="appletSecret" name="appletSecret" value="${entity.appletSecret}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="appletCardId" class="control-label col-xs-2 text-right">小程序卡片Id</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="appletCardId" name="appletCardId" value="${entity.appletCardId}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="appletPayApiKey" class="control-label col-xs-2 text-right">小程序支付Id</label>
+                <div class="col-xs-8">
+                    <input class="form-control" id="appletPayApiKey" name="appletPayApiKey" value="${entity.appletPayApiKey}"></input>
+                </div>
+            </div>
+            <div class="form-group ">
                 <label for="info" class="control-label col-xs-2 text-right">租户信息</label>
                 <div class="col-xs-8">
                     <textarea class="form-control" id="info" rows="5" name="info">${entity.info}</textarea>
                 </div>
             </div>
             <div class="form-group ">
-                <label for="info" class="control-label col-xs-2 text-right">租户手机</label>
-                <div class="col-xs-8">
-                    <textarea class="form-control" id="mobile" rows="5" name="mobile">${entity.info}</textarea>
-                </div>
-            </div>
-            <div class="form-group ">
                 <label for="info" class="control-label col-xs-2 text-right">租户地址</label>
                 <div class="col-xs-8">
                     <textarea class="form-control" id="address" rows="5" name="address">${entity.address}</textarea>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="info" class="control-label col-xs-2 text-right">租户QQ</label>
-                <div class="col-xs-8">
-                    <textarea class="form-control" id="qq" rows="5" name="qq">${entity.qq}</textarea>
-                </div>
-            </div>
-            <div class="form-group ">
-                <label for="info" class="control-label col-xs-2 text-right">租户微信</label>
-                <div class="col-xs-8">
-                    <textarea class="form-control" id="weixin" rows="5" name="weixin">${entity.weixin}</textarea>
                 </div>
             </div>
         </form>

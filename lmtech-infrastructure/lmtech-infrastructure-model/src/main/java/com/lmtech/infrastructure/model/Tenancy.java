@@ -1,6 +1,7 @@
 package com.lmtech.infrastructure.model;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.lmtech.model.DbEntityBase;
 
 /**
@@ -8,6 +9,7 @@ import com.lmtech.model.DbEntityBase;
  *
  * @author huang.jb
  */
+@TableName("lm_tenancy")
 public class Tenancy extends DbEntityBase {
     /** 新申请 */
     public static final int STATUS_NEW = 1;

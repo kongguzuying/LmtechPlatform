@@ -75,6 +75,8 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
         TenancyQueryParam queryParam = new TenancyQueryParam();
         queryParam.setCode(param.getCode());
         request.setReqData(queryParam);
+        request.setPageIndex(pageIndex);
+        request.setPageSize(pageSize);
         initRequest(request);
 
         TenancyPageResponse response = tenancyFacade.getTenancyOfPage(request);
@@ -87,7 +89,11 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
      * @param code
      */
     public void activeTenancy(String code) {
+        StringRequest request = new StringRequest(code);
+        initRequest(request);
 
+        NormalResponse response = tenancyFacade.activeTenancy(request);
+        validResponse(response);
     }
 
     /**
@@ -95,6 +101,10 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
      * @param code
      */
     public void disableTenancy(String code) {
+        StringRequest request = new StringRequest(code);
+        initRequest(request);
 
+        NormalResponse response = tenancyFacade.disableTenancy(request);
+        validResponse(response);
     }
 }

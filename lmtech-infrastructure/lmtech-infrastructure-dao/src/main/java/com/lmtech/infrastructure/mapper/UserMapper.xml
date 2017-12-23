@@ -5,7 +5,7 @@
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
         id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
-        nick_name,real_name,qq,email,birthday,sex,mobile,header_img,card_id,store_id,group_id,status
+        nick_name,real_name,qq,email,birthday,sex,mobile,header_img,card_id,tenancy_id,group_id,status
     </sql>
 
     <resultMap id="userMap" type="com.lmtech.infrastructure.model.User">
@@ -28,7 +28,7 @@
         <result column="mobile" property="mobile"></result>
         <result column="header_img" property="headerImg"></result>
         <result column="card_id" property="cardId"></result>
-        <result column="store_id" property="storeId"></result>
+        <result column="tenancy_id" property="tenancyId"></result>
         <result column="group_id" property="groupId"></result>
         <result column="status" property="status"></result>
     </resultMap>

@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
 public class TenancyDaoImpl extends MyBatisDaoBase<TenancyMapper, Tenancy> implements TenancyDao {
     @Override
     public Tenancy getByCode(String code) {
-        return null;
+        return baseMapper.selectByCode(code);
     }
 }

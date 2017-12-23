@@ -14,6 +14,7 @@ import com.lmtech.infrastructure.model.Tenancy;
 import com.lmtech.infrastructure.service.TenancyService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     private TenancyService tenancyService;
 
     @Override
-    public TenancyResponse getTenancy(StringRequest request) {
+    public TenancyResponse getTenancy(@RequestBody StringRequest request) {
         String tenancyId = request.getReqData();
 
         Tenancy tenancy = tenancyService.get(tenancyId);
@@ -39,7 +40,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public TenancyResponse getTenancyByCode(StringRequest request) {
+    public TenancyResponse getTenancyByCode(@RequestBody StringRequest request) {
         String tenancyCode = request.getReqData();
 
         Tenancy tenancy = tenancyService.getByCode(tenancyCode);
@@ -52,7 +53,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public TenancyPageResponse getTenancyOfPage(TenancyPageRequest request) {
+    public TenancyPageResponse getTenancyOfPage(@RequestBody TenancyPageRequest request) {
         TenancyQueryParam queryParam = request.getReqData();
         Tenancy param = new Tenancy();
         param.setCode(queryParam.getCode());
@@ -67,7 +68,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public StringResponse addTenancy(TenancyRequest request) {
+    public StringResponse addTenancy(@RequestBody TenancyRequest request) {
         Tenancy tenancy = request.getReqData();
         tenancyService.add(tenancy);
 
@@ -79,7 +80,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public NormalResponse editTenancy(TenancyRequest request) {
+    public NormalResponse editTenancy(@RequestBody TenancyRequest request) {
         tenancyService.edit(request.getReqData());
 
         NormalResponse response = new NormalResponse();
@@ -89,7 +90,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public NormalResponse removeTenancy(StringRequest request) {
+    public NormalResponse removeTenancy(@RequestBody StringRequest request) {
         tenancyService.remove(request.getReqData());
 
         NormalResponse response = new NormalResponse();
@@ -99,7 +100,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public NormalResponse activeTenancy(StringRequest request) {
+    public NormalResponse activeTenancy(@RequestBody StringRequest request) {
         tenancyService.activeTenancy(request.getReqData());
 
         NormalResponse response = new NormalResponse();
@@ -109,7 +110,7 @@ public class TenancyFacadeImpl implements TenancyFacade {
     }
 
     @Override
-    public NormalResponse disableTenancy(StringRequest request) {
+    public NormalResponse disableTenancy(@RequestBody StringRequest request) {
         tenancyService.disableTenancy(request.getReqData());
 
         NormalResponse response = new NormalResponse();
