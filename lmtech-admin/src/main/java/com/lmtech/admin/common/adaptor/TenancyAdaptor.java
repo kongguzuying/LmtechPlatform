@@ -81,4 +81,20 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
         validResponse(response);
         return response.getData();
     }
+
+    /**
+     * 开始营业
+     * @param code
+     */
+    public void activeTenancy(String code) {
+
+    }
+
+    /**
+     * 停止营业
+     * @param code
+     */
+    public void disableTenancy(String code) {
+
+    }
 }

@@ -97,4 +97,24 @@ public class TenancyFacadeImpl implements TenancyFacade {
         response.setMessage("删除租户数据成功。");
         return response;
     }
+
+    @Override
+    public NormalResponse activeTenancy(StringRequest request) {
+        tenancyService.activeTenancy(request.getReqData());
+
+        NormalResponse response = new NormalResponse();
+        response.setSuccess(true);
+        response.setMessage("租户开启营业成功。");
+        return response;
+    }
+
+    @Override
+    public NormalResponse disableTenancy(StringRequest request) {
+        tenancyService.disableTenancy(request.getReqData());
+
+        NormalResponse response = new NormalResponse();
+        response.setSuccess(true);
+        response.setMessage("租户停止营业成功。");
+        return response;
+    }
 }

@@ -14,4 +14,16 @@ public interface TenancyService extends DbManagerBase<Tenancy> {
      * @return
      */
     Tenancy getByCode(String code);
+
+    /**
+     * 开始营业
+     * @param code
+     */
+    void activeTenancy(String code);
+
+    /**
+     * 停止营业
+     * @param code
+     */
+    void disableTenancy(String code);
 }

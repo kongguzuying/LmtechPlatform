@@ -1,5 +1,6 @@
 package com.lmtech.auth;
 
+import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.http.interceptor.LoggingRequestInterceptor;
 import com.lmtech.util.RestTemplateBuilder;
 import org.apache.http.HttpEntityEnclosingRequest;
@@ -12,7 +13,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,7 +21,8 @@ import javax.net.ssl.SSLHandshakeException;
 import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
 
-@Configuration
+
+@ConfigurationServerAll
 public class RestTemplateConfig {
     @Bean(name = "poolingHttpClientConnectionManager")
     public PoolingHttpClientConnectionManager poolingHttpClientConnectionManager() {

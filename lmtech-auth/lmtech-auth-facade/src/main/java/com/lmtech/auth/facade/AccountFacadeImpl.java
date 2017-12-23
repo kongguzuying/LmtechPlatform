@@ -54,7 +54,7 @@ public class AccountFacadeImpl implements AccountFacade {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ApiOperation(value = "注册帐户")
     public NormalResponse register(@RequestBody AccountAuthRequest request) {
-        //accountManager.add(request.getReqData());
+        //accountManager.save(request.getReqData());
 
         NormalResponse response = new NormalResponse();
         response.setSuccess(true);
@@ -74,7 +74,7 @@ public class AccountFacadeImpl implements AccountFacade {
 
             User user = this.getUser(dbAccount.getUserId());
             String currentTimeStr = String.valueOf(System.currentTimeMillis());
-            Token token = tokenService.genToken(account.getLoginName(), user.getId(), user.getStoreId(), user.getGroupId(), currentTimeStr);
+            Token token = tokenService.genToken(account.getLoginName(), user.getId(), user.getTenancyId(), user.getGroupId(), currentTimeStr);
 
             AuthResultResponse response = new AuthResultResponse();
             response.setSuccess(true);

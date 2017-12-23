@@ -1,10 +1,12 @@
 package com.lmtech.common;
 
+import com.lmtech.model.IdEntity;
+
 /**
  * 路由配置
  * @author huang.jb
  */
-public class RouteConfig {
+public class RouteConfig implements IdEntity {
     /**
      * The ID of the route (the same as its map key by default).
      */

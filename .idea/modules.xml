@@ -39,6 +39,7 @@
       <module fileurl="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" filepath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" filepath="$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" filepath="$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-server-all/lmtech-server-all.iml" filepath="$PROJECT_DIR$/lmtech-server-all/lmtech-server-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" filepath="$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" />
     </modules>
   </component>

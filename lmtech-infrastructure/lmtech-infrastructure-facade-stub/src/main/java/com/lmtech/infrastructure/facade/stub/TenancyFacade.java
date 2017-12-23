@@ -64,4 +64,16 @@ public interface TenancyFacade {
      */
     @RequestMapping(value = "/removeTenancy", method = RequestMethod.POST)
     NormalResponse removeTenancy(StringRequest request);
+
+    /**
+     * 开始营业
+     * @param request
+     */
+    NormalResponse activeTenancy(StringRequest request);
+
+    /**
+     * 停止营业
+     * @param request
+     */
+    NormalResponse disableTenancy(StringRequest request);
 }

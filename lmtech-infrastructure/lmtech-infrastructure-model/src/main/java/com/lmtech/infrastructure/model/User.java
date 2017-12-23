@@ -43,8 +43,8 @@ public class User extends DbEntityBase {
 	private String headerImg;	//头像
 	@TableField("card_id")
 	private String cardId;		//生份证ID
-	@TableField("store_id")
-	private String storeId;		//租户ID
+	@TableField("tenancy_id")
+	private String tenancyId;	//租户ID
 	@TableField("group_id")
 	private String groupId;		//群组ID
 	@TableField("status")
@@ -130,12 +130,12 @@ public class User extends DbEntityBase {
 		this.status = status;
 	}
 
-	public String getStoreId() {
-		return storeId;
+	public String getTenancyId() {
+		return tenancyId;
 	}
 
-	public void setStoreId(String storeId) {
-		this.storeId = storeId;
+	public void setTenancyId(String tenancyId) {
+		this.tenancyId = tenancyId;
 	}
 
 	public String getGroupId() {

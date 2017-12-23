@@ -1,6 +1,7 @@
 package com.lmtech.redis.service;
 
 import com.lmtech.common.PageData;
+import com.lmtech.model.IdEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -153,10 +154,16 @@ public interface RedisDataService {
      * 添加或更新数据
      *
      * @param tableName
-     * @param id        主键id
      * @param entity    缓存数据
      */
-    void addOrUpdate(String tableName, String id, Object entity);
+    <T extends IdEntity> void save(String tableName, T entity);
+
+    /**
+     * 添加列表数据
+     * @param tableName
+     * @param entityList
+     */
+    <T extends IdEntity> void saveAll(String tableName, List<T> entityList);
 
     /**
      * 删除数据
