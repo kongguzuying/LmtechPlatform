@@ -1,3 +1,4 @@
+/*
 package com.lmtech.scheduler.test;
 
 import com.lmtech.scheduler.Application;
@@ -26,3 +27,4 @@ public class SchedulerLogServiceTest {
         schedulerLogService.add(log);
     }
 }
+*/
