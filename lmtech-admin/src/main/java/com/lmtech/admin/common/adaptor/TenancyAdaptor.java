@@ -65,6 +65,8 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
     @Override
     public List<Tenancy> getAll() {
         TenancyQueryRequest request = new TenancyQueryRequest();
+        TenancyQueryParam param = new TenancyQueryParam();
+        request.setReqData(param);
         initRequest(request);
 
         TenancyListResponse response = tenancyFacade.getTenancyList(request);
