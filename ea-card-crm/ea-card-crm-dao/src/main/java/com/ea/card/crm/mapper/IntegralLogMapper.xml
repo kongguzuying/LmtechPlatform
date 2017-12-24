@@ -36,13 +36,13 @@
             <if test="type != null and type != 0">
                 and type=#{type}
             </if>
-            <if test="source != null">
+            <if test="source != null and source != 0">
                 and source=#{source}
             </if>
             <if test="userId != null">
                 and user_id=#{userId}
             </if>
         </where>
-        order by gc.create_date desc
+        order by create_date desc
     </select>
 </mapper>
