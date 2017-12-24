@@ -2,9 +2,11 @@ package com.lmtech.admin.common.controller;
 
 import com.lmtech.admin.common.adaptor.AccountAdaptor;
 import com.lmtech.admin.common.adaptor.ControllerManager;
+import com.lmtech.admin.common.adaptor.TenancyAdaptor;
 import com.lmtech.admin.common.adaptor.UserAdaptor;
 import com.lmtech.admin.common.vo.UserModel;
 import com.lmtech.common.ContextManager;
+import com.lmtech.infrastructure.model.Tenancy;
 import com.lmtech.infrastructure.model.User;
 import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ public class UserController extends ManagerControllerBase<User> {
 	private UserAdaptor userAdaptor;
 	@Autowired
 	private AccountAdaptor accountAdaptor;
+	@Autowired
+	private TenancyAdaptor tenancyAdaptor;
 
 	@Override
 	public ControllerManager<User> getManager() {
@@ -51,7 +55,21 @@ public class UserController extends ManagerControllerBase<User> {
         dbEntity.setQq(pageEntity.getQq());
     }
 
-    @Override
+	@Override
+	public ModelAndView editIndex(HttpServletRequest request, HttpServletResponse response, String id) {
+		ModelAndView mv = super.editIndex(request, response, id);
+
+		List<Tenancy> tenancyList = tenancyAdaptor.getAll();
+		Tenancy empty = new Tenancy();
+		empty.setId(null);
+		empty.setName("无租户");
+		tenancyList.add(0, empty);
+		mv.addObject("tenancyList", tenancyList);
+
+		return mv;
+	}
+
+	@Override
     public String getRequestMapping() {
         return "platform/user";
     }

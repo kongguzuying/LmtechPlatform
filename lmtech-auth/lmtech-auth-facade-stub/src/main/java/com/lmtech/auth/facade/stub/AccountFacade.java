@@ -2,6 +2,7 @@ package com.lmtech.auth.facade.stub;
 
 import com.lmtech.auth.facade.request.AccountQueryRequest;
 import com.lmtech.auth.facade.request.AccountAuthRequest;
+import com.lmtech.auth.facade.request.AccountRegisterRequest;
 import com.lmtech.auth.facade.response.AccountInfoListResponse;
 import com.lmtech.auth.facade.response.AuthResultResponse;
 import com.lmtech.facade.request.StringRequest;
@@ -23,7 +24,7 @@ public interface AccountFacade {
      * @return
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    NormalResponse register(AccountAuthRequest request);
+    NormalResponse register(AccountRegisterRequest request);
 
     /**
      * 认证帐户

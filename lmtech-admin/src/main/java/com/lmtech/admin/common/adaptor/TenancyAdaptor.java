@@ -1,14 +1,12 @@
 package com.lmtech.admin.common.adaptor;
 
 import com.lmtech.common.PageData;
+import com.lmtech.facade.request.NormalRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.StringResponse;
 import com.lmtech.infrastructure.facade.dto.TenancyQueryParam;
-import com.lmtech.infrastructure.facade.response.TenancyPageRequest;
-import com.lmtech.infrastructure.facade.response.TenancyPageResponse;
-import com.lmtech.infrastructure.facade.response.TenancyRequest;
-import com.lmtech.infrastructure.facade.response.TenancyResponse;
+import com.lmtech.infrastructure.facade.response.*;
 import com.lmtech.infrastructure.facade.stub.TenancyFacade;
 import com.lmtech.infrastructure.model.Tenancy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +64,12 @@ public class TenancyAdaptor extends ServiceAdaptorBase implements ControllerMana
 
     @Override
     public List<Tenancy> getAll() {
-        return null;
+        TenancyQueryRequest request = new TenancyQueryRequest();
+        initRequest(request);
+
+        TenancyListResponse response = tenancyFacade.getTenancyList(request);
+        validResponse(response);
+        return response.getData();
     }
 
     @Override

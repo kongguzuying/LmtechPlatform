@@ -11,6 +11,9 @@ public class Context {
 	private String accountId;
 	private String accountName;
 	private String loginName;
+	private String groupId;
+	private String tenancyId;
+	private String tenancyCode;
 	private String token;
 	private String dataSourceKey;
 
@@ -44,6 +47,24 @@ public class Context {
 	}
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
+	}
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+	public String getTenancyId() {
+		return tenancyId;
+	}
+	public void setTenancyId(String tenancyId) {
+		this.tenancyId = tenancyId;
+	}
+	public String getTenancyCode() {
+		return tenancyCode;
+	}
+	public void setTenancyCode(String tenancyCode) {
+		this.tenancyCode = tenancyCode;
 	}
 	public String getToken() {
 		return token;

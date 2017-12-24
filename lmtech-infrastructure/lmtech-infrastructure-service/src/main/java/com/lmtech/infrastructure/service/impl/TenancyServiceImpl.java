@@ -12,6 +12,7 @@ import com.lmtech.service.support.AbstractDbManagerBaseImpl;
 import com.lmtech.util.CollectionUtil;
 import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,6 +31,7 @@ public class TenancyServiceImpl extends AbstractDbManagerBaseImpl<Tenancy> imple
     @Autowired
     private TenancyDao tenancyDao;
     @Autowired
+    @Qualifier("lbRestTemplate")
     private RestTemplate restTemplate;
     @Autowired
     private RedisDataService redisDataService;

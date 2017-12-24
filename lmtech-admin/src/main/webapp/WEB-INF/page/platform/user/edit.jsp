@@ -54,10 +54,31 @@
             <input type="hidden" name="groupId" value="${groupId}"/>
             <div class="form-group">
                 <label class="control-label col-xs-2">
-                    姓名<span class="required">*</span>
+                    昵称/登录名<span class="required">*</span>
                 </label>
                 <div class="col-xs-8">
-                    <input type="text" class="form-control" name="name" value="${entity.name}"/>
+                    <input type="text" class="form-control" name="name" value="${entity.nickName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">
+                    用户姓名<span class="required"></span>
+                </label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" name="name" value="${entity.realName}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-2">
+                    所属租户<span class="required"></span>
+                </label>
+                <div class="col-xs-8">
+                    <select id="tenancyId" nam="tenancyId">
+                    <c:forEach items="tenancyList" var="tenancy">
+                        <option value="${tenancy.id}" <c:if test="entity.tenancyId == tenancy.id">selected</c:if>>${tenancy.name}</option>
+                    </c:forEach>
+                    </select>
+                    <input type="text" class="form-control" name="name" value="${entity.realName}"/>
                 </div>
             </div>
             <div class="form-group">

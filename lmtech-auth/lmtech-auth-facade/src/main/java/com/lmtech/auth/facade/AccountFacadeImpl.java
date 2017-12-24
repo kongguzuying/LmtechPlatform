@@ -3,8 +3,10 @@ package com.lmtech.auth.facade;
 import com.lmtech.auth.exceptions.AuthenticateException;
 import com.lmtech.auth.facade.dto.AccountAuthData;
 import com.lmtech.auth.facade.dto.AccountQueryParam;
-import com.lmtech.auth.facade.request.AccountQueryRequest;
+import com.lmtech.auth.facade.dto.AccountRegisterData;
 import com.lmtech.auth.facade.request.AccountAuthRequest;
+import com.lmtech.auth.facade.request.AccountQueryRequest;
+import com.lmtech.auth.facade.request.AccountRegisterRequest;
 import com.lmtech.auth.facade.response.AccountInfoListResponse;
 import com.lmtech.auth.facade.response.AuthResultResponse;
 import com.lmtech.auth.facade.stub.AccountFacade;
@@ -53,8 +55,16 @@ public class AccountFacadeImpl implements AccountFacade {
     @Override
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ApiOperation(value = "注册帐户")
-    public NormalResponse register(@RequestBody AccountAuthRequest request) {
-        //accountManager.save(request.getReqData());
+    public NormalResponse register(@RequestBody AccountRegisterRequest request) {
+        AccountRegisterData registerData = request.getReqData();
+
+        Account account = new Account();
+        account.setLoginName(registerData.getLoginName());
+        account.setPassword(registerData.getPassword());
+        account.setUserId(registerData.getUserId());
+        account.setLock(false);
+        account.setEnable(true);
+        accountManager.add(account);
 
         NormalResponse response = new NormalResponse();
         response.setSuccess(true);

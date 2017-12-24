@@ -6,6 +6,8 @@ import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 /**
  * 刷新路由服务
  * @author huang.jb
@@ -17,6 +19,12 @@ public class RefreshRouteService {
 
     @Autowired
     RouteLocator routeLocator;
+
+    @PostConstruct
+    public void initRoute() {
+        //初始化路由表
+        refreshRoute();
+    }
 
     public void refreshRoute() {
         RoutesRefreshedEvent routesRefreshedEvent = new RoutesRefreshedEvent(routeLocator);

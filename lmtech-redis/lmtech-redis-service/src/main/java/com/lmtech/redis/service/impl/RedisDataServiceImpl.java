@@ -246,7 +246,7 @@ public class RedisDataServiceImpl implements RedisDataService {
 			@Override
 			public List<T> invoke(RedisConnection connection) {
 				List<T> ts = new ArrayList<>();
-				byte[] tbName = tableName.getBytes();
+				byte[] tbName = getRedisKey(tableName).getBytes();
 				if (connection.exists(tbName)) {
 					Map<byte[], byte[]> byteDatas = connection.hGetAll(tbName);
 					Map<String, String> datas = CollectionUtil.convertByteToStringMap(byteDatas);

@@ -45,6 +45,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             context.setAccountId(account.getAccountId());
             context.setAccountName(account.getAccountName());
             context.setLoginName(account.getLoginName());
+            context.setGroupId(user.getGroupId());
+            context.setTenancyId(user.getTenancyId());
             context.setToken(token);
             ContextManager.setContext(context);
 

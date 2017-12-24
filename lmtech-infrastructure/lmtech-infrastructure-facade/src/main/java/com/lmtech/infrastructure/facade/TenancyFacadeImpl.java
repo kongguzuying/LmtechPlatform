@@ -5,10 +5,7 @@ import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.StringResponse;
 import com.lmtech.infrastructure.facade.dto.TenancyQueryParam;
-import com.lmtech.infrastructure.facade.response.TenancyPageRequest;
-import com.lmtech.infrastructure.facade.response.TenancyPageResponse;
-import com.lmtech.infrastructure.facade.response.TenancyRequest;
-import com.lmtech.infrastructure.facade.response.TenancyResponse;
+import com.lmtech.infrastructure.facade.response.*;
 import com.lmtech.infrastructure.facade.stub.TenancyFacade;
 import com.lmtech.infrastructure.model.Tenancy;
 import com.lmtech.infrastructure.service.TenancyService;
@@ -17,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tenancy")
@@ -49,6 +48,21 @@ public class TenancyFacadeImpl implements TenancyFacade {
         response.setSuccess(true);
         response.setData(tenancy);
         response.setMessage("获取租户信息成功。");
+        return response;
+    }
+
+    @Override
+    public TenancyListResponse getTenancyList(TenancyQueryRequest request) {
+        TenancyQueryParam queryParam = request.getReqData();
+        Tenancy param = new Tenancy();
+        param.setCode(queryParam.getCode());
+
+        List<Tenancy> tenancyList = tenancyService.getList(param);
+
+        TenancyListResponse response = new TenancyListResponse();
+        response.setSuccess(true);
+        response.setData(tenancyList);
+        response.setMessage("获取租户数据成功。");
         return response;
     }
 

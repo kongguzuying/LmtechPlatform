@@ -12,6 +12,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
@@ -91,6 +92,17 @@ public class RestTemplateConfig {
 
     @Bean
     public RestTemplate restTemplate() {
+        RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
+        LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
+        restTemplate.getInterceptors().add(loggingRequestInterceptor);
+        //启用连接池
+        //restTemplate.setRequestFactory(httpComponentsClientHttpRequestFactory());
+        return restTemplate;
+    }
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate lbRestTemplate() {
         RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
         LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
         restTemplate.getInterceptors().add(loggingRequestInterceptor);

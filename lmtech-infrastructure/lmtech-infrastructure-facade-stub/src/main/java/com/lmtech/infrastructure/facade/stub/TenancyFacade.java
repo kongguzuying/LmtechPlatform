@@ -1,12 +1,10 @@
 package com.lmtech.infrastructure.facade.stub;
 
+import com.lmtech.facade.request.NormalRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.StringResponse;
-import com.lmtech.infrastructure.facade.response.TenancyPageRequest;
-import com.lmtech.infrastructure.facade.response.TenancyPageResponse;
-import com.lmtech.infrastructure.facade.response.TenancyRequest;
-import com.lmtech.infrastructure.facade.response.TenancyResponse;
+import com.lmtech.infrastructure.facade.response.*;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +31,9 @@ public interface TenancyFacade {
      */
     @RequestMapping(value = "/getTenancyByCode", method = RequestMethod.POST)
     TenancyResponse getTenancyByCode(@RequestBody StringRequest request);
+
+    @RequestMapping(value = "/getTenancyList", method = RequestMethod.POST)
+    TenancyListResponse getTenancyList(TenancyQueryRequest request);
 
     /**
      * 获取租户分页数据

@@ -71,12 +71,12 @@ public class DynamicRouteLocator extends SimpleRouteLocator implements Refreshab
         Map<String, ZuulProperties.ZuulRoute> routes = new LinkedHashMap<>();
         List<RouteConfig> zullRotes = redisDataService.getAll(REDIS_TABLE_NAME, RouteConfig.class);
         for (RouteConfig result : zullRotes) {
-            if(StringUtil.isNullOrEmpty(result.getPath()) || StringUtil.isNullOrEmpty(result.getUrl()) ){
+            if(StringUtil.isNullOrEmpty(result.getPath()) && StringUtil.isNullOrEmpty(result.getUrl()) ){
                 continue;
             }
             ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute();
             try {
-                BeanUtils.copyProperties(result,zuulRoute);
+                BeanUtils.copyProperties(zuulRoute, result);
             } catch (Exception e) {
                 LoggerManager.error(e);
             }

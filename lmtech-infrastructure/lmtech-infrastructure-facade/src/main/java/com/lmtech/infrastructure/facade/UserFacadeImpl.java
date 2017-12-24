@@ -1,7 +1,13 @@
 package com.lmtech.infrastructure.facade;
 
+import com.lmtech.auth.facade.dto.AccountAuthData;
+import com.lmtech.auth.facade.dto.AccountRegisterData;
+import com.lmtech.auth.facade.request.AccountAuthRequest;
+import com.lmtech.auth.facade.request.AccountRegisterRequest;
+import com.lmtech.auth.facade.stub.AccountFacade;
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.PageData;
+import com.lmtech.facade.exceptions.ServiceInvokeException;
 import com.lmtech.facade.request.NormalRequest;
 import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
@@ -49,6 +55,8 @@ public class UserFacadeImpl implements UserFacade {
     private UserService userService;
     @Autowired
     private UserManager userManager;
+    @Autowired
+    private AccountFacade accountFacade;
 
     @Override
     @RequestMapping(value = "/queryCurrentUserInfo", method = RequestMethod.POST)
@@ -297,7 +305,10 @@ public class UserFacadeImpl implements UserFacade {
     public StringResponse addUser(@RequestBody UserRequest request) {
         User user = request.getReqData();
 
+        //添加用户
         String id = userManager.add(user);
+        //添加帐户
+        addAccount(id, user.getNickName(), "123456");
 
         StringResponse response = new StringResponse(id);
         response.setMessage("添加用户成功");
@@ -327,10 +338,25 @@ public class UserFacadeImpl implements UserFacade {
         String id = request.getReqData();
 
         userManager.remove(id);
+        //TODO 删除帐户
 
         NormalResponse response = new NormalResponse();
         response.setMessage("删除用户成功");
         response.setSuccess(true);
         return response;
+    }
+
+    private void addAccount(String userId, String loginName, String password) {
+        AccountRegisterRequest request = new AccountRegisterRequest();
+        AccountRegisterData data = new AccountRegisterData();
+        data.setLoginName(loginName);
+        data.setPassword(password);
+        data.setUserId(userId);
+        request.setReqData(data);
+
+        NormalResponse response = accountFacade.register(request);
+        if (!response.isSuccess()) {
+            throw new ServiceInvokeException(accountFacade.getClass().getName(), "register");
+        }
     }
 }

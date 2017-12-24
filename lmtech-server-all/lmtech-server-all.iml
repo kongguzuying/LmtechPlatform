@@ -221,10 +221,10 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.21" level="project" />
+    <orderEntry type="module" module-name="lmtech-auth-facade-stub" />
+    <orderEntry type="module" module-name="lmtech-auth-model" />
     <orderEntry type="module" module-name="lmtech-auth-facade" />
     <orderEntry type="module" module-name="lmtech-auth-service" />
-    <orderEntry type="module" module-name="lmtech-auth-model" />
     <orderEntry type="module" module-name="lmtech-auth-dao" />
-    <orderEntry type="module" module-name="lmtech-auth-facade-stub" />
   </component>
 </module>

@@ -44,4 +44,14 @@
     <select id="selectByCode" resultMap="tenancyMap">
         select * from lm_tenancy where is_delete=0 and code=#{code}
     </select>
+
+    <select id="selectDataList" resultMap="tenancyMap" parameterType="com.lmtech.infrastructure.model.Tenancy">
+        select * from lm_tenancy
+        <where>
+            is_delete=0
+            <if test="code != null and code != ''">
+                and code=#{code}
+            </if>
+        </where>
+    </select>
 </mapper>

@@ -6,7 +6,6 @@ import com.lmtech.common.ContextManager;
 import com.lmtech.facade.request.CommonRequest;
 import com.lmtech.facade.request.RequestInfo;
 import com.lmtech.facade.response.CommonResponse;
-import org.springframework.util.Assert;
 
 /**
  * 服务适配器基类

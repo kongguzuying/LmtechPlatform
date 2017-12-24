@@ -116,6 +116,15 @@ public class SpringUtil implements ApplicationContextAware {
     }
 
     /**
+     * get bean by class
+     * @param clazz
+     * @return
+     */
+    public static Object getObjectByClass(Class<?> clazz) {
+        return context.getBean(clazz);
+    }
+
+    /**
      * get bean
      *
      * @param beanId
