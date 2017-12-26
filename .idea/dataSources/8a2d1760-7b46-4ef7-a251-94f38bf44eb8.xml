@@ -4667,80 +4667,85 @@
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="929" parent="265" name="card_id">
+    <column id="929" parent="265" name="tenancy_code">
       <Position>20</Position>
+      <DataType>varchar(50)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="930" parent="265" name="card_id">
+      <Position>21</Position>
       <Comment>生份证ID</Comment>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="930" parent="265" name="status">
-      <Position>21</Position>
+    <column id="931" parent="265" name="status">
+      <Position>22</Position>
       <Comment>状态 1:活动,2:禁用</Comment>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="931" parent="265" name="PRIMARY">
+    <key id="932" parent="265" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="932" parent="266" name="ID">
+    <column id="933" parent="266" name="ID">
       <Position>1</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="933" parent="266" name="CREATE_DATE">
+    <column id="934" parent="266" name="CREATE_DATE">
       <Position>2</Position>
       <DataType>datetime|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="934" parent="266" name="UPDATE_DATE">
+    <column id="935" parent="266" name="UPDATE_DATE">
       <Position>3</Position>
       <DataType>datetime|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="935" parent="266" name="CREATE_USER">
+    <column id="936" parent="266" name="CREATE_USER">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="936" parent="266" name="CREATE_USER_NAME">
+    <column id="937" parent="266" name="CREATE_USER_NAME">
       <Position>5</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="937" parent="266" name="UPDATE_USER">
+    <column id="938" parent="266" name="UPDATE_USER">
       <Position>6</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="938" parent="266" name="UPDATE_USER_NAME">
+    <column id="939" parent="266" name="UPDATE_USER_NAME">
       <Position>7</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="939" parent="266" name="DATA_VERSION">
+    <column id="940" parent="266" name="DATA_VERSION">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="940" parent="266" name="IS_DELETE">
+    <column id="941" parent="266" name="IS_DELETE">
       <Position>9</Position>
       <DataType>tinyint(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="941" parent="266" name="USER_ID">
+    <column id="942" parent="266" name="USER_ID">
       <Position>10</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="942" parent="266" name="ROLE_ID">
+    <column id="943" parent="266" name="ROLE_ID">
       <Position>11</Position>
       <DataType>varchar(50)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="943" parent="266" name="PRIMARY">
+    <key id="944" parent="266" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>

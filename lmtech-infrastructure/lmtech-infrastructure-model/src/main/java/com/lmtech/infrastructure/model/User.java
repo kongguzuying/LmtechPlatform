@@ -45,6 +45,8 @@ public class User extends DbEntityBase {
 	private String cardId;		//生份证ID
 	@TableField("tenancy_id")
 	private String tenancyId;	//租户ID
+	@TableField("tenancy_code")
+	private String tenancyCode;	//租户Code
 	@TableField("group_id")
 	private String groupId;		//群组ID
 	@TableField("status")
@@ -136,6 +138,14 @@ public class User extends DbEntityBase {
 
 	public void setTenancyId(String tenancyId) {
 		this.tenancyId = tenancyId;
+	}
+
+	public String getTenancyCode() {
+		return tenancyCode;
+	}
+
+	public void setTenancyCode(String tenancyCode) {
+		this.tenancyCode = tenancyCode;
 	}
 
 	public String getGroupId() {

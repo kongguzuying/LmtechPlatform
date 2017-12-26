@@ -12,7 +12,15 @@
 	    function validateForm() {
 	        $("form").validate({
                 rules: {
-                    "name":  {
+                    "nickName":  {
+                        required: true,
+                        maxlength: 50
+                    },
+                    "realName":  {
+                        required: true,
+                        maxlength: 50
+                    },
+                    "userLoginName": {
                         required: true,
                         maxlength: 50
                     },
@@ -27,8 +35,16 @@
                     }
                 },
                 messages: {
-                    "name": {
-                        required: "请输入姓名",
+                    "nickName": {
+                        required: "请输入昵称",
+                        maxlength: "最多输入50个字符"
+                    },
+                    "realName": {
+                        required: "请输入真实姓名",
+                        maxlength: "最多输入50个字符"
+                    },
+                    "userLoginName": {
+                        required: "请输入帐户登录名",
                         maxlength: "最多输入50个字符"
                     },
                     "email":  {
@@ -54,18 +70,28 @@
             <input type="hidden" name="groupId" value="${groupId}"/>
             <div class="form-group">
                 <label class="control-label col-xs-2">
-                    昵称/登录名<span class="required">*</span>
+                    昵称<span class="required">*</span>
                 </label>
                 <div class="col-xs-8">
-                    <input type="text" class="form-control" name="name" value="${entity.nickName}"/>
+                    <input type="text" class="form-control" name="nickName" value="${entity.nickName}"/>
                 </div>
             </div>
+            <c:if test="${hideLoginName == false}">
             <div class="form-group">
                 <label class="control-label col-xs-2">
-                    用户姓名<span class="required"></span>
+                    登录名<span class="required">*</span>
                 </label>
                 <div class="col-xs-8">
-                    <input type="text" class="form-control" name="name" value="${entity.realName}"/>
+                    <input type="text" class="form-control" name="loginName"/>
+                </div>
+            </div>
+            </c:if>
+            <div class="form-group">
+                <label class="control-label col-xs-2">
+                    用户姓名<span class="required">*</span>
+                </label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" name="realName" value="${entity.realName}"/>
                 </div>
             </div>
             <div class="form-group">
@@ -73,12 +99,11 @@
                     所属租户<span class="required"></span>
                 </label>
                 <div class="col-xs-8">
-                    <select id="tenancyId" nam="tenancyId">
-                    <c:forEach items="tenancyList" var="tenancy">
-                        <option value="${tenancy.id}" <c:if test="entity.tenancyId == tenancy.id">selected</c:if>>${tenancy.name}</option>
+                    <select id="tenancyId" name="tenancyId">
+                    <c:forEach items="${tenancyList}" var="tenancy">
+                        <option value="${tenancy.id}" <c:if test="${entity.tenancyId == tenancy.id}">selected</c:if>>${tenancy.name}</option>
                     </c:forEach>
                     </select>
-                    <input type="text" class="form-control" name="name" value="${entity.realName}"/>
                 </div>
             </div>
             <div class="form-group">

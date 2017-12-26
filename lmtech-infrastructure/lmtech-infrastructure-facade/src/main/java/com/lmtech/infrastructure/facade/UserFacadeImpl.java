@@ -18,13 +18,12 @@ import com.lmtech.infrastructure.facade.response.*;
 import com.lmtech.infrastructure.facade.stub.UserFacade;
 import com.lmtech.infrastructure.model.GroupUser;
 import com.lmtech.infrastructure.model.Role;
+import com.lmtech.infrastructure.model.Tenancy;
 import com.lmtech.infrastructure.model.User;
-import com.lmtech.infrastructure.service.GroupManager;
-import com.lmtech.infrastructure.service.GroupService;
-import com.lmtech.infrastructure.service.UserManager;
-import com.lmtech.infrastructure.service.UserService;
+import com.lmtech.infrastructure.service.*;
 import com.lmtech.infrastructure.vo.UserInfo;
 import com.lmtech.util.CollectionUtil;
+import com.lmtech.util.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +56,8 @@ public class UserFacadeImpl implements UserFacade {
     private UserManager userManager;
     @Autowired
     private AccountFacade accountFacade;
+    @Autowired
+    private TenancyService tenancyService;
 
     @Override
     @RequestMapping(value = "/queryCurrentUserInfo", method = RequestMethod.POST)
@@ -305,6 +306,8 @@ public class UserFacadeImpl implements UserFacade {
     public StringResponse addUser(@RequestBody UserRequest request) {
         User user = request.getReqData();
 
+        //设置租户code
+        this.setUserTenancyCode(user);
         //添加用户
         String id = userManager.add(user);
         //添加帐户
@@ -323,6 +326,9 @@ public class UserFacadeImpl implements UserFacade {
         User user = request.getReqData();
         Assert.notNull(user.getId(), "传入用户id不允许为空");
 
+        //设置租户code
+        this.setUserTenancyCode(user);
+        //更新用户
         userManager.edit(user);
 
         StringResponse response = new StringResponse();
@@ -357,6 +363,21 @@ public class UserFacadeImpl implements UserFacade {
         NormalResponse response = accountFacade.register(request);
         if (!response.isSuccess()) {
             throw new ServiceInvokeException(accountFacade.getClass().getName(), "register");
+        }
+    }
+
+    private void setUserTenancyCode(User user) {
+        if (!StringUtil.isNullOrEmpty(user.getTenancyId())) {
+            Tenancy tenancy = tenancyService.get(user.getTenancyId());
+            if (tenancy != null) {
+                user.setTenancyCode(tenancy.getCode());
+            } else {
+                user.setTenancyId(null);
+                user.setTenancyCode(null);
+            }
+        } else {
+            user.setTenancyId(null);
+            user.setTenancyCode(null);
         }
     }
 }

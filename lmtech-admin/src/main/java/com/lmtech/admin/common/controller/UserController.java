@@ -50,6 +50,8 @@ public class UserController extends ManagerControllerBase<User> {
 	@Override
     public void fillEntity(User dbEntity, User pageEntity) {
         dbEntity.setNickName(pageEntity.getNickName());
+        dbEntity.setRealName(pageEntity.getRealName());
+        dbEntity.setTenancyId(pageEntity.getTenancyId());
         dbEntity.setEmail(pageEntity.getEmail());
         dbEntity.setMobile(pageEntity.getMobile());
         dbEntity.setQq(pageEntity.getQq());
@@ -61,10 +63,11 @@ public class UserController extends ManagerControllerBase<User> {
 
 		List<Tenancy> tenancyList = tenancyAdaptor.getAll();
 		Tenancy empty = new Tenancy();
-		empty.setId(null);
+		empty.setId("");
 		empty.setName("无租户");
 		tenancyList.add(0, empty);
 		mv.addObject("tenancyList", tenancyList);
+		mv.addObject("hideLoginName", !StringUtil.isNullOrEmpty(id));
 
 		return mv;
 	}

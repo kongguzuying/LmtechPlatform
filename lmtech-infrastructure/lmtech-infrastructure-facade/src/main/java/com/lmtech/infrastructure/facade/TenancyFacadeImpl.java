@@ -55,7 +55,9 @@ public class TenancyFacadeImpl implements TenancyFacade {
     public TenancyListResponse getTenancyList(TenancyQueryRequest request) {
         TenancyQueryParam queryParam = request.getReqData();
         Tenancy param = new Tenancy();
-        param.setCode(queryParam.getCode());
+        if (queryParam != null) {
+            param.setCode(queryParam.getCode());
+        }
 
         List<Tenancy> tenancyList = tenancyService.getList(param);
 

@@ -69,16 +69,17 @@ public class UserAdaptor extends ServiceAdaptorBase implements ControllerManager
         account.setName(loginName);
         account.setEnable(true);
 
-        registerAccount(account);
+        registerAccount(account, response.getData());
 
         return response.getData();
     }
 
-    private void registerAccount(Account account) {
+    private void registerAccount(Account account, String userId) {
         AccountRegisterRequest request = new AccountRegisterRequest();
         AccountRegisterData data = new AccountRegisterData();
         data.setLoginName(account.getLoginName());
         data.setPassword(account.getPassword());
+        data.setUserId(userId);
         request.setReqData(data);
         initRequest(request);
 

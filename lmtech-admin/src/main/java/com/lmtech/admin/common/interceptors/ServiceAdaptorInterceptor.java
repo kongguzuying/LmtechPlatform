@@ -30,6 +30,7 @@ public class ServiceAdaptorInterceptor {
         Target target = (Target) ClassUtil.getFieldValue(h, "target");
 
         try {
+            ContextManager.setValue("service_name", target.name());
             ContextManager.setValue("service_url", target.url());
             return pjp.proceed();
         } finally {
