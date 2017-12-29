@@ -5,7 +5,6 @@ import com.lmtech.util.RestTemplateBuilder;
 import com.lmtech.util.SpringUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -31,14 +30,6 @@ public class Application {
     @Bean
     @LoadBalanced
     public RestTemplate serviceRestTemplate() {
-        RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
-        LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
-        restTemplate.getInterceptors().add(loggingRequestInterceptor);
-        return restTemplate;
-    }
-
-    @Bean
-    public RestTemplate restTemplate() {
         RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
         LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
         restTemplate.getInterceptors().add(loggingRequestInterceptor);

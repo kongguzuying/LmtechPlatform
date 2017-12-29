@@ -1,22 +1,22 @@
-package com.ea.card.crm.admin;
+package com.lmtech.autoconfig;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.util.LoggerManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
+@ConfigurationServerAll
 public class DataSourceConfig {
 
 	@Value("${data_source.driver_class_name}")
 	private String driverClassName;
 	
-	@Value("${data_source.url}")
+    @Value("${data_source.url}")
     private String url;
 	
 	@Value("${data_source.user_name}")
@@ -74,15 +74,15 @@ public class DataSourceConfig {
         bds.setMaxIdle(this.getMaxIdle());
         bds.setMinIdle(this.getMinIdle());
         bds.setMaxWait(this.getMaxWait());
+        List<String> initSqls = new ArrayList<>();
+        initSqls.add("set names 'utf8mb4'");
+        bds.setConnectionInitSqls(initSqls);
         bds.setTimeBetweenEvictionRunsMillis(this.getTimeBetweenEvictionRunsMillis());
         bds.setMinEvictableIdleTimeMillis(this.getMinEvictableIdleTimeMillis());
         bds.setNumTestsPerEvictionRun(this.getNumTestsPerEvictionRun());
         bds.setRemoveAbandonedTimeout(this.getRemoveAbandonedTimeout());
         bds.setTestOnBorrow(this.isTestOnBorrow());
         bds.setTestWhileIdle(this.isTestWhileIdle());
-        List<String> initSqls = new ArrayList<>();
-        initSqls.add("set names 'utf8mb4'");
-        bds.setConnectionInitSqls(initSqls);
         bds.setRemoveAbandoned(this.isRemoveAbandoned());
         LoggerManager.info("初始化数据源 => 结束");
         return bds;

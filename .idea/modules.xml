@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-autoconfig/lmtech-autoconfig.iml" filepath="$PROJECT_DIR$/lmtech-autoconfig/lmtech-autoconfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-common/lmtech-common.iml" filepath="$PROJECT_DIR$/lmtech-common/lmtech-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-config/lmtech-config.iml" filepath="$PROJECT_DIR$/lmtech-config/lmtech-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" filepath="$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" />

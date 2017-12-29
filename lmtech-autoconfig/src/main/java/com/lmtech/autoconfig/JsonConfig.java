@@ -1,7 +1,8 @@
-package com.lmtech.auth;
+package com.lmtech.autoconfig;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.model.EntityBase;
 import com.lmtech.util.SpringUtil;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -9,7 +10,9 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 /**
  * Jackson配置，忽略EntityBase的公共属性
  */
+@ConfigurationServerAll
 public class JsonConfig {
+    //TODO 做成初始化加载
     public static void configure() {
         MappingJackson2HttpMessageConverter converter = (MappingJackson2HttpMessageConverter) SpringUtil.getObject(MappingJackson2HttpMessageConverter.class);
 

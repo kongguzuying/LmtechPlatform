@@ -29,6 +29,11 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
+            <groupId>com.lmtech.autoconfig</groupId>
+            <artifactId>lmtech-autoconfig</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.lmtech.facadeaop</groupId>
             <artifactId>lmtech-facadeaop-interceptor</artifactId>
             <version>1.0.0</version>

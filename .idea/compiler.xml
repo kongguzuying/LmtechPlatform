@@ -19,6 +19,7 @@
         <module name="lmtech-auth-facade-stub" />
         <module name="lmtech-auth-model" />
         <module name="lmtech-auth-service" />
+        <module name="lmtech-autoconfig" />
         <module name="lmtech-common" />
         <module name="lmtech-config" />
         <module name="lmtech-eureka" />
@@ -54,6 +55,7 @@
       <module name="lmtech-auth-facade-stub" target="1.8" />
       <module name="lmtech-auth-model" target="1.8" />
       <module name="lmtech-auth-service" target="1.8" />
+      <module name="lmtech-autoconfig" target="1.8" />
       <module name="lmtech-common" target="1.8" />
       <module name="lmtech-config" target="1.8" />
       <module name="lmtech-eureka" target="1.8" />
@@ -71,9 +73,9 @@
       <module name="lmtech-redis-facade-stub" target="1.8" />
       <module name="lmtech-redis-service" target="1.8" />
       <module name="lmtech-scheduler" target="1.8" />
-      <module name="lmtech-server-admin" target="1.8" />
-      <module name="lmtech-server-all" target="1.8" />
-      <module name="lmtech-zuul" target="1.8" />
+      <module name="lmtech-server-admin" target="1.5" />
+      <module name="lmtech-server-all" target="1.5" />
+      <module name="lmtech-zuul" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

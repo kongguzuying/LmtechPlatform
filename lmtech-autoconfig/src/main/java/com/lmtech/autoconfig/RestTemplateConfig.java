@@ -1,4 +1,4 @@
-package com.lmtech.infrastructure;
+package com.lmtech.autoconfig;
 
 import com.lmtech.annotation.ConfigurationServerAll;
 import com.lmtech.http.interceptor.LoggingRequestInterceptor;
@@ -12,7 +12,6 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +20,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
+
 
 @ConfigurationServerAll
 public class RestTemplateConfig {
@@ -92,17 +92,6 @@ public class RestTemplateConfig {
 
     @Bean
     public RestTemplate restTemplate() {
-        RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
-        LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
-        restTemplate.getInterceptors().add(loggingRequestInterceptor);
-        //启用连接池
-        //restTemplate.setRequestFactory(httpComponentsClientHttpRequestFactory());
-        return restTemplate;
-    }
-
-    @Bean
-    @LoadBalanced
-    public RestTemplate lbRestTemplate() {
         RestTemplate restTemplate = RestTemplateBuilder.buildRestTemplate();
         LoggingRequestInterceptor loggingRequestInterceptor = new LoggingRequestInterceptor();
         restTemplate.getInterceptors().add(loggingRequestInterceptor);

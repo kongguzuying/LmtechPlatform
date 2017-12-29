@@ -1,8 +1,11 @@
-package com.ea.card.crm;
+package com.lmtech.autoconfig;
 
+import com.lmtech.annotation.ConfigurationServerAll;
+import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -20,13 +23,19 @@ import java.util.List;
 /**
  * Created by huang.jb on 2017-7-28.
  */
-@Configuration
+
+@ConfigurationServerAll
 @EnableSwagger2
 public class SwaggerConfig {
-    @Value("${swagger.ui.enable}") //该配置项在配置中心管理
+    @Value("${swagger.enable}")
     private boolean environmentSpecificBooleanFlag;
+    @Value("${swagger.basepackage}")
+    private String basePackage;
+    @Value("${swagger.headerparams}")
+    private String headerParams;
 
     @Bean
+    @ConditionalOnMissingBean(Docket.class)
     public Docket docketFactory() {
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("接口文档")
@@ -37,14 +46,22 @@ public class SwaggerConfig {
                 .licenseUrl("")
                 .build();
 
-        ParameterBuilder aParameterBuilder = new ParameterBuilder();
-        aParameterBuilder.name("AppType").defaultValue("").description("小程序传wxApplet，其他接口留空").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+        //设置header参数
         List<Parameter> aParameters = new ArrayList<>();
-        aParameters.add(aParameterBuilder.build());
+        if (!StringUtil.isNullOrEmpty(headerParams)) {
+            String[] headerParamsArray = headerParams.split(",");
+            if (headerParamsArray != null && headerParamsArray.length > 0) {
+                for (String headerParam : headerParamsArray) {
+                    ParameterBuilder aParameterBuilder = new ParameterBuilder();
+                    aParameterBuilder.name(headerParam).defaultValue("").description(headerParam).modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+                    aParameters.add(aParameterBuilder.build());
+                }
+            }
+        }
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ea"))
+                .apis(RequestHandlerSelectors.basePackage(basePackage))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo)

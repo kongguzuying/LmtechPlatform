@@ -12,6 +12,7 @@ import com.lmtech.util.JsonUtil;
 import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,7 @@ import java.util.Map;
 @Service
 public class RedisDataServiceImpl implements RedisDataService {
 
+	@Value("${lmtech.redis.prefix}")
 	private String REDIS_KEY_PREFIX = "ea_card_crm:";
 
 	@Autowired

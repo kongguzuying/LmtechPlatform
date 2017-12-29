@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/lmtech-scheduler/pom.xml" />
         <option value="$PROJECT_DIR$/lmtech-server-admin/pom.xml" />
         <option value="$PROJECT_DIR$/lmtech-server-all/pom.xml" />
+        <option value="$PROJECT_DIR$/lmtech-autoconfig/pom.xml" />
       </list>
     </option>
   </component>
