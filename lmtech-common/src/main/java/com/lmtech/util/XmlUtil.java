@@ -1,7 +1,9 @@
 package com.lmtech.util;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.naming.NameCoder;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
 
 /**
  * xml util
@@ -15,7 +17,8 @@ public class XmlUtil {
 	 * @return
 	 */
 	public static String toXml(Object object) {
-		XStream stream = new XStream(new DomDriver());
+		NameCoder nameCoder = new XmlFriendlyNameCoder("_-", "_");
+		XStream stream = new XStream(new DomDriver(null, nameCoder));
 		return stream.toXML(object);
 	}
 	
@@ -26,7 +29,8 @@ public class XmlUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T fromXml(String xml) {
-		XStream stream = new XStream(new DomDriver());
+		NameCoder nameCoder = new XmlFriendlyNameCoder("_-", "_");
+		XStream stream = new XStream(new DomDriver(null, nameCoder));
 		Object object = stream.fromXML(xml);
 		if (object != null) {
 			return (T) object;
@@ -41,7 +45,8 @@ public class XmlUtil {
 	 * @return
 	 */
 	public static <T> T fromXml(String xml, String root, Class<?> clazz) {
-		XStream stream = new XStream(new DomDriver());
+		NameCoder nameCoder = new XmlFriendlyNameCoder("_-", "_");
+		XStream stream = new XStream(new DomDriver(null, nameCoder));
 		stream.alias(root, clazz);
 		stream.ignoreUnknownElements();
 		Object object = stream.fromXML(xml);

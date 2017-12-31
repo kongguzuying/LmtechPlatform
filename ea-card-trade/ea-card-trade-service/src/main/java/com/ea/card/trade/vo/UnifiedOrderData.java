@@ -5,7 +5,9 @@ public class UnifiedOrderData {
     private String return_msg;
     private String appid;
     private String mch_id;
+    private String device_info;
     private String openid;
+    private String nonce_str;
     private String sign;
     private String result_code;
     private String prepay_id;
@@ -33,6 +35,22 @@ public class UnifiedOrderData {
 
     public void setAppid(String appid) {
         this.appid = appid;
+    }
+
+    public String getDevice_info() {
+        return device_info;
+    }
+
+    public void setDevice_info(String device_info) {
+        this.device_info = device_info;
+    }
+
+    public String getNonce_str() {
+        return nonce_str;
+    }
+
+    public void setNonce_str(String nonce_str) {
+        this.nonce_str = nonce_str;
     }
 
     public String getMch_id() {

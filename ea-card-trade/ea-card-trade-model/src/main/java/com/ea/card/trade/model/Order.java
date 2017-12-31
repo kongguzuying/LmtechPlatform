@@ -20,11 +20,11 @@ public class Order extends DbEntityBase {
     @TableField("mobile")
     private String mobile;
     @TableField("total_amount")
-    private String totalAmount;
+    private double totalAmount;
     @TableField("type")
-    private String type;
+    private int type;
     @TableField("entry")
-    private String entry;
+    private int entry;
 
     public String getUserId() {
         return userId;
@@ -74,27 +74,27 @@ public class Order extends DbEntityBase {
         this.mobile = mobile;
     }
 
-    public String getTotalAmount() {
+    public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(String totalAmount) {
+    public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public String getEntry() {
+    public int getEntry() {
         return entry;
     }
 
-    public void setEntry(String entry) {
+    public void setEntry(int entry) {
         this.entry = entry;
     }
 }

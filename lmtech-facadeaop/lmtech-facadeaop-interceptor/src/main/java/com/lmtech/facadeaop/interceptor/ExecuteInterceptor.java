@@ -3,6 +3,8 @@ package com.lmtech.facadeaop.interceptor;
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.ExeResult;
 import com.lmtech.common.StateResult;
+import com.lmtech.facade.request.CommonRequest;
+import com.lmtech.facade.response.CommonResponse;
 import com.lmtech.util.JsonUtil;
 import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
@@ -40,6 +42,8 @@ public class ExecuteInterceptor extends InterceptorBase implements Interceptor {
             ((StateResult) object).settId(serialNumber);
         } else if (object instanceof ExeResult) {
             ((ExeResult) object).settId(serialNumber);
+        } else if (object instanceof CommonResponse) {
+            ((CommonResponse) object).setTid(serialNumber);
         }
 
         ContextManager.setValue("result", object);

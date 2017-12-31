@@ -12,6 +12,7 @@ public class CommonResponse<T> implements Serializable {
     private T data;                 //响应数据
     private Exception error;        //错误对象
     private String message;         //错误信息
+    private String tid;             //业务流水号
 
     public boolean isSuccess() {
         return success;
@@ -51,5 +52,13 @@ public class CommonResponse<T> implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 }

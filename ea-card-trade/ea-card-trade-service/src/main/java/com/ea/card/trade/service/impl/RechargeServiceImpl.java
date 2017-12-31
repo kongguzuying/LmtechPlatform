@@ -42,6 +42,15 @@ public class RechargeServiceImpl implements RechargeService {
     public String recharge(UnifiedOrderParam param) {
         //TODO 参数校验
 
+
+        //公共参数填充
+        param.setAppid(appId);
+        param.setMch_id(mchId);
+        param.setBody(body);
+        param.setSpbill_create_ip(spbillCreateIp);
+        param.setNotify_url(notifyUrl);
+        param.setTrade_type(tradeType);
+
         //支付签名
         String nonceStr = IdWorkerUtil.generateStringId();
         SortedMap<String, String> signParam = new TreeMap<String, String>();
@@ -50,23 +59,25 @@ public class RechargeServiceImpl implements RechargeService {
         signParam.put("device_info", param.getDevice_info());
         signParam.put("body", body);
         signParam.put("nonce_str", nonceStr);
+        signParam.put("out_trade_no", param.getOut_trade_no());
+        signParam.put("total_fee", String.valueOf(param.getTotal_fee()));
+        signParam.put("spbill_create_ip", param.getSpbill_create_ip());
+        signParam.put("notify_url", param.getNotify_url());
+        signParam.put("trade_type", param.getTrade_type());
+        signParam.put("openid", param.getOpenid());
         String sign = WechatUtil.createSign(payApiKey, signParam);
-
-        //公共参数填充
-        param.setAppid(appId);
-        param.setMch_id(mchId);
-        param.setNonce_str(nonceStr);
         param.setSign(sign);
-        param.setBody(body);
-        param.setSpbill_create_ip(spbillCreateIp);
-        param.setNotify_url(notifyUrl);
-        param.setTrade_type(tradeType);
+        param.setNonce_str(nonceStr);
 
         //调用下单接口
         String xml = XmlUtil.toXml(param);
         String result = restTemplate.postForObject(UNIFIEDORDER_URL, xml, String.class);
         if (StringUtil.isNullOrEmpty(result)) {
             throw new RuntimeException("调用下单出现未知错误");
+        } else {
+            //处理根xml
+            result = result.replace("<xml>", "<com.ea.card.trade.vo.UnifiedOrderData>");
+            result = result.replace("</xml>", "</com.ea.card.trade.vo.UnifiedOrderData>");
         }
         UnifiedOrderData unifiedOrderData = XmlUtil.fromXml(result);
         if ("SUCCESS".equals(unifiedOrderData.getResult_code())) {

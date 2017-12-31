@@ -2904,19 +2904,19 @@
     <column id="594" parent="244" name="type">
       <Position>16</Position>
       <Comment>type</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>tinyint(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="595" parent="244" name="total_amount">
       <Position>17</Position>
       <Comment>total_amount</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>double(16,2)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="596" parent="244" name="entry">
       <Position>18</Position>
       <Comment>entry</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>tinyint(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="597" parent="244" name="PRIMARY">
