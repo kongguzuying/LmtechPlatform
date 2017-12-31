@@ -48,6 +48,7 @@ public class RechargeFacadeImpl implements RechargeFacade {
         String orderId = orderService.add(order);
 
         StringResponse response = new StringResponse(orderId);
+        response.setSuccess(true);
         return response;
     }
 
