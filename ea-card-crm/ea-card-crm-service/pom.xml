@@ -54,6 +54,11 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
+            <groupId>com.ea.card.trade</groupId>
+            <artifactId>ea-card-trade-facade-stub</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>4.3.9.RELEASE</version>

@@ -158,6 +158,8 @@
     <orderEntry type="module" module-name="ea-card-crm-model" />
     <orderEntry type="module" module-name="ea-card-crm-dao" />
     <orderEntry type="module" module-name="ea-card-crm-facade-stub" />
+    <orderEntry type="module" module-name="ea-card-trade-facade-stub" />
+    <orderEntry type="module" module-name="ea-card-trade-model" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.25" level="project" />

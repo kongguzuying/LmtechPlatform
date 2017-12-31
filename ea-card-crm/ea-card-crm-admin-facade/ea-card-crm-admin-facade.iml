@@ -62,6 +62,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.yaml:snakeyaml:1.17" level="project" />
     <orderEntry type="module" module-name="ea-card-crm-model" />
     <orderEntry type="module" module-name="ea-card-crm-dao" />
+    <orderEntry type="module" module-name="ea-card-trade-facade-stub" />
+    <orderEntry type="module" module-name="ea-card-trade-model" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.25" level="project" />
     <orderEntry type="library" name="Maven: com.aliyun:aliyun-java-sdk-core:3.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20170516" level="project" />
@@ -210,7 +212,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:jconsole:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Program Files/Java/jdk1.8.0_152/lib/jconsole.jar!/" />
+          <root url="jar://D:/Program Files/Java/jdk1.8.0_131/lib/jconsole.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -219,7 +221,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.alibaba:tools:1.8.0">
         <CLASSES>
-          <root url="jar://D:/Program Files/Java/jdk1.8.0_152/lib/tools.jar!/" />
+          <root url="jar://D:/Program Files/Java/jdk1.8.0_131/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

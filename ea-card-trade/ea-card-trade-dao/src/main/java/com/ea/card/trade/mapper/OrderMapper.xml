@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.trade.mapper.OrderMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        user_id,open_id,phone,pro_id,prod_name,mobile,type,total_amount,entry
+    </sql>
+
+    <resultMap id="orderMap" type="com.ea.card.trade.model.Order">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="user_id" property="userId"></result>
+        <result column="open_id" property="openId"></result>
+        <result column="phone" property="phone"></result>
+        <result column="pro_id" property="proId"></result>
+        <result column="prod_name" property="prodName"></result>
+        <result column="mobile" property="mobile"></result>
+        <result column="type" property="type"></result>
+        <result column="total_amount" property="totalAmount"></result>
+        <result column="entry" property="entry"></result>
+    </resultMap>
+</mapper>

@@ -13,6 +13,11 @@
         <module name="ea-card-crm-facade-stub" />
         <module name="ea-card-crm-model" />
         <module name="ea-card-crm-service" />
+        <module name="ea-card-trade-dao" />
+        <module name="ea-card-trade-facade" />
+        <module name="ea-card-trade-facade-stub" />
+        <module name="ea-card-trade-model" />
+        <module name="ea-card-trade-service" />
         <module name="lmtech-admin" />
         <module name="lmtech-auth-dao" />
         <module name="lmtech-auth-facade" />
@@ -48,6 +53,12 @@
       <module name="ea-card-crm-facade-stub" target="1.8" />
       <module name="ea-card-crm-model" target="1.5" />
       <module name="ea-card-crm-service" target="1.8" />
+      <module name="ea-card-trade" target="1.5" />
+      <module name="ea-card-trade-dao" target="1.8" />
+      <module name="ea-card-trade-facade" target="1.8" />
+      <module name="ea-card-trade-facade-stub" target="1.8" />
+      <module name="ea-card-trade-model" target="1.5" />
+      <module name="ea-card-trade-service" target="1.5" />
       <module name="lmtech-admin" target="1.8" />
       <module name="lmtech-auth" target="1.8" />
       <module name="lmtech-auth-dao" target="1.8" />
@@ -73,9 +84,9 @@
       <module name="lmtech-redis-facade-stub" target="1.8" />
       <module name="lmtech-redis-service" target="1.8" />
       <module name="lmtech-scheduler" target="1.8" />
-      <module name="lmtech-server-admin" target="1.5" />
-      <module name="lmtech-server-all" target="1.5" />
-      <module name="lmtech-zuul" target="1.5" />
+      <module name="lmtech-server-admin" target="1.8" />
+      <module name="lmtech-server-all" target="1.8" />
+      <module name="lmtech-zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

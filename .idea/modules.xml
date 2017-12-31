@@ -13,6 +13,12 @@
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" />
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade//ea-card-trade.iml" filepath="$PROJECT_DIR$/ea-card-trade//ea-card-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-dao/ea-card-trade-dao.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-dao/ea-card-trade-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade/ea-card-trade-facade.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade/ea-card-trade-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade-stub/ea-card-trade-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade-stub/ea-card-trade-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-model/ea-card-trade-model.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-model/ea-card-trade-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-service/ea-card-trade-service.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-service/ea-card-trade-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-admin/lmtech-admin.iml" filepath="$PROJECT_DIR$/lmtech-admin/lmtech-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-admin-h5/lmtech-admin-h5.iml" filepath="$PROJECT_DIR$/lmtech-admin-h5/lmtech-admin-h5.iml" />
       <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth.iml" />

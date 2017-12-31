@@ -3,20 +3,29 @@ package com.ea.card.crm.service.impl;
 import com.ea.card.crm.constants.ErrorConstants;
 import com.ea.card.crm.facade.request.GiftCardPayDetail;
 import com.ea.card.crm.facade.request.GiftCardPayRequest;
-import com.ea.card.crm.facade.response.RechargeListResult;
 import com.ea.card.crm.model.*;
-import com.ea.card.crm.service.*;
+import com.ea.card.crm.service.GiftCategoryService;
+import com.ea.card.crm.service.GiftMemberCardService;
+import com.ea.card.crm.service.PaymentService;
+import com.ea.card.crm.service.RechargePayRecordService;
 import com.ea.card.crm.service.exception.NotExistOrderException;
 import com.ea.card.crm.service.exception.RechargePayException;
 import com.ea.card.crm.service.exception.RechargeRequestException;
 import com.ea.card.crm.service.exception.RemoteDateErrorException;
-import com.ea.card.crm.service.util.WxUtil;
 import com.ea.card.crm.service.vo.BalanceLockResult;
+import com.ea.card.crm.service.vo.RechargePayData;
 import com.ea.card.crm.service.vo.RechargePayResult;
-import com.ea.card.crm.service.vo.RechargeReqResult;
+import com.ea.card.trade.request.PaymentParam;
+import com.ea.card.trade.request.PaymentRequest;
+import com.ea.card.trade.request.RechargeParam;
+import com.ea.card.trade.request.RechargeRequest;
+import com.ea.card.trade.response.RechargePaymentResponse;
+import com.ea.card.trade.stub.RechargeFacade;
 import com.lmtech.common.ContextManager;
 import com.lmtech.common.StateResult;
+import com.lmtech.facade.response.StringResponse;
 import com.lmtech.util.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cglib.beans.BeanMap;
@@ -28,7 +37,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 @Service
@@ -87,38 +95,37 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private RechargePayRecordService rechargePayRecordService;
     @Autowired
-    private MemberRegisterService memberRegisterService;
-    @Autowired
     private GiftCategoryService giftCategoryService;
     @Autowired
     private GiftMemberCardService giftMemberCardService;
+    @Autowired
+    private RechargeFacade rechargeFacade;
 
     @Override
     public String rechargeRequest(String tid, String userId, String phone, double totalAmount, int requestType) {
-
-        String proid = IdWorkerUtil.generateStringId();
         int type = 4, entry = 3;
-        MultiValueMap<String, Object> requestMap = new LinkedMultiValueMap<>();
-        requestMap.add("t_id", tid);
-        requestMap.add("userid", userId);
-        requestMap.add("phone", phone);
-        requestMap.add("proid", proid);
-        requestMap.add("prodName", (totalAmount + "元"));
-        requestMap.add("mobile", phone);
-        requestMap.add("totalamount", totalAmount);
-        requestMap.add("type", type); //游物欧品充值
-        requestMap.add("entry", entry); //微信卡包
-        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(requestMap, null);
-        RechargeReqResult result = restTemplate.postForObject(URL_RECHARGE_REQUEST, request, RechargeReqResult.class);
+        String proId = IdWorkerUtil.generateStringId();
+        RechargeRequest request = new RechargeRequest();
+        RechargeParam rechargeParam = new RechargeParam();
+        rechargeParam.setUserId(userId);
+        rechargeParam.setPhone(phone);
+        rechargeParam.setMobile(phone);
+        rechargeParam.setProId(proId);
+        rechargeParam.setProdName(totalAmount + "元");
+        rechargeParam.setType(type);
+        rechargeParam.setEntry(entry);
+        rechargeParam.setTotalAmount(totalAmount);
+        request.setReqData(rechargeParam);
+        StringResponse response = rechargeFacade.recharge(request);
 
         RechargePayRecord rechargePayRecord = ContextManager.getValue(RechargePayRecord.CONTEXT_KEY);
         CardPayRecord cardPayRecord = ContextManager.getValue(CardPayRecord.CONTEXT_KEY);
-        if (result.isSuccess()) {
+        if (response.isSuccess()) {
             // 记录数据
             if (rechargePayRecord != null) {
                 rechargePayRecord.setUserId(userId);
                 rechargePayRecord.setPhone(phone);
-                rechargePayRecord.setProId(proid);
+                rechargePayRecord.setProId(proId);
                 rechargePayRecord.setTotalAmount(totalAmount);
                 rechargePayRecord.setType(type);
                 rechargePayRecord.setEntry(entry);
@@ -127,24 +134,24 @@ public class PaymentServiceImpl implements PaymentService {
             if (cardPayRecord != null) {
                 cardPayRecord.setUserId(userId);
                 cardPayRecord.setPhone(phone);
-                cardPayRecord.setProId(proid);
+                cardPayRecord.setProId(proId);
                 cardPayRecord.setTotalAmount(totalAmount);
                 cardPayRecord.setType(type);
                 cardPayRecord.setEntry(entry);
             }
 
-            return result.getData().getOrderNo();
+            return response.getData();
         } else {
             if (rechargePayRecord != null) {
                 rechargePayRecord.setTid(tid);
-                rechargePayRecord.setProId(proid);
+                rechargePayRecord.setProId(proId);
             }
 
             if (cardPayRecord != null) {
                 cardPayRecord.setTid(tid);
-                cardPayRecord.setProId(proid);
+                cardPayRecord.setProId(proId);
             }
-            throw new RechargeRequestException(result.getMsg(), result.getState());
+            throw new RechargeRequestException(response.getMessage(), response.getCode());
         }
     }
 
@@ -154,47 +161,46 @@ public class PaymentServiceImpl implements PaymentService {
         CardPayRecord cardPayRecord = ContextManager.getValue(CardPayRecord.CONTEXT_KEY);
 
         int payChannel = 3, type = 5;
-        MultiValueMap<String, Object> requestMap = new LinkedMultiValueMap<>();
-        requestMap.add("t_id", tid);
-        requestMap.add("userid", userId);
-        requestMap.add("phone", phone);
-        requestMap.add("paychannel", payChannel);    //微信
-        requestMap.add("type", type);                //游物欧品卡包充值
-        requestMap.add("openid", openId);
-        requestMap.add("orderno", orderNo);
-        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(requestMap, null);
-        String url;
-        if (WxUtil.isAppletRequest()) {
-            url = URL_RECHARGE_APPLET_PAYMENT;
-        } else {
-            url = URL_RECHARGE_PAYMENT;
-        }
-        String result = restTemplate.postForObject(url, request, String.class);
+        PaymentRequest request = new PaymentRequest();
+        PaymentParam paymentParam = new PaymentParam();
+        paymentParam.setOpenId(openId);
+        paymentParam.setUserId(userId);
+        paymentParam.setPhone(phone);
+        paymentParam.setType(type);
+        paymentParam.setPayChannel(payChannel);
+        paymentParam.setOrderId(orderNo);
+        request.setReqData(paymentParam);
+
+        RechargePaymentResponse response = rechargeFacade.payment(request);
 
         // 记录数据
-        RechargePayResult stateResult = (RechargePayResult) JsonUtil.fromJson(result, RechargePayResult.class);
         if (rechargePayRecord != null) {
             rechargePayRecord.setPaychannel(payChannel);
             rechargePayRecord.setOrderNo(orderNo);
-            if (stateResult.isSuccess()) {
+            if (response.isSuccess()) {
                 rechargePayRecord.setStatus(RechargePayRecord.STATUS_WAIT_PAY);
             } else {
                 rechargePayRecord.setStatus(RechargePayRecord.STATUS_ERROR);
-                rechargePayRecord.setErrMsg(stateResult.getMsg());
+                rechargePayRecord.setErrMsg(response.getMessage());
             }
         }
         if (cardPayRecord != null) {
             cardPayRecord.setPaychannel(payChannel);
             cardPayRecord.setOrderNo(orderNo);
-            if (stateResult.isSuccess()) {
+            if (response.isSuccess()) {
                 cardPayRecord.setStatus(CardPayRecord.STATUS_WAIT_PAY);
             } else {
                 cardPayRecord.setStatus(CardPayRecord.STATUS_ERROR);
-                cardPayRecord.setErrMsg(stateResult.getMsg());
+                cardPayRecord.setErrMsg(response.getMessage());
             }
         }
 
-        return stateResult;
+        RechargePayData rechargePayData = new RechargePayData();
+        BeanUtils.copyProperties(response.getData(), rechargePayData);
+        RechargePayResult payResult = new RechargePayResult();
+        payResult.setState(0);
+        payResult.setData(rechargePayData);
+        return payResult;
     }
 
     @Override

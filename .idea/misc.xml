@@ -20,7 +20,13 @@
         <option value="$PROJECT_DIR$/lmtech-server-admin/pom.xml" />
         <option value="$PROJECT_DIR$/lmtech-server-all/pom.xml" />
         <option value="$PROJECT_DIR$/lmtech-autoconfig/pom.xml" />
+        <option value="$PROJECT_DIR$/ea-card-trade/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/ea-card-trade/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />

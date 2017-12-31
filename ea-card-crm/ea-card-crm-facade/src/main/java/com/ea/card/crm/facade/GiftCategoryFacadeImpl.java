@@ -1,9 +1,9 @@
 package com.ea.card.crm.facade;
 
-import com.ea.card.crm.constants.ErrorConstants;
 import com.ea.card.crm.constants.IntegralConstants;
 import com.ea.card.crm.facade.request.CardPresentRequest;
-import com.ea.card.crm.facade.response.*;
+import com.ea.card.crm.facade.response.GiftCategoryData;
+import com.ea.card.crm.facade.response.GiftCategoryResult;
 import com.ea.card.crm.facade.stub.GiftCategoryFacade;
 import com.ea.card.crm.model.CardCategory;
 import com.ea.card.crm.model.GiftCategory;
@@ -13,14 +13,16 @@ import com.ea.card.crm.service.*;
 import com.ea.card.crm.service.exception.NoneRegisterException;
 import com.lmtech.common.ExeResult;
 import com.lmtech.common.StateResult;
-import com.lmtech.exceptions.ErrorCodeException;
 import com.lmtech.util.IdWorkerUtil;
 import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
