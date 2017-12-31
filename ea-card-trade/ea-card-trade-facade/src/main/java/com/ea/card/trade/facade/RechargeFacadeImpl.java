@@ -13,6 +13,7 @@ import com.ea.card.trade.service.RechargeService;
 import com.ea.card.trade.stub.RechargeFacade;
 import com.ea.card.trade.vo.UnifiedOrderParam;
 import com.lmtech.facade.response.StringResponse;
+import com.lmtech.util.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,13 @@ public class RechargeFacadeImpl implements RechargeFacade {
         if (order == null) {
             throw new OrderNotExistException();
         }
+        //优先获取订单中的openid，为空时再取参数传入的openid
         String openId = order.getOpenId();
+        if (StringUtil.isNullOrEmpty(openId)) {
+            openId = paymentParam.getOpenId();
+            order.setOpenId(openId);
+            orderService.edit(order);
+        }
 
         //TODO 价格处理
         int totalFee = (int) (order.getTotalAmount() * 100);
