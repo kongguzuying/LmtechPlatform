@@ -2,7 +2,9 @@ package com.ea.card.crm.facade.stub;
 
 import com.ea.card.crm.facade.request.LoginWapRequest;
 import com.ea.card.crm.facade.request.TrailMemberRequest;
+import com.ea.card.crm.model.MemberRegister;
 import com.lmtech.common.StateResult;
+import com.lmtech.common.StateResultT;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +54,14 @@ public interface MemberFacade {
      */
     @RequestMapping(value = "/getByOfficialOpenId",method = RequestMethod.GET)
     StateResult getByOfficialOpenId(@RequestParam String officialOpenId);
+
+    /**
+     * 通过微信激活回传的真正的公众号openid来获取会员信息
+     * @param wxActiveOpenId
+     * @return
+     */
+    @RequestMapping(value = "/getByWxActiveOpenId",method = RequestMethod.GET)
+    StateResultT<MemberRegister> getByWxActiveOpenId(@RequestParam String wxActiveOpenId);
 
     /**
      * 通过加密卡code获取会员信息

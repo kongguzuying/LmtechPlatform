@@ -226,7 +226,7 @@ public class IntegralTradingServiceImpl extends AbstractDbManagerBaseImpl<Integr
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public LinkedHashMap<String, Object> exchangeProductList(String token, String pageNum, String pageSize,String userId) throws ParseException {
+	public LinkedHashMap<String, Object> exchangeProductList(String token, String pageNum, String pageSize,String userId) {
 		MultiValueMap<String, Object> requestMap = new LinkedMultiValueMap<>();
 		requestMap.add("token", token);
 		requestMap.add("pagenum", pageNum);
@@ -253,23 +253,27 @@ public class IntegralTradingServiceImpl extends AbstractDbManagerBaseImpl<Integr
 		for(IntegralTradingRecord record : recordList) {
 			recordMap.put(record.getOrderNo(),record);
 		}
-		for(int o=0; o<orderList.size(); o++) {
-			LinkedHashMap<String, Object> orderMap = (LinkedHashMap<String, Object>) orderList.get(o);
-			IntegralTradingRecord itr = recordMap.get(orderMap.get("orderSN").toString());
-			orderMap.put("orderTime", DateUtil.strToDateFormat(orderMap.get("orderTime").toString()));
-			if(itr!=null) {
-				//消费前积分
-				orderMap.put("beforeConsumptionPoints", itr.getBeforeConsumptionPoints());
-				//商品消费积分
-				orderMap.put("consumptionPoints", itr.getConsumptionPoints());
-				//消费后积分
-				orderMap.put("remainingPoints", itr.getRemainingPoints());
-			}else {
-				orderMap.put("beforeConsumptionPoints", "");
-				orderMap.put("consumptionPoints", "");
-				orderMap.put("remainingPoints", "");
+		try {
+			for (int o = 0; o < orderList.size(); o++) {
+				LinkedHashMap<String, Object> orderMap = (LinkedHashMap<String, Object>) orderList.get(o);
+				IntegralTradingRecord itr = recordMap.get(orderMap.get("orderSN").toString());
+				orderMap.put("orderTime", DateUtil.strToDateFormat(orderMap.get("orderTime").toString()));
+				if (itr != null) {
+					//消费前积分
+					orderMap.put("beforeConsumptionPoints", itr.getBeforeConsumptionPoints());
+					//商品消费积分
+					orderMap.put("consumptionPoints", itr.getConsumptionPoints());
+					//消费后积分
+					orderMap.put("remainingPoints", itr.getRemainingPoints());
+				} else {
+					orderMap.put("beforeConsumptionPoints", "");
+					orderMap.put("consumptionPoints", "");
+					orderMap.put("remainingPoints", "");
+				}
+				resultList.add(orderMap);
 			}
-			resultList.add(orderMap);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
 		}
 		dataMap.put("orderList",resultList);
 		return dataMap;

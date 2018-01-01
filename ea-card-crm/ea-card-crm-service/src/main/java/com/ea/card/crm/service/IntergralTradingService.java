@@ -1,13 +1,11 @@
 package com.ea.card.crm.service;
 
-import java.text.ParseException;
-import java.util.LinkedHashMap;
-import java.util.List;
-
 import com.ea.card.crm.facade.request.IntegralTradingRequest;
 import com.ea.card.crm.model.IntegralTradingRecord;
 import com.ea.card.crm.service.vo.RefreshSettleData;
 import com.ea.card.crm.service.vo.ZeroMenoyPayData;
+
+import java.util.LinkedHashMap;
 
 /**
  * 积分交易 service
@@ -55,5 +53,5 @@ public interface IntergralTradingService {
 	 * @param pageSize
 	 * @return
 	 */
-	LinkedHashMap<String, Object> exchangeProductList(String token, String pageNum, String pageSize,String userId) throws ParseException;
+	LinkedHashMap<String, Object> exchangeProductList(String token, String pageNum, String pageSize,String userId);
 }

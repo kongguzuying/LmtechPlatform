@@ -1,6 +1,5 @@
 package com.ea.card.crm.mapper;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.ea.card.crm.model.WxActiveMessage;
 import com.lmtech.dao.LmtechBaseMapper;
 import org.apache.ibatis.annotations.Param;

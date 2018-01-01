@@ -103,7 +103,7 @@ public class IntegralTradingFacadeImpl implements IntegralTradingFacade {
 	
 	@ApiOperation(value = "积分兑换商品列表")
 	@RequestMapping(value = "/tradingProductList", method = RequestMethod.POST)
-	public @ResponseBody StateResult exchangeProductList(@RequestBody IntegralProductListRequest request) throws ParseException {
+	public @ResponseBody StateResult exchangeProductList(@RequestBody IntegralProductListRequest request) {
 		ExeResult result = new ExeResult();
 		if(StringUtil.isNullOrEmpty(request.getToken())) {
 			throw new IllegalArgumentException("用户token不能为空");

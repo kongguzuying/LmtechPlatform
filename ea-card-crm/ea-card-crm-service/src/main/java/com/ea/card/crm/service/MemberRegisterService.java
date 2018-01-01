@@ -67,6 +67,13 @@ public interface MemberRegisterService extends DbManagerBase<MemberRegister> {
     MemberRegister getByOfficialOpenId(String officialOpenId);
 
     /**
+     * 通过微信激活回传的真正的公众号openid来获取会员信息
+     * @param wxActiveOpenId
+     * @return
+     */
+    MemberRegister getByWxActiveOpenId(String wxActiveOpenId);
+
+    /**
      * 刷新页面授权RefreshToken
      * @param openId
      * @param refreshToken

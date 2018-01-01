@@ -15,10 +15,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "ea-card-crm-admin")
 @RequestMapping(value = "/memberRegister")
 public interface MemberRegisterFacade {
-
+    /**
+     * 获取会员注册分页数据
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getMemberRegisterOfPage", method = RequestMethod.POST)
     MemberRegisterPageResponse getMemberRegisterOfPage(@RequestBody MemberRegisterPageRequest request);
 
+    /**
+     * 获取会员注册数据
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getMemberRegister", method = RequestMethod.POST)
     MemberRegisterResponse getMemberRegister(@RequestBody StringRequest request);
 

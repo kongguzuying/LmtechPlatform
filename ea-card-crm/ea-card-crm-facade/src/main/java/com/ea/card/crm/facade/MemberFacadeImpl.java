@@ -1,6 +1,5 @@
 package com.ea.card.crm.facade;
 
-import com.ea.card.crm.constants.ErrorConstants;
 import com.ea.card.crm.facade.request.LoginWapRequest;
 import com.ea.card.crm.facade.request.TrailMemberRequest;
 import com.ea.card.crm.facade.response.MemberInfoData;
@@ -18,9 +17,8 @@ import com.ea.card.crm.service.vo.UCMemberExtResult;
 import com.ea.card.crm.service.vo.WxDecryptCodeResponse;
 import com.lmtech.common.ExeResult;
 import com.lmtech.common.StateResult;
-import com.lmtech.exceptions.ErrorCodeException;
+import com.lmtech.common.StateResultT;
 import com.lmtech.util.DateUtil;
-import com.lmtech.util.LoggerManager;
 import com.lmtech.util.StringUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -142,6 +140,30 @@ public class MemberFacadeImpl implements MemberFacade {
             result.setData(memberRegister);
             result.setSuccess(true);
             return result.getResult();
+        } else {
+            throw new NoneRegisterException();
+        }
+    }
+
+    @ApiOperation(value = "通过微信激活回传的真正的公众号openid来获取会员信息")
+    @Override
+    public StateResultT<MemberRegister> getByWxActiveOpenId(@RequestParam String wxActiveOpenId) {
+        ExeResult result = new ExeResult();
+        MemberRegister memberRegister = memberRegisterService.getByWxActiveOpenId(wxActiveOpenId);
+        if (memberRegister != null) {
+            if (!memberRegister.isForever()) {
+                memberRegister.setOverTimeDays(DateUtil.getDaySub(new Date(), memberRegister.getEndDate()));
+            }
+            result.setSuccess(true);
+            result.setData(memberRegister);
+            StateResult stateResult = result.getResult();
+
+            StateResultT<MemberRegister> stateResultT = new StateResultT<>();
+            stateResultT.setState(stateResult.getState());
+            stateResultT.settId(stateResult.gettId());
+            stateResultT.setData((MemberRegister) stateResult.getData());
+            stateResultT.setMsg(stateResult.getMsg());
+            return stateResultT;
         } else {
             throw new NoneRegisterException();
         }

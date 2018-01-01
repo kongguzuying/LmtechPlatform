@@ -91,6 +91,15 @@ public class MemberRegisterServiceImpl extends AbstractDbManagerBaseImpl<MemberR
     }
 
     @Override
+    public MemberRegister getByWxActiveOpenId(String wxActiveOpenId) {
+        WxActiveMessage wxActiveMessage = wxActiveMessageDao.getByFromUserName(wxActiveOpenId);
+        if (wxActiveMessage != null && !StringUtil.isNullOrEmpty(wxActiveMessage.getCode())) {
+            return memberRegisterDao.getByCode(wxActiveMessage.getCode());
+        }
+        return null;
+    }
+
+    @Override
     public void updateRefreshToken(String openId, String refreshToken) {
         memberRegisterDao.updateRefreshToken(openId, refreshToken);
     }
