@@ -68,12 +68,13 @@ public class NotifyFacadeImpl implements NotifyFacade {
         int totalAmount = noticeData.getTotal_fee() / 100;
         String payTime = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
         String sourceType = "2";
+        String shopName = "none";
 
         StateResultT<MemberRegister> result = memberFacade.getByWxActiveOpenId(openId);
         if (result.isSuccess() && result.getData() != null) {
             MemberRegister register = result.getData();
             String uniqueId = register.getUniqueId();
-            StateResult integralResult = integralTradingFacade.exchangeIntegral(uniqueId, orderId, proId, totalAmount, 1, null, "1", payTime, sourceType);
+            StateResult integralResult = integralTradingFacade.exchangeIntegral(uniqueId, orderId, proId, totalAmount, 1, shopName, "1", payTime, sourceType);
             if (integralResult.isSuccess()) {
                 LoggerManager.info("用户：" + register.getNickname() + "扫码支付增加积分成功，共" + totalAmount + "个积分。");
             } else {
