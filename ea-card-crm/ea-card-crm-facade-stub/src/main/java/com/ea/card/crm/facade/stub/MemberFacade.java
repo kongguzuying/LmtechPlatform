@@ -29,7 +29,7 @@ public interface MemberFacade {
      * @return
      */
     @RequestMapping(value = "/validToken", method = RequestMethod.GET)
-    StateResult validToken(@RequestParam String token);
+    StateResult validToken(@RequestParam("token") String token);
 
     /**
      * 获取会员信息
@@ -37,15 +37,15 @@ public interface MemberFacade {
      * @return
      */
     @RequestMapping(value = "/getMemberInfo", method = RequestMethod.GET)
-    StateResult getMemberInfo(@RequestParam String openId);
+    StateResult getMemberInfo(@RequestParam("openId") String openId);
 
     /**
      * 通过用户id获取会员信息
      * @param userId
      * @return
      */
-    @RequestMapping(value = "/getByUserId",method = { RequestMethod.GET, RequestMethod.POST })
-    StateResult getByUserId(@RequestParam String userId);
+    @RequestMapping(value = "/getByUserId",method = { RequestMethod.GET })
+    StateResult getByUserId(@RequestParam("userId") String userId);
 
     /**
      * 通过公众号openid获取会员信息
@@ -53,7 +53,7 @@ public interface MemberFacade {
      * @return
      */
     @RequestMapping(value = "/getByOfficialOpenId",method = RequestMethod.GET)
-    StateResult getByOfficialOpenId(@RequestParam String officialOpenId);
+    StateResult getByOfficialOpenId(@RequestParam("officialOpenId") String officialOpenId);
 
     /**
      * 通过微信激活回传的真正的公众号openid来获取会员信息
@@ -61,7 +61,7 @@ public interface MemberFacade {
      * @return
      */
     @RequestMapping(value = "/getByWxActiveOpenId",method = RequestMethod.GET)
-    StateResultT<MemberRegister> getByWxActiveOpenId(@RequestParam String wxActiveOpenId);
+    StateResultT<MemberRegister> getByWxActiveOpenId(@RequestParam("wxActiveOpenId") String wxActiveOpenId);
 
     /**
      * 通过加密卡code获取会员信息
@@ -69,7 +69,7 @@ public interface MemberFacade {
      * @return
      */
     @RequestMapping(value = "/getByEncryptCode",method = RequestMethod.GET)
-    StateResult getByEncryptCode(@RequestParam String encryptCode);
+    StateResult getByEncryptCode(@RequestParam("encryptCode") String encryptCode);
 
     /**
      * 试用会员

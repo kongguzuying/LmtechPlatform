@@ -47,7 +47,7 @@ public interface IntegralTradingFacade {
      * @return
      */
     @RequestMapping(value = "/exchangeIntegral", method = RequestMethod.POST)
-    StateResult exchangeIntegral(@RequestParam String unionId, @RequestParam String orderSn, @RequestParam String productIds,
-                                        @RequestParam long integralNum, @RequestParam int type, @RequestParam String shopName,
-                                        @RequestParam String payChannel, @RequestParam String paytime, @RequestParam String sourceType);
+    StateResult exchangeIntegral(@RequestParam("unionId") String unionId, @RequestParam("orderSn") String orderSn, @RequestParam("productIds") String productIds,
+                                        @RequestParam("integralNum") long integralNum, @RequestParam("type") int type, @RequestParam("shopName") String shopName,
+                                        @RequestParam("payChannel") String payChannel, @RequestParam("paytime") String paytime, @RequestParam("sourceType") String sourceType);
 }
