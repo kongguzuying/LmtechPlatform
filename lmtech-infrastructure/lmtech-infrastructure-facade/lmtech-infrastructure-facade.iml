@@ -20,8 +20,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.3.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.3.2" level="project" />
     <orderEntry type="module" module-name="lmtech-infrastructure-facade-stub" />
     <orderEntry type="module" module-name="lmtech-common" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.2" level="project" />
