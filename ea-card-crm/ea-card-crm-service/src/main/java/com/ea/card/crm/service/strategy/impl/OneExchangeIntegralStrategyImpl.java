@@ -82,7 +82,7 @@ public class OneExchangeIntegralStrategyImpl extends AbstractDbManagerBaseImpl<E
 		}
 		
 		if(type == IntegralConstants.ZERO) {//增加积分
-			integralService.increaseIntegral(userId, integralNum, IntegralConstants.THERE);
+			integralService.increaseIntegral(userId, integralNum, IntegralConstants.SOURCE_EIGHT);
 		}else if(type == IntegralConstants.ONE){//扣减积分
 			//查询积分值
 			GetIntegralResult integralResult = integralService.getIntegral(userId);
@@ -92,7 +92,7 @@ public class OneExchangeIntegralStrategyImpl extends AbstractDbManagerBaseImpl<E
 			if(integralNumber<=integralNum) {
 				throw new NoEnoughIntegralException();
 			}
-			integralService.consumeIntegral(userId, integralNum, IntegralConstants.THERE);
+			integralService.consumeIntegral(userId, integralNum, IntegralConstants.SOURCE_FIVE);
 		}else {
 			throw new IntegralConsumeException(ErrorConstants.ERR_INTEGRAL_TYPE_ERROR_MSG,ErrorConstants.ERR_INTEGRAL_TYPE_ERROR);
 		}

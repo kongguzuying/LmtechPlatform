@@ -69,12 +69,18 @@ public class NotifyFacadeImpl implements NotifyFacade {
         String payTime = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
         String sourceType = "2";
         String shopName = "none";
+        int typeAdd = 0;//增加积分
+
+        if (totalAmount <= 0) {
+            LoggerManager.debug("OpenId为：" + noticeData.getOpenid() + "的用户扫码支付金额不超过1元，不增加积分");
+            return;
+        }
 
         StateResultT<MemberRegister> result = memberFacade.getByWxActiveOpenId(openId);
         if (result.isSuccess() && result.getData() != null) {
             MemberRegister register = result.getData();
             String uniqueId = register.getUniqueId();
-            StateResult integralResult = integralTradingFacade.exchangeIntegral(uniqueId, orderId, proId, totalAmount, 1, shopName, "1", payTime, sourceType);
+            StateResult integralResult = integralTradingFacade.exchangeIntegral(uniqueId, orderId, proId, totalAmount, typeAdd, shopName, "1", payTime, sourceType);
             if (integralResult.isSuccess()) {
                 LoggerManager.info("用户：" + register.getNickname() + "扫码支付增加积分成功，共" + totalAmount + "个积分。");
             } else {

@@ -19,7 +19,7 @@ public class IntegralConstants {
     
     /**
      * integralSource   
-     * 积分来源 1、赠卡  2、签到 3、分享, 4、抽奖 5、兑换商品,6、领卡,7、抽奖抽中积分
+     * 积分来源 1、赠卡  2、签到 3、分享, 4、抽奖 5、兑换商品,6、领卡,7、抽奖抽中积分，8、扫码支付加积分
      */
     public static final int SOURCE_ONE = 1;
     public static final int SOURCE_TWO = 2;
@@ -28,6 +28,7 @@ public class IntegralConstants {
     public static final int SOURCE_FIVE = 5;
     public static final int SOURCE_SIX = 6;
     public static final int SOURCE_SEVEN = 7;
+    public static final int SOURCE_EIGHT = 8;
 
     /**
      * integralType
