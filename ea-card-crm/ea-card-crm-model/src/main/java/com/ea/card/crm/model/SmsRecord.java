@@ -12,21 +12,21 @@ import com.lmtech.model.EntityBase;
 public class SmsRecord extends EntityBase {
     @TableField("request_id")
     private String requestId;
-    @TableField("request_id")
+    @TableField("biz_id")
     private String bizId;
-    @TableField("request_id")
+    @TableField("code")
     private String code;
-    @TableField("request_id")
+    @TableField("code_remark")
     private String codeRemark;
-    @TableField("request_id")
+    @TableField("phone")
     private String phone;
-    @TableField("request_id")
+    @TableField("valid_code")
     private String validCode;
-    @TableField("request_id")
+    @TableField("content")
     private String content;
-    @TableField("request_id")
+    @TableField("template_code")
     private String templateCode;
-    @TableField("request_id")
+    @TableField("sign_name")
     private String signName;
 
     public String getRequestId() {

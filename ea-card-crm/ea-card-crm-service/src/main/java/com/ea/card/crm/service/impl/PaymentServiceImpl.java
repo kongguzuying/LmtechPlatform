@@ -214,7 +214,6 @@ public class PaymentServiceImpl implements PaymentService {
         HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(balanceMap, null);
         BalanceLockResult result = restTemplate.postForObject(URL_BALANCE_LOCK, request, BalanceLockResult.class);
 
-        //TODO 金额不足，锁定失败
         return result;
     }
 

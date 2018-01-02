@@ -3,6 +3,8 @@ package com.ea.card.trade.facade;
 import com.ea.card.crm.facade.stub.IntegralTradingFacade;
 import com.ea.card.crm.facade.stub.MemberFacade;
 import com.ea.card.crm.model.MemberRegister;
+import com.ea.card.trade.model.Order;
+import com.ea.card.trade.service.OrderService;
 import com.ea.card.trade.stub.NotifyFacade;
 import com.ea.card.trade.vo.PayNoticeData;
 import com.lmtech.common.StateResult;
@@ -31,6 +33,8 @@ public class NotifyFacadeImpl implements NotifyFacade {
     private IntegralTradingFacade integralTradingFacade;
     @Autowired
     private MemberFacade memberFacade;
+    @Autowired
+    private OrderService orderService;
 
     @Override
     public void wxPayNotify(HttpServletRequest request, HttpServletResponse response) {
@@ -41,10 +45,15 @@ public class NotifyFacadeImpl implements NotifyFacade {
 
             PayNoticeData noticeData = XmlUtil.fromXml(body, "xml", PayNoticeData.class);
 
-            //增加积分
-            this.scanPayIncreaseIntegral(noticeData);
+            Order order = orderService.get(noticeData.getOut_trade_no());
+            if (order != null && order.getStatus() != Order.STATUS_PAY_SUCCESS) {
+                order.setStatus(Order.STATUS_PAY_SUCCESS);
+                orderService.edit(order);
 
-            //TODO 微信通知处理，改变数据状态 需要用锁机制避免多次通知
+                //增加积分
+                this.scanPayIncreaseIntegral(noticeData);
+            }
+
             response.getWriter().write("<xml>" +
                     "<return_code><![CDATA[SUCCESS]]></return_code>" +
                     "<return_msg><![CDATA[OK]]></return_msg>" +

@@ -374,7 +374,6 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
         MemberRegister register = memberRegisterService.getByOpenId(request.getOpenId());
         if (register != null) {
-            //TODO 短信验证码校验
             String tid = IdWorkerUtil.generateStringId();
             return paymentService.setPayPassword(tid, register.getUserId(), request.getPaypswd(), register.getPhone());
         } else {
@@ -388,7 +387,6 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
         MemberRegister register = memberRegisterService.getByOpenId(request.getOpenId());
         if (register != null) {
-            //TODO 短信验证码校验
             String tid = IdWorkerUtil.generateStringId();
             return paymentService.changePayPassword(tid, register.getUserId(), request.getOldPayPswd(), request.getPaypswd());
         } else {
@@ -402,7 +400,6 @@ public class PaymentFacadeImpl implements PaymentFacade {
 
         MemberRegister register = memberRegisterService.getByOpenId(request.getOpenId());
         if (register != null) {
-            //TODO 短信验证码校验
             String tid = IdWorkerUtil.generateStringId();
             return paymentService.resetPayPassword(tid, register.getUserId(), request.getPaypswd());
         } else {

@@ -40,9 +40,6 @@ public class RechargeServiceImpl implements RechargeService {
     private RestTemplate restTemplate;
 
     public String recharge(UnifiedOrderParam param) {
-        //TODO 参数校验
-
-
         //公共参数填充
         param.setAppid(appId);
         param.setMch_id(mchId);
@@ -74,12 +71,8 @@ public class RechargeServiceImpl implements RechargeService {
         String result = restTemplate.postForObject(UNIFIEDORDER_URL, xml, String.class);
         if (StringUtil.isNullOrEmpty(result)) {
             throw new RuntimeException("调用下单出现未知错误");
-        } else {
-            //处理根xml
-            result = result.replace("<xml>", "<com.ea.card.trade.vo.UnifiedOrderData>");
-            result = result.replace("</xml>", "</com.ea.card.trade.vo.UnifiedOrderData>");
         }
-        UnifiedOrderData unifiedOrderData = XmlUtil.fromXml(result);
+        UnifiedOrderData unifiedOrderData = XmlUtil.fromXml(result, xml, UnifiedOrderData.class);
         if ("SUCCESS".equals(unifiedOrderData.getResult_code())) {
             return unifiedOrderData.getPrepay_id();
         } else {

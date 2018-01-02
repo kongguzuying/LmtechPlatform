@@ -57,7 +57,6 @@ public class RechargeFacadeImpl implements RechargeFacade {
     @Override
     public RechargePaymentResponse payment(@RequestBody PaymentRequest request) {
         PaymentParam paymentParam = request.getReqData();
-        //TODO 校验参数
 
         Order order = orderService.get(paymentParam.getOrderId());
         if (order == null) {
@@ -71,7 +70,6 @@ public class RechargeFacadeImpl implements RechargeFacade {
             orderService.edit(order);
         }
 
-        //TODO 价格处理
         int totalFee = (int) (order.getTotalAmount() * 100);
         UnifiedOrderParam unifiedOrderParam = new UnifiedOrderParam();
         unifiedOrderParam.setOpenid(openId);
