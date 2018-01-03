@@ -84,9 +84,9 @@
       <module name="lmtech-redis-facade-stub" target="1.8" />
       <module name="lmtech-redis-service" target="1.8" />
       <module name="lmtech-scheduler" target="1.8" />
-      <module name="lmtech-server-admin" target="1.8" />
-      <module name="lmtech-server-all" target="1.8" />
-      <module name="lmtech-zuul" target="1.8" />
+      <module name="lmtech-server-admin" target="1.5" />
+      <module name="lmtech-server-all" target="1.5" />
+      <module name="lmtech-zuul" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

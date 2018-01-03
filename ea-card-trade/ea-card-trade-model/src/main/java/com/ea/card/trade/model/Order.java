@@ -7,6 +7,15 @@ import com.lmtech.model.IdEntity;
 
 @TableName("ea_order")
 public class Order extends DbEntityBase {
+    /** 待支付 */
+    public static final int STATUS_PAY_WAIT = 1;
+    /** 支付中 */
+    public static final int STATUS_PAY_ING = 2;
+    /** 支付成功 */
+    public static final int STATUS_PAY_SUCCESS = 3;
+    /** 支付失败 */
+    public static final int STATUS_PAY_FAILED = 4;
+
     @TableField("user_id")
     private String userId;
     @TableField("open_id")
@@ -25,6 +34,8 @@ public class Order extends DbEntityBase {
     private int type;
     @TableField("entry")
     private int entry;
+    @TableField("status")
+    private int status;
 
     public String getUserId() {
         return userId;
@@ -96,5 +107,13 @@ public class Order extends DbEntityBase {
 
     public void setEntry(int entry) {
         this.entry = entry;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

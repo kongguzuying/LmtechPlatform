@@ -29,7 +29,6 @@ public class WxUrlSignUtil {
             byte[] digest = md.digest(content.toString().getBytes());
             tmpStr = byteToStr(digest);
         } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         content = null;
@@ -43,7 +42,6 @@ public class WxUrlSignUtil {
      * @return
      */
     private static String byteToStr(byte[] digest) {
-        // TODO Auto-generated method stub
         String strDigest = "";
         for(int i = 0; i < digest.length; i++){
             strDigest += byteToHexStr(digest[i]);
@@ -57,7 +55,6 @@ public class WxUrlSignUtil {
      * @return
      */
     private static String byteToHexStr(byte b) {
-        // TODO Auto-generated method stub
         char[] Digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         char[] tempArr = new char[2];
         tempArr[0] = Digit[(b >>> 4) & 0X0F];

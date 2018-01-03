@@ -44,12 +44,15 @@ public class FacadeAop {
     @Autowired
     private CounterInterceptor counterInterceptor;
     @Autowired
+    private ValidateInterceptor validateInterceptor;
+    @Autowired
     private ExecuteInterceptor excecuteInterceptor;
 
     @PostConstruct
     public void init() {
         interceptors.add(serialNumberInterceptor);
         interceptors.add(counterInterceptor);
+        interceptors.add(validateInterceptor);
         interceptors.add(excecuteInterceptor);
 
         Collections.sort(interceptors, new Comparator<Interceptor>() {

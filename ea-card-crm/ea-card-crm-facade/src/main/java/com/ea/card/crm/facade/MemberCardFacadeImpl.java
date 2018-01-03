@@ -130,7 +130,7 @@ public class MemberCardFacadeImpl implements MemberCardFacade {
             //构建会员卡提升等级订单
             GiftCardPayRequest payRequest = new GiftCardPayRequest();
             payRequest.setCardLevel(request.getTargetLevel());
-            payRequest.setTotalAmount(Double.valueOf(LEVEL_VPASS_PRICE));//TODO 需配置
+            payRequest.setTotalAmount(Double.valueOf(LEVEL_VPASS_PRICE));
             payRequest.setTotalNumber(1);
             GiftCardPayDetail payDetail = new GiftCardPayDetail();
             payDetail.setPrice(Double.valueOf(LEVEL_VPASS_PRICE));
