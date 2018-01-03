@@ -5,6 +5,7 @@ import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.PageDataResponse;
 import com.lmtech.facade.response.StringResponse;
+import com.lmtech.infrastructure.facade.request.CodeItemQueryRequest;
 import com.lmtech.infrastructure.facade.request.CodeItemRequest;
 import com.lmtech.infrastructure.facade.request.CodeTypePageRequest;
 import com.lmtech.infrastructure.facade.request.CodeTypeRequest;
@@ -94,6 +95,14 @@ public interface CodeFacade {
      */
     @RequestMapping(value = "/getCodeItem", method = RequestMethod.POST)
     CodeItemResponse getCodeItem(StringRequest request);
+
+    /**
+     * 获取代码项
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/getCodeItemName", method = RequestMethod.POST)
+    StringResponse getCodeItemName(CodeItemQueryRequest request);
 
     /**
      * 添加代码项

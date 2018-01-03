@@ -6,6 +6,7 @@ import com.lmtech.facade.request.StringRequest;
 import com.lmtech.facade.response.NormalResponse;
 import com.lmtech.facade.response.PageDataResponse;
 import com.lmtech.facade.response.StringResponse;
+import com.lmtech.infrastructure.facade.request.CodeItemQueryRequest;
 import com.lmtech.infrastructure.facade.request.CodeItemRequest;
 import com.lmtech.infrastructure.facade.request.CodeTypePageRequest;
 import com.lmtech.infrastructure.facade.request.CodeTypeRequest;
@@ -18,6 +19,7 @@ import com.lmtech.infrastructure.model.CodeItem;
 import com.lmtech.infrastructure.model.CodeType;
 import com.lmtech.infrastructure.service.CodeManager;
 import com.lmtech.infrastructure.service.CodeService;
+import com.lmtech.util.CollectionUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,6 +170,27 @@ public class CodeFacadeImpl implements CodeFacade {
         response.setData(codeItem);
         response.setSuccess(true);
         response.setMessage("获取代码项数据成功");
+        return response;
+    }
+
+    @Override
+    @RequestMapping(value = "/getCodeItemName", method = RequestMethod.POST)
+    @ApiOperation(value = "获取代码项值")
+    public StringResponse getCodeItemName(@RequestBody CodeItemQueryRequest request) {
+        String typeCode = request.getReqData().getTypeCode();
+        String itemCode = request.getReqData().getItemCode();
+
+        List<CodeItem> codeItems = codeManager.getCodeItemOfType(typeCode);
+        StringResponse response = new StringResponse();
+        if (!CollectionUtil.isNullOrEmpty(codeItems)) {
+            for (CodeItem codeItem : codeItems) {
+                if (codeItem.getCode().equals(itemCode)) {
+                    response.setData(codeItem.getName());
+                    break;
+                }
+            }
+        }
+        response.setSuccess(true);
         return response;
     }
 
