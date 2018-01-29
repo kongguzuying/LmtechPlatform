@@ -300,7 +300,7 @@ public class MemberCardServiceImpl implements MemberCardService {
             record.setAppType((WxConstants.isWxApplet() ? MemberRegister.APP_TYPE_APPLET : MemberRegister.APP_TYPE_H5));
             OutStrParam outstr = new OutStrParam();
             outstr.setActionType(request.getActionType());
-            outstr.setOwnerOpenId(request.getOwnerUnionId());
+            outstr.setOwnerUnionId(request.getOwnerUnionId());
             if (WxConstants.isWxApplet()) {
                 outstr.setAppletOpenId(request.getOpenId());
             }

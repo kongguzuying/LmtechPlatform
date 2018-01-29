@@ -14,7 +14,7 @@ public class OutStrParam {
 
     private int actionType;
     private String giftCardId;
-    private String ownerOpenId;
+    private String ownerUnionId;
     private String appletOpenId;
 
     public int getActionType() {
@@ -33,19 +33,19 @@ public class OutStrParam {
         this.giftCardId = giftCardId;
     }
 
-    public String getOwnerOpenId() {
-        return ownerOpenId;
-    }
-
-    public void setOwnerOpenId(String ownerOpenId) {
-        this.ownerOpenId = ownerOpenId;
-    }
-
     public String getAppletOpenId() {
         return appletOpenId;
     }
 
     public void setAppletOpenId(String appletOpenId) {
         this.appletOpenId = appletOpenId;
+    }
+
+    public String getOwnerUnionId() {
+        return ownerUnionId;
+    }
+
+    public void setOwnerUnionId(String ownerUnionId) {
+        this.ownerUnionId = ownerUnionId;
     }
 }

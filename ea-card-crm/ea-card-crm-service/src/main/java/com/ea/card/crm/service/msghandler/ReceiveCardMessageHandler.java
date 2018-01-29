@@ -215,7 +215,7 @@ public class ReceiveCardMessageHandler implements MessageHandler {
                     LoggerManager.warn("未知的ActionType:" + param.getActionType());
                 }
             }
-            record.setStatus(CardActiveRecord.STATUS_ACTIVE);
+            record.setStatus(CardActiveRecord.STATUS_APPLIED);
             cardActiveRecordService.edit(record);
             recordRegister(record,param);
 
@@ -233,15 +233,15 @@ public class ReceiveCardMessageHandler implements MessageHandler {
 
             //赠卡方 ：非自主激活，则领取100积分；  新增积分次数限制  
             if (param.getActionType() == OutStrParam.ACTION_TYPE_PRESENT || param.getActionType() == OutStrParam.ACTION_TYPE_SHARE) {
-                if (!StringUtil.isNullOrEmpty(param.getOwnerOpenId())) {
-                    MemberRegister mr = memberRegisterService.getByOpenId(param.getOwnerOpenId());
+                if (!StringUtil.isNullOrEmpty(param.getOwnerUnionId())) {
+                    MemberRegister mr = memberRegisterService.getByOpenId(param.getOwnerUnionId());
                     if (mr != null && integralService.sendCardCallBack(mr.getUserId())) {
                     	
                         LoggerManager.debug("赠卡方 ：非自主激活，则领取100积分");
                         integralService.increaseIntegral(mr.getUserId(), ACTIVE_PRESENT_BONUS, IntegralConstants.ONE);
                         LoggerManager.debug("赠卡方userId：" + mr.getUserId() + ",领取100积分");
                     } else {
-                        LoggerManager.warn("用户openId:{" + param.getOwnerOpenId() + "},数据未知异常或已超过10次领取次数。");
+                        LoggerManager.warn("用户openId:{" + param.getOwnerUnionId() + "},数据未知异常或已超过10次领取次数。");
                     }
                 } else {
                     LoggerManager.warn("用户userId:{" + record.getUserId() + "},数据异常未匹配到赠卡方的openId。");
