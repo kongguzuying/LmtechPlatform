@@ -66,7 +66,7 @@ public class GiftCategoryFacadeImpl implements GiftCategoryFacade {
             Map<String, Object> level2 = new HashMap<>();
             level2.put("levelName", codeAdaptorService.getNameByCodeItemValue(String.valueOf(MemberRegister.MLEVEL_VPASS)));
             level2.put("levelValue", MemberRegister.MLEVEL_VPASS);
-            levels.add(level1);
+            //levels.add(level1);
             levels.add(level2);
 
             List<CardCategory> childCategories = cardCategoryService.getChildCategoryList(request.getCardCategoryId());
