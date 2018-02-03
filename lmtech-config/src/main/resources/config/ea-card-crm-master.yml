@@ -1,0 +1,58 @@
+data_source : 
+  driver_class_name : com.mysql.jdbc.Driver
+  url : jdbc:mysql://172.30.2.30:18806/connect?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+  user_name : connect_wr
+  password : connect*wr
+  max_active : 300
+  initial_size : 10
+  max_idle : 500
+  maxWait : 60000
+  test_on_borrow : false
+  test_while_idle : true
+  time_between_eviction_runs_millis : 60000
+  min_evictable_idle_time_millis : 300000
+  num_tests_per_eviction_run : 200
+  remove_abandoned : true
+  remove_abandoned_timeout : 180
+
+service :
+  url_uc_getintegeral : http://172.29.7.162:7082/uic/user/findIntegralMemberUserInfo.do
+  url_uc_integralsign : http://172.29.7.162:7082/uic/user/addOrRedIntegralMember.do
+  url_uc_integraldetals : http://172.29.7.162:7082/uic/user/findIntegralMemberDetail.do
+  url_uc_getsmscode : http://172.29.7.162:7082/uic/user/postVerificationCode.do
+  url_uc_register : http://172.29.7.162:7082/uic/user/userRegisterAndBind.do
+  url_uc_finduser : http://172.29.7.162:7082/uic/user/findUserInfo.do
+  url_uc_get_member_ext : http://172.29.7.162:7082/uic/user/findIntegralMemberUserInfo.do
+  
+  url_account_checkuser : http://172.29.7.162:8126/wallet/portal/checkUser.do
+  url_account_register : http://172.29.7.162:8126/wallet/portal/register.do
+  url_account_mybalance : http://172.29.7.162:8126/wallet/balance/mybalance.do
+  url_oa_exist_user : http://172.30.2.26:8132/third/account/verification.do
+  
+  url_login4wap : http://api4dev.380star.com/buyer/user/otherlogin4wap.do
+  url_relogini4wap : http://api4dev.380star.com/buyer/user/rlogin.do
+  url_buyer_refresh_settle : http://api4dev.380star.com/buyer/cart/refreshsettle.do
+  url_buyer_submit_order_pre : http://api4dev.380star.com/buyer/order/submitpreorder.do
+  
+  url_recharge_request : http://172.29.7.162:9081/trade/recharge/rechargereq.do
+  url_recharge_payment : http://172.29.7.162:9081/trade/recharge/rechargepay.do
+  url_recharge_applet_payment : http://172.29.7.162:9081/trade/recharge/rechargeappletpay.do
+  
+  url_account_balance : http://172.29.7.162:8126/wallet/balance/mybalance.do
+  url_account_balance_list : http://172.29.7.162:8126/wallet/balance/recordlist.do
+  url_account_recorddetail : http://172.29.7.162:8126/wallet/balance/recorddetail.do
+  url_account_addwxrechargemoney : http://172.29.7.162:8126/wallet/balance/addwxrechargemoney.do
+  
+  url_account_set_paypswd : http://172.29.7.162:8126/wallet/portal/setpwd.do
+  url_account_change_paypswd : http://172.29.7.162:8126/wallet/portal/modifypwd.do
+  url_account_reset_paypswd : http://172.29.7.162:8126/wallet/portal/resetpwd.do
+  
+  url_balance_checkpswd : http://172.29.7.162:9081/wallet/trade/checkpwd.do
+  url_balance_lock : http://172.29.7.162:9081/wallet/trade/lock.do
+  url_balance_unlock : http://172.29.7.162:9081/wallet/trade/unlock.do
+  url_balance_reduce : http://172.29.7.162:9081/wallet/trade/reduce.do
+  
+  url_zero_menoy_pay : http://172.29.7.162:9081/trade/pay/wecat/zeroMenoyPay.do
+  
+  
+  

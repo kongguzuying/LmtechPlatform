@@ -1,0 +1,16 @@
+data_source : 
+  driver_class_name : com.mysql.jdbc.Driver
+  url : jdbc:mysql://172.30.2.30:18806/connect?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+  user_name : connect_wr
+  password : connect*wr
+  max_active : 300
+  initial_size : 10
+  max_idle : 500
+  maxWait : 60000
+  test_on_borrow : false
+  test_while_idle : true
+  time_between_eviction_runs_millis : 60000
+  min_evictable_idle_time_millis : 300000
+  num_tests_per_eviction_run : 200
+  remove_abandoned : true
+  remove_abandoned_timeout : 180
