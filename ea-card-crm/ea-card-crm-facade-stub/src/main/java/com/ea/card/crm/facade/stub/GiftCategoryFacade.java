@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name = "ea-card-crm")
+@FeignClient(name = "ea-card-crm-ywop")
 @RequestMapping(value = "/giftcategory")
 public interface GiftCategoryFacade {
     /**

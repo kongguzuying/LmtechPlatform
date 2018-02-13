@@ -14,7 +14,7 @@ import java.text.ParseException;
  *
  */
 
-@FeignClient(name = "ea-card-crm")
+@FeignClient(name = "ea-card-crm-ywop")
 @RequestMapping(value = "/integraltrading")
 public interface IntegralTradingFacade {
     /**

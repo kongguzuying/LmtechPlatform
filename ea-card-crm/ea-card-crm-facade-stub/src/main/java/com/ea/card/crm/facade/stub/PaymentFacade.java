@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * 支付服务入口
  * @author
  */
-@FeignClient("ea-card-crm")
+@FeignClient("ea-card-crm-ywop")
 @RequestMapping(value = "/payment")
 public interface PaymentFacade {
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 微信Token接口
  */
-@FeignClient("ea-card-crm")
+@FeignClient("ea-card-crm-ywop")
 @RequestMapping(value = "/wxtoken")
 public interface WxTokenFacade {
     /**

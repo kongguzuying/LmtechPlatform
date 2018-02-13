@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 
-@FeignClient(name = "ea-card-crm")
+@FeignClient(name = "ea-card-crm-ywop")
 @RequestMapping(value = "/integral")
 public interface IntegralFacade {
     /**

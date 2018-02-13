@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 卡片分类
  * @author
  */
-@FeignClient(name = "ea-card-crm")
+@FeignClient(name = "ea-card-crm-ywop")
 @RequestMapping(value = "/cardcategory")
 public interface CardCategoryFacade {
     @RequestMapping(value = "getCategoryList", method = RequestMethod.GET)

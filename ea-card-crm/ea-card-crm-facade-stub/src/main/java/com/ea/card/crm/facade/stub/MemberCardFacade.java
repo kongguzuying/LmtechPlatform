@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 
-@FeignClient(name = "ea-card-crm")
+@FeignClient(name = "ea-card-crm-ywop")
 @RequestMapping(value = "/card")
 public interface MemberCardFacade {
     /**
