@@ -313,7 +313,7 @@ public class MemberCardServiceImpl implements MemberCardService {
             //校验验证码
             ExeResult smsCheckResult = aliyunMessageService.checkSmsValidCode(request.getVerifyKey(), request.getVerifyCode());
             if (!smsCheckResult.isSuccess()) {
-                throw new RuntimeException(smsCheckResult.getMessage());
+                throw new ErrorCodeException(smsCheckResult.getMessage(), -1);
             }
 
             /*
