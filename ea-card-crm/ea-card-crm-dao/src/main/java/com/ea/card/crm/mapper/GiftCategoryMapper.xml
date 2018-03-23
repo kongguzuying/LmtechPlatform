@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.GiftCategoryMapper">
+
+    <resultMap id="giftCategoryMap" type="com.ea.card.crm.model.GiftCategory">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="title" property="title"></result>
+        <result column="price" property="price"></result>
+        <result column="price_title" property="priceTitle"></result>
+        <result column="sort_no" property="sortNo"></result>
+    </resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        title,price,sort_no
+    </sql>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.GiftCategory" resultMap="giftCategoryMap">
+        select * from ea_gift_category
+        <where>
+            <if test="title != null">
+                and title like concat('%',#{title},'%')
+            </if>
+        </where>
+        order by sort_no
+    </select>
+
+    <select id="selectCategoryList" resultMap="giftCategoryMap">
+        select * from ea_gift_category where is_delete=0 order by sort_no
+    </select>
+
+    <select id="existTitleName" resultType="java.lang.Integer">
+        select count(1) from ea_gift_category where title=#{title}
+    </select>
+
+    <delete id="deleteGiftRelation" parameterType="java.lang.String">
+        delete from ea_gift_category where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<configuration>
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%p] [%thread] %logger - %m%n</pattern>
+        </encoder>
+    </appender>
+    <!-- info文件输出 -->
+    <appender name="infoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/info.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/info-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <MaxHistory>120</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>10MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%p] [%thread] %logger - %m%n</pattern>
+        </layout>
+    </appender>
+    <!-- error文件输出 -->
+    <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/error-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <MaxHistory>120</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>10MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%p] [%thread] %logger - %m%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 框架日志 -->
+    <logger name="com.lmtech" additivity="false">
+        <level>DEBUG</level>
+        <appender-ref ref="console" />
+        <appender-ref ref="infoFile" />
+        <appender-ref ref="errorFile" />
+    </logger>
+
+    <!-- 日志级别 -->
+    <root>
+        <level value="info" />
+        <appender-ref ref="console" />
+        <appender-ref ref="infoFile" />
+        <appender-ref ref="errorFile" />
+    </root>
+</configuration>

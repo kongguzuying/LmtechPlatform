@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.CardActiveRecordMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,
+        create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete
+    </sql>
+
+    <resultMap id="cardActiveRecordMap" type="com.ea.card.crm.model.CardActiveRecord">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="tid" property="tid"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="user_type" property="userType"></result>
+        <result column="app_type" property="appType"></result>
+        <result column="phone" property="phone"></result>
+        <result column="open_id" property="openId"></result>
+        <result column="friend_open_id" property="friendOpenId"></result>
+        <result column="unique_id" property="uniqueId"></result>
+        <result column="nickname" property="nickname"></result>
+        <result column="headimgurl" property="headimgurl"></result>
+        <result column="sex" property="sex"></result>
+        <result column="card_id" property="cardId"></result>
+        <result column="code" property="code"></result>
+        <result column="membership_num" property="membershipNum"></result>
+        <result column="balance" property="balance"></result>
+        <result column="bonus" property="bonus"></result>
+        <result column="status" property="status"></result>
+        <result column="refresh_token" property="refreshToken"></result>
+        <result column="wap_token" property="wapToken"></result>
+        <result column="err_msg" property="errMsg"></result>
+        <result column="outstr" property="outstr"></result>
+    </resultMap>
+
+    <select id="countSuccessPhoneOrOpenId" resultType="java.lang.Long">
+        select count(1) from ea_card_active_record where (phone=#{phone} or unique_id=#{uniqueId}) and status=2
+    </select>
+
+    <select id="selectOneByUniqueId" resultMap="cardActiveRecordMap">
+        select * from ea_card_active_record where unique_id=#{uniqueId} order by create_date desc limit 1
+    </select>
+
+    <select id="selectOneByUniqueIdAndStatus" resultMap="cardActiveRecordMap">
+        select * from ea_card_active_record where unique_id=#{uniqueId} and status=#{status} order by create_date desc limit 1
+    </select>
+
+    <select id="selectOneByOpenIdAndStatus" resultMap="cardActiveRecordMap">
+        select * from ea_card_active_record where open_id=#{openId} and status=#{status} order by create_date desc limit 1
+    </select>
+
+    <select id="selectOneByOpenIdsAndStatus" resultMap="cardActiveRecordMap">
+        select *
+        from ea_card_active_record
+        where status=#{status} and
+        <foreach collection="openIds" item="openId" open="(" close=")" separator=" or ">
+            open_id=#{openId}
+        </foreach>
+        order by create_date desc limit 1
+    </select>
+
+    <delete id="deleteByOpenIdAndStatus">
+        delete from ea_card_active_record where open_id=#{openId} and status=#{status}
+    </delete>
+
+    <delete id="deleteByCodeAndStatus">
+        delete from ea_card_active_record where code=#{code} and status=#{status}
+    </delete>
+
+    <delete id="deleteByUniqueIdAndStatus">
+        delete from ea_card_active_record where unique_id=#{uniqueId} and status=#{status}
+    </delete>
+
+    <update id="updateStatus">
+        update ea_card_active_record set status=#{status} where id=#{id}
+    </update>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.CardActiveRecord" resultMap="cardActiveRecordMap">
+        select * from ea_card_active_record
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="userType !=null and userType != ''">
+                and user_type = #{userType}
+            </if>
+        </trim>
+    </select>
+</mapper>

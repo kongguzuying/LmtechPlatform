@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.AdminPermissionMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, RESOURCE_ID, RESOURCE_TYPE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <select id="selectResourceIdByType" parameterType="java.lang.String" resultType="java.lang.String">
+        select resource_id from lm_admin_permission where resource_type=#{resourceType}
+    </select>
+</mapper>

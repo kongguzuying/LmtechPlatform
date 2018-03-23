@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title></title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+    <style>
+        .icon_fa{
+            width: 34px;
+            float: left;
+            height: 34px;
+            line-height: 34px;
+            font-size: 1.5em;
+            margin-left: 3px;
+        }
+    </style>
+</head>
+
+<body class="body">
+<div id="page">
+    <div class="wrapper">
+
+        <!-- Note -->
+        <div class="nNote nInformation hideit">
+            <p><strong>INFORMATION: </strong>Form elements were divided into 4 different pages. Don't forget to check all of them!</p>
+        </div>
+
+        <!-- Form -->
+        <form action="" class="form">
+            <input type="hidden" name="id" v-model="entity.id"/>
+            <fieldset>
+                <div class="widget">
+                    <div class="title"><img src="../../../images/icons/dark/list.png" alt="" class="titleIcon"><h6>菜单编辑</h6></div>
+                    <div class="formRow">
+                        <label>菜单名称：</label>
+                        <div class="formRight"><input type="text" v-model="entity.name"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>菜单地址：</label>
+                        <div class="formRight"><input type="text" v-model="entity.href"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>上级菜单：</label>
+                        <div class="formRight">
+                            <input class="form-control" type="hidden" id="parentId" name="parentId" v-model="entity.parentId"/>
+                            <input class="form-control" readonly="true" type="text" id="parentName" name="parentName"
+                                   v-model="parentName"/>
+                            <a href="javascript:void(0)" class="btn btn-default tb-btn" @click="setParentMenu(entity)">设置父菜单</a>
+                            <a href="javascript:void(0)" class="btn btn-default tb-btn" @click="setRootMenu">设为根菜单</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>菜单类型：</label>
+                        <div class="formRight">
+                            <select name="menuType" class="form-control" style="width:250px" v-model="entity.menuType">
+                                <option value="category">目录菜单
+                                </option>
+                                <option value="item">项菜单</option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>排序号：</label>
+                        <div class="formRight"><input type="text" v-model="entity.sortNo"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>是否可见：</label>
+                        <div class="formRight"><input type="checkbox" name="visible" v-model="entity.visible"/></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <a href="#" @click="submit" title="" class="button blueB" style="margin: 5px;">
+                            <img src="../../../images/icons/light/check.png" alt="" class="icon"><span>保存</span>
+                        </a>
+                        <a href="index.html" title="" class="button basic" style="margin: 5px;">
+                            <img src="../../../images/icons/light/arrowLeft.png" alt="" class="icon"><span>返回</span>
+                        </a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['index_ctl', 'menu_edit_ctl'], function (c1, c) {
+        c.init();
+    });
+</script>
+</body>
+</body>
+</html>

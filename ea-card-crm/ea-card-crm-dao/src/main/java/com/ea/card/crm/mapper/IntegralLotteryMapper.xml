@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.IntegralLotteryMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete
+    </sql>
+
+    <resultMap id="integralLotteryMap" type="com.ea.card.crm.model.IntegralLottery">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="user_id" property="userId"></result>
+        <result column="result_id" property="resultId"></result>
+        <result column="prize" property="prize"></result>
+        <result column="product_ids" property="productIds"></result>
+        <result column="strategy" property="strategy"></result>
+        <result column="phone" property="phone"></result>
+        <result column="prizeDate" property="prizeDate"></result>
+        <result column="nickname" property="nickname"></result>
+        <result column="headimgurl" property="headimgurl"></result>
+        <result column="prizeProductName" property="prizeProductName"></result>
+    </resultMap>
+
+    <select id="selectLatestPrizeList" resultMap="integralLotteryMap">
+        select t1.id,t1.user_id,t1.result_id,t1.prize,t1.product_ids,t1.strategy,
+        t2.nickname,t2.headimgurl,t2.phone,t1.create_date as prizeDate,t3.name as prizeProductName
+        from ea_integral_lottery t1
+        left join ea_member_register t2 on t1.user_id=t2.user_id
+        left join ea_lottery_product t3 on t1.result_id=t3.id
+        where t1.prize=1 and t1.is_delete=0
+        order by t1.create_date desc
+    </select>
+</mapper>

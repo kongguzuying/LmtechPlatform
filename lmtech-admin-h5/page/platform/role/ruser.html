@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="body">
+<div class="row" id="data">
+    <div class="widget">
+        <div class="title">
+            <img src="../../../images/icons/dark/full2.png" alt="" class="titleIcon">
+            <h6>用户授权</h6>
+            <div class="title-action btn-group">
+                <a href="javascript:void(0)" class="button blueB" @click="auth"><span>授权</span></a>
+                <a v-bind:href="allHref" class="button basic " v-bind:class="{'greyishB':type==0}"><span>所有用户</span></a>
+                <a v-bind:href="authHref" class="button basic" v-bind:class="{'greyishB':type==1}"><span>已授权用户</span></a>
+                <a v-bind:href="unAuthHref" class="button basic" v-bind:class="{'greyishB':type==2}"><span>未授权用户</span></a>
+                <a href="index.html" class="button basic"><span>返回</span></a>
+            </div>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+            <tr>
+                <th class="left-th" width="40px">
+                    <input id="allBtn" type="checkbox" v-model="isCheckAll"/>全选
+                </th>
+                <th>昵称</th>
+                <th width="20%">邮箱</th>
+                <th width="20%">手机</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-cloak v-for="item in pageData.items">
+                <td class="left-td"><input type="checkbox" name="selectedIds" v-model="selectedIds" v-bind:value="item.id"/></td>
+                <td>{{item.nickName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.mobile}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['role_user_ctl'], function (c) {
+        c.init();
+    });
+</script>
+</body>
+</html>

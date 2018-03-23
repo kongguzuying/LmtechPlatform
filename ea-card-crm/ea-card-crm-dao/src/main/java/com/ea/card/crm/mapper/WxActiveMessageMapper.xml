@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.WxActiveMessageMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete
+    </sql>
+
+    <resultMap id="wxActiveMessageMap" type="com.ea.card.crm.model.WxActiveMessage">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="to_user_name" property="toUserName"></result>
+        <result column="from_user_name" property="fromUserName"></result>
+        <result column="applet_open_id" property="appletOpenId"></result>
+        <result column="outer_str" property="outerStr"></result>
+        <result column="is_give_by_friend" property="isGiveByFriend"></result>
+        <result column="friend_user_name" property="friendUserName"></result>
+        <result column="code" property="code"></result>
+    </resultMap>
+
+    <select id="selectOutstrOfUser" resultMap="wxActiveMessageMap">
+        select *
+        from ea_wxactive_message
+        where from_user_name=#{fromUserName}
+        order by create_date desc
+        limit 1
+    </select>
+    
+    <select id="selectByCode" resultMap="wxActiveMessageMap">
+        select *
+        from ea_wxactive_message
+        where code=#{code}
+        order by create_date desc
+        limit 1
+    </select>
+</mapper>

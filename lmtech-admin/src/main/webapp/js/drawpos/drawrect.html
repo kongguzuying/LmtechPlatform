@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="page.css" rel="stylesheet" type="text/css"/>
+    <link href="page-pope.css" rel="stylesheet" type="text/css"/>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../fonts/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        html,body {
+            margin: 0px;
+            padding: 0px;
+        }
+        ul.ht-list {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="popup-container draw-pos-popup">
+    <div class="popup-content">
+        <div id="drawPositionContainer" class="draw-area" style="height: 439px;z-index:1" img_src="http://img.myysq.com.cn/mobilecheckroom/upload/39d7bc3c-1c5e-0424-ead3-cc1fb7ee1032_orig.png">
+            <div class="draw-pos" id="drawPositionArea" style="cursor: default;">
+
+            </div></div>
+        <p class="color-gray padding10">说明：左键绘制部位，右键选择部位；</p>
+    </div>
+</div>
+<!--选择部位右键菜单-->
+<div class="house-type-set-panel" id="position_contextMenu">
+    <h4 class="ht-tit">选择部位</h4>
+
+    <div class="ht-list-wrap">
+        <ul class="ht-list" id="position_contextMenu_Container" style="max-height: 400px;overflow-y: auto;">
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jquery.contextmenu.js"></script>
+<script type="text/javascript" src="draw-position.js"></script>
+<script type="text/javascript">
+    init({
+        "roomtypeId": "39d7bc3b-4a72-dec3-75cd-01427ffa1c1f",
+        "diagramId": "39d7bc3c-240b-8b15-aee2-6adaaebfc918",
+        "img_url": "http:\/\/img.myysq.com.cn\/mobilecheckroom\/upload\/39d7bc3c-1c5e-0424-ead3-cc1fb7ee1032_orig.png",
+        "pos": {
+            "roomTypePosition": [{
+                "id": "9f2b196e-4f8b-cc92-7863-c4348891af9e",
+                "position": "\u5ba2\u5385"
+            }, {
+                "id": "2731c5ff-5a90-ab42-c1b8-f68df36980c5",
+                "position": "\u4e3b\u5367\u5ba4"
+            }, {
+                "id": "fc98f3b9-6cc2-0d8e-6caf-c45bde101f24",
+                "position": "\u6b21\u5367\u5ba41"
+            }, {
+                "id": "f9940526-af65-afd8-bc5f-39c25f429f88",
+                "position": "\u6b21\u5367\u5ba42"
+            }, {
+                "id": "9461640f-ced5-69cf-b925-01787641774f",
+                "position": "\u6b21\u5367\u5ba43"
+            }, {
+                "id": "9a81a413-27ee-205b-1cf3-f3ab8a4836e3",
+                "position": "\u53a8\u623f"
+            }, {
+                "id": "39553891-8212-9108-878e-420e47a79c69",
+                "position": "\u4e3b\u536b"
+            }, {
+                "id": "72eb0b74-6afa-61e2-3e67-980700bf8f5a",
+                "position": "\u6b21\u536b"
+            }, {
+                "id": "8cf588bb-59b3-f194-0d4e-8a5282127748",
+                "position": "\u9910\u5385"
+            }, {
+                "id": "cc1e7257-1df5-0813-00a0-5e91a437c575",
+                "position": "\u9633\u53f0"
+            }, {
+                "id": "fd8ad835-cf25-c919-aa2a-0ed9652e003d",
+                "position": "\u8fc7\u9053"
+            }, {"id": "85329a49-c8de-5852-17df-bd6d41114cfe", "position": "\u751f\u6d3b\u9633\u53f0"}],
+            "diagramPosition": [{
+                "id": "39d7bc40-4fdc-c6da-083a-12a589faebda",
+                "coordinate": {
+                    "x": "237.38041002277905",
+                    "y": "69.81776765375855",
+                    "height": "29.32346241457859",
+                    "width": "115.89749430523918"
+                },
+                "positionId": "cc1e7257-1df5-0813-00a0-5e91a437c575",
+                "position_name": "\u9633\u53f0"
+            }, {
+                "id": "39d7bc40-4fee-42e7-7c1f-4a2666d73bf3",
+                "coordinate": {
+                    "x": "230.3986332574032",
+                    "y": "106.12300683371299",
+                    "height": "122.87927107061503",
+                    "width": "135.44646924829158"
+                },
+                "positionId": "9f2b196e-4f8b-cc92-7863-c4348891af9e",
+                "position_name": "\u5ba2\u5385"
+            }, {
+                "id": "39d7bc40-4ff1-f8cc-e9b9-240928917d8b",
+                "coordinate": {
+                    "x": "229.00227790432803",
+                    "y": "233.19134396355355",
+                    "height": "85.17767653758543",
+                    "width": "139.6355353075171"
+                },
+                "positionId": "8cf588bb-59b3-f194-0d4e-8a5282127748",
+                "position_name": "\u9910\u5385"
+            }, {
+                "id": "39d7bc40-4ff3-199a-86ec-e2c234a9a87f",
+                "coordinate": {
+                    "x": "96.34851936218679",
+                    "y": "404.94305239179954",
+                    "height": "136.84282460136674",
+                    "width": "122.87927107061503"
+                },
+                "positionId": "2731c5ff-5a90-ab42-c1b8-f68df36980c5",
+                "position_name": "\u4e3b\u5367\u5ba4"
+            }, {
+                "id": "39d7bc40-4ff6-41a0-47cd-b772a30750b4",
+                "coordinate": {
+                    "x": "191.30068337129842",
+                    "y": "356.07061503416855",
+                    "height": "47.47608200455581",
+                    "width": "26.530751708428248"
+                },
+                "positionId": "2731c5ff-5a90-ab42-c1b8-f68df36980c5",
+                "position_name": "\u4e3b\u5367\u5ba4"
+            }, {
+                "id": "39d7bc40-4ffa-02ab-6452-dbd4e3f5182f",
+                "coordinate": {
+                    "x": "94.95216400911163",
+                    "y": "272.28929384965835",
+                    "height": "62.83599088838269",
+                    "width": "89.36674259681094"
+                },
+                "positionId": "72eb0b74-6afa-61e2-3e67-980700bf8f5a",
+                "position_name": "\u6b21\u536b"
+            }, {
+                "id": "39d7bc40-4ffd-3128-ca17-1bb11b22b0e1",
+                "coordinate": {
+                    "x": "94.95216400911163",
+                    "y": "161.97722095671983",
+                    "height": "106.12300683371299",
+                    "width": "131.25740318906605"
+                },
+                "positionId": "fc98f3b9-6cc2-0d8e-6caf-c45bde101f24",
+                "position_name": "\u6b21\u5367\u5ba41"
+            }, {
+                "id": "39d7bc40-5001-2ca1-8162-ebee29789828",
+                "coordinate": {
+                    "x": "96.34851936218679",
+                    "y": "337.9179954441914",
+                    "height": "61.43963553530752",
+                    "width": "89.36674259681094"
+                },
+                "positionId": "39553891-8212-9108-878e-420e47a79c69",
+                "position_name": "\u4e3b\u536b"
+            }, {
+                "id": "39d7bc40-5004-8bee-ee18-fc529f239dae",
+                "coordinate": {
+                    "x": "188.50797266514806",
+                    "y": "270.89293849658316",
+                    "height": "80.98861047835992",
+                    "width": "36.30523917995444"
+                },
+                "positionId": "fd8ad835-cf25-c919-aa2a-0ed9652e003d",
+                "position_name": "\u8fc7\u9053"
+            }, {
+                "id": "39d7bc40-5007-2e3c-6cb3-8c46de5a710e",
+                "coordinate": {
+                    "x": "227.60592255125286",
+                    "y": "321.1617312072893",
+                    "height": "30.71981776765376",
+                    "width": "139.6355353075171"
+                },
+                "positionId": "fd8ad835-cf25-c919-aa2a-0ed9652e003d",
+                "position_name": "\u8fc7\u9053"
+            }, {
+                "id": "39d7bc40-500a-6d53-dcb0-f0d1750dcf1b",
+                "coordinate": {
+                    "x": "223.41685649202734",
+                    "y": "427.2847380410023",
+                    "height": "115.89749430523918",
+                    "width": "97.74487471526196"
+                },
+                "positionId": "f9940526-af65-afd8-bc5f-39c25f429f88",
+                "position_name": "\u6b21\u5367\u5ba42"
+            }, {
+                "id": "39d7bc40-500d-4def-1998-be89544309f7",
+                "coordinate": {
+                    "x": "323.95444191343967",
+                    "y": "471.96810933940776",
+                    "height": "69.81776765375855",
+                    "width": "68.42141230068337"
+                },
+                "positionId": "85329a49-c8de-5852-17df-bd6d41114cfe",
+                "position_name": "\u751f\u6d3b\u9633\u53f0"
+            }, {
+                "id": "39d7bc40-5010-d7eb-6089-22ce26ebca32",
+                "coordinate": {
+                    "x": "322.5580865603645",
+                    "y": "361.6560364464693",
+                    "height": "107.51936218678816",
+                    "width": "71.21412300683372"
+                },
+                "positionId": "9a81a413-27ee-205b-1cf3-f3ab8a4836e3",
+                "position_name": "\u53a8\u623f"
+            }, {
+                "id": "39d7bc40-5013-5b86-0685-46a3f2eb4b3a",
+                "coordinate": {
+                    "x": "220.624145785877",
+                    "y": "354.6742596810934",
+                    "height": "68.42141230068337",
+                    "width": "97.74487471526196"
+                },
+                "positionId": "f9940526-af65-afd8-bc5f-39c25f429f88",
+                "position_name": "\u6b21\u5367\u5ba42"
+            }, {
+                "id": "39d7bc40-5016-8114-dd5d-79516b48172c",
+                "coordinate": {
+                    "x": "370.03416856492026",
+                    "y": "85.17767653758543",
+                    "height": "120.0865603644647",
+                    "width": "120.0865603644647"
+                },
+                "positionId": "9461640f-ced5-69cf-b925-01787641774f",
+                "position_name": "\u6b21\u5367\u5ba43"
+            }]
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.IntegralSetMapper">
+
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        day_no,BONUS,bonus_type,day_max,main_title,sub_title,end_title,order_no
+    </sql>
+
+    <resultMap id="integralSetMap" type="com.ea.card.crm.model.IntegralSet">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="day_no" property="dayNo"></result>
+        <result column="BONUS" property="bonus"></result>
+        <result column="bonus_type" property="bonusType"></result>
+        <result column="day_max" property="dayMax"></result>
+        <result column="main_title" property="mainTitle"></result>
+        <result column="sub_title" property="subTitle"></result>
+        <result column="end_title" property="endTitle"></result>
+        <result column="order_no" property="orderNo"></result>
+    </resultMap>
+
+    <!--获取连续登录天数-->
+    <select id="getIntegralSet" resultType="java.lang.Integer">
+        select tb.bonus as bonus from ea_integral_set tb where tb.day_no = #{dayNo} and tb.bonus_type = #{integralSource}
+    </select>
+
+    <!--获取积分天数-->
+    <select id="getIntegralSetAll" resultType="com.ea.card.crm.model.IntegralSet">
+        select tb.day_no as dayNo,tb.bonus as bonus,tb.id as id,tb.bonus_type as bonusType,
+        tb.day_max as dayMax,tb.main_title as mainTitle,tb.sub_title as subTitle,tb.end_title as endTitle
+        from ea_integral_set tb where tb.bonus_type = #{integralSource}
+    </select>
+
+    <select id="groupByType" resultType="com.ea.card.crm.model.BonusType">
+        select tb.bonus_type as bonusType ,tb.day_max as dayMax ,tb.order_no as orderNo from ea_integral_set tb
+        group by tb.bonus_type ,tb.day_max,tb.order_no order by tb.order_no
+    </select>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.IntegralSet" resultMap="integralSetMap">
+        select * from ea_integral_set
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="bonusType !=null and bonusType != ''">
+                and bonus_type = #{bonusType}
+            </if>
+        </trim>
+    </select>
+</mapper>

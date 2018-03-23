@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.MemberRegisterMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        user_id,user_type,phone,open_id,unique_id,nickname,headimgurl,sex,card_id,card_background,code,membership_num,mlevel,
+        begin_date,end_date,forever,trial,trial_over,trial_date,trial_day,auth_refresh_token,integral
+    </sql>
+
+    <resultMap id="memberRegisterMap" type="com.ea.card.crm.model.MemberRegister">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="user_id" property="userId"></result>
+        <result column="user_type" property="userType"></result>
+        <result column="phone" property="phone"></result>
+        <result column="open_id" property="openId"></result>
+        <result column="unique_id" property="uniqueId"></result>
+        <result column="official_open_id" property="officialOpenId"></result>
+        <result column="nickname" property="nickname"></result>
+        <result column="headimgurl" property="headimgurl"></result>
+        <result column="sex" property="sex"></result>
+        <result column="card_id" property="cardId"></result>
+        <result column="card_background" property="cardBackground"></result>
+        <result column="code" property="code"></result>
+        <result column="membership_num" property="membershipNum"></result>
+        <result column="mlevel" property="mLevel"></result>
+        <result column="begin_date" property="beginDate"></result>
+        <result column="end_date" property="endDate"></result>
+        <result column="forever" property="forever"></result>
+        <result column="trial" property="trial"></result>
+        <result column="trial_over" property="trialOver"></result>
+        <result column="trial_date" property="trialDate"></result>
+        <result column="trial_day" property="trialDay"></result>
+        <result column="auth_refresh_token" property="authRefreshToken"></result>
+        <result column="integral" property="integral"></result>
+    </resultMap>
+
+    <select id="selectByUserId" resultMap="memberRegisterMap">
+        select * from ea_member_register where user_id=#{userId} and is_delete=0
+    </select>
+
+    <select id="selectByOpenId" resultMap="memberRegisterMap">
+        select * from ea_member_register where open_id=#{openId} and is_delete=0
+    </select>
+
+    <select id="selectByOfficialOpenIds" resultMap="memberRegisterMap">
+        select *
+        from ea_member_register
+        where is_delete=0 and official_open_id in
+        <foreach item="openId" index="index" collection="openIds" open="(" separator="," close=")">
+            #{openId}
+        </foreach>
+        limit 1
+    </select>
+
+    <select id="selectByCode" resultMap="memberRegisterMap">
+        select * from ea_member_register where code=#{code} and is_delete=0 limit 1
+    </select>
+
+    <select id="selectByOpenIdAndIsDelete" resultMap="memberRegisterMap">
+        select * from ea_member_register where open_id=#{openId} and is_delete=#{isDelete} order by create_date desc limit 1
+    </select>
+
+    <select id="selectByOfficialOpenIdAndIsDelete" resultMap="memberRegisterMap">
+        select * from ea_member_register where official_open_id=#{officialOpenId} and is_delete=#{isDelete} order by create_date desc limit 1
+    </select>
+
+
+    <select id="selectByOfficialOpenId" resultMap="memberRegisterMap">
+        select * from ea_member_register where official_open_id=#{officialOpenId} and is_delete=0
+    </select>
+    
+	<select id="selectByCodeAndIsDelete" resultMap="memberRegisterMap">
+        select * from ea_member_register where code=#{code} and is_delete=#{isDelete} order by create_date desc limit 1
+    </select>
+
+    <select id="selectByUserIdAndIsDelete" resultMap="memberRegisterMap">
+        select * from ea_member_register where user_id=#{userId} and is_delete=#{isDelete} order by create_date desc limit 1
+    </select>
+    
+    <update id="updateTrialData" parameterType="com.ea.card.crm.model.MemberRegister">
+        update ea_member_register
+        set mlevel=#{mLevel},
+	        <if test="cardBackground != null and cardBackground != '' ">
+	        	card_background=#{cardBackground},
+	        </if>
+        	trial=#{trial},trial_date=#{trialDate},forever=#{forever},
+            trial_day=#{trialDay},end_date=#{endDate},update_date=#{updateDate},data_version=#{dataVersion}
+        where user_id=#{userId}  and is_delete=0
+    </update>
+
+    <update id="updateRefreshToken">
+        update ea_member_register
+        set auth_refresh_token=#{refreshToken}
+        where open_id=#{openId} and is_delete=0
+    </update>
+
+    <update id="updateIsDelete">
+        update ea_member_register
+        set is_delete=#{isDelete}
+        where id=#{id}
+        order by create_date desc limit 1
+    </update>
+
+    <update id="updateIntegral">
+        update ea_member_register
+        set integral=#{integral},update_date=#{updateDate},data_version=(data_version+1)
+        where id=#{id}
+    </update>
+
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.MemberRegister" resultMap="memberRegisterMap">
+        select * from ea_member_register
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="userType !=null and userType != ''">
+                and user_type = #{userType}
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectTrialOvertime" resultMap="memberRegisterMap">
+        <![CDATA[
+        select *
+        from ea_member_register mr
+        where mr.trial=1 and mr.trial_over=0 and mr.is_delete=0 and DATE_ADD(mr.trial_date,INTERVAL mr.trial_day DAY) < #{date}
+        ]]>
+    </select>
+
+    <update id="updateTrialOvertime">
+        update ea_member_register mr
+        set mr.update_date=#{date},trial_over=1
+        where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="updateTrialOvertimeAndLevel">
+        update ea_member_register mr
+        set mr.update_date=#{date},trial_over=1,mlevel=1,forever=1,end_date='9998-11-30'
+        where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

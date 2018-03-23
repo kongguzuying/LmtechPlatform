@@ -1,0 +1,56 @@
+ignore_url :
+  ignore_url1 : member/login4wap
+  ignore_url2 : member/getByEncryptCode
+  ignore_url3 : wxtoken/getAccessToken
+  ignore_url4 : wxtoken/getCardApiSign
+  ignore_url5 : wxtoken/getDefaultCardApiSign
+  ignore_url6 : wxtoken/executeWxApi
+  ignore_url7 : wxtoken/getJsApiSign
+  ignore_url8 : wxtoken/noticeBalance
+  ignore_url9 : card/getUserAuth
+  ignore_url10 : card/getAppletUserAuth
+  ignore_url11 : wxtoken/wxMessage
+  ignore_url12 : wxtoken/getTicket
+  ignore_url13 : card/getJscodeSession
+  ignore_url14 : card/getSmsCode
+  ignore_url15 : card/activeMemberCard
+  ignore_url16 : 
+  ignore_url17 : 
+  ignore_url18 : 
+  ignore_url19 : 
+  ignore_url20 : 
+
+service : 
+  url_istokenexpire : http://api4dev.380star.com/buyer/user/istokenexpire.do
+
+zuul :
+  routes :
+    crmapp :
+      path : /crm/**
+      serviceId : ea-card-crm
+    auth : 
+      path : /auth/**
+      serviceId : lmtech-auth
+    infrast : 
+      path : /infrast/**
+      serviceId : lmtech-infrastructure
+    resource :
+      path : /resource/**
+      url : http://172.30.8.216:8421/resource
+    sche :
+      path : /scheduler/**
+      serviceId : lmtech-scheduler
+  SendErrorFilter :
+    error :
+      disable : true
+  max :
+    host :
+      connections : 500
+  host :
+    socket-timeout-millis : 60000
+    connect-timeout-millis : 60000
+    max-total-connections : 1000
+    max-per-route-connections : 100
+  semaphore :
+    max-semaphores : 300
+  retryable : true

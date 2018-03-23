@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.CodeItemMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, CODE, NAME, TYPE_CODE, VALUE, SORT_NO,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="codeItemMap" type="com.lmtech.infrastructure.model.CodeItem">
+        <id column="ID" property="id"></id>
+        <result column="CODE" property="code"></result>
+        <result column="NAME" property="name"></result>
+        <result column="TYPE_CODE" property="typeCode"></result>
+        <result column="VALUE" property="value"></result>
+        <result column="SORT_NO" property="sortNo"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectAll" resultMap="codeItemMap">
+        select * from lm_code_item
+        order by sort_no
+    </select>
+
+    <select id="selectOfType" resultMap="codeItemMap">
+        select * from lm_code_item
+        where type_code=#{typeCode}
+        order by sort_no
+    </select>
+
+    <delete id="deleteByTypeCode">
+        delete from lm_code_item
+        where type_code=#{typeCode}
+    </delete>
+</mapper>

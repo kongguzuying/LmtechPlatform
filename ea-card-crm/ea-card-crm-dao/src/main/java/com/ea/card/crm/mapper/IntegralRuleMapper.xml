@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.IntegralRuleMapper">
+
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        name,type,merber_type,rule,remark,status,start_date,end_date
+    </sql>
+	
+	<resultMap id="integralRuleMap" type="com.ea.card.crm.model.IntegralRule">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="name" property="name"></result>
+        <result column="type" property="type"></result>
+        <result column="merber_type" property="merberType"></result>
+        <result column="rule" property="rule"></result>
+        <result column="remark" property="remark"></result>
+        <result column="status" property="status"></result>
+        <result column="start_date" property="startDate"></result>
+        <result column="end_date" property="endDate"></result>
+    </resultMap>
+	
+	<select id="selectByType" resultMap="integralRuleMap">
+		select 
+			<include refid="Base_Column_List" /> 
+		from 
+			ea_integral_rule 
+		where 
+			type = #{type} and status = 2
+	</select>
+
+    <!-- 列表页面数据查询 -->
+    <select id="selectPageList" parameterType="com.ea.card.crm.model.IntegralRule" resultMap="integralRuleMap">
+        select * from ea_integral_rule
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="name !=null and name != ''">
+                and name like concat('%', #{name},'%')
+            </if>
+            <if test="merberType != null and merberType != '' ">
+                and merber_type = #{merberType}
+            </if>
+            <if test="type !=null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="status != null and status != '' ">
+                and status = #{status}
+            </if>
+            <if test="startDate != null">
+               and <![CDATA[ start_date >= #{startDate,jdbcType=TIMESTAMP} ]]>
+            </if>
+            <if test="endDate != null">
+                and <![CDATA[ end_date <= #{endDate,jdbcType=TIMESTAMP} ]]>
+            </if>
+        </trim>
+        order by start_date desc
+    </select>
+</mapper>

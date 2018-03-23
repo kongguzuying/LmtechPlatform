@@ -1,0 +1,51 @@
+.widget .title div.title-action {
+    height: 100%;
+    float: right;
+    vertical-align: middle;
+    padding: 0px;
+    min-width: 60px
+}
+[v-cloak] {
+    display: none;
+}
+.btn-group {
+    display: block;
+    padding-left: 10px;
+}
+.btn-group a.button {
+    margin-left: 0px;
+    margin-top: 3px;
+}
+
+.searchPanel input {
+    font-size: 11px;
+    padding: 7px 6px;
+    background: white;
+    border: 1px solid #DDD;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 0 2px #f4f4f4;
+    -webkit-box-shadow: 0 0 0 2px #f4f4f4;
+    -moz-box-shadow: 0 0 0 2px #f4f4f4;
+    color: #656565;
+}
+.searchPanel label {
+    font-weight: bold;
+    margin-left: 5px;
+}
+.searchPanel select.selector {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 11px;
+    padding: 7px 6px;
+    background: white;
+    border: 1px solid #DDD;
+}
+.searchPanel .searchBtn {
+    margin-left: 40px;
+}
+
+table.display thead th.left-th {
+    text-align: left;
+    padding: 5px 10px;
+}

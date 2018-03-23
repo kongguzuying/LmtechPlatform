@@ -1,0 +1,88 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <title>menu index</title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/jquery.treeTable.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .selectedTr {
+            background-color: #eeeeee;
+        }
+    </style>
+    <script type="text/javascript">
+        function checkClick(elem) {
+            var checked = $(elem).is(':checked');
+            var mid = $(elem).attr("mid");
+            var mpid = $(elem).attr("mpid");
+            if (checked) {
+                //选中子集
+                $("input[mpid='" + mid + "']").attr("checked", "checked");
+                //选中父级
+                $("input[mid='" + mpid + "']").attr("checked", "checked");
+            } else {
+                //取消选中子集
+                $("input[mpid='" + mid + "']").attr("checked", false);
+                if (isChildUnChecked(mpid)) {
+                    //取消选中父级
+                    $("input[mid='" + mpid + "']").attr("checked", false);
+                }
+            }
+        }
+        function isChildUnChecked(mpid) {
+            var result = true;
+            $("input[mpid='" + mpid + "']").each(function () {
+                var isChecked = $(this).is(":checked");
+                if (isChecked) {
+                    result = false;
+                    return;
+                }
+            });
+            return result;
+        }
+    </script>
+</head>
+
+<body class="body">
+<div>
+    <div class="widget" id="data">
+        <div class="title">
+            <img src="../../../images/icons/dark/full2.png" alt="" class="titleIcon">
+            <h6>菜单授权</h6>
+            <div class="title-action btn-group">
+                <a href="javascript:void(0)" class="button blueB" @click="auth"><span>授权</span></a>
+                <a v-bind:href="allHref" class="button basic " v-bind:class="{'greyishB':type==0}"><span>所有菜单</span></a>
+                <a v-bind:href="authHref" class="button basic" v-bind:class="{'greyishB':type==1}"><span>已授权菜单</span></a>
+                <a v-bind:href="unAuthHref" class="button basic" v-bind:class="{'greyishB':type==2}"><span>未授权菜单</span></a>
+                <a href="index.html" class="button basic"><span>返回</span></a>
+            </div>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable treeTable">
+            <thead>
+            <tr>
+                <th class="left-th">
+                    <input id="allBtn" type="checkbox" v-model="isCheckAll"/>全选 菜单名称
+                </th>
+                <th>排序号</th>
+                <th>是否可见</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-cloak :id="menu.id" v-for="menu in menus" v-bind:class="getTrClass(menu)">
+                <td class="left-td"><input type="checkbox" v-bind:mid="menu.id" v-bind:mpid="menu.parentId" name="selectedIds" v-model="selectedIds" v-bind:value="menu.id"/>&nbsp;&nbsp;{{menu.name}}</td>
+                <td>{{menu.sortNo}}</td>
+                <td>{{menu.visible}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['role_menu_ctl'], function (c) {
+        c.init();
+    });
+</script>
+</body>
+</html>

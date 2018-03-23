@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title></title>
+    <link href="../../../css/main_page.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="body">
+<div id="page">
+    <div class="wrapper">
+
+        <!-- Note -->
+        <div class="nNote nInformation hideit">
+            <p><strong>INFORMATION: </strong>Form elements were divided into 4 different pages. Don't forget to check all of them!</p>
+        </div>
+
+        <!-- Form -->
+        <form action="" class="form">
+            <input type="hidden" name="id" v-model="entity.id"/>
+            <fieldset>
+                <div class="widget">
+                    <div class="title"><img src="../../../images/icons/dark/list.png" alt="" class="titleIcon"><h6>角色编辑</h6></div>
+                    <div class="formRow">
+                        <label>姓名：<span class="required">*</span></label>
+                        <div class="formRight"><input type="text" name="name" v-model="entity.name"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>邮箱：</label>
+                        <div class="formRight"><input type="text" name="level" v-model="entity.email"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>手机：</label>
+                        <div class="formRight"><input type="text" name="level" v-model="entity.mobile"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <label>QQ：</label>
+                        <div class="formRight"><input type="text" name="level" v-model="entity.qq"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="formRow">
+                        <a class="button sBlue" @click="submit">保存</a>
+                        <a href="index.html" class="button">返回</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="../../../js/require.js"></script>
+<script type="text/javascript" src="../../../js/main.js"></script>
+<script type="text/javascript">
+    require(['user_edit_ctl'], function (c) {
+        c.init();
+    });
+</script>
+</body>
+</html>

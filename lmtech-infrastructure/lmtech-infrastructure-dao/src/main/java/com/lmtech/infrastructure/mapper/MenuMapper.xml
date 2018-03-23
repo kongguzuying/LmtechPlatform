@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lmtech.infrastructure.mapper.MenuMapper">
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        ID, NAME, PARENT_ID, HREF, TARGET, VISIBLE, MENU_TYPE, ICON, SORT_NO, APP_CODE,
+        CREATE_DATE, CREATE_USER, CREATE_USER_NAME, UPDATE_DATE, UPDATE_USER, UPDATE_USER_NAME, DATA_VERSION, IS_DELETE
+    </sql>
+
+    <resultMap id="menuMap" type="com.lmtech.infrastructure.model.Menu">
+        <id column="ID" property="id"></id>
+        <result column="NAME" property="name"></result>
+        <result column="PARENT_ID" property="parentId"></result>
+        <result column="HREF" property="href"></result>
+        <result column="TARGET" property="target"></result>
+        <result column="VISIBLE" property="visible"></result>
+        <result column="MENU_TYPE" property="menuType"></result>
+        <result column="ICON" property="icon"></result>
+        <result column="SORT_NO" property="sortNo"></result>
+        <result column="APP_CODE" property="appCode"></result>
+        <result column="CREATE_DATE" property="createDate"></result>
+        <result column="CREATE_USER" property="createUser"></result>
+        <result column="CREATE_USER_NAME" property="createUserName"></result>
+        <result column="UPDATE_DATE" property="updateDate"></result>
+        <result column="UPDATE_USER" property="updateUser"></result>
+        <result column="UPDATE_USER_NAME" property="updateUserName"></result>
+        <result column="DATA_VERSION" property="dataVersion"></result>
+        <result column="IS_DELETE" property="isDelete"></result>
+    </resultMap>
+
+    <select id="selectMenuInRole" resultMap="menuMap">
+        select t1.* from lm_menu t1,lm_role_menu_permission t2 where t1.id=t2.menu_id and t2.role_id=#{roleId}
+    </select>
+
+    <select id="selectMenuNotInRole" resultMap="menuMap">
+        select t1.* from lm_menu t1 where t1.id not in (select t2.menu_id from lm_role_menu_permission t2 where t2.role_id=#{roleId})
+    </select>
+
+    <select id="selectEnableMenus" resultMap="menuMap">
+        select * from lm_menu where visible=1 order by sort_no
+    </select>
+
+    <select id="selectSubEnableMenus" resultMap="menuMap">
+        select * from lm_menu where parent_id=#{parentId} and visible=1 order by sort_no
+    </select>
+
+    <select id="selectAllMenu" resultMap="menuMap">
+        select * from lm_menu order by sort_no
+    </select>
+
+    <select id="selectAllValidMenu" resultMap="menuMap">
+        select * from lm_menu
+        where visible=1
+        order by sort_no
+    </select>
+
+    <select id="selectMenuExclude" resultMap="menuMap">
+        select * from lm_menu
+        where id not in
+        <foreach collection="menuIds" item="menuId" open="(" close=")" separator=",">
+            #{menuId}
+        </foreach>
+        order by sort_no
+    </select>
+
+    <delete id="deleteMenuRelation" parameterType="java.lang.String">
+        delete from lm_role_menu_permission where menu_id=#{menuId} ;
+        delete from lm_menu where parent_id=#{menuId} ;
+    </delete>
+</mapper>

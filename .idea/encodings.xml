@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ea-card-crm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-autoconfig" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-model" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade-stub" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lmtech-scheduler" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../GitConfig/LmtechConfigServer_n1/LmtechConfigServer_n1.iml" filepath="$PROJECT_DIR$/../GitConfig/LmtechConfigServer_n1/LmtechConfigServer_n1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WxCard/WxCardApplet/WxCardApplet.iml" filepath="$PROJECT_DIR$/../WxCard/WxCardApplet/WxCardApplet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WxCard/WxCardH5/WxCardH5.iml" filepath="$PROJECT_DIR$/../WxCard/WxCardH5/WxCardH5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade/ea-card-crm-admin-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-admin-facade-stub/ea-card-crm-admin-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/ea-card-crm-dao.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-dao/ea-card-crm-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/ea-card-crm-facade.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade/ea-card-crm-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-facade-stub/ea-card-crm-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-model/ea-card-crm-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" filepath="$PROJECT_DIR$/ea-card-crm/ea-card-crm-service/ea-card-crm-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade//ea-card-trade.iml" filepath="$PROJECT_DIR$/ea-card-trade//ea-card-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-dao/ea-card-trade-dao.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-dao/ea-card-trade-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade/ea-card-trade-facade.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade/ea-card-trade-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade-stub/ea-card-trade-facade-stub.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-facade-stub/ea-card-trade-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-model/ea-card-trade-model.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-model/ea-card-trade-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ea-card-trade/ea-card-trade-service/ea-card-trade-service.iml" filepath="$PROJECT_DIR$/ea-card-trade/ea-card-trade-service/ea-card-trade-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-admin/lmtech-admin.iml" filepath="$PROJECT_DIR$/lmtech-admin/lmtech-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-admin-h5/lmtech-admin-h5.iml" filepath="$PROJECT_DIR$/lmtech-admin-h5/lmtech-admin-h5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-dao/lmtech-auth-dao.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-dao/lmtech-auth-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade/lmtech-auth-facade.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade/lmtech-auth-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-facade-stub/lmtech-auth-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-model/lmtech-auth-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" filepath="$PROJECT_DIR$/lmtech-auth/lmtech-auth-service/lmtech-auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-autoconfig/lmtech-autoconfig.iml" filepath="$PROJECT_DIR$/lmtech-autoconfig/lmtech-autoconfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-common/lmtech-common.iml" filepath="$PROJECT_DIR$/lmtech-common/lmtech-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-config/lmtech-config.iml" filepath="$PROJECT_DIR$/lmtech-config/lmtech-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" filepath="$PROJECT_DIR$/lmtech-eureka/lmtech-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop.iml" filepath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/lmtech-facadeaop-interceptor.iml" filepath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-interceptor/lmtech-facadeaop-interceptor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-model/lmtech-facadeaop-model.iml" filepath="$PROJECT_DIR$/lmtech-facadeaop/lmtech-facadeaop-model/lmtech-facadeaop-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-dao/lmtech-infrastructure-dao.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-dao/lmtech-infrastructure-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/lmtech-infrastructure-facade.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade/lmtech-infrastructure-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/lmtech-infrastructure-facade-stub.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-facade-stub/lmtech-infrastructure-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-model/lmtech-infrastructure-model.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-model/lmtech-infrastructure-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-service/lmtech-infrastructure-service.iml" filepath="$PROJECT_DIR$/lmtech-infrastructure/lmtech-infrastructure-service/lmtech-infrastructure-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis.iml" filepath="$PROJECT_DIR$/lmtech-redis/lmtech-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade/lmtech-redis-facade.iml" filepath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade/lmtech-redis-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade-stub/lmtech-redis-facade-stub.iml" filepath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-facade-stub/lmtech-redis-facade-stub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" filepath="$PROJECT_DIR$/lmtech-redis/lmtech-redis-service/lmtech-redis-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" filepath="$PROJECT_DIR$/lmtech-scheduler/lmtech-scheduler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" filepath="$PROJECT_DIR$/lmtech-server-admin/lmtech-server-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-server-all/lmtech-server-all.iml" filepath="$PROJECT_DIR$/lmtech-server-all/lmtech-server-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" filepath="$PROJECT_DIR$/lmtech-zuul/lmtech-zuul.iml" />
+    </modules>
+  </component>
+</project>

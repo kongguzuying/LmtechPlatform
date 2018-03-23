@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lmtech.scheduler.mapper.SchedulerJobConfigMapper">
+
+    <resultMap id="schedulerJobConfigMap" type="com.lmtech.scheduler.config.SchedulerJobConfig">
+        <id column="code" property="code"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+        <result column="name" property="name"></result>
+
+        <result column="type" property="type"></result>
+        <result column="comp_config_code" property="compConfigCode"></result>
+        <result column="execute_model" property="executeMode"></result>
+        <result column="scheduler_expression" property="schedulerExpression"></result>
+        <result column="group" property="group"></result>
+        <result column="description" property="description"></result>
+        <result column="dependence_job" property="dependenceJob"></result>
+        <result column="enable" property="enable"></result>
+    </resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete
+    </sql>
+
+</mapper>

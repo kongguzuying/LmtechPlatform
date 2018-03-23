@@ -1,0 +1,107 @@
+data_source : 
+  driver_class_name : com.mysql.jdbc.Driver
+  url : jdbc:mysql://172.30.2.30:18806/connect?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull
+  user_name : connect_wr
+  password : connect*wr
+  max_active : 300
+  initial_size : 10
+  max_idle : 500
+  maxWait : 60000
+  test_on_borrow : false
+  test_while_idle : true
+  time_between_eviction_runs_millis : 60000
+  min_evictable_idle_time_millis : 300000
+  num_tests_per_eviction_run : 200
+  remove_abandoned : true
+  remove_abandoned_timeout : 180
+
+service :
+  url_uc_getintegeral : http://172.30.2.104:8104/uic/user/findIntegralMemberUserInfo.do
+  url_uc_integralsign : http://172.30.2.104:8104/uic/user/addOrRedIntegralMember.do
+  url_uc_integraldetals : http://172.30.2.104:8104/uic/user/findIntegralMemberDetail.do
+  url_uc_getsmscode : http://172.30.2.104:8104/uic/user/postVerificationCode.do
+  url_uc_register : http://172.30.2.104:8104/uic/user/userRegisterAndBind.do
+  url_uc_finduser : http://172.30.2.104:8104/uic/user/findUserInfo.do
+  url_uc_get_member_ext : http://172.30.2.104:8104/uic/user/findIntegralMemberUserInfo.do
+  
+  url_account_checkuser : http://172.29.7.162:8126/wallet/portal/checkUser.do
+  url_account_register : http://172.29.7.162:8126/wallet/portal/register.do
+  url_account_mybalance : http://172.29.7.162:8126/wallet/balance/mybalance.do
+  url_oa_exist_user : http://172.30.2.26:8132/third/account/verification.do
+  
+  url_login4wap : http://api4dev.380star.com/buyer/user/otherlogin4wap.do
+  url_relogini4wap : http://api4dev.380star.com/buyer/user/rlogin.do
+  url_buyer_refresh_settle : http://api4dev.380star.com/buyer/cart/refreshsettle.do
+  url_buyer_submit_order_pre : http://api4dev.380star.com/buyer/order/submitpreorder.do
+  url_buyer_order_list : http://api4dev.380star.com/buyer/order/myorderlist.do
+  url_istokenexpire : http://api4dev.380star.com/buyer/user/istokenexpire.do
+  
+  url_recharge_request : http://172.29.7.162:9081/trade/recharge/rechargereq.do
+  url_recharge_payment : http://172.29.7.162:9081/trade/recharge/rechargepay.do
+  url_recharge_applet_payment : http://172.29.7.162:9081/trade/recharge/rechargeAppletpay.do
+  url_recharge_list : http://172.29.7.162:9081/trade/recharge/backend/rechargelist.do;
+  
+  url_account_balance : http://172.29.7.162:8126/wallet/balance/mybalance.do
+  url_account_balance_list : http://172.29.7.162:8126/wallet/balance/recordlist.do
+  url_account_recorddetail : http://172.29.7.162:8126/wallet/balance/recorddetail.do
+  url_account_addwxrechargemoney : http://172.29.7.162:8126/wallet/balance/addWXRechargeMoney.do
+  
+  url_account_set_paypswd : http://172.29.7.162:8126/wallet/portal/setpwd.do
+  url_account_change_paypswd : http://172.29.7.162:8126/wallet/portal/modifypwd.do
+  url_account_reset_paypswd : http://172.29.7.162:8126/wallet/portal/resetpwd.do
+  
+  url_balance_checkpswd : http://172.29.7.162:9081/wallet/trade/checkpwd.do
+  url_balance_lock : http://172.29.7.162:9081/wallet/trade/lock.do
+  url_balance_unlock : http://172.29.7.162:9081/wallet/trade/unlock.do
+  url_balance_reduce : http://172.29.7.162:9081/wallet/trade/reduce.do
+  
+  url_zero_menoy_pay : http://172.29.7.162:9081/trade/pay/wecat/zeroMenoyPay.do
+  send_wechat_message : http://172.29.7.162:8096/api/msg/sendWechatMessage
+  update_token : http://172.29.7.162:8096/api/msg/updateToken
+
+wx :
+  app_id : wxe0f4f4fb0670b3c1
+  secret : a85745dade873b357af12796a2f096f0
+  card_id : p-yJVwxdL1rZRI1iFbgLoMBV85xg
+  pay_api_key : yGeRDjtPb9UorC2FnJQ4cRNfIbsUkYsZ
+  applet_app_id : wx4ed0215d2ad66306
+  applet_secret : 7ba91af3dd7fb0d95ad6ac6cfc15c80e
+  applet_card_id : p-yJVwxdL1rZRI1iFbgLoMBV85xg
+  applet_pay_api_key : yGeRDjtPb9UorC2FnJQ4cRNfIbsUkYsZ
+  template_id : 3bffS5AXWMECseLic5yp5-7nGFJeL107K_jV-zkuFPo
+
+redis :
+  ip : 172.30.2.30
+  port : 18399
+  auth : 
+
+integral :
+  lottery : 
+    show_latest_prize_count : 5
+    integral_pay : 1
+    coefficient : 10
+
+card :
+  active :
+    active_present_bonus : 100
+    inner_user_present_card_count : 10
+    inner_user_present_card_month : 12
+    present_vpass_card_count : 10
+    present_vpass_card_month : 6
+  paymen :
+    level_vpass_price : 99
+
+ui :
+  cardcategory :
+    img_banner_url : http://m4dev.380star.com/cardh5/images/banner.jpg
+
+swagger : 
+  enable : true
+  basepackage : com.ea
+  headerparams : 
+    
+member_card : 
+  vpass_wx_bg : http://mmbiz.qpic.cn/mmbiz_jpg/PL68icyUicl8KHDc6DKQ8TlnUviaMibbYOibu4vE3rWrN1O35uBETMT5q6MeUQ6ib53ia8HKnfUpXhicpkAjzv5XJMAdwQ/0
+  pass_wx_bg : http://mmbiz.qpic.cn/mmbiz_png/PL68icyUicl8KHDc6DKQ8TlnUviaMibbYOibu2Vgk7sCgmYThKukXcLACwN0ZXEPSgicBSPzLw1tkKNCiaL1XLqQRc49A/0
+  vpass_h5_bg : https://m4dev.380star.com/cardh5/images/ka1.png
+  pass_h5_bg : https://m4dev.380star.com/cardh5/images/ka2.png

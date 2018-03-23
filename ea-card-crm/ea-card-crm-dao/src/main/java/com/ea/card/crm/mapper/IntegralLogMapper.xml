@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ea.card.crm.mapper.IntegralLogMapper">
+
+    <resultMap id="integralLogMap" type="com.ea.card.crm.model.IntegralLog">
+        <id column="id" property="id"></id>
+        <result column="create_date" property="createDate"></result>
+        <result column="create_user" property="createUser"></result>
+        <result column="create_user_name" property="createUserName"></result>
+        <result column="update_date" property="updateDate"></result>
+        <result column="update_user" property="updateUser"></result>
+        <result column="update_user_name" property="updateUserName"></result>
+        <result column="data_version" property="dataVersion"></result>
+        <result column="is_delete" property="isDelete"></result>
+
+        <result column="type" property="type"></result>
+        <result column="source" property="source"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="integral" property="integral"></result>
+        <result column="order_id" property="orderId"></result>
+    </resultMap>
+
+    <!-- 通用查询结果列-->
+    <sql id="Base_Column_List">
+        id,
+        create_date, create_user, create_user_name, update_date, update_user, update_user_name, data_version, is_delete,
+        type,source,user_id,integral,order_id
+    </sql>
+
+    <select id="selectDataList" resultMap="integralLogMap">
+        select * from ea_integral_log
+        <where>
+            is_delete=0
+            <if test="type != null and type != 0">
+                and type=#{type}
+            </if>
+            <if test="source != null and source != 0">
+                and source=#{source}
+            </if>
+            <if test="userId != null">
+                and user_id=#{userId}
+            </if>
+        </where>
+        order by create_date desc
+    </select>
+</mapper>
